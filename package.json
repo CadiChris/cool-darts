@@ -1,0 +1,15 @@
+{
+  "name": "cricket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "deep-freeze": "0.0.1"
+  }
+}
