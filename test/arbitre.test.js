@@ -7,7 +7,7 @@ let arbitre = require('../src/arbitre');
 //		{
 //			joueur : 'J1',
 //			cible : {
-//				20 : {impacts: 1|2|3, ferme:true|false},
+//				20 : {touches: 1|2|3, ferme:true|false},
 //				19 : {},
 //				...
 //			},
@@ -23,7 +23,7 @@ let arbitre = require('../src/arbitre');
 
 describe('Arbitre', () => {
   describe('#scorer', () => {
-	it('Ferme un chiffre après 3 impacts', () => {
+	it('Ferme un chiffre après 3 touches', () => {
 		let nouveauxScores = arbitre.scorer(
 				[
 					score('J1', cible({20: [2, false]}), 0)
@@ -33,7 +33,7 @@ describe('Arbitre', () => {
 		assert.deepEqual(nouveauxScores[0].cible, cible({20: [3, true]}));
 	});
 	
- 	it("N'impacte pas un chiffre fermé", () => {
+ 	it("N'augmente pas les touches d'un chiffre fermé", () => {
 		let nouveauxScores  = arbitre.scorer(
 				[
 					score('J1', cible({20: [3, true]}), 0)
@@ -97,11 +97,11 @@ describe('Arbitre', () => {
 });
 
 
-function lancerDansLe(chiffre, lanceur, impacts = 1) {
+function lancerDansLe(chiffre, lanceur, touches = 1) {
 	let lancer = {
 		lanceur: lanceur,
 		chiffre: chiffre,
-		impacts: impacts
+		touches: touches
 	};
 	freeze(lancer);
 	return lancer;
@@ -111,7 +111,7 @@ function cible(chiffres) {
 	let cible = {};
 	for (const c in chiffres) {
 		cible[c] = {
-			impacts: chiffres[c][0],
+			touches: chiffres[c][0],
 			ferme: chiffres[c][1]
 		};
 	}
