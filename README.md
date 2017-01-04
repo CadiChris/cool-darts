@@ -22,22 +22,23 @@ Le Cricket compte sûrement autant de règles que de pubs dans lesquels on y jou
 > Un **lancer** dans un **chiffre** valide :
 > - fait augmenter le nombre de **touches** du chiffre,
 > - **ferme** le chiffre si le nombre de touches atteint 3  
+> 
 > Si le chiffre touché est fermé, une **pénalité** est infligée aux adversaires n'ayant pas fermé ce chiffre. Le nombre de points de la pénalité correspond à `(nombre de touches) * (valeur du chiffre)`. Donc un double 20 correspond à une pénalité de 40 points.  
 
 ### Exemple
 Michael, Jim & Pam jouent ensemble.  
-_Michael commence et lance : _
- - Double 20 :arrow_right: les touches de son 20 passent à 2
- - Triple 18 :arrow_right: son 18 est fermé
- - Simple 14 :arrow_right: aucun effet 
-_Jim lance :_
- - Double 20 :arrow_right: son 20 est fermé
- - Double 20 à nouveau :arrow_right: la première touche permet de fermer son 20, la seconde inflige 20 points de pénalités aux adversaires
- - Simple 12 : aucun effet
-_Pam lance :_
- - Double 18 :arrow_right: les touches de son 18 passent à 2
- - Triple 18 :arrow_right: la première touche ferme son 18, les 2 suivantes infligent 36 points (2x18) de pénalité à Jim. Aucune pénalité pour Michael puisqu'il a déjà fermé son 18.
- - Simple 18 :arrow_right: à nouveau 18 points de pénalité pour Jim.
+*Michael commence et lance : *
+ - *Double 20* : les touches de son 20 passent à 2
+ - *Triple 18* : son 18 est fermé
+ - *Simple 14* : aucun effet  
+*Jim lance :*
+ - *Double 20* : son 20 est fermé
+ - *Double 20* à nouveau : la première touche permet de fermer son 20, la seconde inflige 20 points de pénalités aux adversaires
+ - *Simple 12* : aucun effet  
+*Pam lance :*
+ - *Double 18* : les touches de son 18 passent à 2
+ - *Triple 18* : la première touche ferme son 18, les 2 suivantes infligent 36 points (2x18) de pénalité à Jim. Aucune pénalité pour Michael puisqu'il a déjà fermé son 18.
+ - *Simple 18* : à nouveau 18 points de pénalité pour Jim.
 
 Après ce premier tour :
  - Michael a 2 touches dans le 20, le 18 fermé, et 20 points.
