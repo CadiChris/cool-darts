@@ -1,6 +1,5 @@
 {
   "name": "cricket",
-  "main": "cricket.js",
   "version": "1.0.0",
   "devDependencies": {
     "deep-freeze": "0.0.1",
