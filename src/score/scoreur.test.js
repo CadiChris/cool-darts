@@ -1,6 +1,8 @@
 "use strict";
 let assert = require('assert');
 let freeze = require('deep-freeze');
+import scoreVierge from './scoreVierge';
+
 let scoreur = require('./scoreur');
 
 //	scores: [
@@ -26,7 +28,7 @@ describe('scoreur', () => {
 	it('Ferme un chiffre après 3 touches', () => {
 		let nouveauxScores = scoreur.scorer(
 				[
-					score('J1', cible({20: [2, false]}), 0)
+					score('J1', { 20: [2, false] }, 0)
 				],
 				lancerDansLe(20, 'J1'));
 		
@@ -36,7 +38,7 @@ describe('scoreur', () => {
  	it("N'augmente pas les touches d'un chiffre fermé", () => {
 		let nouveauxScores  = scoreur.scorer(
 				[
-					score('J1', cible({20: [3, true]}), 0)
+					score('J1', { 20: [3, true] }, 0)
 				],
 				lancerDansLe(20, 'J1'));
 		
@@ -46,34 +48,33 @@ describe('scoreur', () => {
 	it('Ne pénalise pas les adversaires si le lancer ne ferme pas le chiffre', () => {
 		let nouveauxScores = scoreur.scorer(
 				[
-					score('J1', cible({20: [0, false]}), 0),
-					score('J2', cible({20: [0, false]}), 0)
+					score('J1', { 20: [0, false] }, 0),
+					score('J2', { 20: [0, false] }, 0)
 				],
 				lancerDansLe(20, 'J1'));
 		
 		assert.deepEqual(nouveauxScores, [
-				score('J1', cible({20: [1, false]}), 0),
-				score('J2', cible({20: [0, false]}), 0)
+				score('J1', { 20: [1, false] }, 0),
+				score('J2', { 20: [0, false] }, 0)
 		]);
 	});
 	
 	it('Marque des points aux adversaires ouverts', () => {
 		let nouveauxScores = scoreur.scorer(
 				[
-					score('J1', cible({20: [3, true]}), 0),
-					score('J2', cible({20: [0, false]}), 10)
+					score('J1', { 20: [3, true] }, 0),
+					score('J2', { 20: [0, false] }, 10)
 				],
 				lancerDansLe(20, 'J1'));
 				
 		assert.strictEqual(nouveauxScores[1].points, 30);
-				
 	});
 	
 	it('Ne marque pas de points aux adversaires fermés', () => {
 		let nouveauxScores = scoreur.scorer(
 				[
-					score('J1', cible({20: [3, true]}), 0),
-					score('J2', cible({20: [3, true]}), 0)
+					score('J1', { 20: [3, true] }, 0),
+					score('J2', { 20: [3, true] }, 0)
 				],
 				lancerDansLe(20, 'J1'));
 				
@@ -83,9 +84,9 @@ describe('scoreur', () => {
 	it("Préserve l'ordre des scores", () => {
 		let nouveauxScores = scoreur.scorer(
 				[
-					score('J1', cible({20: [0, false]}), 0),
-					score('J2', cible({20: [0, false]}), 0),
-					score('J3', cible({20: [0, false]}), 0)
+					score('J1', { 20: [0, false] }, 0),
+					score('J2', { 20: [0, false] }, 0),
+					score('J3', { 20: [0, false] }, 0)
 				],
 				lancerDansLe(20, 'J2'));
 		
@@ -96,19 +97,17 @@ describe('scoreur', () => {
   });
 });
 
-
-function lancerDansLe(chiffre, lanceur, touches = 1) {
-	let lancer = {
-		lanceur: lanceur,
-		chiffre: chiffre,
-		touches: touches
-	};
-	freeze(lancer);
-	return lancer;
+function score(leJoueur, sesChiffres, sesPoints) {
+	let score = Object.assign({}, scoreVierge(leJoueur), {
+		points: sesPoints,
+		cible: cible(sesChiffres)
+	});
+	freeze(score);
+	return score;
 }
 
 function cible(chiffres) {
-	let cible = {};
+	let cible = scoreVierge().cible;
 	for (const c in chiffres) {
 		cible[c] = {
 			touches: chiffres[c][0],
@@ -119,12 +118,12 @@ function cible(chiffres) {
 	return cible;
 }
 
-function score(leJoueur, saCible, sesPoints) {
-	let score = {
-		joueur: leJoueur,
-		cible: saCible,
-		points: sesPoints
+function lancerDansLe(chiffre, lanceur, touches = 1) {
+	let lancer = {
+		lanceur: lanceur,
+		chiffre: chiffre,
+		touches: touches
 	};
-	freeze(score);
-	return score;
+	freeze(lancer);
+	return lancer;
 }
