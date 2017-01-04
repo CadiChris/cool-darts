@@ -1,4 +1,4 @@
-'use striict';
+'use strict';
 
 export default function (joueur) {
 	return {
