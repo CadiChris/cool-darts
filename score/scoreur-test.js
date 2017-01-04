@@ -1,7 +1,7 @@
 "use strict";
 let assert = require('assert');
 let freeze = require('deep-freeze');
-let scoreur = require('../src/scoreur');
+let scoreur = require('./scoreur');
 
 //	scores: [
 //		{
