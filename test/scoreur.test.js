@@ -1,7 +1,7 @@
 "use strict";
 let assert = require('assert');
 let freeze = require('deep-freeze');
-let arbitre = require('../src/arbitre');
+let scoreur = require('../src/scoreur');
 
 //	scores: [
 //		{
@@ -21,10 +21,10 @@ let arbitre = require('../src/arbitre');
 //		}
 //	]
 
-describe('Arbitre', () => {
+describe('scoreur', () => {
   describe('#scorer', () => {
 	it('Ferme un chiffre après 3 touches', () => {
-		let nouveauxScores = arbitre.scorer(
+		let nouveauxScores = scoreur.scorer(
 				[
 					score('J1', cible({20: [2, false]}), 0)
 				],
@@ -34,7 +34,7 @@ describe('Arbitre', () => {
 	});
 	
  	it("N'augmente pas les touches d'un chiffre fermé", () => {
-		let nouveauxScores  = arbitre.scorer(
+		let nouveauxScores  = scoreur.scorer(
 				[
 					score('J1', cible({20: [3, true]}), 0)
 				],
@@ -44,7 +44,7 @@ describe('Arbitre', () => {
 	});
 	
 	it('Ne pénalise pas les adversaires si le lancer ne ferme pas le chiffre', () => {
-		let nouveauxScores = arbitre.scorer(
+		let nouveauxScores = scoreur.scorer(
 				[
 					score('J1', cible({20: [0, false]}), 0),
 					score('J2', cible({20: [0, false]}), 0)
@@ -58,7 +58,7 @@ describe('Arbitre', () => {
 	});
 	
 	it('Marque des points aux adversaires ouverts', () => {
-		let nouveauxScores = arbitre.scorer(
+		let nouveauxScores = scoreur.scorer(
 				[
 					score('J1', cible({20: [3, true]}), 0),
 					score('J2', cible({20: [0, false]}), 10)
@@ -70,7 +70,7 @@ describe('Arbitre', () => {
 	});
 	
 	it('Ne marque pas de points aux adversaires fermés', () => {
-		let nouveauxScores = arbitre.scorer(
+		let nouveauxScores = scoreur.scorer(
 				[
 					score('J1', cible({20: [3, true]}), 0),
 					score('J2', cible({20: [3, true]}), 0)
@@ -81,7 +81,7 @@ describe('Arbitre', () => {
 	});
 	
 	it("Préserve l'ordre des scores", () => {
-		let nouveauxScores = arbitre.scorer(
+		let nouveauxScores = scoreur.scorer(
 				[
 					score('J1', cible({20: [0, false]}), 0),
 					score('J2', cible({20: [0, false]}), 0),
