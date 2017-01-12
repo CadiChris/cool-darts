@@ -1,9 +1,9 @@
 "use strict";
-let assert = require('assert');
-let freeze = require('deep-freeze');
+import assert from 'assert';
+import freeze from 'deep-freeze';
 import scoreVierge from './scoreVierge';
 
-let scoreur = require('./scoreur');
+import scoreur from './scoreur';
 
 //	scores: [
 //		{

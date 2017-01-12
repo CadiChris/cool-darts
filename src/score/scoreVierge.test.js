@@ -1,6 +1,6 @@
 "use strict";
-let assert = require('assert');
-let freeze = require('deep-freeze');
+import assert from 'assert';
+import freeze from 'deep-freeze';
 import scoreVierge from './scoreVierge';
 
 describe('score.modele', () => {
