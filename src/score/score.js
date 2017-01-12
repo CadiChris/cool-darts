@@ -1,6 +1,6 @@
 'use strict';
 
-export default function (joueur) {
+export function scoreVierge(joueur) {
 	return {
 		joueur: joueur,
 		points: 0,

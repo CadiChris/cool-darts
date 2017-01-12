@@ -1,7 +1,7 @@
 "use strict";
 import assert from 'assert';
 import freeze from 'deep-freeze';
-import scoreVierge from './scoreVierge';
+import { scoreVierge } from './score';
 
 describe('score.modele', () => {
 	it('crée un score vierge', () => {
