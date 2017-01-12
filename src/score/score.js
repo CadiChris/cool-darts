@@ -15,3 +15,29 @@ export function scoreVierge(joueur) {
 		}
 	};
 }
+
+const LIMITE = 3;
+
+export function toucher(chiffre, touches, score) {
+	const nouvellesTouches = Math.min(score.cible[chiffre].touches + touches, LIMITE);
+	
+	return Object.assign({},
+		score, {
+			cible: Object.assign({}, score.cible, {
+				[chiffre]: {
+					touches: nouvellesTouches,
+					ferme: nouvellesTouches >= LIMITE
+			}
+		})
+	});
+}
+
+export function penaliser(pointsDePenalite, score) {
+	return Object.assign({}, score, {
+		points: score.points + pointsDePenalite
+	});
+}
+
+export function chiffreEstFerme(chiffre, score) {
+	return score.cible[chiffre].ferme;
+}

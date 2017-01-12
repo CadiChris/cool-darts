@@ -1,4 +1,6 @@
-"use strict";
+'use strict';
+import { toucher, penaliser, chiffreEstFerme } from './score';
+
 module.exports = {
 
 	scorer: function(tableauDesScores, lancer){ 
@@ -31,44 +33,12 @@ function calculerLaPenalite(cibleDuLanceur, lancer) {
 
 function scorer(score, lancer, penalite) {
 	return score.joueur === lancer.lanceur
-		? scorerLeLanceur(score, lancer.chiffre, lancer.touches)
+		? toucher(lancer.chiffre, lancer.touches, score)
 		: scorerUnAdversaire(score, lancer.chiffre, penalite);
 }
 
-function scorerLeLanceur(scoreActuel, chiffre, touches) {
-	let cibleDuLanceur = scoreActuel.cible;
-	
-	let nouvellesTouches = touchesApresLeLancer(scoreActuel.cible, chiffre, touches);
-	let nouvelleCible = toucherLaCible(cibleDuLanceur, chiffre, nouvellesTouches);
-	
-	let nouveauScore = Object.assign({}, scoreActuel, {
-		cible: nouvelleCible
-	});
-	
-	return nouveauScore;
-}
-
-function touchesApresLeLancer(cible, chiffre, touchesDuLancer) {
-	let ancienCompte = cible[chiffre].touches;
-	let nouveauCompte = Math.min(ancienCompte + touchesDuLancer, LIMITE);
-	return nouveauCompte;
-}
-
-function toucherLaCible(cible, chiffreTouche, touches) {
-	return Object.assign({}, cible, {
-		[chiffreTouche] : {
-			touches: touches,
-			ferme: touches >= LIMITE
-		}
-	});
-}
-
-function scorerUnAdversaire(score, chiffre, nombreDePoints) {
-	let nouveauxPoints = score.cible[chiffre].ferme
-			? score.points
-			: score.points + nombreDePoints;
-	
-	return Object.assign({}, score, {
-		points: nouveauxPoints
-	});
+function scorerUnAdversaire(score, chiffre, pointsDePenalite) {
+	return chiffreEstFerme(chiffre, score)
+		? score
+		: penaliser(pointsDePenalite, score);
 }

@@ -31,7 +31,7 @@ describe('scoreur', () => {
 					score('J1', { 20: [2, false] }, 0)
 				],
 				lancerDansLe(20, 'J1'));
-		
+			
 		assert.deepEqual(nouveauxScores[0].cible, cible({20: [3, true]}));
 	});
 	
