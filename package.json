@@ -12,7 +12,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "mocha src/**/*test.js --require babel-register --watch",
     "eject": "react-scripts eject"
+  },
+  "babel": {
+    "presets": ["react", "es2015"]
   }
 }
