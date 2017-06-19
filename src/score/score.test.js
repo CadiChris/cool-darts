@@ -1,11 +1,10 @@
-"use strict";
-import assert from 'assert';
-import freeze from 'deep-freeze';
-import { scoreVierge } from './score';
+"use strict"
+import assert from 'assert'
+import { scoreVierge } from './score'
 
 describe('score.modele', () => {
 	it('crée un score vierge', () => {
-		let scoreViergeJ1 = scoreVierge('J1');
+		let scoreViergeJ1 = scoreVierge('J1')
 		
 		assert.deepEqual(scoreViergeJ1, {
 			joueur : 'J1',
@@ -19,10 +18,10 @@ describe('score.modele', () => {
 				20: { touches: 0, ferme: false},
 				25: { touches: 0, ferme: false}
 			}
-		});
-	});
+		})
+	})
 	
 	it('créé un nouveau score à chaque appel', () => {
-		assert.notStrictEqual(scoreVierge(''), scoreVierge(''));
-	});
-});
+		assert.notStrictEqual(scoreVierge(''), scoreVierge(''))
+	})
+})
