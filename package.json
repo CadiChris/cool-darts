@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha src/**/*test.js --require babel-register --watch",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "babel": {
