@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 export function scoreVierge(joueur) {
   return {
@@ -16,10 +16,10 @@ export function scoreVierge(joueur) {
   };
 }
 
-const LIMITE = 3;
+const LIMITE = 3
 
 export function toucher(chiffre, touches, score) {
-  const nouvellesTouches = Math.min(score.cible[chiffre].touches + touches, LIMITE);
+  const nouvellesTouches = Math.min(score.cible[chiffre].touches + touches, LIMITE)
 
   return Object.assign({},
     score, {
@@ -29,15 +29,15 @@ export function toucher(chiffre, touches, score) {
           ferme: nouvellesTouches >= LIMITE
         }
       })
-    });
+    })
 }
 
 export function penaliser(pointsDePenalite, score) {
   return Object.assign({}, score, {
     points: score.points + pointsDePenalite
-  });
+  })
 }
 
 export function chiffreEstFerme(chiffre, score) {
-  return score.cible[chiffre].ferme;
+  return score.cible[chiffre].ferme
 }
