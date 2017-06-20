@@ -33,7 +33,7 @@ Michael, Jim & Pam jouent ensemble.
 > - *Simple 14* : aucun effet  
 
 *Jim lance :*
-> - *Double 20* : son 20 est fermé
+> - *Double 20* : les touches de son 20 passent à 2
 > - *Double 20* à nouveau : la première touche permet de fermer son 20, la seconde inflige 20 points de pénalités aux adversaires
 > - *Simple 12* : aucun effet  
 
