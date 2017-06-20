@@ -1,0 +1,36 @@
+exports[`score.modele crée un score vierge 1`] = `
+Object {
+  "cible": Object {
+    "15": Object {
+      "ferme": false,
+      "touches": 0,
+    },
+    "16": Object {
+      "ferme": false,
+      "touches": 0,
+    },
+    "17": Object {
+      "ferme": false,
+      "touches": 0,
+    },
+    "18": Object {
+      "ferme": false,
+      "touches": 0,
+    },
+    "19": Object {
+      "ferme": false,
+      "touches": 0,
+    },
+    "20": Object {
+      "ferme": false,
+      "touches": 0,
+    },
+    "25": Object {
+      "ferme": false,
+      "touches": 0,
+    },
+  },
+  "joueur": "J1",
+  "points": 0,
+}
+`;
