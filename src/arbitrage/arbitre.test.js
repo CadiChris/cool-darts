@@ -54,7 +54,7 @@ describe('#calculerLeNouveauScore', () => {
         score('J1', {20: _0_TOUCHE}, 0),
         score('J2', {20: _0_TOUCHE}, 0)
       ],
-      lancerDansLe(20, 'J1'));
+      lancerDansLe(20, 'J1'))
 
     expect(nouveauxScores).toMatchSnapshot()
   })
@@ -65,10 +65,10 @@ describe('#calculerLeNouveauScore', () => {
         score('J1', {20: _3_TOUCHES}, 0),
         score('J2', {20: _0_TOUCHE}, 10)
       ],
-      lancerDansLe(20, 'J1'));
+      lancerDansLe(20, 'J1'))
 
-    assert.strictEqual(nouveauxScores[1].points, 30);
-  });
+    assert.strictEqual(nouveauxScores[1].points, 30)
+  })
 
   it('Ne marque pas de points aux adversaires fermés', () => {
     let nouveauxScores = arbitre.calculerLeNouveauScore(
@@ -78,8 +78,8 @@ describe('#calculerLeNouveauScore', () => {
       ],
       lancerDansLe(20, 'J1'));
 
-    assert.strictEqual(nouveauxScores[1].points, 0);
-  });
+    assert.strictEqual(nouveauxScores[1].points, 0)
+  })
 
   it("Préserve l'ordre des scores", () => {
     let nouveauxScores = arbitre.calculerLeNouveauScore(
@@ -88,33 +88,34 @@ describe('#calculerLeNouveauScore', () => {
         score('J2', {20: _0_TOUCHE}, 0),
         score('J3', {20: _0_TOUCHE}, 0)
       ],
-      lancerDansLe(20, 'J2'));
+      lancerDansLe(20, 'J2'))
 
-    assert.strictEqual(nouveauxScores[0].joueur, 'J1');
-    assert.strictEqual(nouveauxScores[1].joueur, 'J2');
-    assert.strictEqual(nouveauxScores[2].joueur, 'J3');
+    assert.strictEqual(nouveauxScores[0].joueur, 'J1')
+    assert.strictEqual(nouveauxScores[1].joueur, 'J2')
+    assert.strictEqual(nouveauxScores[2].joueur, 'J3')
   })
 })
 
 function score(leJoueur, sesChiffres, sesPoints) {
-  let score = Object.assign({}, scoreVierge(leJoueur), {
+  let score = {
+    ...scoreVierge(leJoueur),
     points: sesPoints,
     cible: cible(sesChiffres)
-  });
-  freeze(score);
-  return score;
+  }
+  freeze(score)
+  return score
 }
 
 function cible(chiffres) {
-  let cible = scoreVierge().cible;
+  let cible = scoreVierge().cible
   for (const c in chiffres) {
     cible[c] = {
       touches: chiffres[c],
       ferme: chiffres[c] === _3_TOUCHES
-    };
+    }
   }
-  freeze(cible);
-  return cible;
+  freeze(cible)
+  return cible
 }
 
 function lancerDansLe(chiffre, lanceur, touches = 1) {
@@ -122,7 +123,7 @@ function lancerDansLe(chiffre, lanceur, touches = 1) {
     lanceur: lanceur,
     chiffre: chiffre,
     touches: touches
-  };
-  freeze(lancer);
-  return lancer;
+  }
+  freeze(lancer)
+  return lancer
 }

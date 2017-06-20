@@ -21,21 +21,23 @@ const LIMITE = 3
 export function toucher(chiffre, touches, score) {
   const nouvellesTouches = Math.min(score.cible[chiffre].touches + touches, LIMITE)
 
-  return Object.assign({},
-    score, {
-      cible: Object.assign({}, score.cible, {
-        [chiffre]: {
-          touches: nouvellesTouches,
-          ferme: nouvellesTouches >= LIMITE
-        }
-      })
-    })
+  return {
+    ...score,
+    cible: {
+      ...score.cible,
+      [chiffre]: {
+        touches: nouvellesTouches,
+        ferme: nouvellesTouches >= LIMITE
+      }
+    }
+  }
 }
 
 export function penaliser(pointsDePenalite, score) {
-  return Object.assign({}, score, {
+  return {
+    ...score,
     points: score.points + pointsDePenalite
-  })
+  }
 }
 
 export function chiffreEstFerme(chiffre, score) {
