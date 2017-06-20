@@ -5,7 +5,7 @@ export function calculerLeNouveauScore(tableauDesScores, lancer) {
   let penalite = penaliteDuLancer(tableauDesScores, lancer);
 
   return tableauDesScores.map(s => {
-    return scorerInterne(s, lancer, penalite)
+    return scorer(s, lancer, penalite)
   });
 }
 
@@ -30,7 +30,7 @@ function calculerLaPenalite(cibleDuLanceur, lancer) {
   return leChiffreVaSeFermer ? surplus * lancer.chiffre : 0;
 }
 
-function scorerInterne(score, lancer, penalite) {
+function scorer(score, lancer, penalite) {
   return score.joueur === lancer.lanceur
     ? toucher(lancer.chiffre, lancer.touches, score)
     : scorerUnAdversaire(score, lancer.chiffre, penalite);
