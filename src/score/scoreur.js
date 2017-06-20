@@ -1,16 +1,13 @@
 'use strict';
 import { toucher, penaliser, chiffreEstFerme } from './score';
 
-module.exports = {
-
-	scorer: function(tableauDesScores, lancer){ 
+export function scorer(tableauDesScores, lancer){
 		let penalite = penaliteDuLancer(tableauDesScores, lancer);
 		
 		return tableauDesScores.map(s => {
-			return scorer(s, lancer, penalite)
+			return scorerInterne(s, lancer, penalite)
 		});
 	}
-}
 
 const LIMITE = 3;
 
@@ -31,7 +28,7 @@ function calculerLaPenalite(cibleDuLanceur, lancer) {
 	return leChiffreVaSeFermer ? surplus * lancer.chiffre : 0;
 }
 
-function scorer(score, lancer, penalite) {
+function scorerInterne(score, lancer, penalite) {
 	return score.joueur === lancer.lanceur
 		? toucher(lancer.chiffre, lancer.touches, score)
 		: scorerUnAdversaire(score, lancer.chiffre, penalite);

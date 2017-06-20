@@ -3,7 +3,7 @@ import assert from 'assert';
 import freeze from 'deep-freeze';
 import { scoreVierge } from './score';
 
-import scoreur from './scoreur';
+import * as scoreur from './scoreur';
 
 //	scores: [
 //		{
