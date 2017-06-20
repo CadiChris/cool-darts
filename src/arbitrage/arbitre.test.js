@@ -1,8 +1,8 @@
 'use strict'
-import assert from "assert";
-import freeze from "deep-freeze";
-import {scoreVierge} from "./score";
-import * as arbitre from "./arbitre";
+import assert from 'assert'
+import freeze from 'deep-freeze'
+import { scoreVierge } from './score'
+import * as arbitre from './arbitre'
 
 //	scores: [
 //		{
