@@ -22,47 +22,52 @@ import * as arbitre from "./arbitre";
 //		}
 //	]
 
+const _0_TOUCHE = 0
+const _1_TOUCHE = 1
+const _2_TOUCHES = 2
+const _3_TOUCHES = 3
+
 describe('arbitre', () => {
   describe('#calculerLeNouveauScore', () => {
     it('Ferme un chiffre après 3 touches', () => {
       let nouveauxScores = arbitre.calculerLeNouveauScore(
         [
-          score('J1', {20: [2, false]}, 0)
+          score('J1', {20: _2_TOUCHES}, 0)
         ],
         lancerDansLe(20, 'J1'));
 
-      assert.deepEqual(nouveauxScores[0].cible, cible({20: [3, true]}));
+      assert.deepEqual(nouveauxScores[0].cible, cible({20: _3_TOUCHES}));
     });
 
     it("N'augmente pas les touches d'un chiffre fermé", () => {
       let nouveauxScores = arbitre.calculerLeNouveauScore(
         [
-          score('J1', {20: [3, true]}, 0)
+          score('J1', {20: _3_TOUCHES}, 0)
         ],
         lancerDansLe(20, 'J1'));
 
-      assert.deepEqual(nouveauxScores[0].cible, cible({20: [3, true]}));
+      assert.deepEqual(nouveauxScores[0].cible, cible({20: _3_TOUCHES}));
     });
 
     it('Ne pénalise pas les adversaires si le lancer ne ferme pas le chiffre', () => {
       let nouveauxScores = arbitre.calculerLeNouveauScore(
         [
-          score('J1', {20: [0, false]}, 0),
-          score('J2', {20: [0, false]}, 0)
+          score('J1', {20: _0_TOUCHE}, 0),
+          score('J2', {20: _0_TOUCHE}, 0)
         ],
         lancerDansLe(20, 'J1'));
 
       assert.deepEqual(nouveauxScores, [
-        score('J1', {20: [1, false]}, 0),
-        score('J2', {20: [0, false]}, 0)
+        score('J1', {20: _1_TOUCHE}, 0),
+        score('J2', {20: _0_TOUCHE}, 0)
       ]);
     });
 
     it('Marque des points aux adversaires ouverts', () => {
       let nouveauxScores = arbitre.calculerLeNouveauScore(
         [
-          score('J1', {20: [3, true]}, 0),
-          score('J2', {20: [0, false]}, 10)
+          score('J1', {20: _3_TOUCHES}, 0),
+          score('J2', {20: _0_TOUCHE}, 10)
         ],
         lancerDansLe(20, 'J1'));
 
@@ -72,8 +77,8 @@ describe('arbitre', () => {
     it('Ne marque pas de points aux adversaires fermés', () => {
       let nouveauxScores = arbitre.calculerLeNouveauScore(
         [
-          score('J1', {20: [3, true]}, 0),
-          score('J2', {20: [3, true]}, 0)
+          score('J1', {20: _3_TOUCHES}, 0),
+          score('J2', {20: _3_TOUCHES}, 0)
         ],
         lancerDansLe(20, 'J1'));
 
@@ -83,9 +88,9 @@ describe('arbitre', () => {
     it("Préserve l'ordre des scores", () => {
       let nouveauxScores = arbitre.calculerLeNouveauScore(
         [
-          score('J1', {20: [0, false]}, 0),
-          score('J2', {20: [0, false]}, 0),
-          score('J3', {20: [0, false]}, 0)
+          score('J1', {20: _0_TOUCHE}, 0),
+          score('J2', {20: _0_TOUCHE}, 0),
+          score('J3', {20: _0_TOUCHE}, 0)
         ],
         lancerDansLe(20, 'J2'));
 
@@ -109,8 +114,8 @@ function cible(chiffres) {
   let cible = scoreVierge().cible;
   for (const c in chiffres) {
     cible[c] = {
-      touches: chiffres[c][0],
-      ferme: chiffres[c][1]
+      touches: chiffres[c],
+      ferme: chiffres[c] === _3_TOUCHES
     };
   }
   freeze(cible);
