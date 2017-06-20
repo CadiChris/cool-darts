@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`score.modele crée un score vierge 1`] = `
 Object {
   "cible": Object {

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`#calculerLeNouveauScore Ferme un chiffre après 3 touches 1`] = `
 Object {
   "15": Object {

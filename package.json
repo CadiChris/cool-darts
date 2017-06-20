@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "deep-freeze": "0.0.1",
-    "react-scripts": "0.8.4"
+    "react-scripts": "^1.0.7"
   },
   "dependencies": {
     "react": "^15.4.1",
@@ -16,6 +16,9 @@
     "eject": "react-scripts eject"
   },
   "babel": {
-    "presets": ["react", "es2015"]
+    "presets": [
+      "react",
+      "es2015"
+    ]
   }
 }
