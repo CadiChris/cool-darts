@@ -118,7 +118,7 @@ function cible(chiffres) {
   return cible
 }
 
-function lancerDansLe(chiffre, lanceur, touches = 1) {
+function lancerDansLe(chiffre, lanceur, touches = _1_TOUCHE) {
   let lancer = {
     lanceur: lanceur,
     chiffre: chiffre,
