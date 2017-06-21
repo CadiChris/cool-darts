@@ -1,6 +1,8 @@
 Un arbitre de Cricket. :dart:  
 https://en.wikipedia.org/wiki/Cricket_(darts)
 
+Ce projet devrait donner lieu à une appli mobile développée en React Native.
+
 ## Vocabulaire du Cricket
 Ces termes sont utilisés par les joueurs de Cricket, et se trouvent donc dans le code de `cricket`.
  - Le **lanceur** est le joueur dont c'est le tour de lancer. Les autres joueurs sont les **adversaires**.
@@ -46,9 +48,3 @@ Après ce premier tour :
  - Michael a 2 touches dans le 20, le 18 fermé, et 20 points.
  - Jim a le 20 fermé et 54 points.
  - Pam a le 18 fermé et 20 points.
-
-## Fonctionnalités
- - Calcul du score lancer après lancer
-
-## Pour développer
-`npm test` démarre `mocha` en mode `watch`
