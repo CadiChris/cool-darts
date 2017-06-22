@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import EnTete from './EnTete'
 import LigneDeScore from './LigneDeScore'
 
-import { Grid, Row } from "react-native-easy-grid";
+import { Grid } from "react-native-easy-grid";
 
 export default () => {
   return (
