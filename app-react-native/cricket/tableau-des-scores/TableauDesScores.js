@@ -7,10 +7,12 @@ import { Grid, Row } from "react-native-easy-grid";
 
 export default () => {
   return (
-    <View style={{flex:1, alignItems:'stretch'}}>
-      <Grid>
-        <Row style={{height: 45}}><EnTete /></Row>
-        <Row><LigneDeScore /></Row>
+    <View style={{flex:1}}>
+      <Grid style={{flexDirection: 'column'}}>
+        <EnTete />
+        <LigneDeScore score={{joueur: 'Goundar'}}/>
+        <LigneDeScore score={{joueur: 'Romain'}}/>
+        <LigneDeScore score={{joueur: 'Christophe'}}/>
       </Grid>
     </View>
   )

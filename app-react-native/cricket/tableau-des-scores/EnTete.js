@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Col, Row } from "react-native-easy-grid";
 
 export default () => (
-  <Row style={{borderBottomWidth: 1, alignItems:'center'}}>
+  <Row style={{borderBottomWidth: 1, alignItems:'center', height: 45}}>
     <Col style={{backgroundColor: 'blue'}} size={3}></Col>
     {[15,16,17,18,19,20,'Bull'].map(chiffre => (
       <Col key={chiffre}>

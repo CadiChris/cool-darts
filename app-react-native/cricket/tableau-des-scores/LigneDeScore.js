@@ -3,11 +3,11 @@ import { Text, View } from 'react-native'
 
 import { Col, Row } from "react-native-easy-grid";
 
-export default () => {
+export default ({score}) => {
   return (
     <Row>
       <Col style={{backgroundColor: 'blue', justifyContent:'center' }} size={3}>
-        <Text>Romain</Text>
+        <Text>{score.joueur}</Text>
       </Col>
 
       {['X', '', '', 'XXX', '', '', 'XX'].map((touches, index) => (
