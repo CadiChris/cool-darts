@@ -11,12 +11,13 @@ export default ({score}) => {
       </Col>
 
       {
-        ['X', '', '', 'XXX', '', '', 'XX'].map((touches, index) => (
-          <Col style={[Styles.contenuAuMilieu, Styles.bordureDroite]} key={index}>
-            <Text style={{textAlign: 'center'}}>{touches}</Text>
-          </Col>
-        ))
+        Object.keys(score.cible).map((chiffre, index) => {
+          const { touches } = score.cible[chiffre]
+          return (
+            <Col style={[Styles.contenuAuMilieu, Styles.bordureDroite]} key={index}>
+              <Text style={{textAlign: 'center'}}>{'X'.repeat(touches)}</Text>
+            </Col>
+        )})
       }
     </Row>
-  )
-}
+)}
