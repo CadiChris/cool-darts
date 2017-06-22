@@ -1,12 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import TableauDesScores from './cricket/tableau-des-scores/TableauDesScores'
+import Lanceur from './cricket/Lanceur'
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>ALKEYA</Text>
-        <Text>Cricket en React Native</Text>
+      <View style={[styles.container, {paddingTop: 25}]}>
+
+        <Lanceur lanceur={{nom: 'Romain'}} style={{height: '10%'}}/>
+
+        <TableauDesScores />
+
       </View>
     );
   }
@@ -15,8 +20,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#aaa',
   },
 });
