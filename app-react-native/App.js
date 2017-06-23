@@ -5,7 +5,7 @@ import tableauDesScores from './cricket/tableau-des-scores/TableauDesScores.redu
 import partie from './cricket/partie/Partie.reducer'
 import { StyleSheet, Text, View } from 'react-native'
 import TableauDesScores from './cricket/tableau-des-scores/TableauDesScores'
-import Lanceur from './cricket/Lanceur'
+import Partie from './cricket/partie/Partie'
 
 let store = createStore(
   combineReducers({
@@ -19,7 +19,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Lanceur lanceur={{nom: 'Romain'}} />
+          <Partie />
           <TableauDesScores />
         </View>
       </Provider>

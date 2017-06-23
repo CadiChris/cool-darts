@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
-import { inscrireJoueur } from './partie/Partie.actions'
-import { lancerFlechette } from './tableau-des-scores/TableauDesScores.actions'
+import { inscrireJoueur } from './Partie.actions'
+import { lancerFlechette } from '../tableau-des-scores/TableauDesScores.actions'
 
 class Lanceur extends React.Component {
 
