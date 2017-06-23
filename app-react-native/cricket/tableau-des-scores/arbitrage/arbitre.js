@@ -1,6 +1,4 @@
-'use strict'
-
-import {toucher, penaliser, chiffreEstFerme} from "./score";
+import { toucher, penaliser, chiffreEstFerme } from "./score"
 
 export function calculerLeNouveauScore(tableauDesScores, lancer) {
   const penalite = penaliteDuLancer(tableauDesScores, lancer)
