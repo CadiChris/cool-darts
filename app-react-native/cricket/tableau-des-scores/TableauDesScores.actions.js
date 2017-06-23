@@ -1,4 +1,3 @@
-import TableauDesScoresReducer from './TableauDesScores.reducer'
 
 export function ajouterJoueur(nomDuJoueur) {
   return {

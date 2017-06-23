@@ -1,7 +1,6 @@
-import {scoreVierge} from '../../../domaine/arbitrage/score'
+import { scoreVierge } from './../../../domaine/arbitrage/score'
 
-
-export default tableaDesScoresReducers = (tableauDesScores = [], action) => {
+export const tableauDesScoresReducer = (tableauDesScores = [], action) => {
   switch (action.type) {
 
     case 'AJOUTER_JOUEUR' :
@@ -10,6 +9,7 @@ export default tableaDesScoresReducers = (tableauDesScores = [], action) => {
         scoreVierge(action.nomDuJoueur)
       ]
 
-    default: return tableauDesScores
+    default:
+      return tableauDesScores
   }
 }

@@ -1,4 +1,4 @@
-import tableauDesScoresReducer from './TableauDesScores.reducer'
+import { tableauDesScoresReducer } from './TableauDesScores.reducer'
 import * as actions from './TableauDesScores.actions'
 
 describe('reducer', () => {
