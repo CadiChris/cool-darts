@@ -1,4 +1,4 @@
-import { scoreVierge } from './../../../domaine/arbitrage/score'
+import {scoreVierge} from './arbitrage/score'
 
 export const tableauDesScoresReducer = (tableauDesScores = [], action) => {
   switch (action.type) {
