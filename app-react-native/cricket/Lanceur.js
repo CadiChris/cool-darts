@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
-import * as actions from './tableau-des-scores/TableauDesScores.actions'
+import { inscrireJoueur } from './partie/Partie.actions'
+import { lancerFlechette } from './tableau-des-scores/TableauDesScores.actions'
 
 class Lanceur extends React.Component {
 
@@ -11,12 +12,12 @@ class Lanceur extends React.Component {
 
   ajouterJoueur() {
     const {dispatch} = this.props
-    dispatch(actions.ajouterJoueur('J1'))
+    dispatch(inscrireJoueur('J1'))
   }
 
   lancer() {
     const {dispatch} = this.props
-    dispatch(actions.lancerFlechette('J1', 15, 2))
+    dispatch(lancerFlechette('J1', 15, 2))
   }
 
   render() {
