@@ -1,20 +1,22 @@
 import React from 'react'
 import { connect, Provider } from 'react-redux'
-import { createStore } from 'redux'
-import { tableauDesScoresReducer } from './cricket/tableau-des-scores/TableauDesScores.reducer'
+import { createStore, combineReducers } from 'redux'
+import { tableauDesScores } from './cricket/tableau-des-scores/TableauDesScores.reducer'
 import { StyleSheet, Text, View } from 'react-native'
 import TableauDesScores from './cricket/tableau-des-scores/TableauDesScores'
 import Lanceur from './cricket/Lanceur'
 
 let store = createStore(
-  tableauDesScoresReducer
+  combineReducers({
+    tableauDesScores
+  })
 )
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <View style={[styles.container, {paddingTop: 25}]}>
+        <View style={styles.container}>
           <Lanceur lanceur={{nom: 'Romain'}} style={{height: '10%'}}/>
           <TableauDesScores />
         </View>
@@ -27,7 +29,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#aaa',
+    paddingTop: 25
   },
 });
-
-export default App

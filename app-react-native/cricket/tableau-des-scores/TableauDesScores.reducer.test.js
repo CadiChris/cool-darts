@@ -1,12 +1,12 @@
-import { tableauDesScoresReducer } from './TableauDesScores.reducer'
+import { tableauDesScores } from './TableauDesScores.reducer'
 import * as actions from './TableauDesScores.actions'
 
 describe('reducer', () => {
   it('retourne le state initial', () => {
-    expect(tableauDesScoresReducer(undefined, {})).toEqual([])
+    expect(tableauDesScores(undefined, {})).toEqual([])
   })
 
   it('ajoute un joueur', () => {
-    expect(tableauDesScoresReducer(undefined, actions.ajouterJoueur('J1'))).toMatchSnapshot()
+    expect(tableauDesScores(undefined, actions.ajouterJoueur('J1'))).toMatchSnapshot()
   })
 })

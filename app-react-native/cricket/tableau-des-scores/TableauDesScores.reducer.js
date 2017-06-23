@@ -1,6 +1,6 @@
 import {scoreVierge} from './arbitrage/score'
 
-export const tableauDesScoresReducer = (tableauDesScores = [], action) => {
+export const tableauDesScores = (tableauDesScores = [], action) => {
   switch (action.type) {
 
     case 'AJOUTER_JOUEUR' :
