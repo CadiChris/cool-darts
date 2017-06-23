@@ -10,27 +10,23 @@ class Partie extends React.Component {
   }
 
   render() {
-    const {peutDemarrer, phase} = this.props
-    console.log(phase)
+    const {phase, lanceur} = this.props
     return (
-      <View>
+      <View style={{height: 100}}>
         {
           phase === 'INSCRIPTION'
             ? <InscriptionDesJoueurs />
-            : <Lanceur lanceur={{nom: 'Christophe'}}/>
-
+            : <Lanceur lanceur={lanceur}/>
         }
-        <Text>{peutDemarrer ? 'READY' : 'Pas encore'}</Text>
       </View>
     )
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
-    peutDemarrer: state.partie.peutDemarrer,
-    phase: state.partie.phase
+    phase: state.partie.phase,
+    lanceur: state.partie.lanceur
   }
 }
 

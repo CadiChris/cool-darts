@@ -2,8 +2,10 @@
 
 exports[`démarre la partie 1`] = `
 Object {
-  "joueurs": Array [],
-  "lanceur": null,
+  "joueurs": Array [
+    "J1",
+  ],
+  "lanceur": "J1",
   "peutDemarrer": false,
   "phase": "EN_COURS",
 }
@@ -15,7 +17,7 @@ Object {
     "J1",
   ],
   "lanceur": null,
-  "peutDemarrer": true,
+  "peutDemarrer": false,
   "phase": "INSCRIPTION",
 }
 `;

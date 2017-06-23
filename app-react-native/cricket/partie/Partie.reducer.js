@@ -11,13 +11,14 @@ export default function partie(state = stateInitial, action) {
       return {
         ...state,
         joueurs: [...state.joueurs, action.joueur],
-        peutDemarrer: true
+        peutDemarrer: state.joueurs.length > 0
       }
 
     case 'DEMARRER_PARTIE':
       return {
         ...state,
-        phase: 'EN_COURS'
+        phase: 'EN_COURS',
+        lanceur: state.joueurs[0]
       }
 
     default:

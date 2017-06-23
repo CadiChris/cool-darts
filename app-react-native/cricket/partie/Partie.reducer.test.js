@@ -14,7 +14,10 @@ it('inscrit des joueurs', () => {
 })
 
 it('démarre la partie', () => {
-  expect(partie(partieDeTest(), demarrerPartie())).toMatchSnapshot()
+
+  const partieAvec1Joueur = partie(partieDeTest(), inscrireJoueur('J1'))
+
+  expect(partie(partieAvec1Joueur, demarrerPartie())).toMatchSnapshot()
 })
 
 function partieDeTest() {
