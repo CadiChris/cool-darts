@@ -17,7 +17,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Lanceur lanceur={{nom: 'Romain'}} style={{height: '10%'}}/>
+          <Lanceur lanceur={{nom: 'Romain'}} />
           <TableauDesScores />
         </View>
       </Provider>
