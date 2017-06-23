@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`inscrit un joueur 1`] = `
+Object {
+  "joueur": "J1",
+  "type": "INSCRIRE_JOUEUR",
+}
+`;
