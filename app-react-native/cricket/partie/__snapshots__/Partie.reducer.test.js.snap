@@ -5,7 +5,10 @@ Object {
   "joueurs": Array [
     "J1",
   ],
-  "lanceur": "J1",
+  "lanceur": Object {
+    "flechettesRestantes": 3,
+    "nom": "J1",
+  },
   "peutDemarrer": false,
   "phase": "EN_COURS",
 }

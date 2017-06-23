@@ -18,7 +18,19 @@ export default function partie(state = stateInitial, action) {
       return {
         ...state,
         phase: 'EN_COURS',
-        lanceur: state.joueurs[0]
+        lanceur: {
+          nom: state.joueurs[0],
+          flechettesRestantes: 3
+        }
+      }
+
+    case 'LANCER_FLECHETTE' :
+      return {
+        ...state,
+        lanceur: {
+          ...state.lanceur,
+          flechettesRestantes: state.lanceur.flechettesRestantes - 1
+        }
       }
 
     default:

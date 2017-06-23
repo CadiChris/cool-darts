@@ -11,7 +11,7 @@ class Lanceur extends React.Component {
 
   lancer() {
     const {dispatch, lanceur} = this.props
-    dispatch(lancerFlechette(lanceur, 15, 2))
+    dispatch(lancerFlechette(lanceur.nom, 15, 2))
   }
 
   render() {
@@ -19,7 +19,7 @@ class Lanceur extends React.Component {
 
     return (
       <View style={style}>
-        <Text>{lanceur}</Text>
+        <Text>{lanceur.nom}  -  {'O'.repeat(lanceur.flechettesRestantes)}</Text>
         <Button title="Lancer" onPress={() => this.lancer()}/>
       </View>
     )
