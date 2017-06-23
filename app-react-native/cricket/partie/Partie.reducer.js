@@ -1,15 +1,23 @@
 const stateInitial = {
   phase: 'INSCRIPTION',
   lanceur: null,
-  joueurs: []
+  joueurs: [],
+  peutDemarrer: false
 }
 
 export default function partie(state = stateInitial, action) {
   switch (action.type) {
     case 'INSCRIRE_JOUEUR':
       return {
-        ...partie,
-        joueurs: [...state.joueurs, action.joueur]
+        ...state,
+        joueurs: [...state.joueurs, action.joueur],
+        peutDemarrer: true
+      }
+
+    case 'DEMARRER_PARTIE':
+      return {
+        ...state,
+        phase: 'EN_COURS'
       }
 
     default:

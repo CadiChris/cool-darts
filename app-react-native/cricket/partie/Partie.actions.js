@@ -4,3 +4,7 @@ export function inscrireJoueur(joueur) {
     joueur
   }
 }
+
+export function demarrerPartie() {
+  return {type: 'DEMARRER_PARTIE'}
+}

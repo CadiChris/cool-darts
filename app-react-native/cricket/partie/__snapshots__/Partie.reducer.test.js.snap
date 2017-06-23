@@ -1,10 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`démarre la partie 1`] = `
+Object {
+  "joueurs": Array [],
+  "lanceur": null,
+  "peutDemarrer": false,
+  "phase": "EN_COURS",
+}
+`;
+
 exports[`inscrit des joueurs 1`] = `
 Object {
   "joueurs": Array [
     "J1",
   ],
+  "lanceur": null,
+  "peutDemarrer": true,
+  "phase": "INSCRIPTION",
 }
 `;
 
@@ -14,6 +26,9 @@ Object {
     "J1",
     "J2",
   ],
+  "lanceur": null,
+  "peutDemarrer": true,
+  "phase": "INSCRIPTION",
 }
 `;
 
@@ -21,6 +36,7 @@ exports[`retourne le state initial 1`] = `
 Object {
   "joueurs": Array [],
   "lanceur": null,
+  "peutDemarrer": false,
   "phase": "INSCRIPTION",
 }
 `;
