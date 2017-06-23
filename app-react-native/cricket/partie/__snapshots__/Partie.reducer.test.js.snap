@@ -17,23 +17,6 @@ Object {
 }
 `;
 
-exports[`inscrit un joueur 1`] = `
-Object {
-  "joueurs": Array [
-    "J1",
-  ],
-}
-`;
-
-exports[`inscrit un joueur 2`] = `
-Object {
-  "joueurs": Array [
-    "J1",
-    "J2",
-  ],
-}
-`;
-
 exports[`retourne le state initial 1`] = `
 Object {
   "joueurs": Array [],

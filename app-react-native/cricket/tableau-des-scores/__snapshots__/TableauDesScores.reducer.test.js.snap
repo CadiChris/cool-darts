@@ -39,7 +39,7 @@ Array [
 ]
 `;
 
-exports[`reducer ajoute un joueur 1`] = `
+exports[`reducer crée un score vierge pour un nouvel inscrit 1`] = `
 Array [
   Object {
     "cible": Object {

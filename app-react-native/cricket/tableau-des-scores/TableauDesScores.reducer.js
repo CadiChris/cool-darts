@@ -4,10 +4,10 @@ import { calculerLeNouveauScore } from './arbitrage/arbitre'
 export default function tableauDesScores(tableauDesScores = [], action) {
   switch (action.type) {
 
-    case 'AJOUTER_JOUEUR' :
+    case 'INSCRIRE_JOUEUR' :
       return [
         ...tableauDesScores,
-        scoreVierge(action.nomDuJoueur)
+        scoreVierge(action.joueur)
       ]
 
     case 'LANCER_FLECHETTE' :
