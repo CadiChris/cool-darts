@@ -1,7 +1,7 @@
 import { scoreVierge } from './arbitrage/score'
 import { calculerLeNouveauScore } from './arbitrage/arbitre'
 
-export const tableauDesScores = (tableauDesScores = [], action) => {
+export default function tableauDesScores(tableauDesScores = [], action) {
   switch (action.type) {
 
     case 'AJOUTER_JOUEUR' :

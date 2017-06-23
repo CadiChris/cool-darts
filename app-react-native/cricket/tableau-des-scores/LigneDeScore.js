@@ -6,8 +6,8 @@ import { Styles, Tailles } from './Styles'
 export default ({score}) => {
   return (
     <Row style={Styles.bordureBasse}>
-      <Col style={{backgroundColor: 'blue', justifyContent: 'center'}} size={Tailles.largeurDeLaColonneJoueur}>
-        <Text style={{paddingLeft: 10}}>{score.joueur}</Text>
+      <Col style={{justifyContent: 'center'}} size={Tailles.largeurDeLaColonneJoueur}>
+        <Text style={{paddingLeft: 10}}>{score.joueur} - {score.points}</Text>
       </Col>
 
       {
