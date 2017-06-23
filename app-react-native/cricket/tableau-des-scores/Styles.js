@@ -22,5 +22,8 @@ export const Styles = StyleSheet.create({
   bordureBasse: {
     borderBottomColor: Couleurs.bordure,
     borderBottomWidth: 1
+  },
+  chiffreFerme: {
+    backgroundColor: 'lightgray'
   }
 });

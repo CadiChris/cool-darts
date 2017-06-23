@@ -12,12 +12,14 @@ export default ({score}) => {
 
       {
         Object.keys(score.cible).map((chiffre, index) => {
-          const { touches } = score.cible[chiffre]
+          const {touches, ferme} = score.cible[chiffre]
           return (
-            <Col style={[Styles.contenuAuMilieu, Styles.bordureDroite]} key={index}>
+            <Col style={[Styles.contenuAuMilieu, Styles.bordureDroite, ferme ? Styles.chiffreFerme: {}]} key={index}>
               <Text style={{textAlign: 'center'}}>{'X'.repeat(touches)}</Text>
             </Col>
-        )})
+          )
+        })
       }
     </Row>
-)}
+  )
+}
