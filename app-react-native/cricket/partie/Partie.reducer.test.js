@@ -21,13 +21,40 @@ it('démarre la partie', () => {
 })
 
 it('compte les fléchettes restantes', () => {
-  const lanceur = {
+  const state = {
     lanceur: {
       nom: 'J1',
       flechettesRestantes: 3
     }
   }
-  expect(partie(lanceur, lancerFlechette('', 0, 0))).toEqual({lanceur: {nom: 'J1', flechettesRestantes: 2}})
+  expect(partie(state, lancerFlechette('', 0, 0))).toEqual({lanceur: {nom: 'J1', flechettesRestantes: 2}})
+})
+
+it('change de lanceur au dernier lancer', () => {
+  const stateDuPremierLanceur = {
+    joueurs: ['J1', 'J2'],
+    lanceur: {
+      nom: 'J1',
+      flechettesRestantes: 1
+    }
+  }
+  const stateDuSecondLanceur = {
+    joueurs: ['J1', 'J2'],
+    lanceur: {
+      nom: 'J2',
+      flechettesRestantes: 3
+    }
+  }
+  expect(partie(stateDuPremierLanceur, lancerFlechette('', 0, 0))).toEqual(stateDuSecondLanceur)
+
+  const stateDuSecondLanceurDerniereFlechette = {
+    joueurs: ['J1', 'J2'],
+    lanceur: {
+      nom: 'J2',
+      flechettesRestantes: 1
+    }
+  }
+  expect(partie(stateDuSecondLanceurDerniereFlechette, lancerFlechette('',0,0)).lanceur.nom).toEqual('J1')
 })
 
 function partieDeTest() {

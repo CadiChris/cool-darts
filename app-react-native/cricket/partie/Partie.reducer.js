@@ -27,10 +27,14 @@ export default function partie(state = stateInitial, action) {
     case 'LANCER_FLECHETTE' :
       return {
         ...state,
-        lanceur: {
-          ...state.lanceur,
-          flechettesRestantes: state.lanceur.flechettesRestantes - 1
-        }
+        lanceur: state.lanceur.flechettesRestantes > 1
+          ? {
+            nom: state.lanceur.nom,
+            flechettesRestantes: state.lanceur.flechettesRestantes - 1
+          } : {
+            nom: state.joueurs[(state.joueurs.indexOf(state.lanceur.nom) + 1) % state.joueurs.length],
+            flechettesRestantes: 3
+          }
       }
 
     default:
