@@ -7,7 +7,7 @@ import { Col, Row } from "react-native-easy-grid";
 export default () => (
   <Row style={{height: Tailles.hauteurEnTete}}>
 
-    <Col style={{backgroundColor: 'green'}} size={Tailles.largeurDeLaColonneJoueur}></Col>
+    <Col size={Tailles.largeurDeLaColonneJoueur}></Col>
     {
       [15, 16, 17, 18, 19, 20, 'Bull'].map(chiffre => (
         <Col key={chiffre} style={[Styles.bordureDroite, Styles.bordureBasse, Styles.contenuAuMilieu]}>
