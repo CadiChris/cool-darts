@@ -10,9 +10,9 @@ class Partie extends React.Component {
   }
 
   render() {
-    const {phase, lanceur} = this.props
+    const {phase, lanceur, style} = this.props
     return (
-      <View style={{height: 100}}>
+      <View style={style}>
         {
           phase === 'INSCRIPTION'
             ? <InscriptionDesJoueurs />

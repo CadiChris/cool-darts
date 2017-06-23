@@ -19,7 +19,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Partie />
+          <Partie style={{height:'40%'}}/>
           <TableauDesScores />
         </View>
       </Provider>

@@ -7,12 +7,12 @@ import LigneDeScore from './LigneDeScore'
 
 
 class TableauDesScores extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
 
   render() {
-    const { tableauDesScores} =this.props
+    const {tableauDesScores} = this.props
     return (
       <View style={{flex: 1}}>
         <Grid style={{flexDirection: 'column'}}>
