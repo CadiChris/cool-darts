@@ -81,6 +81,17 @@ describe('#calculerLeNouveauScore', () => {
     assert.strictEqual(nouveauxScores[1].points, 0)
   })
 
+  it('Ne fait rien en cas de coup manqué', () => {
+    const chiffreInvalide = 3
+    let nouveauxScores = arbitre.calculerLeNouveauScore(
+      [
+        score('J1', {20: _0_TOUCHE}, 0)
+      ],
+      lancerDansLe(chiffreInvalide, 'J1'))
+
+    assert.deepEqual(nouveauxScores, [score('J1', {20: _0_TOUCHE}, 0)])
+  })
+
   it("Préserve l'ordre des scores", () => {
     let nouveauxScores = arbitre.calculerLeNouveauScore(
       [

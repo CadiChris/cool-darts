@@ -59,7 +59,7 @@ class Lanceur extends React.Component {
         </View>
         <View style={{flexDirection: 'row'}}>
           <Button title="Lancer" onPress={() => this.lancer()} disabled={!peutLancer}/>
-          {/*<Button title="Manqué" onPress={() => this.manquer()}/>*/}
+          <Button title="Manqué" onPress={() => this.manquer()}/>
         </View>
       </View>
     )
@@ -102,7 +102,7 @@ class Lanceur extends React.Component {
 
   manquer() {
     const {dispatch, lanceur} = this.props
-    dispatch(lancerFlechette(lanceur.nom, 1, 1))
+    dispatch(lancerFlechette(lanceur.nom, 0, 1))
   }
 }
 

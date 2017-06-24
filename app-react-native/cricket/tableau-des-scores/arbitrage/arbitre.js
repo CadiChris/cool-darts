@@ -1,10 +1,14 @@
 import { toucher, penaliser, chiffreEstFerme } from "./score"
 
 export function calculerLeNouveauScore(tableauDesScores, lancer) {
-  const penalite = penaliteDuLancer(tableauDesScores, lancer)
+  if(toucheUnChiffreInvalide(lancer))
+    return [...tableauDesScores]
 
+  const penalite = penaliteDuLancer(tableauDesScores, lancer)
   return tableauDesScores.map(s => (scorer(s, lancer, penalite)))
 }
+
+const toucheUnChiffreInvalide = (lancer) => lancer.chiffre < 15
 
 const LIMITE = 3
 
