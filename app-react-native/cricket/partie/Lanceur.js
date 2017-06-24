@@ -94,9 +94,10 @@ class Lanceur extends React.Component {
     const {dispatch, lanceur} = this.props
     const {chiffre, touches} = this.state
     dispatch(lancerFlechette(lanceur.nom, chiffre, touches))
-    this.setState({...this.state, ...this.aucuneSaisie()})
+    // Le setState doit être après les updates des radios.
     this.radioDuChiffre.updateIsActiveIndex(null)
     this.radioDesTouches.updateIsActiveIndex(null)
+    this.setState(this.aucuneSaisie())
   }
 
   manquer() {
