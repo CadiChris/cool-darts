@@ -1,6 +1,6 @@
 import partie from './Partie.reducer'
 import { inscrireJoueur, demarrerPartie } from './Partie.actions'
-import { lancerFlechette } from '../tableau-des-scores/TableauDesScores.actions'
+import { lancerFlechette, chiffre } from '../tableau-des-scores/TableauDesScores.actions'
 
 it('retourne le state initial', () => {
   expect(partie(undefined, {})).toMatchSnapshot()
@@ -30,19 +30,51 @@ it('compte les fléchettes restantes', () => {
   expect(partie(state, lancerFlechette('', 0, 0))).toEqual({lanceur: {nom: 'J1', flechettesRestantes: 2}})
 })
 
+it('note la dernière fléchette lancée', () => {
+  const state = {
+    lanceur: {
+      dernierLancer: {
+        chiffre: null, touches: 0
+      }
+    }
+  }
+
+  const expectLesTouches = (lancer, touchesAttendues) => {
+    expect(lancer.lanceur.dernierLancer).toEqual({chiffre: 20, touches: touchesAttendues})
+  }
+
+  const jet1 = partie(state, chiffre(20))
+  const jet2 = partie(jet1, chiffre(20))
+  const jet3 = partie(jet2, chiffre(20))
+  const jet4 = partie(jet3, chiffre(20))
+
+  expectLesTouches(jet1, 1)
+  expectLesTouches(jet2, 2)
+  expectLesTouches(jet3, 3)
+  expectLesTouches(jet4, 1)
+})
+
 it('change de lanceur au dernier lancer', () => {
   const stateDuPremierLanceur = {
     joueurs: ['J1', 'J2'],
     lanceur: {
       nom: 'J1',
-      flechettesRestantes: 1
+      flechettesRestantes: 1,
+      dernierLancer: {
+        chiffre: null,
+        touches: 0
+      }
     }
   }
   const stateDuSecondLanceur = {
     joueurs: ['J1', 'J2'],
     lanceur: {
       nom: 'J2',
-      flechettesRestantes: 3
+      flechettesRestantes: 3,
+      dernierLancer: {
+        chiffre: null,
+        touches: 0
+      }
     }
   }
   expect(partie(stateDuPremierLanceur, lancerFlechette('', 0, 0))).toEqual(stateDuSecondLanceur)
@@ -54,7 +86,7 @@ it('change de lanceur au dernier lancer', () => {
       flechettesRestantes: 1
     }
   }
-  expect(partie(stateDuSecondLanceurDerniereFlechette, lancerFlechette('',0,0)).lanceur.nom).toEqual('J1')
+  expect(partie(stateDuSecondLanceurDerniereFlechette, lancerFlechette('', 0, 0)).lanceur.nom).toEqual('J1')
 })
 
 function partieDeTest() {

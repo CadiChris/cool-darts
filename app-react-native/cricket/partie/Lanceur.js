@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
-import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import { connect } from 'react-redux'
 import { lancerFlechette } from '../tableau-des-scores/TableauDesScores.actions'
 
@@ -23,42 +22,13 @@ class Lanceur extends React.Component {
       {label: 'Triple', value: 3},
     ]
 
-    const {style, lanceur} = this.props
-    const {chiffre, touches} = this.state
+    const {lanceur, chiffre, touches} = this.props
     const peutLancer = this.laSaisieEstValide()
 
     return (
       <View>
         <Text>{lanceur.nom} - {'O'.repeat(lanceur.flechettesRestantes)}</Text>
         <Text>{chiffre} - {touches ? touches_radio[touches - 1].label : ''}</Text>
-        <View style={{height: 50}}>
-          <RadioForm
-            radio_props={chiffres_radio}
-            initial={null}
-            formHorizontal={true}
-            labelHorizontal={false}
-            onPress={(value) => {
-              this.noterChiffre(value)
-            }}
-            ref={(radio) => {
-              this.radioDuChiffre = radio
-            }}
-          />
-        </View>
-        <View style={{height: 50}}>
-          <RadioForm
-            radio_props={touches_radio}
-            initial={null}
-            formHorizontal={true}
-            labelHorizontal={false}
-            onPress={(value) => {
-              this.noterTouches(value)
-            }}
-            ref={(radio) => {
-              this.radioDesTouches = radio
-            }}
-          />
-        </View>
         <View style={{flexDirection: 'row'}}>
           <Button title="Lancer" onPress={() => this.lancer()} disabled={!peutLancer}/>
           <Button title="Manqué" onPress={() => this.manquer()}/>
@@ -89,16 +59,12 @@ class Lanceur extends React.Component {
   }
 
   laSaisieEstValide() {
-    return this.state.chiffre !== null && this.state.touches !== null
+    return this.props.chiffre !== null && this.props.touches !== null
   }
 
   lancer() {
-    const {dispatch, lanceur} = this.props
-    const {chiffre, touches} = this.state
+    const {dispatch, lanceur, chiffre, touches} = this.props
     dispatch(lancerFlechette(lanceur.nom, chiffre, touches))
-    // Le setState doit être après les updates des radios.
-    this.radioDuChiffre.updateIsActiveIndex(null)
-    this.radioDesTouches.updateIsActiveIndex(null)
     this.setState(this.aucuneSaisie())
   }
 
@@ -108,4 +74,10 @@ class Lanceur extends React.Component {
   }
 }
 
-export default connect()(Lanceur)
+function mapStateToProps(state) {
+  return {
+    chiffre: state.partie.lanceur.dernierLancer.chiffre,
+    touches: state.partie.lanceur.dernierLancer.touches
+  }
+}
+export default connect(mapStateToProps)(Lanceur)

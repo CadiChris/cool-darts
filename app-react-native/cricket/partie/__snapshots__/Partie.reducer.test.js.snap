@@ -6,6 +6,10 @@ Object {
     "J1",
   ],
   "lanceur": Object {
+    "dernierLancer": Object {
+      "chiffre": null,
+      "touches": 0,
+    },
     "flechettesRestantes": 3,
     "nom": "J1",
   },
@@ -19,7 +23,14 @@ Object {
   "joueurs": Array [
     "J1",
   ],
-  "lanceur": null,
+  "lanceur": Object {
+    "dernierLancer": Object {
+      "chiffre": null,
+      "touches": 0,
+    },
+    "flechettesRestantes": 3,
+    "nom": "",
+  },
   "peutDemarrer": false,
   "phase": "INSCRIPTION",
 }
@@ -31,7 +42,14 @@ Object {
     "J1",
     "J2",
   ],
-  "lanceur": null,
+  "lanceur": Object {
+    "dernierLancer": Object {
+      "chiffre": null,
+      "touches": 0,
+    },
+    "flechettesRestantes": 3,
+    "nom": "",
+  },
   "peutDemarrer": true,
   "phase": "INSCRIPTION",
 }
@@ -40,7 +58,14 @@ Object {
 exports[`retourne le state initial 1`] = `
 Object {
   "joueurs": Array [],
-  "lanceur": null,
+  "lanceur": Object {
+    "dernierLancer": Object {
+      "chiffre": null,
+      "touches": 0,
+    },
+    "flechettesRestantes": 3,
+    "nom": "",
+  },
   "peutDemarrer": false,
   "phase": "INSCRIPTION",
 }
