@@ -28,7 +28,7 @@ class Lanceur extends React.Component {
     const peutLancer = this.laSaisieEstValide()
 
     return (
-      <View style={style}>
+      <View>
         <Text>{lanceur.nom} - {'O'.repeat(lanceur.flechettesRestantes)}</Text>
         <Text>{chiffre} - {touches ? touches_radio[touches - 1].label : ''}</Text>
         <View style={{height: 50}}>
