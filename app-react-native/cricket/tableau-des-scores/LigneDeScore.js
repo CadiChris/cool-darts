@@ -1,19 +1,20 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { Text, View, TouchableHighlight } from 'react-native'
 import { Col, Row } from "react-native-easy-grid"
 import { Styles, Tailles } from './Styles'
-import {chiffre} from './TableauDesScores.actions'
+import { signalerChiffre } from './TableauDesScores.actions'
 
 class LigneDeScore extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  signaler(c) {
+  signaler(chiffre) {
     const {dispatch} = this.props
-    dispatch(chiffre(c))
+    dispatch(signalerChiffre(chiffre))
   }
+
   render() {
     const {score} = this.props
     return (
@@ -29,8 +30,8 @@ class LigneDeScore extends React.Component {
               <Col style={[Styles.contenuAuMilieu, Styles.bordureDroite, ferme ? Styles.chiffreFerme : {}]} key={index}>
                 <TouchableHighlight onPress={() => this.signaler(chiffre)}>
                   <View>
-                  <Text>ld</Text>
-                  <Text style={{textAlign: 'center'}}>{'X'.repeat(touches)}</Text>
+                    <Text>ld</Text>
+                    <Text style={{textAlign: 'center'}}>{'X'.repeat(touches)}</Text>
                   </View>
                 </TouchableHighlight>
               </Col>

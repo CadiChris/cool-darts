@@ -1,7 +1,7 @@
 const LANCEUR = {
   nom: '',
   flechettesRestantes: 3,
-  dernierLancer :{
+  dernierLancer: {
     chiffre: null, touches: 0
   }
 }
@@ -38,22 +38,27 @@ export default function partie(state = stateInitial, action) {
         lanceur: state.lanceur.flechettesRestantes > 1
           ? {
             ...state.lanceur,
-            flechettesRestantes: state.lanceur.flechettesRestantes - 1
+            flechettesRestantes: state.lanceur.flechettesRestantes - 1,
+            dernierLancer: {
+              ...state.lanceur.dernierLancer,
+              touches: 1
+            }
           } : {
             ...LANCEUR,
             nom: state.joueurs[(state.joueurs.indexOf(state.lanceur.nom) + 1) % state.joueurs.length],
           }
       }
 
-    case 'CHIFFRE' :
+    case 'SIGNALER_CHIFFRE' :
       const aDeja3 = state.lanceur.dernierLancer.touches === 3
+      const leChiffreChange = state.lanceur.dernierLancer.chiffre !== action.chiffre
       return {
         ...state,
         lanceur: {
           ...state.lanceur,
           dernierLancer: {
             chiffre: action.chiffre,
-            touches: aDeja3 ? 1 : state.lanceur.dernierLancer.touches + 1
+            touches: aDeja3 || leChiffreChange ? 1 : state.lanceur.dernierLancer.touches + 1
           }
         }
       }

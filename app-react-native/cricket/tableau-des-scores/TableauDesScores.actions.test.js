@@ -1,4 +1,4 @@
-import { lancerFlechette, chiffre } from './TableauDesScores.actions'
+import { lancerFlechette, signalerChiffre } from './TableauDesScores.actions'
 
 it('lance une fléchette', () => {
   expect(lancerFlechette('J1', 20, 1)).toEqual({
@@ -10,8 +10,8 @@ it('lance une fléchette', () => {
 })
 
 it('selectionne un chiffre', () => {
-  expect(chiffre(20)).toEqual({
-    type:'CHIFFRE',
+  expect(signalerChiffre(20)).toEqual({
+    type:'SIGNALER_CHIFFRE',
     chiffre: 20
   })
 })

@@ -1,6 +1,6 @@
 import partie from './Partie.reducer'
 import { inscrireJoueur, demarrerPartie } from './Partie.actions'
-import { lancerFlechette, chiffre } from '../tableau-des-scores/TableauDesScores.actions'
+import { lancerFlechette, signalerChiffre } from '../tableau-des-scores/TableauDesScores.actions'
 
 it('retourne le state initial', () => {
   expect(partie(undefined, {})).toMatchSnapshot()
@@ -24,10 +24,20 @@ it('compte les fléchettes restantes', () => {
   const state = {
     lanceur: {
       nom: 'J1',
-      flechettesRestantes: 3
+      flechettesRestantes: 3,
+      dernierLancer: {
+        chiffre: null, touches: 0
+      }
     }
   }
-  expect(partie(state, lancerFlechette('', 0, 0))).toEqual({lanceur: {nom: 'J1', flechettesRestantes: 2}})
+  expect(partie(state, lancerFlechette('J1', 20, 1))).toEqual({
+    lanceur: {
+      nom: 'J1', flechettesRestantes: 2, dernierLancer: {
+        chiffre: null,
+        touches: 1
+      }
+    }
+  })
 })
 
 it('note la dernière fléchette lancée', () => {
@@ -39,19 +49,23 @@ it('note la dernière fléchette lancée', () => {
     }
   }
 
-  const expectLesTouches = (lancer, touchesAttendues) => {
-    expect(lancer.lanceur.dernierLancer).toEqual({chiffre: 20, touches: touchesAttendues})
+  const expectLesTouches = (lancer, chiffreTeste, touchesAttendues) => {
+    expect(lancer.lanceur.dernierLancer).toEqual({chiffre: chiffreTeste, touches: touchesAttendues})
   }
 
-  const jet1 = partie(state, chiffre(20))
-  const jet2 = partie(jet1, chiffre(20))
-  const jet3 = partie(jet2, chiffre(20))
-  const jet4 = partie(jet3, chiffre(20))
+  const jet1 = partie(state, signalerChiffre(20))
+  const jet2 = partie(jet1, signalerChiffre(20))
+  const jet3 = partie(jet2, signalerChiffre(20))
+  const jet4 = partie(jet3, signalerChiffre(20))
 
-  expectLesTouches(jet1, 1)
-  expectLesTouches(jet2, 2)
-  expectLesTouches(jet3, 3)
-  expectLesTouches(jet4, 1)
+  expectLesTouches(jet1, 20, 1)
+  expectLesTouches(jet2, 20, 2)
+  expectLesTouches(jet3, 20, 3)
+  expectLesTouches(jet4, 20, 1)
+
+  // On passe de 20:2 à 17:1 en changeant de chiffre
+  const jet3bis = partie(jet2, signalerChiffre(17))
+  expectLesTouches(jet3bis, 17, 1)
 })
 
 it('change de lanceur au dernier lancer', () => {
