@@ -14,24 +14,26 @@ class Lanceur extends React.Component {
   }
 
   render() {
-    const chiffres = [15, 16, 17, 18, 19, 20].map(c => {
+    const chiffres_radio = [15, 16, 17, 18, 19, 20].map(c => {
       return {label: c, value: c}
     })
-    const touches = [
+    const touches_radio = [
       {label: 'Simple', value: 1},
       {label: 'Double', value: 2},
       {label: 'Triple', value: 3},
     ]
 
     const {style, lanceur} = this.props
+    const {chiffre, touches} = this.state
     const peutLancer = this.laSaisieEstValide()
 
     return (
       <View style={style}>
         <Text>{lanceur.nom} - {'O'.repeat(lanceur.flechettesRestantes)}</Text>
+        <Text>{chiffre} - {touches ? touches_radio[touches - 1].label : ''}</Text>
         <View style={{height: 50}}>
           <RadioForm
-            radio_props={chiffres}
+            radio_props={chiffres_radio}
             initial={null}
             formHorizontal={true}
             labelHorizontal={false}
@@ -45,7 +47,7 @@ class Lanceur extends React.Component {
         </View>
         <View style={{height: 50}}>
           <RadioForm
-            radio_props={touches}
+            radio_props={touches_radio}
             initial={null}
             formHorizontal={true}
             labelHorizontal={false}
