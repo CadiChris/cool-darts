@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, Text } from 'react-native'
-import InscriptionDesJoueurs from './InscriptionDesJoueurs'
+import InscriptionDesJoueurs from '../InscriptionDesJoueurs/InscriptionDesJoueurs'
 
 class Partie extends React.Component {
   constructor(props) {

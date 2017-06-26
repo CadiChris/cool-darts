@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, Button, TextInput } from 'react-native'
-import { inscrireJoueur, demarrerPartie } from './Partie.actions'
+import { inscrireJoueur, demarrerPartie } from '../Partie/Partie.actions'
 
 class InscriptionDesJoueurs extends React.Component {
   constructor(props) {
@@ -21,13 +21,13 @@ class InscriptionDesJoueurs extends React.Component {
             onChangeText={(text) => this.setState({joueur: text})}
             style={{height: 40, width: 100}}
             placeholder="Joueur"/>
-          <Button title="Inscrire" onPress={() => this.ajouterJoueur()}/>
+          <Button title="Inscrire" onPress={() => this.inscrireJoueur()}/>
           <Button title="GO" onPress={() => this.demarrerLaPartie()} disabled={!peutDemarrer}/>
       </View>
     )
   }
 
-  ajouterJoueur() {
+  inscrireJoueur() {
     const {dispatch} = this.props
     const {joueur}=this.state
     dispatch(inscrireJoueur(joueur))
