@@ -1,4 +1,4 @@
-import { lancerFlechette, signalerChiffre } from './TableauDesScores.actions'
+import { lancerFlechette } from './TableauDesScores.actions'
 
 it('lance une fléchette', () => {
   expect(lancerFlechette('J1', 20, 1)).toEqual({
