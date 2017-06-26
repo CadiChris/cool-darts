@@ -1,15 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TableauDesScores from './TableauDesScores/TableauDesScores'
+import InscriptionDesJoueurs from './InscriptionDesJoueurs/InscriptionDesJoueurs'
 import { StyleSheet, Text, View } from 'react-native'
-
-import Partie from './Partie/Partie'
 
 class Cricket extends React.Component {
   render() {
+    const {phase} = this.props
     return (
       <View style={styles.container}>
-        <Partie style={{height: '40%'}}/>
+        {
+          phase === 'INSCRIPTION'
+            ? <InscriptionDesJoueurs />
+            : null
+        }
         <TableauDesScores />
       </View>
     )
