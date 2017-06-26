@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, Text } from 'react-native'
-import Lanceur from './Lanceur'
 import InscriptionDesJoueurs from './InscriptionDesJoueurs'
 
 class Partie extends React.Component {
@@ -10,13 +9,13 @@ class Partie extends React.Component {
   }
 
   render() {
-    const {phase, lanceur, style} = this.props
+    const {phase, style} = this.props
     return (
       <View style={style}>
         {
           phase === 'INSCRIPTION'
             ? <InscriptionDesJoueurs />
-            : <Lanceur lanceur={lanceur}/>
+            : null
         }
       </View>
     )
@@ -25,8 +24,7 @@ class Partie extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    phase: state.partie.phase,
-    lanceur: state.partie.lanceur
+    phase: state.partie.phase
   }
 }
 

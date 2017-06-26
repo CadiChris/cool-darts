@@ -6,10 +6,3 @@ export function lancerFlechette(joueur, chiffre, touches) {
     touches
   }
 }
-
-export function signalerChiffre(chiffre) {
-  return {
-    type: 'SIGNALER_CHIFFRE',
-    chiffre
-  }
-}

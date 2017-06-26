@@ -1,14 +1,5 @@
-const LANCEUR = {
-  nom: '',
-  flechettesRestantes: 3,
-  dernierLancer: {
-    chiffre: null, touches: 0
-  }
-}
-
 const stateInitial = {
   phase: 'INSCRIPTION',
-  lanceur: LANCEUR,
   joueurs: [],
   peutDemarrer: false
 }
@@ -25,42 +16,7 @@ export default function partie(state = stateInitial, action) {
     case 'DEMARRER_PARTIE':
       return {
         ...state,
-        phase: 'EN_COURS',
-        lanceur: {
-          ...state.lanceur,
-          nom: state.joueurs[0]
-        }
-      }
-
-    case 'LANCER_FLECHETTE' :
-      return {
-        ...state,
-        lanceur: state.lanceur.flechettesRestantes > 1
-          ? {
-            ...state.lanceur,
-            flechettesRestantes: state.lanceur.flechettesRestantes - 1,
-            dernierLancer: {
-              ...state.lanceur.dernierLancer,
-              touches: 1
-            }
-          } : {
-            ...LANCEUR,
-            nom: state.joueurs[(state.joueurs.indexOf(state.lanceur.nom) + 1) % state.joueurs.length],
-          }
-      }
-
-    case 'SIGNALER_CHIFFRE' :
-      const aDeja3 = state.lanceur.dernierLancer.touches === 3
-      const leChiffreChange = state.lanceur.dernierLancer.chiffre !== action.chiffre
-      return {
-        ...state,
-        lanceur: {
-          ...state.lanceur,
-          dernierLancer: {
-            chiffre: action.chiffre,
-            touches: aDeja3 || leChiffreChange ? 1 : state.lanceur.dernierLancer.touches + 1
-          }
-        }
+        phase: 'EN_COURS'
       }
 
     default:

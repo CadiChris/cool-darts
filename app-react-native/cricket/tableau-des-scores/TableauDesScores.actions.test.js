@@ -8,10 +8,3 @@ it('lance une fléchette', () => {
     touches: 1
   })
 })
-
-it('selectionne un chiffre', () => {
-  expect(signalerChiffre(20)).toEqual({
-    type:'SIGNALER_CHIFFRE',
-    chiffre: 20
-  })
-})
