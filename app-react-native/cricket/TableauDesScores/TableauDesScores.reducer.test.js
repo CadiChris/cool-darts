@@ -4,7 +4,7 @@ import { inscrireJoueur } from './../Partie/Partie.actions'
 
 describe('reducer', () => {
   it('retourne le state initial', () => {
-    expect(tableauDesScores(undefined, {})).toEqual([])
+    expect(tableauDesScores(undefined, {})).toMatchSnapshot()
   })
 
   it('crée un score vierge pour un nouvel inscrit', () => {

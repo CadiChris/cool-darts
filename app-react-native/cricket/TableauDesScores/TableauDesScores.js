@@ -12,13 +12,13 @@ class TableauDesScores extends React.Component {
   }
 
   render() {
-    const {tableauDesScores} = this.props
+    const {scores} = this.props
     return (
       <View style={{flex: 1}}>
         <Grid style={{flexDirection: 'column'}}>
           <EnTete />
           {
-            tableauDesScores.map((score, index) => <LigneDeScore score={score} key={index}/>)
+            scores.map((score, index) => <LigneDeScore score={score} key={index}/>)
           }
         </Grid>
       </View>
@@ -28,7 +28,7 @@ class TableauDesScores extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    tableauDesScores: [...state.tableauDesScores]
+    scores: [...state.tableauDesScores.scores]
   }
 }
 
