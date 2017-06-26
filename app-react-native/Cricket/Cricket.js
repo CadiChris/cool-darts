@@ -1,10 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import TableauDesScores from './TableauDesScores/TableauDesScores'
 import { StyleSheet, Text, View } from 'react-native'
 
 import Partie from './Partie/Partie'
 
-export default class App extends React.Component {
+class Cricket extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -22,3 +23,11 @@ const styles = StyleSheet.create({
     paddingTop: 25
   },
 })
+
+function mapStateToProps(state) {
+  return {
+    phase: state.cricket.phase
+  }
+}
+
+export default connect(mapStateToProps)(Cricket)
