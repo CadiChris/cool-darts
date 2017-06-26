@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Text, View, TouchableHighlight } from 'react-native'
 import { Col, Row } from "react-native-easy-grid"
-import { Styles, Tailles } from './Styles'
+import { Styles, Tailles } from './styles'
 import { lancerFlechette } from './TableauDesScores.actions'
 
 class LigneDeScore extends React.Component {
