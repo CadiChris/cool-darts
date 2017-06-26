@@ -15,7 +15,7 @@ it('déclare vainqueurs celui qui a tous ses chiffres fermés', () => {
   expect(vainqueurs([seulementLe20Ferme, toutFerme])).toEqual(['J2'])
 })
 
-it('déclare le joueur avec le moins de pénalité comme vainqueurs', () => {
+it('déclare le joueur avec le moins de pénalité comme vainqueur', () => {
   expect(vainqueurs([
     scoreAvecCibleFermee('joueur avec pénalité', 150),
     scoreAvecCibleFermee('joueur sans pénalité', 0)

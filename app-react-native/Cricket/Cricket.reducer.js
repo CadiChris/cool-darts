@@ -1,6 +1,6 @@
-import { scoreVierge } from './TableauDesScores/arbitrage/score'
-import { calculerLeNouveauScore } from './TableauDesScores/arbitrage/arbitre'
-import { vainqueurs } from './TableauDesScores/arbitrage/vainqueurs'
+import { scoreVierge } from './arbitrage/score'
+import { calculerLeNouveauScore } from './arbitrage/arbitre'
+import { vainqueurs } from './arbitrage/vainqueurs'
 
 const STATE_INITIAL = {
   phase: 'INSCRIPTION',
@@ -41,7 +41,6 @@ export default function partie(state = STATE_INITIAL, action) {
         vainqueurs: vainqueursDuNouveauScore,
         phase: vainqueursDuNouveauScore.length > 0 ? 'TERMINEE' : state.phase
       }
-
 
     default:
       return state

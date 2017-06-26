@@ -1,6 +1,6 @@
 "use strict"
 import assert from "assert";
-import {scoreVierge} from "./score";
+import { scoreVierge } from "./score";
 
 describe('score.modele', () => {
   it('crée un score vierge', () => {
