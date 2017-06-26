@@ -7,9 +7,7 @@ it('retourne le state initial', () => {
 
 it('inscrit des joueurs', () => {
   expect(partieAvec1Joueur('J1')).toMatchSnapshot()
-
-  const partieAvec2Joueurs = cricket(partieAvec1Joueur('J1'), inscrireJoueur('J2'))
-  expect(partieAvec2Joueurs).toMatchSnapshot()
+  expect(cricket(partieAvec1Joueur('J1'), inscrireJoueur('J2'))).toMatchSnapshot()
 })
 
 it('démarre la partie', () => {
