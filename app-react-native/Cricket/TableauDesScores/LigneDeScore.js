@@ -22,10 +22,9 @@ class LigneDeScore extends React.Component {
           Object.keys(score.cible).map((chiffre, index) => {
             const {touches, ferme} = score.cible[chiffre]
             return (
-              <Col style={[{flex:1, flexDirection:'row', alignItems:'stretch'}, Styles.bordureDroite, ferme ? Styles.chiffreFerme : {}]} key={index}>
-                <TouchableHighlight onPress={() => this.lancerSimpleDans(chiffre)} style={{alignSelf: 'stretch'}}>
+              <Col style={[{flex:1}, Styles.bordureDroite, ferme ? Styles.chiffreFerme : {}]} key={index}>
+                <TouchableHighlight onPress={() => this.lancerSimpleDans(chiffre)} style={[{flex:1, alignSelf: 'stretch'}, Styles.contenuAuMilieu]}>
                   <View>
-                    <Text> </Text>
                     <Text style={{textAlign: 'center'}}>{'X'.repeat(touches)}</Text>
                   </View>
                 </TouchableHighlight>
