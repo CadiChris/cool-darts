@@ -42,7 +42,7 @@ class InscriptionDesJoueurs extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    peutDemarrer: state.partie.peutDemarrer
+    peutDemarrer: state.cricket.peutDemarrer
   }
 }
 

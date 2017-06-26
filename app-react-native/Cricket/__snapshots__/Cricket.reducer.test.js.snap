@@ -7,6 +7,8 @@ Object {
   ],
   "peutDemarrer": false,
   "phase": "EN_COURS",
+  "scores": Array [],
+  "vainqueurs": Array [],
 }
 `;
 
@@ -17,6 +19,8 @@ Object {
   ],
   "peutDemarrer": false,
   "phase": "INSCRIPTION",
+  "scores": Array [],
+  "vainqueurs": Array [],
 }
 `;
 
@@ -28,6 +32,8 @@ Object {
   ],
   "peutDemarrer": true,
   "phase": "INSCRIPTION",
+  "scores": Array [],
+  "vainqueurs": Array [],
 }
 `;
 
@@ -36,5 +42,7 @@ Object {
   "joueurs": Array [],
   "peutDemarrer": false,
   "phase": "INSCRIPTION",
+  "scores": Array [],
+  "vainqueurs": Array [],
 }
 `;

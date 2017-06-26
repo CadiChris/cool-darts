@@ -24,7 +24,7 @@ class Partie extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    phase: state.partie.phase
+    phase: state.cricket.phase
   }
 }
 

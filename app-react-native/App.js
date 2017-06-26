@@ -2,12 +2,12 @@ import React from 'react'
 import { connect, Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import tableauDesScores from './Cricket/TableauDesScores/TableauDesScores.reducer'
-import partie from './Cricket/Partie/Partie.reducer'
+import cricket from './Cricket/Cricket.reducer'
 import Cricket from './Cricket/Cricket'
 
 let store = createStore(
   combineReducers({
-    partie,
+    cricket,
     tableauDesScores
   })
 )

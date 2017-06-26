@@ -11,7 +11,7 @@ export default class App extends React.Component {
         <Partie style={{height: '40%'}}/>
         <TableauDesScores />
       </View>
-    );
+    )
   }
 }
 
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#aaa',
     paddingTop: 25
   },
-});
+})

@@ -1,7 +1,9 @@
 const STATE_INITIAL = {
   phase: 'INSCRIPTION',
   joueurs: [],
-  peutDemarrer: false
+  peutDemarrer: false,
+  scores: [],
+  vainqueurs: []
 }
 
 export default function partie(state = STATE_INITIAL, action) {
