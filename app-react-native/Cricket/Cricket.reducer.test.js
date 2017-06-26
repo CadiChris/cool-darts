@@ -1,5 +1,5 @@
 import cricket from './Cricket.reducer'
-import { inscrireJoueur, demarrerPartie } from './Partie/Partie.actions'
+import { inscrireJoueur, demarrerPartie } from './Cricket.actions'
 
 it('retourne le state initial', () => {
   expect(cricket(undefined, {})).toMatchSnapshot()

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, Button, TextInput } from 'react-native'
-import { inscrireJoueur, demarrerPartie } from '../Partie/Partie.actions'
+import { inscrireJoueur, demarrerPartie } from '../Cricket.actions'
 
 class InscriptionDesJoueurs extends React.Component {
   constructor(props) {

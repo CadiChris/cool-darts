@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`démarre la partie 1`] = `
+Object {
+  "type": "DEMARRER_PARTIE",
+}
+`;
+
 exports[`inscrit un joueur 1`] = `
 Object {
   "joueur": "J1",

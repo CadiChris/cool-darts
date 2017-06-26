@@ -1,6 +1,6 @@
 import tableauDesScores from './TableauDesScores.reducer'
 import { lancerFlechette } from './TableauDesScores.actions'
-import { inscrireJoueur } from './../Partie/Partie.actions'
+import { inscrireJoueur } from '../Cricket.actions'
 
 describe('reducer', () => {
   it('retourne le state initial', () => {
