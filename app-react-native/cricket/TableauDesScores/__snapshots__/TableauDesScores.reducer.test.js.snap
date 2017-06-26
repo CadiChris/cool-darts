@@ -38,7 +38,7 @@ Object {
       "points": 0,
     },
   ],
-  "vainqueur": null,
+  "vainqueurs": Array [],
 }
 `;
 
@@ -80,13 +80,13 @@ Object {
       "points": 0,
     },
   ],
-  "vainqueur": null,
+  "vainqueurs": Array [],
 }
 `;
 
 exports[`reducer retourne le state initial 1`] = `
 Object {
   "scores": Array [],
-  "vainqueur": null,
+  "vainqueurs": Array [],
 }
 `;

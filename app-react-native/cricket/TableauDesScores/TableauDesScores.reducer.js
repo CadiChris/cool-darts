@@ -3,7 +3,7 @@ import { calculerLeNouveauScore } from './arbitrage/arbitre'
 
 const STATE_INITIAL = {
   scores: [],
-  vainqueur: null
+  vainqueurs: []
 }
 
 export default function tableauDesScores(state = STATE_INITIAL, action) {

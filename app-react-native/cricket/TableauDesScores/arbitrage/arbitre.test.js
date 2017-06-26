@@ -107,7 +107,7 @@ describe('#calculerLeNouveauScore', () => {
   })
 })
 
-function score(leJoueur, sesChiffres, sesPoints) {
+export function score(leJoueur, sesChiffres, sesPoints) {
   let score = {
     ...scoreVierge(leJoueur),
     points: sesPoints,
