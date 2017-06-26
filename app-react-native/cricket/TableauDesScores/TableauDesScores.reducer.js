@@ -2,7 +2,8 @@ import { scoreVierge } from './arbitrage/score'
 import { calculerLeNouveauScore } from './arbitrage/arbitre'
 
 const stateInitial = {
-  scores: []
+  scores: [],
+  vainqueur: null
 }
 
 export default function tableauDesScores(tableauDesScores = stateInitial, action) {
@@ -10,6 +11,7 @@ export default function tableauDesScores(tableauDesScores = stateInitial, action
 
     case 'INSCRIRE_JOUEUR' :
       return {
+        ...tableauDesScores,
         scores: [
           ...tableauDesScores.scores,
           scoreVierge(action.joueur)
@@ -23,6 +25,7 @@ export default function tableauDesScores(tableauDesScores = stateInitial, action
         touches: action.touches
       }
       return {
+        ...tableauDesScores,
         scores: calculerLeNouveauScore(tableauDesScores.scores, lancer)
       }
 
