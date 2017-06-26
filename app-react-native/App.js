@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect, Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
-import tableauDesScores from './cricket/tableau-des-scores/TableauDesScores.reducer'
-import partie from './cricket/partie/Partie.reducer'
+import tableauDesScores from './cricket/TableauDesScores/TableauDesScores.reducer'
+import TableauDesScores from './cricket/TableauDesScores/TableauDesScores'
+
+import partie from './cricket/Partie/Partie.reducer'
 import { StyleSheet, Text, View } from 'react-native'
-import TableauDesScores from './cricket/tableau-des-scores/TableauDesScores'
-import Partie from './cricket/partie/Partie'
+
+import Partie from './cricket/Partie/Partie'
 
 let store = createStore(
   combineReducers({
