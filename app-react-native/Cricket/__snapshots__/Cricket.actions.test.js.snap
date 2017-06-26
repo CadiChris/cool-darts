@@ -12,3 +12,12 @@ Object {
   "type": "INSCRIRE_JOUEUR",
 }
 `;
+
+exports[`lance une fléchette 1`] = `
+Object {
+  "chiffre": 20,
+  "joueur": "J1",
+  "touches": 1,
+  "type": "LANCER_FLECHETTE",
+}
+`;

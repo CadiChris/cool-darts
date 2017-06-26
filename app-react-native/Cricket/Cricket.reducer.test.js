@@ -1,21 +1,37 @@
 import cricket from './Cricket.reducer'
-import { inscrireJoueur, demarrerPartie } from './Cricket.actions'
+import { inscrireJoueur, demarrerPartie, lancerFlechette } from './Cricket.actions'
 
 it('retourne le state initial', () => {
   expect(cricket(undefined, {})).toMatchSnapshot()
 })
 
 it('inscrit des joueurs', () => {
-  const partieAvec1Joueur = cricket(partieDeTest(), inscrireJoueur('J1'))
-  expect(partieAvec1Joueur).toMatchSnapshot()
+  expect(partieAvec1Joueur('J1')).toMatchSnapshot()
 
-  const partieAvec2Joueurs = cricket(partieAvec1Joueur, inscrireJoueur('J2'))
+  const partieAvec2Joueurs = cricket(partieAvec1Joueur('J1'), inscrireJoueur('J2'))
   expect(partieAvec2Joueurs).toMatchSnapshot()
 })
 
 it('démarre la partie', () => {
-  const partieAvec1Joueur = cricket(partieDeTest(), inscrireJoueur('J1'))
-  expect(cricket(partieAvec1Joueur, demarrerPartie())).toMatchSnapshot()
+  expect(cricket(partieAvec1Joueur('J1'), demarrerPartie())).toMatchSnapshot()
 })
 
-const partieDeTest = () => cricket(undefined, {})
+it('modifie le score sur un lancer de fléchette', () => {
+  expect(cricket(partieAvec1Joueur('J1'), lancerFlechette('J1', 20, 1))).toMatchSnapshot()
+})
+
+it('met fin à la partie sur le lancer qui désigne le vainqueur', () => {
+  const toutFermeSaufLeBull =
+    [15, 16, 17, 18, 19, 20].reduce((tableau, chiffre) => (
+      cricket(tableau, lancerFlechette('J1', chiffre, 3))),
+      partieAvec1Joueur('J1'))
+
+  const fermerLeBull = lancerFlechette('J1', 25, 3)
+  const partieTerminee = cricket(toutFermeSaufLeBull, fermerLeBull)
+
+  expect(partieTerminee.vainqueurs).toEqual(['J1'])
+  expect(partieTerminee.phase).toEqual('TERMINEE')
+})
+
+const partieVide = () => cricket(undefined, {})
+const partieAvec1Joueur = (joueur) => cricket(partieVide(), inscrireJoueur(joueur))

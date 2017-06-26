@@ -28,7 +28,7 @@ class TableauDesScores extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    scores: [...state.tableauDesScores.scores]
+    scores: [...state.cricket.scores]
   }
 }
 
