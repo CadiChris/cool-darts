@@ -1,10 +1,10 @@
-const stateInitial = {
+const STATE_INITIAL = {
   phase: 'INSCRIPTION',
   joueurs: [],
   peutDemarrer: false
 }
 
-export default function partie(state = stateInitial, action) {
+export default function partie(state = STATE_INITIAL, action) {
   switch (action.type) {
     case 'INSCRIRE_JOUEUR':
       return {
