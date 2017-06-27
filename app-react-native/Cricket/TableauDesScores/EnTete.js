@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { Tailles, Styles } from './styles'
+import { Tailles, Styles } from '../styles'
 
 import { Col, Row } from "react-native-easy-grid";
 
