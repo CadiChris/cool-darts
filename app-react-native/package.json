@@ -21,6 +21,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "apsl-react-native-button": "^3.0.2",
     "deep-freeze": "^0.0.1",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.44.0",

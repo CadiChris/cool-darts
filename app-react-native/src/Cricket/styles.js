@@ -13,7 +13,8 @@ export const Couleurs = {
 const fontParDefaut = 'Magnolia Script'
 export const Textes = StyleSheet.create({
   basique: {
-    fontFamily: fontParDefaut
+    fontFamily: fontParDefaut,
+    color: 'white'
   },
   titre: {
     fontFamily: fontParDefaut,
@@ -26,6 +27,23 @@ export const Textes = StyleSheet.create({
   }
 })
 
+export const Boutons = StyleSheet.create({
+  principal: {
+    backgroundColor: '#6C5B7B',
+    borderTopWidth: 0,
+    borderBottomWidth: 0.4,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+  },
+  secondaire: {
+    backgroundColor: '#C06C84',
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+  }
+})
+
 export const Styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -33,6 +51,7 @@ export const Styles = StyleSheet.create({
     paddingTop: 25
   },
   contenuAuMilieu: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
