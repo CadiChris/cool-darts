@@ -17,7 +17,7 @@ class InscriptionDesJoueurs extends React.Component {
     const {joueur} = this.state
     return (
         <View style={[{flex: 1, flexDirection:'row'}, Styles.contenuAuMilieu]}>
-          <View>
+          <View style={{borderWidth: 1, borderRadius: 20, paddingHorizontal: 10}}>
             <TextInput
               value={joueur}
               onChangeText={(text) => this.setState({joueur: text})}
@@ -43,10 +43,9 @@ class InscriptionDesJoueurs extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
+const mapStateToProps = (state) => ({
     peutDemarrer: state.cricket.peutDemarrer
   }
-}
+)
 
 export default connect(mapStateToProps)(InscriptionDesJoueurs)

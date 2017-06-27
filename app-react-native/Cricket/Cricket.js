@@ -31,10 +31,8 @@ const styles = StyleSheet.create({
   },
 })
 
-function mapStateToProps(state) {
-  return {
-    phase: state.cricket.phase
-  }
-}
+const mapStateToProps = (state) => ({
+  phase: state.cricket.phase
+})
 
 export default connect(mapStateToProps)(Cricket)
