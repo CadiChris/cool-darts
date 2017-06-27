@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect, Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
-import cricket from './Cricket/Cricket.reducer'
-import Cricket from './Cricket/Cricket'
+import cricket from './src/Cricket/Cricket.reducer'
+import Cricket from './src/Cricket/Cricket'
 
 let store = createStore(
   combineReducers({

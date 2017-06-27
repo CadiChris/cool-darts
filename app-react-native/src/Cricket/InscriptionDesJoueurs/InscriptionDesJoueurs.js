@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { View, Button, TextInput } from 'react-native'
 import { inscrireJoueur, demarrerPartie } from '../Cricket.actions'
-import { Styles } from './../styles'
+import { Styles } from '../styles'
 
 class InscriptionDesJoueurs extends React.Component {
   constructor(props) {
