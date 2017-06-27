@@ -21,6 +21,9 @@ export const Textes = StyleSheet.create({
     fontSize: 34,
     color: 'white'
   },
+  mav : {
+    fontSize: 20
+  },
   bouton: {
     fontFamily: fontParDefaut,
     color: '#C06C84'

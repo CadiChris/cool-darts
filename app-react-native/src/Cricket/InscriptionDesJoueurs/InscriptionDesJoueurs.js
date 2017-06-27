@@ -14,31 +14,41 @@ class InscriptionDesJoueurs extends React.Component {
   }
 
   render() {
-    const {peutDemarrer} = this.props
+    const {peutDemarrer, joueurs} = this.props
     const {joueur} = this.state
     return (
-      <View style={[Styles.contenuAuMilieu, {paddingHorizontal: 10, justifyContent: 'space-around'},]}>
+      <View style={[Styles.contenuAuMilieu, {paddingHorizontal: 10, justifyContent: 'space-between'},]}>
 
-        <Text style={Textes.titre}>Nouvelle partie</Text>
+        <Text style={[Textes.titre, {marginTop: 50}]}>Nouvelle partie</Text>
 
-        <View style={{flexDirection: 'row', paddingHorizontal: 50}}>
+        <View style={[{flex: 1, flexDirection: 'row', paddingHorizontal: 50,}]}>
           <TextInput
             value={joueur}
             onChangeText={(text) => this.setState({joueur: text})}
-            style={[{flex: 2, color: 'white', borderBottomWidth: 1, borderBottomColor: 'red'}, Textes.basique]}
+            style={[{flexGrow: 1, color: 'white', borderBottomWidth: 1, borderBottomColor: 'red'}, Textes.basique]}
             placeholderTextColor='#FFF'
             placeholder="   Joueur..."/>
 
           <Button
             onPress={() => this.inscrireJoueur()}
-            style={[{flex: 1}, Boutons.secondaire]}
+            style={[{width: 80, alignSelf: 'center'}, Boutons.secondaire]}
             textStyle={Textes.basique}>
             Inscrire
           </Button>
         </View>
 
-        <Button onPress={() => this.demarrerLaPartie()} isDisabled={!peutDemarrer}
-                style={[Boutons.principal, {marginBottom: 0}]} textStyle={Textes.basique}>
+        <View style={{flex: 1}}>
+          {joueurs.map((nom, index) =>
+            <Text key={index} style={[Textes.basique, {textAlign: 'center'}]}>
+              <Text style={[Textes.mav, {}]}>#{index + 1}</Text> - {nom}
+            </Text>)}
+        </View>
+
+        <Button
+          onPress={() => this.demarrerLaPartie()}
+          isDisabled={!peutDemarrer}
+          style={[Boutons.principal, {marginBottom: 10, marginHorizontal: 10}]}
+          textStyle={Textes.basique}>
           Démarrer
         </Button>
       </View>
@@ -59,7 +69,8 @@ class InscriptionDesJoueurs extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    peutDemarrer: state.cricket.peutDemarrer
+    peutDemarrer: state.cricket.peutDemarrer,
+    joueurs: state.cricket.joueurs
   }
 )
 
