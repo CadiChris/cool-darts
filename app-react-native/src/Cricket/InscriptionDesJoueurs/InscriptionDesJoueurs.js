@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Button, TextInput } from 'react-native'
+import { View, Button, TextInput, Text } from 'react-native'
 import { inscrireJoueur, demarrerPartie } from '../Cricket.actions'
-import { Styles } from '../styles'
+import { Styles, Textes } from '../styles'
 
 class InscriptionDesJoueurs extends React.Component {
   constructor(props) {
@@ -16,16 +16,20 @@ class InscriptionDesJoueurs extends React.Component {
     const {peutDemarrer} = this.props
     const {joueur} = this.state
     return (
-        <View style={[{flex: 1, flexDirection:'row'}, Styles.contenuAuMilieu]}>
-          <View style={{borderWidth: 1, borderRadius: 20, paddingHorizontal: 10}}>
+        <View style={[{flex: 1}, Styles.contenuAuMilieu]}>
+
+          <Text style={Textes.titre}>Nouvelle partie</Text>
+
+          <View style={{flexDirection: 'row'}}>
             <TextInput
               value={joueur}
               onChangeText={(text) => this.setState({joueur: text})}
               style={{height: 40, width: 100}}
               placeholder="Joueur"/>
+            <Button title="Inscrire" onPress={() => this.inscrireJoueur()} style={Textes.bouton}/>
           </View>
-          <Button title="Inscrire" onPress={() => this.inscrireJoueur()}/>
-          <Button title="GO" onPress={() => this.demarrerLaPartie()} disabled={!peutDemarrer}/>
+
+          <Button title="GO" onPress={() => this.demarrerLaPartie()} disabled={!peutDemarrer} style={{alignSelf:'flex-end'}}/>
       </View>
     )
   }

@@ -4,6 +4,7 @@ import TableauDesScores from './TableauDesScores/TableauDesScores'
 import InscriptionDesJoueurs from './InscriptionDesJoueurs/InscriptionDesJoueurs'
 import Vainqueurs from './Vainqueurs/Vainqueurs'
 import { StyleSheet, Text, View } from 'react-native'
+import { Styles } from './styles'
 
 class Cricket extends React.Component {
 
@@ -16,20 +17,12 @@ class Cricket extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={Styles.container}>
         {contenus[phase]}
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#aaa',
-    paddingTop: 25
-  },
-})
 
 const mapStateToProps = (state) => ({
   phase: state.cricket.phase

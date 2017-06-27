@@ -12,6 +12,11 @@
     "ios": "react-native run-ios",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  },
   "jest": {
     "preset": "jest-expo"
   },
