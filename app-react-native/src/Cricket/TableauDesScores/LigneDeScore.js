@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Text, View, TouchableHighlight } from 'react-native'
 import { Col, Row } from "react-native-easy-grid"
-import { Styles, Tailles } from '../styles'
+import { Styles, Tailles, Textes } from '../styles'
 import { lancerFlechette } from '../Cricket.actions'
 
 class LigneDeScore extends React.Component {
@@ -15,7 +15,7 @@ class LigneDeScore extends React.Component {
     return (
       <Row style={Styles.bordureBasse}>
         <Col style={{justifyContent: 'center'}} size={Tailles.largeurDeLaColonneJoueur}>
-          <Text style={{paddingLeft: 10}}>{score.joueur} - {score.points}</Text>
+          <Text style={[Textes.light, {paddingLeft: 10}]}>{score.joueur} - {score.points}</Text>
         </Col>
 
         {
@@ -25,7 +25,7 @@ class LigneDeScore extends React.Component {
               <Col style={[{flex:1}, Styles.bordureDroite, ferme ? Styles.chiffreFerme : {}]} key={index}>
                 <TouchableHighlight onPress={() => this.lancerSimpleDans(chiffre)} style={[{flex:1, alignSelf: 'stretch'}, Styles.contenuAuMilieu]}>
                   <View>
-                    <Text style={{textAlign: 'center'}}>{'X'.repeat(touches)}</Text>
+                    <Text style={[Textes.basique, {fontSize: 17, textAlign: 'center', letterSpacing: 3}]}>{'X'.repeat(touches)}</Text>
                   </View>
                 </TouchableHighlight>
               </Col>

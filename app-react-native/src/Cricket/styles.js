@@ -77,6 +77,6 @@ export const Styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   chiffreFerme: {
-    backgroundColor: 'lightgray'
+    backgroundColor: '#F67280'
   }
 });
