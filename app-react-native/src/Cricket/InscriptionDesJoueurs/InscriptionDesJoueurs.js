@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, TextInput, Text } from 'react-native'
+import FadeInView from './Technique/FadeInView'
 import Button from 'apsl-react-native-button'
 import { inscrireJoueur, demarrerPartie } from '../Cricket.actions'
 import { Styles, Textes, Boutons } from '../styles'
@@ -17,7 +18,9 @@ class InscriptionDesJoueurs extends React.Component {
     const {peutDemarrer, joueurs} = this.props
     const {joueur} = this.state
     return (
-      <View style={[Styles.contenuAuMilieu, {paddingHorizontal: 10, justifyContent: 'space-between'},]}>
+      <FadeInView
+        style={[Styles.contenuAuMilieu, {paddingHorizontal: 10, justifyContent: 'space-between'},]}
+        dureeDuFade={450}>
 
         <Text style={[Textes.titre, {marginTop: 50}]}>Nouvelle partie</Text>
 
@@ -52,7 +55,7 @@ class InscriptionDesJoueurs extends React.Component {
           textStyle={Textes.bouton}>
           Démarrer
         </Button>
-      </View>
+      </FadeInView>
     )
   }
 
