@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { View, TextInput, Text } from 'react-native'
 import FadeInView from './Technique/FadeInView'
+import ViewQuiDecale from './Technique/ViewQuiDecale'
 import Button from 'apsl-react-native-button'
 import { inscrireJoueur, demarrerPartie } from '../Cricket.actions'
 import { Styles, Textes, Boutons } from '../styles'
@@ -24,7 +25,7 @@ class InscriptionDesJoueurs extends React.Component {
 
         <Text style={[Textes.titre, {marginTop: 50}]}>Nouvelle partie</Text>
 
-        <View style={[{flex: 1, flexDirection: 'row', paddingHorizontal: 50,}]}>
+        <ViewQuiDecale dureeDuDecalage={230} coteDeDepart="right" style={[{flex: 1, flexDirection: 'row', paddingHorizontal: 50,}]}>
           <TextInput
             value={joueur}
             onChangeText={(text) => this.setState({joueur: text})}
@@ -38,7 +39,7 @@ class InscriptionDesJoueurs extends React.Component {
             textStyle={Textes.bouton}>
             Inscrire
           </Button>
-        </View>
+        </ViewQuiDecale>
 
         <View style={{flex: 1}}>
           {joueurs.map((nom, index) =>
