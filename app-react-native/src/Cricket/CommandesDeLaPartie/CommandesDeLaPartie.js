@@ -14,22 +14,20 @@ class CommandesDeLaPartie extends React.Component {
 
   render() {
     return (
-      <View style={{alignItems:'center'}}>
-      <View style={[{width: '30%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: 10}]}>
+      <View style={[{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 10}]}>
         <Button
           onPress={() => this.nouvellePartie()}
-          style={[Boutons.deCommande, {width: 60, height: 50}]}
+          style={[Boutons.deCommande, {width: 60, height: 50, marginHorizontal: 30}]}
           textStyle={[Textes.bouton, {fontSize: 12}]}>
           <Icon name="home" size={20} color="white"/>
         </Button>
         <Button
           onPress={() => this.undo()}
           isDisabled={true}
-          style={[Boutons.deCommande, {width: 60, height: 50}]}
+          style={[Boutons.deCommande, {width: 60, height: 50, marginHorizontal: 30}]}
           textStyle={[Textes.bouton, {fontSize: 12}]}>
           <Icon name="undo" size={20} color="white"/>
         </Button>
-      </View>
       </View>
     )
   }
