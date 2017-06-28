@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Text, View } from 'react-native'
+import { Text, View }  from 'react-native'
 import Button from 'apsl-react-native-button'
-import { Boutons, Textes, Styles } from '../styles'
+import { Boutons, Textes } from '../styles'
 import { nouvellePartie } from './../Cricket.actions'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class CommandesDeLaPartie extends React.Component {
 
@@ -13,13 +14,22 @@ class CommandesDeLaPartie extends React.Component {
 
   render() {
     return (
-      <View style={[{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 10}]}>
+      <View style={{alignItems:'center'}}>
+      <View style={[{width: '30%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: 10}]}>
         <Button
           onPress={() => this.nouvellePartie()}
-          style={[Boutons.deCommande, {width: 60}]}
+          style={[Boutons.deCommande, {width: 60, height: 50}]}
           textStyle={[Textes.bouton, {fontSize: 12}]}>
-          Accueil
+          <Icon name="home" size={20} color="white"/>
         </Button>
+        <Button
+          onPress={() => this.undo()}
+          isDisabled={true}
+          style={[Boutons.deCommande, {width: 60, height: 50}]}
+          textStyle={[Textes.bouton, {fontSize: 12}]}>
+          <Icon name="undo" size={20} color="white"/>
+        </Button>
+      </View>
       </View>
     )
   }
@@ -27,6 +37,10 @@ class CommandesDeLaPartie extends React.Component {
   nouvellePartie() {
     const {dispatch} = this.props
     dispatch(nouvellePartie())
+  }
+
+  undo() {
+
   }
 }
 
