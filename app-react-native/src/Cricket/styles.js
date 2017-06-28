@@ -16,9 +16,6 @@ const fonts = {
   fine: 'Lato-Italic',
 }
 
-const fontParDefaut = 'Lato-HairlineItalic'
-//const fontParDefaut = 'YanoneKaffeesatz-Regular'
-//const fontParDefaut = 'AndikaBasic'
 export const Textes = StyleSheet.create({
   basique: {
     fontFamily: fonts.basique,

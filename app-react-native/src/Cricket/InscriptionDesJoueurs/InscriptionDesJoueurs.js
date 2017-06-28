@@ -40,8 +40,9 @@ class InscriptionDesJoueurs extends React.Component {
         <View style={{flex: 1}}>
           {joueurs.map((nom, index) =>
             <Text key={index} style={[Textes.basique, Textes.mav, {textAlign: 'center'}]}>
-              <Text style={[Textes.light, {opacity:0.5}]}>#{index + 1}</Text> - {nom}
-            </Text>)}
+              <Text style={[Textes.light, {opacity: 0.5}]}>#{index + 1} - </Text>{nom}
+            </Text>
+          )}
         </View>
 
         <Button
