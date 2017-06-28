@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { View, TextInput, Text } from 'react-native'
 import FadeInView from '../Technique/FadeInView'
 import ViewQuiDecale from './../Technique/ViewQuiDecale'
+import TexteApparaissant from './../Technique/TexteApparaissant'
 import Button from 'apsl-react-native-button'
 import { inscrireJoueur, demarrerPartie } from '../Cricket.actions'
 import { Styles, Textes, Boutons } from '../styles'
@@ -43,9 +44,9 @@ class InscriptionDesJoueurs extends React.Component {
 
         <View style={{flex: 1}}>
           {joueurs.map((nom, index) =>
-            <Text key={index} style={[Textes.basique, Textes.mav, {textAlign: 'center'}]}>
+            <TexteApparaissant key={index} style={[Textes.basique, Textes.mav, {textAlign: 'center'}]}>
               <Text style={[Textes.light, {opacity: 0.5}]}>#{index + 1} - </Text>{nom}
-            </Text>
+            </TexteApparaissant>
           )}
         </View>
 
