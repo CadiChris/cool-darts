@@ -16,27 +16,18 @@ class TexteApparaissant extends React.Component {
   }
 
   componentDidMount() {
-    Animated.timing(
-      this.state.animations.decalage,
-      {
-        toValue: 0,
-        duration: 100,
-      }
-    ).start()
-    Animated.timing(
-      this.state.animations.fade,
-      {
-        toValue: 1,
-        duration: 80,
-      }
-    ).start()
-
+    Animated.parallel([
+      Animated.timing(this.state.animations.decalage, {toValue: 0, duration: 100}).start(),
+      Animated.timing(this.state.animations.fade, {toValue: 1, duration: 80}).start()])
   }
 
   render() {
     const {decalage, fade} = this.state.animations
     return (
-      <Animated.Text style={this.props.style ? [[...this.props.style], {top: decalage, opacity: fade}] : {top: decalage, opacity:fade}}>
+      <Animated.Text style={this.props.style ? [[...this.props.style], {top: decalage, opacity: fade}] : {
+          top: decalage,
+          opacity: fade
+        }}>
         {this.props.children}
       </Animated.Text>
     )
