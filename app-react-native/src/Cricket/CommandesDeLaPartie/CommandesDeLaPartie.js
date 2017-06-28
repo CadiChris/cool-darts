@@ -4,7 +4,7 @@ import { Text, View }  from 'react-native'
 import Button from 'apsl-react-native-button'
 import { Boutons, Textes } from '../styles'
 import { nouvellePartie } from './../Cricket.actions'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 class CommandesDeLaPartie extends React.Component {
 
