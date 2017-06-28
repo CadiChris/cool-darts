@@ -17,8 +17,9 @@ class TexteApparaissant extends React.Component {
 
   componentDidMount() {
     Animated.parallel([
-      Animated.timing(this.state.animations.decalage, {toValue: 0, duration: 100}).start(),
-      Animated.timing(this.state.animations.fade, {toValue: 1, duration: 80}).start()])
+      Animated.timing(this.state.animations.decalage, {toValue: 0, duration: 100}),
+      Animated.timing(this.state.animations.fade, {toValue: 1, duration: 80})]
+    ).start()
   }
 
   render() {
