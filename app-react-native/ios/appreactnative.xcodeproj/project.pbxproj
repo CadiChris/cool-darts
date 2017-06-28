@@ -35,7 +35,17 @@
 		2DCD954D1E0B4F2C00145EB5 /* appreactnativeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appreactnativeTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		39EB410AEF1C48D4A4D61E52 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = E6E9AB06200349B3A2CD145D /* Magnolia Script.otf */; };
+		1E2F285C5B4D4F218E634150 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20A4EC72346542E0BF96DED2 /* Lato-Black.ttf */; };
+		AFA628011EE14D0E8D842699 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4811881DAF84061A655E180 /* Lato-BlackItalic.ttf */; };
+		0B0940F319DD4FAD9553BDA9 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25E3BB4910F3457FA3595926 /* Lato-Bold.ttf */; };
+		C29A5F30610C42C295954F1D /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7336E9829A94A079AB95CDB /* Lato-BoldItalic.ttf */; };
+		D6833253AC3B4A6B97EB4911 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAD63DD3C031477F946F3DFB /* Lato-Hairline.ttf */; };
+		254A153EBD8D42B4AC6E5E1D /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B882F95A960B459AA2CBA057 /* Lato-HairlineItalic.ttf */; };
+		DD7D5D9C85544D6292D45FD7 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 948B93908F4242428D3067A9 /* Lato-Italic.ttf */; };
+		0FD762F6CA264445AD38AE05 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8235A26FD2E248AFB82E3A84 /* Lato-Light.ttf */; };
+		2A82EA678B5245E9828A6F90 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A5AFBD32ABF44A98FE59CB6 /* Lato-LightItalic.ttf */; };
+		613D11B0F4AA4736B67BD427 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3731D58152DF4224BF35AD47 /* Lato-Regular.ttf */; };
+		2DD43FD792D843AD8B6DE445 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E5F0CDEC88B40258B59B872 /* Magnolia Script.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,7 +265,17 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		E6E9AB06200349B3A2CD145D /* Magnolia Script.otf */ = {isa = PBXFileReference; name = "Magnolia Script.otf"; path = "../assets/fonts/Magnolia Script.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		20A4EC72346542E0BF96DED2 /* Lato-Black.ttf */ = {isa = PBXFileReference; name = "Lato-Black.ttf"; path = "../assets/fonts/Lato-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F4811881DAF84061A655E180 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Lato-BlackItalic.ttf"; path = "../assets/fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		25E3BB4910F3457FA3595926 /* Lato-Bold.ttf */ = {isa = PBXFileReference; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D7336E9829A94A079AB95CDB /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Lato-BoldItalic.ttf"; path = "../assets/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EAD63DD3C031477F946F3DFB /* Lato-Hairline.ttf */ = {isa = PBXFileReference; name = "Lato-Hairline.ttf"; path = "../assets/fonts/Lato-Hairline.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B882F95A960B459AA2CBA057 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; name = "Lato-HairlineItalic.ttf"; path = "../assets/fonts/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		948B93908F4242428D3067A9 /* Lato-Italic.ttf */ = {isa = PBXFileReference; name = "Lato-Italic.ttf"; path = "../assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8235A26FD2E248AFB82E3A84 /* Lato-Light.ttf */ = {isa = PBXFileReference; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1A5AFBD32ABF44A98FE59CB6 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; name = "Lato-LightItalic.ttf"; path = "../assets/fonts/Lato-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3731D58152DF4224BF35AD47 /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3E5F0CDEC88B40258B59B872 /* Magnolia Script.otf */ = {isa = PBXFileReference; name = "Magnolia Script.otf"; path = "../assets/fonts/Magnolia Script.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,7 +508,17 @@
 		2886C8DBF88D4635BA2ABE64 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				E6E9AB06200349B3A2CD145D /* Magnolia Script.otf */,
+				20A4EC72346542E0BF96DED2 /* Lato-Black.ttf */,
+				F4811881DAF84061A655E180 /* Lato-BlackItalic.ttf */,
+				25E3BB4910F3457FA3595926 /* Lato-Bold.ttf */,
+				D7336E9829A94A079AB95CDB /* Lato-BoldItalic.ttf */,
+				EAD63DD3C031477F946F3DFB /* Lato-Hairline.ttf */,
+				B882F95A960B459AA2CBA057 /* Lato-HairlineItalic.ttf */,
+				948B93908F4242428D3067A9 /* Lato-Italic.ttf */,
+				8235A26FD2E248AFB82E3A84 /* Lato-Light.ttf */,
+				1A5AFBD32ABF44A98FE59CB6 /* Lato-LightItalic.ttf */,
+				3731D58152DF4224BF35AD47 /* Lato-Regular.ttf */,
+				3E5F0CDEC88B40258B59B872 /* Magnolia Script.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -852,7 +882,17 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				39EB410AEF1C48D4A4D61E52 /* Magnolia Script.otf in Resources */,
+				1E2F285C5B4D4F218E634150 /* Lato-Black.ttf in Resources */,
+				AFA628011EE14D0E8D842699 /* Lato-BlackItalic.ttf in Resources */,
+				0B0940F319DD4FAD9553BDA9 /* Lato-Bold.ttf in Resources */,
+				C29A5F30610C42C295954F1D /* Lato-BoldItalic.ttf in Resources */,
+				D6833253AC3B4A6B97EB4911 /* Lato-Hairline.ttf in Resources */,
+				254A153EBD8D42B4AC6E5E1D /* Lato-HairlineItalic.ttf in Resources */,
+				DD7D5D9C85544D6292D45FD7 /* Lato-Italic.ttf in Resources */,
+				0FD762F6CA264445AD38AE05 /* Lato-Light.ttf in Resources */,
+				2A82EA678B5245E9828A6F90 /* Lato-LightItalic.ttf in Resources */,
+				613D11B0F4AA4736B67BD427 /* Lato-Regular.ttf in Resources */,
+				2DD43FD792D843AD8B6DE445 /* Magnolia Script.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

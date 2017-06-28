@@ -10,23 +10,36 @@ export const Couleurs = {
   bordure: 'white'
 }
 
-const fontParDefaut = 'Magnolia Script'
+const fonts = {
+  basique: 'Lato-Regular',
+  epaisse: 'Lato-BlackItalic',
+  fine: 'Lato-Italic',
+}
+
+const fontParDefaut = 'Lato-HairlineItalic'
+//const fontParDefaut = 'YanoneKaffeesatz-Regular'
+//const fontParDefaut = 'AndikaBasic'
 export const Textes = StyleSheet.create({
   basique: {
-    fontFamily: fontParDefaut,
-    color: 'white'
+    fontFamily: fonts.basique,
+    color: 'white',
   },
   titre: {
-    fontFamily: fontParDefaut,
+    fontFamily: fonts.epaisse,
     fontSize: 34,
     color: 'white'
   },
-  mav : {
-    fontSize: 20
+  light: {
+    fontFamily: fonts.fine,
+    color: 'white',
+  },
+  mav: {
+    fontSize: 22,
+    color: 'white',
   },
   bouton: {
-    fontFamily: fontParDefaut,
-    color: '#C06C84'
+    fontFamily: fonts.fine,
+    color: 'white'
   }
 })
 

@@ -25,22 +25,22 @@ class InscriptionDesJoueurs extends React.Component {
           <TextInput
             value={joueur}
             onChangeText={(text) => this.setState({joueur: text})}
-            style={[{flexGrow: 1, color: 'white', borderBottomWidth: 1, borderBottomColor: 'red'}, Textes.basique]}
+            style={[{flexGrow: 1, color: 'white', borderBottomWidth: 1, borderBottomColor: 'red'}, Textes.light]}
             placeholderTextColor='#FFF'
             placeholder="   Joueur..."/>
 
           <Button
             onPress={() => this.inscrireJoueur()}
             style={[{width: 80, alignSelf: 'center'}, Boutons.secondaire]}
-            textStyle={Textes.basique}>
+            textStyle={Textes.bouton}>
             Inscrire
           </Button>
         </View>
 
         <View style={{flex: 1}}>
           {joueurs.map((nom, index) =>
-            <Text key={index} style={[Textes.basique, {textAlign: 'center'}]}>
-              <Text style={[Textes.mav, {}]}>#{index + 1}</Text> - {nom}
+            <Text key={index} style={[Textes.basique, Textes.mav, {textAlign: 'center'}]}>
+              <Text style={[Textes.light, {opacity:0.5}]}>#{index + 1}</Text> - {nom}
             </Text>)}
         </View>
 
@@ -48,7 +48,7 @@ class InscriptionDesJoueurs extends React.Component {
           onPress={() => this.demarrerLaPartie()}
           isDisabled={!peutDemarrer}
           style={[Boutons.principal, {marginBottom: 10, marginHorizontal: 10}]}
-          textStyle={Textes.basique}>
+          textStyle={Textes.bouton}>
           Démarrer
         </Button>
       </View>
