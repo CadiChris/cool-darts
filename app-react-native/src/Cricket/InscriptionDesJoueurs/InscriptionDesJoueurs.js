@@ -32,7 +32,7 @@ class InscriptionDesJoueurs extends React.Component {
             onChangeText={(text) => this.setState({joueur: text})}
             style={[{flexGrow: 1, color: 'white', borderBottomWidth: 1, borderBottomColor: 'red'}, Textes.light]}
             placeholderTextColor='#FFF'
-            placeholder="   Joueur..."/>
+            placeholder="Joueur..."/>
 
           <Button
             onPress={() => this.inscrireJoueur()}
