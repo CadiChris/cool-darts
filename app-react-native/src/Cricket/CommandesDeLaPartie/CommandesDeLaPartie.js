@@ -13,6 +13,7 @@ class CommandesDeLaPartie extends React.Component {
   }
 
   render() {
+    const {aucunPrecedent} = this.props
     return (
       <View style={[{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 10}]}>
         <Button
@@ -23,7 +24,7 @@ class CommandesDeLaPartie extends React.Component {
         </Button>
         <Button
           onPress={() => this.undo()}
-          isDisabled={true}
+          isDisabled={aucunPrecedent}
           style={[Boutons.deCommande, {width: 60, height: 50, marginHorizontal: 30}]}
           textStyle={[Textes.bouton, {fontSize: 12}]}>
           <Icon name="undo" size={20} color="white"/>
@@ -38,8 +39,13 @@ class CommandesDeLaPartie extends React.Component {
   }
 
   undo() {
-
+    const {dispatch} = this.props
+    dispatch({type:'UNDO'})
   }
 }
 
-export default connect()(CommandesDeLaPartie)
+const mapStateToProps = (state) => ({
+  aucunPrecedent: state.cricket.precedents[state.cricket.precedents.length-1].phase === 'INSCRIPTION'
+})
+
+export default connect(mapStateToProps)(CommandesDeLaPartie)

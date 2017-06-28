@@ -70,8 +70,8 @@ class InscriptionDesJoueurs extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    peutDemarrer: state.cricket.peutDemarrer,
-    joueurs: state.cricket.joueurs
+    peutDemarrer: state.cricket.actuel.peutDemarrer,
+    joueurs: state.cricket.actuel.joueurs
   }
 )
 

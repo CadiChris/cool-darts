@@ -33,7 +33,7 @@ class Cricket extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  phase: state.cricket.phase
+  phase: state.cricket.actuel.phase
 })
 
 export default connect(mapStateToProps)(Cricket)
