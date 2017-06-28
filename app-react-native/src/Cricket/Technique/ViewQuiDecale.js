@@ -27,6 +27,7 @@ class ViewQuiDecale extends React.Component {
   render() {
     const {decalage} = this.state.animations
     const {coteDeDepart} = this.props
+
     return (
       <Animated.View style={[[...this.props.style], {[coteDeDepart]: decalage}]}>
         {this.props.children}
