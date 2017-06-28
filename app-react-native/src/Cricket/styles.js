@@ -54,6 +54,11 @@ export const Boutons = StyleSheet.create({
     borderBottomWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
+  },
+  deCommande: {
+    backgroundColor: '#6C5B7B',
+    borderWidth: 0,
+    opacity: 0.9,
   }
 })
 

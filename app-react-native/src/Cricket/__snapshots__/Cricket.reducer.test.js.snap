@@ -223,6 +223,16 @@ Object {
 }
 `;
 
+exports[`recrée une nouvelle partie 1`] = `
+Object {
+  "joueurs": Array [],
+  "peutDemarrer": false,
+  "phase": "INSCRIPTION",
+  "scores": Array [],
+  "vainqueurs": Array [],
+}
+`;
+
 exports[`retourne le state initial 1`] = `
 Object {
   "joueurs": Array [],

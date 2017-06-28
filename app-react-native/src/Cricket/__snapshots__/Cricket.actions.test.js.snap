@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`crée une nouvelle partie 1`] = `
+Object {
+  "type": "NOUVELLE_PARTIE",
+}
+`;
+
 exports[`démarre la partie 1`] = `
 Object {
   "type": "DEMARRER_PARTIE",

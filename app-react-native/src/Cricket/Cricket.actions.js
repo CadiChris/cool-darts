@@ -17,3 +17,7 @@ export function lancerFlechette(joueur, chiffre, touches) {
     touches
   }
 }
+
+export const nouvellePartie = () => ({
+  type: 'NOUVELLE_PARTIE'
+})

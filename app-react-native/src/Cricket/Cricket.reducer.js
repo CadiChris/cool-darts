@@ -42,6 +42,11 @@ export default function partie(state = STATE_INITIAL, action) {
         phase: vainqueursDuNouveauScore.length > 0 ? 'TERMINEE' : state.phase
       }
 
+    case 'NOUVELLE_PARTIE':
+      return {
+        ...STATE_INITIAL
+      }
+
     default:
       return state
   }

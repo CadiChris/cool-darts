@@ -1,5 +1,5 @@
 import cricket from './Cricket.reducer'
-import { inscrireJoueur, demarrerPartie, lancerFlechette } from './Cricket.actions'
+import { inscrireJoueur, demarrerPartie, lancerFlechette, nouvellePartie } from './Cricket.actions'
 
 it('retourne le state initial', () => {
   expect(cricket(undefined, {})).toMatchSnapshot()
@@ -29,6 +29,11 @@ it('met fin à la partie sur le lancer qui désigne le vainqueur', () => {
 
   expect(partieTerminee.vainqueurs).toEqual(['J1'])
   expect(partieTerminee.phase).toEqual('TERMINEE')
+})
+
+it('recrée une nouvelle partie', () => {
+  const partieDemarree = cricket(partieAvec1Joueur('J1'), demarrerPartie())
+  expect(cricket(partieDemarree, nouvellePartie())).toMatchSnapshot()
 })
 
 const partieVide = () => cricket(undefined, {})

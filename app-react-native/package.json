@@ -18,10 +18,14 @@
     ]
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|apsl-react-native-button)/"
+    ]
   },
   "dependencies": {
     "apsl-react-native-button": "^3.0.2",
+    "babel-preset-react-native": "^2.0.0",
     "deep-freeze": "^0.0.1",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.44.0",
