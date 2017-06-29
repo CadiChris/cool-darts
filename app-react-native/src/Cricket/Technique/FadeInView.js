@@ -14,13 +14,7 @@ class FadeInView extends React.Component {
 
   componentDidMount() {
     const {dureeDuFade} = this.props
-    Animated.timing(
-      this.state.animations.fade,
-      {
-        toValue: 1,
-        duration: dureeDuFade,
-      }
-    ).start();
+    Animated.timing(this.state.animations.fade, {toValue: 1, duration: dureeDuFade,}).start();
   }
 
   render() {

@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Animated } from 'react-native'
 
 class ViewQuiDecale extends React.Component {
@@ -15,13 +14,7 @@ class ViewQuiDecale extends React.Component {
 
   componentDidMount() {
     const {dureeDuDecalage} = this.props
-    Animated.timing(
-      this.state.animations.decalage,
-      {
-        toValue: 0,
-        duration: dureeDuDecalage,
-      }
-    ).start()
+    Animated.timing(this.state.animations.decalage, {toValue: 0, duration: dureeDuDecalage,}).start()
   }
 
   render() {
@@ -29,15 +22,12 @@ class ViewQuiDecale extends React.Component {
     const {coteDeDepart} = this.props
 
     return (
-      <Animated.View style={this.props.style ? [[...this.props.style], {[coteDeDepart]: decalage}] : {[coteDeDepart]: decalage}}>
+      <Animated.View
+        style={this.props.style ? [[...this.props.style], {[coteDeDepart]: decalage}] : {[coteDeDepart]: decalage}}>
         {this.props.children}
       </Animated.View>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {}
-}
-
-export default connect(mapStateToProps)(ViewQuiDecale)
+export default ViewQuiDecale

@@ -12,7 +12,6 @@ class TexteApparaissant extends React.Component {
         decalage: new Animated.Value(40)
       }
     }
-
   }
 
   componentDidMount() {
