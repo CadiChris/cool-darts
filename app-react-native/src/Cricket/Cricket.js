@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TableauDesScores from './TableauDesScores/TableauDesScores'
-import InscriptionDesJoueurs from './InscriptionDesJoueurs/InscriptionDesJoueurs'
+import InscriptionDesJoueurs from './InscriptionDesJoueurs/InscriptionDesJoueurs.container'
 import CommandesDeLaPartie from './CommandesDeLaPartie/CommandesDeLaPartie.container'
 import Vainqueurs from './Vainqueurs/Vainqueurs'
 import { StyleSheet, Text, View } from 'react-native'
