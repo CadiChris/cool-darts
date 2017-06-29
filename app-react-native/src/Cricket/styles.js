@@ -44,21 +44,22 @@ export const Boutons = StyleSheet.create({
   principal: {
     backgroundColor: '#6C5B7B',
     borderTopWidth: 0,
-    borderBottomWidth: 0.4,
+    borderBottomWidth: 0.25,
     borderLeftWidth: 0,
     borderRightWidth: 0,
   },
   secondaire: {
     backgroundColor: '#C06C84',
     borderTopWidth: 0,
-    borderBottomWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
+    borderBottomWidth: 0.25,
   },
   deCommande: {
     backgroundColor: '#6C5B7B',
     borderWidth: 0,
     opacity: 0.9,
+    borderBottomWidth: 0.25,
   }
 })
 
