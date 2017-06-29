@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import TableauDesScores from './TableauDesScores/TableauDesScores'
+import TableauDesScores from './TableauDesScores/TableauDesScores.container'
 import InscriptionDesJoueurs from './InscriptionDesJoueurs/InscriptionDesJoueurs.container'
 import CommandesDeLaPartie from './CommandesDeLaPartie/CommandesDeLaPartie.container'
 import Vainqueurs from './Vainqueurs/Vainqueurs'
