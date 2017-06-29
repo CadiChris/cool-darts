@@ -27,7 +27,7 @@ class Vainqueurs extends React.Component {
           </View>
           <Button
             onPress={() => this.nouvellePartie()}
-            style={[Boutons.deCommande, {width: 60, height: 50, marginHorizontal: 30}]}
+            style={[Boutons.deCommande, {width: 60, height: 50, alignSelf:'center'}]}
             textStyle={[Textes.bouton, {fontSize: 12}]}>
             <Icon name="home" size={20} color="white"/>
           </Button>
