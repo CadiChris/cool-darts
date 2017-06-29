@@ -4,7 +4,7 @@ import FadeInView from './../Technique/FadeInView'
 import { StyleSheet, Text } from 'react-native'
 import { Grid } from "react-native-easy-grid"
 import EnTete from './EnTete'
-import LigneDeScore from './LigneDeScore'
+import LigneDeScore from './LigneDeScore.container'
 
 
 class TableauDesScores extends React.Component {
