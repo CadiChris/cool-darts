@@ -3021,6 +3021,10 @@ react-native-easy-grid@^0.1.13:
   dependencies:
     lodash "^4.11.1"
 
+react-native-keep-awake@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-2.0.4.tgz#da58b3161f1360163445c53e8c1cf411068f9a75"
+
 react-native-vector-icons@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.2.0.tgz#0594b68debdd758dce4c565bf02e2d64d7004d82"

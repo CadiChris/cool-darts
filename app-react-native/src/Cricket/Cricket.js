@@ -6,6 +6,7 @@ import CommandesDeLaPartie from './CommandesDeLaPartie/CommandesDeLaPartie'
 import Vainqueurs from './Vainqueurs/Vainqueurs'
 import { StyleSheet, Text, View } from 'react-native'
 import { Styles } from './styles'
+import KeepAwake from 'react-native-keep-awake'
 
 class Cricket extends React.Component {
 
@@ -27,6 +28,7 @@ class Cricket extends React.Component {
         {
           afficherLesCommandes ? <CommandesDeLaPartie /> : null
         }
+        <KeepAwake/>
       </View>
     )
   }
