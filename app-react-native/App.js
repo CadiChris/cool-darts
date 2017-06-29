@@ -6,21 +6,16 @@ import Cricket from './src/Cricket/Cricket'
 import SplashScreen from './src/Cricket/Technique/SplashScreen'
 import undoable from './src/undo/undoable'
 
-
 let store = createStore(
   combineReducers({
     cricket: undoable(cricket)
   }),
 )
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <SplashScreen dureeDuSplash={2750}>
-          <Cricket />
-        </SplashScreen>
-      </Provider>
-    );
-  }
-}
+export default () => (
+  <Provider store={store}>
+    <SplashScreen dureeDuSplash={2750}>
+      <Cricket />
+    </SplashScreen>
+  </Provider>
+)
