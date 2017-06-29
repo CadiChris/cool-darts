@@ -3,18 +3,23 @@ import { connect, Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import cricket from './src/Cricket/Cricket.reducer'
 import Cricket from './src/Cricket/Cricket'
+import SplashScreen from './src/Cricket/Technique/SplashScreen'
+import undoable from './src/undo/undoable'
+
 
 let store = createStore(
   combineReducers({
-    cricket
-  })
+    cricket: undoable(cricket)
+  }),
 )
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Cricket />
+        <SplashScreen dureeDuSplash={2750}>
+          <Cricket />
+        </SplashScreen>
       </Provider>
     );
   }
