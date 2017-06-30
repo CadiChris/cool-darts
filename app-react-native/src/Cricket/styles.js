@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 
+// Palette de couleurs : https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/
+
 export const Tailles = {
   hauteurEnTete: 30,
   largeurDeLaColonneJoueur: 3
