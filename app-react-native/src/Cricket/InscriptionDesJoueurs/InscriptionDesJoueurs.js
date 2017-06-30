@@ -1,10 +1,15 @@
 import React from 'react'
-import { View, TextInput, Text } from 'react-native'
+import { View, TextInput, Text, Platform } from 'react-native'
 import FadeInView from '../Technique/FadeInView'
 import ViewQuiDecale from './../Technique/ViewQuiDecale'
 import TexteApparaissant from './../Technique/TexteApparaissant'
 import Button from 'apsl-react-native-button'
 import { Styles, Textes, Boutons } from '../styles'
+
+const unPeuTransparent = Platform.select({
+  ios: {opacity: .5},
+  android: {color: '#8498AB'}
+})
 
 export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur, declencherDemarrerLaPartie, nommerLeJoueur}) => (
   <FadeInView
@@ -34,7 +39,7 @@ export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur
     <View style={{flex: 1}}>
       {joueurs.map((nom, index) =>
         <TexteApparaissant key={index} style={[Textes.basique, Textes.mav, {textAlign: 'center'}]}>
-          <Text style={[Textes.light, {opacity: 0.5}]}>#{index + 1} - </Text>{nom}
+          <Text style={[Textes.light, {...unPeuTransparent}]}>#{index + 1}</Text>  {nom}
         </TexteApparaissant>
       )}
     </View>
