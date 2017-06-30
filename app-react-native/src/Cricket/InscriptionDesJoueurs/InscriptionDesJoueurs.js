@@ -19,6 +19,7 @@ export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur
         value={joueur}
         onChangeText={(text) => nommerLeJoueur(text)}
         style={[{flexGrow: 1, color: 'white', borderBottomWidth: 1, borderBottomColor: 'red'}, Textes.light]}
+        underlineColorAndroid='rgba(0,0,0,0)'
         placeholderTextColor='#FFF'
         placeholder="Joueur..."/>
 
