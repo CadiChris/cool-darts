@@ -25,7 +25,7 @@ export const Textes = StyleSheet.create({
   },
   titre: {
     fontFamily: fonts.epaisse,
-    fontSize: 34,
+    fontSize: 38,
     color: 'white'
   },
   light: {

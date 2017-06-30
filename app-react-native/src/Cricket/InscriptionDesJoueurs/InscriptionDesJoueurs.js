@@ -16,7 +16,7 @@ export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur
     style={[Styles.contenuAuMilieu, {paddingHorizontal: 10, justifyContent: 'space-between'},]}
     dureeDuFade={450}>
 
-    <Text style={[Textes.titre, {marginTop: 50}]}>Nouvelle partie</Text>
+    <Text style={[Textes.titre, {marginTop: 50}]}>Cut-Throat Cricket</Text>
 
     <ViewQuiDecale dureeDuDecalage={230} coteDeDepart="right"
                    style={[{flex: 1, flexDirection: 'row', paddingHorizontal: 50,}]}>
