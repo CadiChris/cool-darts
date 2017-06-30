@@ -45,6 +45,10 @@ buck-out/
 #
 .expo/
 
+# Publication sur les stores
+#
+android/keystore.properties
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
