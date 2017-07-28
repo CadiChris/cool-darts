@@ -2,6 +2,7 @@
 
 exports[`démarre la partie 1`] = `
 Object {
+  "chiffreCourant": 15,
   "joueurs": Array [
     "J1",
     "J2",
@@ -11,31 +12,13 @@ Object {
   "scores": Array [
     Object {
       "joueur": "J1",
-      "touches": Object {
-        "15": 0,
-        "16": 0,
-        "17": 0,
-        "18": 0,
-        "19": 0,
-        "20": 0,
-        "B": 0,
-        "D": 0,
-        "T": 0,
-      },
+      "points": 40,
+      "touches": Object {},
     },
     Object {
       "joueur": "J2",
-      "touches": Object {
-        "15": 0,
-        "16": 0,
-        "17": 0,
-        "18": 0,
-        "19": 0,
-        "20": 0,
-        "B": 0,
-        "D": 0,
-        "T": 0,
-      },
+      "points": 40,
+      "touches": Object {},
     },
   ],
 }
@@ -49,6 +32,60 @@ Object {
   "lanceur": undefined,
   "phase": "INSCRIPTION",
   "scores": Array [],
+}
+`;
+
+exports[`note une volée 1`] = `
+Object {
+  "chiffreCourant": 15,
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J2",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 55,
+      "touches": Object {
+        "15": 1,
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 40,
+      "touches": Object {},
+    },
+  ],
+}
+`;
+
+exports[`note une volée 2`] = `
+Object {
+  "chiffreCourant": 16,
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J1",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 55,
+      "touches": Object {
+        "15": 1,
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 70,
+      "touches": Object {
+        "15": 2,
+      },
+    },
+  ],
 }
 `;
 

@@ -11,10 +11,21 @@ const demarrerPartie = () => ({
   type: DEMARRER_PARTIE
 })
 
+const VOLEE = 'VOLEE'
+const volee = (nombreDeTouches) => ({
+  type: VOLEE,
+  payload: {
+    nombreDeTouches
+  }
+})
+
 export {
   INSCRIRE_JOUEUR,
   inscrireJoueur,
 
   DEMARRER_PARTIE,
-  demarrerPartie
+  demarrerPartie,
+
+  VOLEE,
+  volee
 }
