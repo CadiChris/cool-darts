@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`inscrit un joueur 1`] = `
+Object {
+  "joueurs": Array [
+    "J1",
+  ],
+  "lanceur": undefined,
+  "phase": "INSCRIPTION",
+  "scores": Array [],
+}
+`;
+
 exports[`retourne le state initial 1`] = `
 Object {
   "joueurs": Array [],
