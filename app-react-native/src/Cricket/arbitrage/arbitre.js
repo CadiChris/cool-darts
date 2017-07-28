@@ -5,7 +5,7 @@ export function calculerLeNouveauScore(tableauDesScores, lancer) {
     return [...tableauDesScores]
 
   const penalite = penaliteDuLancer(tableauDesScores, lancer)
-  return tableauDesScores.map(s => (scorer(s, lancer, penalite)))
+  return tableauDesScores.map(s => scorer(s, lancer, penalite))
 }
 
 const toucheUnChiffreInvalide = (lancer) => lancer.chiffre < 15
