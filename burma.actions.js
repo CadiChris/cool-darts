@@ -1,16 +1,20 @@
-
 const INSCRIRE_JOUEUR = 'INSCRIRE_JOUEUR'
-
-const inscrireJoueur = (nomDuJoueur) => {
-  return {
-    type: INSCRIRE_JOUEUR,
-    payload: {
-      nomDuJoueur
-    }
+const inscrireJoueur = (nomDuJoueur) => ({
+  type: INSCRIRE_JOUEUR,
+  payload: {
+    nomDuJoueur
   }
-}
+})
+
+const DEMARRER_PARTIE = 'DEMARRER_PARTIE'
+const demarrerPartie = () => ({
+  type: DEMARRER_PARTIE
+})
 
 export {
   INSCRIRE_JOUEUR,
-  inscrireJoueur
+  inscrireJoueur,
+
+  DEMARRER_PARTIE,
+  demarrerPartie
 }
