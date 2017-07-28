@@ -12,7 +12,7 @@ class Cricket extends React.Component {
 
   render() {
     const {phase} = this.props
-    const contenus = {
+    const ecrans = {
       INSCRIPTION: <InscriptionDesJoueurs/>,
       EN_COURS: <TableauDesScores/>,
       TERMINEE: <Vainqueurs />
@@ -23,7 +23,7 @@ class Cricket extends React.Component {
     return (
       <View style={Styles.container}>
         {
-          contenus[phase]
+          ecrans[phase]
         }
         {
           afficherLesCommandes ? <CommandesDeLaPartie /> : null
