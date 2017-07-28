@@ -36,5 +36,5 @@ it('recrée une nouvelle partie', () => {
   expect(cricket(partieDemarree, nouvellePartie())).toMatchSnapshot()
 })
 
-const partieVide = () => cricket(undefined, {})
 const partieAvec1Joueur = (joueur) => cricket(partieVide(), inscrireJoueur(joueur))
+const partieVide = () => cricket(undefined, {})
