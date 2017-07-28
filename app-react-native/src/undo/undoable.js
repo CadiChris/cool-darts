@@ -17,8 +17,9 @@ const undoable = (reducer) => {
 
       default:
         const remplacant = reducer(actuel, action)
+        const actionSansEffet = actuel === remplacant
 
-        if (actuel === remplacant)
+        if (actionSansEffet)
           return state
 
         return {
