@@ -1,5 +1,5 @@
 import { burma } from './burma'
 
-it('ne fait rien', () => {
-  expect(burma()).toEqual({})
+it('retourne le state initial', () => {
+  expect(burma(undefined, {})).toMatchSnapshot()
 })

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`retourne le state initial 1`] = `
+Object {
+  "joueurs": Array [],
+  "lanceur": undefined,
+  "phase": "INSCRIPTION",
+  "scores": Array [],
+}
+`;
