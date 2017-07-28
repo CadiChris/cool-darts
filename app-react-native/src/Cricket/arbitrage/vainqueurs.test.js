@@ -8,7 +8,7 @@ it('pas de vainqueurs si certains chiffres sont ouverts', () => {
   expect(vainqueurs([seulementLe20Ferme])).toEqual([])
 })
 
-it('déclare vainqueurs celui qui a tous ses chiffres fermés', () => {
+it('déclare vainqueur celui qui a tous ses chiffres fermés', () => {
   const seulementLe20Ferme = score('J1', {20: _3_TOUCHES}, 0)
   const toutFerme = scoreAvecCibleFermee('J2')
 
