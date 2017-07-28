@@ -1,14 +1,16 @@
 export function vainqueurs(scores) {
-  const scoresAyantToutFerme = extraireCeuxQuiOntToutFerme(scores)
+  const vainqueurs = extraireCeuxQuiOntToutFerme(scores)
 
-  return scoresAyantToutFerme.length <= 1
-    ? scoresAyantToutFerme.map(s => s.joueur)
-    : extraireLesMoinsPenalises(scores).map(s => s.joueur)
+  switch (vainqueurs.length) {
+    case 0: return []
+    case 1: return [vainqueurs[0].joueur]
+    default: return extraireLesMoinsPenalises(scores).map(s => s.joueur)
+  }
 }
 
 function extraireCeuxQuiOntToutFerme(scores) {
   const lesChiffresDeLaCibleSontFermes = (cible) => (
-    Object.keys(cible).every(chiffre => cible[chiffre].ferme)
+      Object.keys(cible).every(chiffre => cible[chiffre].ferme)
   )
   const scoreAvecCibleFermee = (score) => lesChiffresDeLaCibleSontFermes(score.cible)
 
