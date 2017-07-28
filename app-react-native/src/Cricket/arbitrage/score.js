@@ -2,7 +2,7 @@
 
 export function scoreVierge(joueur) {
   return {
-    joueur: joueur,
+    joueur,
     points: 0,
     cible: {
       15: {touches: 0, ferme: false},
@@ -19,7 +19,8 @@ export function scoreVierge(joueur) {
 const LIMITE = 3
 
 export function toucher(chiffre, touches, score) {
-  const nouvellesTouches = Math.min(score.cible[chiffre].touches + touches, LIMITE)
+  const touchesActuelles = score.cible[chiffre].touches;
+  const nouvellesTouches = Math.min(touchesActuelles + touches, LIMITE)
 
   return {
     ...score,
