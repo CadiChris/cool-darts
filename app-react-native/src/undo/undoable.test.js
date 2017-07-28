@@ -34,7 +34,7 @@ describe('undoable', () => {
   it('alimente actuel et precedent sur une action', () => {
     expect(reducerAvecUndo()(undefined, INCREMENT)).toEqual({
       actuel: 1,
-      precedents:[0]
+      precedents: [0]
     })
   })
 
@@ -43,7 +43,7 @@ describe('undoable', () => {
     let compteurAZero = reducer(undefined, {})
     let compteurA1 = reducer(compteurAZero, INCREMENT)
     let compteurA2 = reducer(compteurA1, INCREMENT)
-    let retourA1 = reducer(compteurA2, {type:'UNDO'})
+    let retourA1 = reducer(compteurA2, {type: 'UNDO'})
     expect(retourA1).toEqual({
       actuel: 1,
       precedents: [0]
