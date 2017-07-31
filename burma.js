@@ -11,14 +11,15 @@ const burma = (state = STATE_INITIAL, action) => {
     case INSCRIRE_JOUEUR:
       return {
         ...state,
-        joueurs: joueurs(state, action)
+        joueurs: joueurs(state, action),
+        scores: scores(state.scores, action)
       }
 
     case DEMARRER_PARTIE:
       return {
         ...state,
         lanceur: lanceur(state, action),
-        scores: scores(state, action),
+        scores: scores(state.scores, action),
         phase: phase(state, action),
         chiffreCourant: chiffreCourant(state, action)
       }
@@ -28,7 +29,7 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: lanceur(state, action),
         chiffreCourant: chiffreCourant(state, action),
-        scores: scores(state, action)
+        scores: scores(state.scores, action)
       }
 
     default:

@@ -31,7 +31,13 @@ Object {
   ],
   "lanceur": undefined,
   "phase": "INSCRIPTION",
-  "scores": Array [],
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 40,
+      "touches": Object {},
+    },
+  ],
 }
 `;
 

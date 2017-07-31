@@ -1,14 +1,17 @@
-import { DEMARRER_PARTIE, VOLEE } from "./burma.actions";
+import { VOLEE, INSCRIRE_JOUEUR } from "./burma.actions";
 
 function scores(state = [], action) {
   switch (action.type) {
 
-    case DEMARRER_PARTIE:
-      return state.joueurs.map(scoreVierge)
+    case  INSCRIRE_JOUEUR :
+      return [
+        ...state,
+        scoreVierge(action.payload.nomDuJoueur)
+      ]
 
     case VOLEE:
-      return state.scores.map((s) =>
-          noterUneVolee(state.chiffreCourant, action.payload.nombreDeTouches, s, state.lanceur))
+      return state.map((s) =>
+          noterUneVolee(action.payload.chiffre, action.payload.nombreDeTouches, s, action.payload.lanceur))
 
     default:
       return state
@@ -20,7 +23,7 @@ const scoreVierge = (joueur) => ({
   points: POINTS_INITIAUX,
   touches: {}
 })
-
+const POINTS_INITIAUX = 40;
 
 const noterUneVolee = (chiffre, nombreDeTouches, score, lanceur) => {
   const joueurNonConcerne = score.joueur !== lanceur
@@ -38,8 +41,6 @@ const noterUneVolee = (chiffre, nombreDeTouches, score, lanceur) => {
     }
 }
 
-
-const POINTS_INITIAUX = 40;
 
 export {
   scores

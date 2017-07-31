@@ -12,9 +12,11 @@ const demarrerPartie = () => ({
 })
 
 const VOLEE = 'VOLEE'
-const volee = (nombreDeTouches) => ({
+const volee = (lanceur, chiffre, nombreDeTouches) => ({
   type: VOLEE,
   payload: {
+    lanceur,
+    chiffre,
     nombreDeTouches
   }
 })

@@ -21,9 +21,9 @@ it("note une volée", () => {
   const burma2joueurs = burma(burma1joueur, inscrireJoueur("J2"))
   const burmaEnCours = burma(burma2joueurs, demarrerPartie())
 
-  const j1faitUn15 = burma(burmaEnCours, volee(1))
+  const j1faitUn15 = burma(burmaEnCours, volee('J1', 15, 1))
   expect(j1faitUn15).toMatchSnapshot()
 
-  const j2faitDeux15 = burma(j1faitUn15, volee(2))
+  const j2faitDeux15 = burma(j1faitUn15, volee('J2', 15, 2))
   expect(j2faitDeux15).toMatchSnapshot()
 })
