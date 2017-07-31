@@ -9,15 +9,19 @@ function chiffreCourant(state, action) {
 
     case VOLEE :
       const prochainLanceur = lanceur(state, action)
-      const changementDeChiffre = prochainLanceur === state.joueurs[0]
+      const finDuTour = prochainLanceur === state.joueurs[0]
 
-      return changementDeChiffre
-          ? CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.indexOf(state.chiffreCourant) + 1]
+      return finDuTour
+          ? chiffreQuiSuit(state.chiffreCourant)
           : state.chiffreCourant
   }
 }
 
 const CHIFFRES_DU_BURMA = [15, 16, 'D', 17, 18, 'T', 19, 20, 'B']
+
+const chiffreQuiSuit = (chiffreCourant) => (
+    CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.indexOf(chiffreCourant) + 1]
+)
 
 export {
   chiffreCourant
