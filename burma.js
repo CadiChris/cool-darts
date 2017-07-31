@@ -20,7 +20,7 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: lanceur(state, action),
         scores: scores(state.scores, action),
-        phase: phase(state, action),
+        phase: phase(state.phase, action),
         chiffreCourant: chiffreCourant(state, action)
       }
 
