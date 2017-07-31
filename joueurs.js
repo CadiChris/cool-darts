@@ -5,7 +5,7 @@ function joueurs(state = [], action) {
 
     case INSCRIRE_JOUEUR :
       return [
-        ...state.joueurs,
+        ...state,
         action.payload.nomDuJoueur
       ]
 

@@ -11,7 +11,7 @@ const burma = (state = STATE_INITIAL, action) => {
     case INSCRIRE_JOUEUR:
       return {
         ...state,
-        joueurs: joueurs(state, action),
+        joueurs: joueurs(state.joueurs, action),
         scores: scores(state.scores, action)
       }
 
