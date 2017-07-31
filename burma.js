@@ -1,33 +1,34 @@
 import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./burma.actions";
+import { joueurs } from "./joueurs";
+import { lanceur } from "./lanceur";
+import { phase } from "./phase";
+import { scores } from "./scores";
+import { chiffreCourant } from "./chiffreCourant";
 
 const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
+
     case INSCRIRE_JOUEUR:
       return {
         ...state,
-        joueurs: [...state.joueurs, action.payload.nomDuJoueur]
+        joueurs: joueurs(state, action)
       }
 
     case DEMARRER_PARTIE:
       return {
         ...state,
-        lanceur: state.joueurs[0],
-        scores: state.joueurs.map(scoreVierge),
-        phase: 'EN_COURS',
-        chiffreCourant: 15
+        lanceur: lanceur(state, action),
+        scores: scores(state, action),
+        phase: phase(state, action),
+        chiffreCourant: chiffreCourant(state, action)
       }
 
     case VOLEE:
-      const prochainLanceur = state.joueurs[(state.joueurs.indexOf(state.lanceur) + 1) % state.joueurs.length];
-      const changementDeChiffre = prochainLanceur === state.joueurs[0]
       return {
         ...state,
-        scores: [
-          ...state.scores.map((s) =>
-              noterUneVolee(state.chiffreCourant, action.payload.nombreDeTouches, s, state.lanceur))
-        ],
-        lanceur: prochainLanceur,
-        chiffreCourant: changementDeChiffre ? CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.indexOf(state.chiffreCourant) + 1] : state.chiffreCourant
+        lanceur: lanceur(state, action),
+        chiffreCourant: chiffreCourant(state, action),
+        scores: scores(state, action)
       }
 
     default:
@@ -36,36 +37,11 @@ const burma = (state = STATE_INITIAL, action) => {
 }
 
 const STATE_INITIAL = {
-  joueurs: [],
-  lanceur: undefined,
-  scores: [],
-  phase: "INSCRIPTION"
+  joueurs: joueurs(undefined, {}),
+  lanceur: lanceur(undefined, {}),
+  scores: scores(undefined, {}),
+  phase: phase(undefined, {})
 }
-
-const POINTS_INITIAUX = 40;
-const scoreVierge = (joueur) => ({
-  joueur,
-  points: POINTS_INITIAUX,
-  touches: {}
-})
-
-const noterUneVolee = (chiffre, nombreDeTouches, score, lanceur) => {
-  const joueurNonConcerne = score.joueur !== lanceur
-  if (joueurNonConcerne)
-    return { ...score }
-
-  if (nombreDeTouches !== 0)
-    return {
-      ...score,
-      points: score.points + chiffre * nombreDeTouches,
-      touches: {
-        ...score.touches,
-        [chiffre]: nombreDeTouches
-      }
-    }
-}
-
-const CHIFFRES_DU_BURMA = [15, 16, 'D', 17, 18, 'T', 19, 20, 'B']
 
 export {
   burma
