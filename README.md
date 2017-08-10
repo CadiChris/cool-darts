@@ -15,7 +15,7 @@ Ces termes sont utilisés par les joueurs de Cricket, et se trouvent donc dans l
  - Recevoir une pénalité fait augmenter le nombre de **points**. Au cricket, moins on a de points, mieux c'est.
 
 ## Règles du jeu implémentées par `cricket`
-Le Cricket compte sûrement autant de règles que de pubs dans lesquels on y joue. Ce `cricket` implémente les règles suivantes :
+Le Cricket compte sûrement autant de règles que de pubs dans lesquels on y joue. Ce `cricket` implémente les règles de la variante `Cut Throat` :
 > Les **chiffres** valides au Cricket vont du 15 au 20 plus le centre de la cible qui correspond au 25. Donc 6 chiffres au total.  
 > Le but du jeu est d'être le premier à **fermer** tous ses chiffres, tout en ayant le moins de **points ** possibles. Autrement dit : le vainqueur est celui qui a **touché** 3 fois chaque chiffre et qui a reçu le moins de **pénalités**.  
 > Chaque joueur démarre le jeu avec une cible vierge : aucune **touche** dans aucun **chiffre**, et 0 **points**.  
