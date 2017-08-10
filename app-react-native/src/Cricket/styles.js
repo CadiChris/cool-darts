@@ -76,9 +76,9 @@ export const Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  bordureDroite: {
-    borderRightColor: Couleurs.bordure,
-    borderRightWidth: 1
+  bordureGauche: {
+    borderLeftColor: Couleurs.bordure,
+    borderLeftWidth: 1
   },
   bordureBasse: {
     borderBottomColor: Couleurs.bordure,

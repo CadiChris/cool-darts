@@ -15,7 +15,7 @@ export default ({score, declencherLancerSimpleDans: lancerDans}) => (
       Object.keys(score.cible).map((chiffre, index) => {
         const {touches, ferme} = score.cible[chiffre]
         return (
-          <Col style={[{flex: 1}, Styles.bordureDroite, ferme ? Styles.chiffreFerme : {}]} key={index}>
+          <Col style={[{flex: 1}, Styles.bordureGauche, ferme ? Styles.chiffreFerme : {}]} key={index}>
             <TouchableHighlight onPress={() => lancerDans(chiffre)}
                                 style={[{flex: 1, alignSelf: 'stretch'}, Styles.contenuAuMilieu]}>
               <View>
