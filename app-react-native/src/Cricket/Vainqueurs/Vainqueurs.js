@@ -6,7 +6,7 @@ import Button from 'apsl-react-native-button'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default ({vainqueurs, declencherNouvellePartie}) => (
-  <View dureeDuDecalage={1200} coteDeDepart="left" style={[Styles.contenuAuMilieu, {justifyContent: 'space-around'}]}>
+  <View style={[Styles.contenuAuMilieu, {justifyContent: 'space-around'}]}>
 
     <ViewQuiDecale dureeDuDecalage={1200} coteDeDepart="right">
       <Text style={[Textes.titre, {}]}>
