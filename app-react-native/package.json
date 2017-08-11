@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "app-icon": "^0.6.1",
     "jest-expo": "~1.0.1",
     "react-test-renderer": "16.0.0-alpha.6"
   },
