@@ -10,7 +10,7 @@ export default () => (
     <Col size={Tailles.largeurDeLaColonneJoueur}></Col>
     {
       [15, 16, 17, 18, 19, 20, 'Bull'].map(chiffre => (
-        <Col key={chiffre} style={[Styles.bordureGauche, Styles.bordureBasse, Styles.contenuAuMilieu]}>
+        <Col key={chiffre} style={[Styles.bordureGauche, Styles.contenuAuMilieu]}>
           <Text style={[Textes.titre, {fontSize: 15, textAlign: 'center'}]}>{chiffre}</Text>
         </Col>
       ))

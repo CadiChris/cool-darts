@@ -84,6 +84,10 @@ export const Styles = StyleSheet.create({
     borderBottomColor: Couleurs.bordure,
     borderBottomWidth: 1
   },
+  bordureHaute: {
+    borderTopColor: Couleurs.bordure,
+    borderTopWidth: 1
+  },
   chiffreFerme: {
     backgroundColor: '#F67280'
   }

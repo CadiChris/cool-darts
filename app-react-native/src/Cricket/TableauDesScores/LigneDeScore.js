@@ -5,7 +5,7 @@ import { Styles, Tailles, Textes } from '../styles'
 
 export default ({score, declencherLancerSimpleDans: lancerDans}) => (
 
-  <Row style={Styles.bordureBasse}>
+  <Row style={Styles.bordureHaute}>
 
     <Col style={{justifyContent: 'center'}} size={Tailles.largeurDeLaColonneJoueur}>
       <Text style={[Textes.light, {paddingLeft: 10}]}>{score.joueur} - {score.points}</Text>
