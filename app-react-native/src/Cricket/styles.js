@@ -49,6 +49,7 @@ export const Boutons = StyleSheet.create({
     borderBottomWidth: 0.25,
     borderLeftWidth: 0,
     borderRightWidth: 0,
+    borderWidth: 0,
   },
   secondaire: {
     backgroundColor: '#C06C84',
@@ -56,6 +57,7 @@ export const Boutons = StyleSheet.create({
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderBottomWidth: 0.25,
+    borderWidth: 0,
   },
   deCommande: {
     backgroundColor: '#6C5B7B',
