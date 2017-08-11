@@ -3025,6 +3025,14 @@ react-native-keep-awake@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-2.0.4.tgz#da58b3161f1360163445c53e8c1cf411068f9a75"
 
+react-native-orientation@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-orientation/-/react-native-orientation-3.0.0.tgz#91a0a55be2d1f14ec6d0111a3bfbb5550a2e788b"
+
+react-native-simple-dialogs@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-simple-dialogs/-/react-native-simple-dialogs-0.2.3.tgz#af1dd2f5595b59eb94eb3d28a2a6ee499c6646c6"
+
 react-native-vector-icons@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.2.0.tgz#0594b68debdd758dce4c565bf02e2d64d7004d82"
