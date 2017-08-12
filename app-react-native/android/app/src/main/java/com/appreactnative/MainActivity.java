@@ -1,4 +1,4 @@
-package com.appreactnative;
+package com.alkeya.cricket;
 
 import com.facebook.react.ReactActivity;
 import android.content.Intent;
@@ -12,7 +12,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "appreactnative";
+        return "alkeyacricket";
     }
 
     /** https://github.com/yamill/react-native-orientation#configuration */

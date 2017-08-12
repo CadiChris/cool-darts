@@ -1,10 +1,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.appreactnative"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.alkeya.cricket"
     android:versionCode="1"
     android:versionName="1.0">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- https://github.com/facebook/react-native/issues/5886#issuecomment-224397883 -->
+    <uses-permission
+            android:name="android.permission.SYSTEM_ALERT_WINDOW"
+            tools:remove="${excludeSystemAlertWindowPermission}"/>
+
+    <!--
+    Suppression de permissions inutiles ajoutées lors du build
+    https://github.com/facebook/react-native/issues/5886#issuecomment-200869879
+    https://github.com/facebook/react-native/issues/5886#issuecomment-209218936
+    -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove" />
 
     <uses-sdk
         android:minSdkVersion="16"

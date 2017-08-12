@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "appreactnative.app"
-               BlueprintName = "appreactnative"
-               ReferencedContainer = "container:appreactnative.xcodeproj">
+               BuildableName = "alkeyacricket.app"
+               BlueprintName = "alkeyacricket"
+               ReferencedContainer = "container:alkeyacricket.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "appreactnativeTests.xctest"
-               BlueprintName = "appreactnativeTests"
-               ReferencedContainer = "container:appreactnative.xcodeproj">
+               BuildableName = "alkeyacricketTests.xctest"
+               BlueprintName = "alkeyacricketTests"
+               ReferencedContainer = "container:alkeyacricket.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "appreactnativeTests.xctest"
-               BlueprintName = "appreactnativeTests"
-               ReferencedContainer = "container:appreactnative.xcodeproj">
+               BuildableName = "alkeyacricketTests.xctest"
+               BlueprintName = "alkeyacricketTests"
+               ReferencedContainer = "container:alkeyacricket.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "appreactnative.app"
-            BlueprintName = "appreactnative"
-            ReferencedContainer = "container:appreactnative.xcodeproj">
+            BuildableName = "alkeyacricket.app"
+            BlueprintName = "alkeyacricket"
+            ReferencedContainer = "container:alkeyacricket.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "appreactnative.app"
-            BlueprintName = "appreactnative"
-            ReferencedContainer = "container:appreactnative.xcodeproj">
+            BuildableName = "alkeyacricket.app"
+            BlueprintName = "alkeyacricket"
+            ReferencedContainer = "container:alkeyacricket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "appreactnative.app"
-            BlueprintName = "appreactnative"
-            ReferencedContainer = "container:appreactnative.xcodeproj">
+            BuildableName = "alkeyacricket.app"
+            BlueprintName = "alkeyacricket"
+            ReferencedContainer = "container:alkeyacricket.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
