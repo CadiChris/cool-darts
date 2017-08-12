@@ -1,4 +1,4 @@
-package com.alkeya.cricket;
+package com.appreactnative;
 
 import android.app.Application;
 
