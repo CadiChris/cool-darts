@@ -1,4 +1,5 @@
 import React from 'react'
+import LocalizedStrings from 'react-native-localization'
 import { View, Modal, Text } from 'react-native'
 import Button from 'apsl-react-native-button'
 import { ConfirmDialog } from 'react-native-simple-dialogs'
@@ -30,11 +31,11 @@ export default class BoutonAvecConfirmation extends React.Component {
               visible={confirmationVisible}
               onTouchOutside={() => this.masquerConfirmation()}
               positiveButton={{
-                title: "OUI",
+                title: textes.oui,
                 onPress: () => apresConfirmation()
               }}
               negativeButton={{
-                title: "NON",
+                title: textes.non,
                 onPress: () => this.masquerConfirmation()
               }}
           />
@@ -50,3 +51,14 @@ export default class BoutonAvecConfirmation extends React.Component {
     this.setState({ confirmationVisible: false })
   }
 }
+
+const textes = new LocalizedStrings({
+  en:{
+    oui: "YES",
+    non: "NO",
+  },
+  fr: {
+    oui: "OUI",
+    non: "NON",
+  }
+})

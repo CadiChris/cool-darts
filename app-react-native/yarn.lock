@@ -3038,6 +3038,10 @@ react-native-keep-awake@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-2.0.4.tgz#da58b3161f1360163445c53e8c1cf411068f9a75"
 
+react-native-localization@^0.1.31:
+  version "0.1.31"
+  resolved "https://registry.yarnpkg.com/react-native-localization/-/react-native-localization-0.1.31.tgz#b711dcdc0cb84e0711fcf1ce964c515294b3b4d4"
+
 react-native-orientation@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-native-orientation/-/react-native-orientation-3.0.0.tgz#91a0a55be2d1f14ec6d0111a3bfbb5550a2e788b"

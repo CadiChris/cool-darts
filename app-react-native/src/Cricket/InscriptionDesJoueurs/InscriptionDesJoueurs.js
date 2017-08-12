@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, TextInput, Text, Platform } from 'react-native'
+import LocalizedStrings from 'react-native-localization'
 import Portrait from '../Technique/Portrait'
 import FadeInView from '../Technique/FadeInView'
 import ViewQuiDecale from './../Technique/ViewQuiDecale'
@@ -28,13 +29,13 @@ export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur
           style={[{flexGrow: 1, color: 'white'}, Textes.light]}
           underlineColorAndroid='transparent'
           placeholderTextColor='#FFF'
-          placeholder="Joueur..."/>
+          placeholder={textes.joueur} />
 
         <Button
           onPress={declencherInscrireJoueur}
           style={[{width: 80, alignSelf: 'center'}, Boutons.secondaire]}
           textStyle={Textes.bouton}>
-          Inscrire
+          {textes.inscrire}
         </Button>
       </ViewQuiDecale>
 
@@ -51,8 +52,21 @@ export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur
         isDisabled={!laPartiePeutDemarrer}
         style={[Boutons.principal, {marginBottom: 10, marginHorizontal: 10}]}
         textStyle={Textes.bouton}>
-        Démarrer
+        {textes.demarrer}
       </Button>
     </FadeInView>
   </Portrait>
 )
+
+const textes = new LocalizedStrings({
+  en:{
+    joueur: "Player...",
+    inscrire: "Add",
+    demarrer: "Play",
+  },
+  fr: {
+    joueur: "Joueur...",
+    inscrire: "Inscrire",
+    demarrer: "Démarrer",
+  }
+})
