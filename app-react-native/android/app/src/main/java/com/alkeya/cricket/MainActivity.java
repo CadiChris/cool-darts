@@ -1,4 +1,4 @@
-package com.appreactnative;
+package com.alkeya.cricket;
 
 import com.facebook.react.ReactActivity;
 import android.content.Intent;
