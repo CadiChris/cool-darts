@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.alkeya.cricket"
-    android:versionCode="1"
-    android:versionName="1.0">
+    android:versionCode="1.1"
+    android:versionName="1.1">
 
     <!-- https://github.com/facebook/react-native/issues/5886#issuecomment-224397883 -->
     <uses-permission
