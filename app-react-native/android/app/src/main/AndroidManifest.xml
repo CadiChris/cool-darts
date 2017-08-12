@@ -9,6 +9,8 @@
             android:name="android.permission.SYSTEM_ALERT_WINDOW"
             tools:remove="${excludeSystemAlertWindowPermission}"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <!--
     Suppression de permissions inutiles ajoutées lors du build
     https://github.com/facebook/react-native/issues/5886#issuecomment-200869879
