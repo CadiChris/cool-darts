@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`donne des points 1`] = `
+Array [
+  Object {
+    "joueur": "J1",
+    "points": 55,
+    "touches": Object {
+      "15": 1,
+    },
+  },
+]
+`;

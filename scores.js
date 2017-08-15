@@ -30,15 +30,16 @@ const noterUneVolee = (chiffre, nombreDeTouches, score, lanceur) => {
   if (joueurNonConcerne)
     return { ...score }
 
-  if (nombreDeTouches !== 0)
-    return {
-      ...score,
-      points: score.points + chiffre * nombreDeTouches,
-      touches: {
-        ...score.touches,
-        [chiffre]: nombreDeTouches
-      }
+  return {
+    ...score,
+    points: nombreDeTouches !== 0
+        ? score.points + chiffre * nombreDeTouches
+        : Math.round(score.points / 2),
+    touches: {
+      ...score.touches,
+      [chiffre]: nombreDeTouches
     }
+  }
 }
 
 
