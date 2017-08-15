@@ -6,7 +6,7 @@ var exec = require('child_process').exec
 
 gulp.task('release', gulpSequence(
     'montee-de-version',
-    // 'build-apk',
+    'build-apk',
     'commit',
     'tag'))
 
@@ -32,16 +32,23 @@ gulp.task('montee-de-version', () => {
 })
 
 gulp.task('build-apk', (cb) => {
-  exec('cd android && ./gradlew assembleRelease', (err, stdout, stderr) => {
+  execAvecLog('cd android && ./gradlew assembleRelease', cb)
+
+})
+
+gulp.task('commit', (cb) => {
+  const { name } = release()
+  execAvecLog(`git commit -am "[RELEASE] v${name}"`, cb)
+})
+
+gulp.task('tag', (cb) => {
+  const { name } = release()
+  execAvecLog(`git tag -a v${name} -m "v${name}"`, cb)
+})
+
+function execAvecLog(cmd, cb) {
+  exec(cmd, (err, stdout, stderr) => {
     console.log(stdout)
     console.error(stderr)
     cb(err)
-  })
-})
-
-gulp.task('commit', () => {
-  const { name } = release()
-  exec(`git commit -am "[RELEASE] v${name}"`)
-})
-gulp.task('tag', () => {
-})
+  })}
