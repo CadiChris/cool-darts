@@ -4,8 +4,12 @@
   "private": true,
   "devDependencies": {
     "app-icon": "^0.6.1",
+    "gulp": "^3.9.1",
+    "gulp-replace": "^0.6.1",
+    "gulp-sequence": "^0.4.6",
     "jest-expo": "~1.0.1",
-    "react-test-renderer": "16.0.0-alpha.6"
+    "react-test-renderer": "16.0.0-alpha.6",
+    "yargs": "^8.0.2"
   },
   "scripts": {
     "start": "react-native start",
