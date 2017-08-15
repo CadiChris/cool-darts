@@ -16,12 +16,8 @@ gulp.task('montee-de-version', () => {
 
   return gulp
       .src('android/app/build.gradle')
-      .pipe(replace(
-          /        versionCode .+/,
-          `        versionCode ${code}`))
-      .pipe(replace(
-          /        versionName .+/,
-          `        versionName "${name}"`))
+      .pipe(replace(/versionCode .+/, `versionCode ${code}`))
+      .pipe(replace(/versionName .+/, `versionName "${name}"`))
       .pipe(gulp.dest('android/app/'))
 })
 
