@@ -1,5 +1,4 @@
 var gulp = require('gulp')
-var gutil = require('gulp-util')
 var gulpSequence = require('gulp-sequence')
 var replace = require('gulp-replace')
 var exec = require('child_process').exec
@@ -9,13 +8,6 @@ gulp.task('release', gulpSequence(
     'build-apk',
     'commit',
     'tag'))
-
-let release = function () {
-  const argv = require('yargs')
-      .demandOption(['code', 'name'])
-      .argv
-  return argv
-};
 
 gulp.task('montee-de-version', () => {
   const { code, name } = release()
@@ -33,7 +25,6 @@ gulp.task('montee-de-version', () => {
 
 gulp.task('build-apk', (cb) => {
   execAvecLog('cd android && ./gradlew assembleRelease', cb)
-
 })
 
 gulp.task('commit', (cb) => {
@@ -46,9 +37,17 @@ gulp.task('tag', (cb) => {
   execAvecLog(`git tag -a v${name} -m "v${name}"`, cb)
 })
 
+function release() {
+  const argv = require('yargs')
+      .demandOption(['code', 'name'])
+      .argv
+  return argv // { code, name }
+}
+
 function execAvecLog(cmd, cb) {
   exec(cmd, (err, stdout, stderr) => {
     console.log(stdout)
     console.error(stderr)
     cb(err)
-  })}
+  })
+}
