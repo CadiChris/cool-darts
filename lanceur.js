@@ -1,6 +1,6 @@
 import { DEMARRER_PARTIE, VOLEE } from "./burma.actions";
 
-function lanceur(state = undefined, action) {
+function lanceur(state, action) {
   switch (action.type) {
 
     case DEMARRER_PARTIE :
@@ -11,9 +11,6 @@ function lanceur(state = undefined, action) {
       const indexDuLanceur = state.joueurs.indexOf(state.lanceur)
       const prochainLanceur = state.joueurs[(indexDuLanceur + 1) % nombreDeJoueurs]
       return prochainLanceur
-
-    default:
-      return state
   }
 }
 

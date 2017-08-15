@@ -26,6 +26,7 @@ Object {
 
 exports[`inscrit un joueur 1`] = `
 Object {
+  "chiffreCourant": undefined,
   "joueurs": Array [
     "J1",
   ],
@@ -97,6 +98,7 @@ Object {
 
 exports[`retourne le state initial 1`] = `
 Object {
+  "chiffreCourant": undefined,
   "joueurs": Array [],
   "lanceur": undefined,
   "phase": "INSCRIPTION",

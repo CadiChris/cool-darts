@@ -6,8 +6,8 @@ import { scores } from "./scores";
 import { chiffreCourant } from "./chiffreCourant";
 
 const burma = (state = STATE_INITIAL, action) => {
-  switch (action.type) {
 
+  switch (action.type) {
     case INSCRIRE_JOUEUR:
       return {
         ...state,
@@ -39,9 +39,10 @@ const burma = (state = STATE_INITIAL, action) => {
 
 const STATE_INITIAL = {
   joueurs: joueurs(undefined, {}),
-  lanceur: lanceur(undefined, {}),
   scores: scores(undefined, {}),
-  phase: phase(undefined, {})
+  phase: phase(undefined, {}),
+  lanceur: undefined,
+  chiffreCourant: undefined
 }
 
 export {
