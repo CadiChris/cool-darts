@@ -7,7 +7,9 @@ gulp.task('release', gulpSequence(
     'montee-de-version',
     'build-apk',
     'commit',
-    'tag'))
+    'tag',
+    'push')
+)
 
 gulp.task('montee-de-version', () => {
   const { code, name } = release()
@@ -35,6 +37,11 @@ gulp.task('commit', (cb) => {
 gulp.task('tag', (cb) => {
   const { name } = release()
   execAvecLog(`git tag -a v${name} -m "v${name}"`, cb)
+})
+
+gulp.task('push', (cb) => {
+  const { name } = release()
+  execAvecLog(`git push origin v${name}`, cb)
 })
 
 function release() {
