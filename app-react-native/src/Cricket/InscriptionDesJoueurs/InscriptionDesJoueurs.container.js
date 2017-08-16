@@ -23,12 +23,17 @@ class InscriptionDesJoueursContainer extends React.Component {
   }
 
   inscriptionEstPossible() {
-    return this.state.joueur !== ''
+    const { joueur } = this.state
+    const { joueurs } = this.props
+    const joueurAvecNom = joueur !== ''
+    const nomUnique = joueurs.indexOf(joueur) === -1
+
+    return joueurAvecNom && nomUnique
   }
 
-  inscrireJoueur() {
-    const {dispatch} = this.props
-    const {joueur} = this.state
+inscrireJoueur() {
+    const { dispatch } = this.props
+    const { joueur } = this.state
     dispatch(inscrireJoueur(joueur))
     this.setState({joueur: ''})
   }
