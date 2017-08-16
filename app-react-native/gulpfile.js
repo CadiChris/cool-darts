@@ -37,7 +37,7 @@ gulp.task('tag', (cb) => {
 
 gulp.task('push', (cb) => {
   const { name } = release()
-  execAvecLog(`git push origin v${name}`, cb)
+  execAvecLog(`git push && git push origin v${name}`, cb)
 })
 
 function release() {
