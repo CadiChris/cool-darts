@@ -12,4 +12,4 @@ Pour une nouvelle release :
  - `code` est le code technique du Play Store.À incrémenter de 1.
  - `name` est le nom de la version. Utiliser une notation semver. 
  
-Cela va taguer le repo et générer l'apk pour le store.
+Cela va taguer le repo et générer l'apk pour le store. Le process d'upload sur le store est encore manuel.
