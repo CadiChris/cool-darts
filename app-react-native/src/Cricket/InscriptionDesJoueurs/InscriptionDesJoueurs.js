@@ -13,7 +13,15 @@ const unPeuTransparent = Platform.select({
   android: {color: '#8498AB'}
 })
 
-export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur, declencherDemarrerLaPartie, nommerLeJoueur}) => (
+export default ({
+    laPartiePeutDemarrer,
+    joueurs,
+    joueur,
+    inscriptionEstPossible,
+    declencherInscrireJoueur,
+    declencherDemarrerLaPartie,
+    nommerLeJoueur
+}) => (
   <Portrait>
     <FadeInView
       style={[Styles.contenuAuMilieu, {paddingHorizontal: 10, justifyContent: 'space-between'},]}
@@ -33,6 +41,7 @@ export default ({laPartiePeutDemarrer, joueurs, joueur, declencherInscrireJoueur
 
         <Button
           onPress={declencherInscrireJoueur}
+          isDisabled={!inscriptionEstPossible()}
           style={[{width: 80, alignSelf: 'center'}, Boutons.secondaire]}
           textStyle={Textes.bouton}>
           {textes.inscrire}

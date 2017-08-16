@@ -16,9 +16,14 @@ class InscriptionDesJoueursContainer extends React.Component {
       {...this.props}
       joueur={this.state.joueur}
       nommerLeJoueur={(nom) => this.setState({joueur: nom})}
+      inscriptionEstPossible={() => this.inscriptionEstPossible()}
       declencherInscrireJoueur={() => this.inscrireJoueur()}
       declencherDemarrerLaPartie={() => this.props.dispatch(demarrerPartie())}
     />
+  }
+
+  inscriptionEstPossible() {
+    return this.state.joueur !== ''
   }
 
   inscrireJoueur() {
@@ -27,6 +32,7 @@ class InscriptionDesJoueursContainer extends React.Component {
     dispatch(inscrireJoueur(joueur))
     this.setState({joueur: ''})
   }
+
 }
 
 const mapStateToProps = (state) => ({
