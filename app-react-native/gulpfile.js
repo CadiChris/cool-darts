@@ -1,5 +1,6 @@
 var gulp = require('gulp')
 var gulpSequence = require('gulp-sequence')
+var gutil = require('gulp-util')
 var replace = require('gulp-replace')
 var exec = require('child_process').exec
 
@@ -8,7 +9,8 @@ gulp.task('release', gulpSequence(
     'build-apk',
     'commit',
     'tag',
-    'push'
+    'push',
+    'afficher-reste-a-faire'
   )
 )
 
@@ -49,6 +51,14 @@ gulp.task('tag', (cb) => {
 gulp.task('push', (cb) => {
   const { name } = release()
   execAvecLog(`git push && git push origin v${name}`, cb)
+})
+
+gulp.task('afficher-reste-a-faire', () => {
+  const afficher = (msg) => gutil.log(gutil.colors.inverse(msg))
+
+  afficher('>>> IL RESTE DES ÉTAPES MANUELLES <<<')
+  afficher(' - le build iOS via XCode')
+  afficher(' - les uploads sur les stores')
 })
 
 function release() {
