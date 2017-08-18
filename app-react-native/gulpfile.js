@@ -4,14 +4,15 @@ var replace = require('gulp-replace')
 var exec = require('child_process').exec
 
 gulp.task('release', gulpSequence(
-    'montee-de-version',
+    ['montee-de-version-android', 'montee-de-version-ios'],
     'build-apk',
     'commit',
     'tag',
-    'push')
+    'push'
+  )
 )
 
-gulp.task('montee-de-version', () => {
+gulp.task('montee-de-version-android', () => {
   const { code, name } = release()
 
   return gulp
@@ -19,6 +20,16 @@ gulp.task('montee-de-version', () => {
       .pipe(replace(/versionCode .+/, `versionCode ${code}`))
       .pipe(replace(/versionName .+/, `versionName "${name}"`))
       .pipe(gulp.dest('android/app/'))
+})
+
+gulp.task('montee-de-version-ios', () => {
+  const { code, name } = release()
+
+  return gulp
+      .src('ios/alkeyacricket/Info.plist')
+      .pipe(replace(/<key>CFBundleVersion<\/key>\n.+/, `<key>CFBundleVersion</key>\n\t<string>${code}</string>`))
+      .pipe(replace(/<key>CFBundleShortVersionString<\/key>\n.+/, `<key>CFBundleShortVersionString</key>\n\t<string>${name}</string>`))
+      .pipe(gulp.dest('ios/alkeyacricket/'))
 })
 
 gulp.task('build-apk', (cb) => {
@@ -42,7 +53,7 @@ gulp.task('push', (cb) => {
 
 function release() {
   const argv = require('yargs')
-      .demandOption(['code', 'name'])
+      .demandOption(['code', 'name'], 'Utilisez `yarn info-release` pour obtenir les valeurs actuelles de --code et --name')
       .argv
   return argv // { code, name }
 }
