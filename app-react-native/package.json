@@ -36,6 +36,7 @@
     "deep-freeze": "^0.0.1",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.44.0",
+    "react-native-animatable": "^1.2.3",
     "react-native-easy-grid": "^0.1.13",
     "react-native-keep-awake": "^2.0.4",
     "react-native-localization": "^0.1.31",
