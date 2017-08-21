@@ -1,7 +1,3 @@
-### Icônes
-Pour générer les icônes de l'application : https://github.com/dwmkerr/app-icon  
-Par contre le package est en `devDependencies` et pas en global, donc il faut utiliser `./node_modules/.bin/app-icon` pour l'exécuter.
-
 ### Releaser une nouvelle version
 Le fichier `keystore.properties` qui contient nos infos confidentielles n'est pas commit.
 Il doit être placé à la racine du projet android.  
@@ -16,3 +12,7 @@ Pour une nouvelle release :
 Cela va taguer le repo et générer l'apk pour le store. Le process d'upload sur le store est encore manuel.
 
 Le process pour build pour l'app store est très manuel : https://facebook.github.io/react-native/docs/running-on-device.html#building-your-app-for-production
+
+### Icônes
+Pour générer les icônes de l'application : https://github.com/dwmkerr/app-icon  
+Par contre le package est en `devDependencies` et pas en global, donc il faut utiliser `./node_modules/.bin/app-icon` pour l'exécuter.
