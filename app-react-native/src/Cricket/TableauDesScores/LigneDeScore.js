@@ -19,6 +19,7 @@ export default ({ score, declencherLancerSimpleDans: lancerDans }) => (
           return (
               <Col style={[{ flex: 1 }, Styles.bordureGauche, ferme ? Styles.chiffreFerme : {}]} key={index}>
                 <TouchableHighlight onPress={() => lancerDans(chiffre)}
+                                    underlayColor="transparent"
                                     style={[{ flex: 1, alignSelf: 'stretch' }, Styles.contenuAuMilieu]}>
                   <View>
                     <Touches symbole="X" nombre={touches}/>
