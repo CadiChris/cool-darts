@@ -16,3 +16,6 @@ Le process pour build pour l'app store est très manuel : https://facebook.githu
 ### Icônes
 Pour générer les icônes de l'application : https://github.com/dwmkerr/app-icon  
 Par contre le package est en `devDependencies` et pas en global, donc il faut utiliser `./node_modules/.bin/app-icon` pour l'exécuter.
+
+### QR Code
+Site utilisé pour générer le QR : https://www.unitag.io/fr/qrcode
