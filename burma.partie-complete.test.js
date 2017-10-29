@@ -6,15 +6,22 @@ it("déroule une partie complète", () => {
   const burma2joueurs = burma(burma1joueur, inscrireJoueur("J2"));
   const burmaEnCours = burma(burma2joueurs, demarrerPartie());
 
-  const volee_15_j1 = burma(burmaEnCours, volee("J1", 15, 0));
-  expect(volee_15_j1).toMatchSnapshot();
+  derouler(partie).depuis(burmaEnCours);
+});
 
-  const volee_15_j2 = burma(volee_15_j1, volee("J2", 15, 2));
-  expect(volee_15_j2).toMatchSnapshot();
+const partie = {
+  15: [{ joueur: "J1", touches: 0 }, { joueur: "J2", touches: 2 }],
+  16: [{ joueur: "J1", touches: 1 }, { joueur: "J2", touches: 4 }]
+};
 
-  const v16_j1 = burma(volee_15_j2, volee("J1", 16, 1));
-  expect(v16_j1).toMatchSnapshot();
-
-  const v16_j2 = burma(v16_j1, volee("J2", 16, 4));
-  expect(v16_j2).toMatchSnapshot();
+const derouler = partie => ({
+  depuis: etatInitial => {
+    let etat = etatInitial;
+    for (const chiffre in partie) {
+      partie[chiffre].forEach(coup => {
+        etat = burma(etat, volee(coup.joueur, chiffre, coup.touches));
+        expect(etat).toMatchSnapshot();
+      });
+    }
+  }
 });
