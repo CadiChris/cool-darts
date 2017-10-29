@@ -27,3 +27,15 @@ it("note une volée", () => {
   const j2faitDeux15 = burma(j1faitUn15, volee("J2", 15, 2));
   expect(j2faitDeux15).toMatchSnapshot();
 });
+
+it("termine la partie après la dernière volée du dernier joueur", () => {
+  const burma1joueur = burma(undefined, inscrireJoueur("J1"));
+  const burma2joueurs = burma(burma1joueur, inscrireJoueur("J2"));
+  const burmaEnCours = burma(burma2joueurs, demarrerPartie());
+
+  const bull = "B";
+  const derniereVolee = volee("J2", bull, 1);
+  const burmaTermine = burma(burmaEnCours, derniereVolee);
+
+  expect(burmaTermine.phase).toBe("TERMINEE");
+});

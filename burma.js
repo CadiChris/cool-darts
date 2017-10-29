@@ -28,13 +28,24 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: lanceur(state, action),
         chiffreCourant: chiffreCourant(state, action),
-        scores: scores(state.scores, action)
+        scores: scores(state.scores, action),
+        phase: derniereVolee(
+          state.joueurs,
+          action.payload.lanceur,
+          action.payload.chiffre
+        )
+          ? "TERMINEE"
+          : state.phase
       };
 
     default:
       return state;
   }
 };
+
+const derniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
+  tousLesJoueurs.indexOf(lanceur) === tousLesJoueurs.length - 1 &&
+  chiffre === "B";
 
 const STATE_INITIAL = {
   joueurs: joueurs(undefined, {}),
