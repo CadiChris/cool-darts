@@ -1,5 +1,4 @@
 import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./burma.actions";
-import { joueurs } from "./joueurs";
 import * as lanceur from "./lanceur";
 import { phase } from "./phase";
 import { scores } from "./scores";
@@ -10,7 +9,7 @@ const burma = (state = STATE_INITIAL, action) => {
     case INSCRIRE_JOUEUR:
       return {
         ...state,
-        joueurs: joueurs(state.joueurs, action),
+        joueurs: [...state.joueurs, action.payload.nomDuJoueur],
         scores: scores(state.scores, action)
       };
 
@@ -48,7 +47,7 @@ const derniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
   chiffre === "B";
 
 const STATE_INITIAL = {
-  joueurs: joueurs(undefined, {}),
+  joueurs: [],
   scores: scores(undefined, {}),
   phase: phase(undefined, {}),
   lanceur: undefined,
