@@ -55,3 +55,64 @@ Object {
   "vainqueur": undefined,
 }
 `;
+
+exports[`déroule une partie complète 3`] = `
+Object {
+  "chiffreCourant": 16,
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J2",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 36,
+      "touches": Object {
+        "15": 0,
+        "16": 1,
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 70,
+      "touches": Object {
+        "15": 2,
+      },
+    },
+  ],
+  "vainqueur": undefined,
+}
+`;
+
+exports[`déroule une partie complète 4`] = `
+Object {
+  "chiffreCourant": "D",
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J1",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 36,
+      "touches": Object {
+        "15": 0,
+        "16": 1,
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 134,
+      "touches": Object {
+        "15": 2,
+        "16": 4,
+      },
+    },
+  ],
+  "vainqueur": undefined,
+}
+`;
