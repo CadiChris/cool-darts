@@ -1,7 +1,7 @@
 import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./burma.actions";
 import * as lanceur from "./lanceur";
 import { scores } from "./scores";
-import { leChiffreSuivant } from "./chiffreCourant";
+import { leChiffreSuivant } from "./chiffre";
 
 const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
