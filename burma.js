@@ -3,6 +3,15 @@ import * as lanceur from "./lanceur";
 import { scores } from "./scores";
 import { leChiffreSuivant, CHIFFRES_DU_BURMA } from "./chiffre";
 
+const STATE_INITIAL = {
+  joueurs: [],
+  scores: scores(undefined, {}),
+  phase: "INSCRIPTION",
+  lanceur: undefined,
+  chiffreCourant: undefined,
+  vainqueur: undefined
+};
+
 const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
     case INSCRIRE_JOUEUR:
@@ -47,14 +56,5 @@ const burma = (state = STATE_INITIAL, action) => {
 const derniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
   tousLesJoueurs.indexOf(lanceur) === tousLesJoueurs.length - 1 &&
   chiffre === "B";
-
-const STATE_INITIAL = {
-  joueurs: [],
-  scores: scores(undefined, {}),
-  phase: "INSCRIPTION",
-  lanceur: undefined,
-  chiffreCourant: undefined,
-  vainqueur: undefined
-};
 
 export { burma };
