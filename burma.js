@@ -6,14 +6,13 @@ import { scores } from "./scores";
 import { chiffreCourant } from "./chiffreCourant";
 
 const burma = (state = STATE_INITIAL, action) => {
-
   switch (action.type) {
     case INSCRIRE_JOUEUR:
       return {
         ...state,
         joueurs: joueurs(state.joueurs, action),
         scores: scores(state.scores, action)
-      }
+      };
 
     case DEMARRER_PARTIE:
       return {
@@ -22,7 +21,7 @@ const burma = (state = STATE_INITIAL, action) => {
         scores: scores(state.scores, action),
         phase: phase(state.phase, action),
         chiffreCourant: chiffreCourant(state, action)
-      }
+      };
 
     case VOLEE:
       return {
@@ -30,12 +29,12 @@ const burma = (state = STATE_INITIAL, action) => {
         lanceur: lanceur(state, action),
         chiffreCourant: chiffreCourant(state, action),
         scores: scores(state.scores, action)
-      }
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
 const STATE_INITIAL = {
   joueurs: joueurs(undefined, {}),
@@ -43,8 +42,6 @@ const STATE_INITIAL = {
   phase: phase(undefined, {}),
   lanceur: undefined,
   chiffreCourant: undefined
-}
+};
 
-export {
-  burma
-}
+export { burma };

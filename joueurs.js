@@ -2,18 +2,12 @@ import { INSCRIRE_JOUEUR } from "./burma.actions";
 
 function joueurs(state = [], action) {
   switch (action.type) {
+    case INSCRIRE_JOUEUR:
+      return [...state, action.payload.nomDuJoueur];
 
-    case INSCRIRE_JOUEUR :
-      return [
-        ...state,
-        action.payload.nomDuJoueur
-      ]
-
-    default :
-      return state
+    default:
+      return state;
   }
 }
 
-export {
-  joueurs
-}
+export { joueurs };
