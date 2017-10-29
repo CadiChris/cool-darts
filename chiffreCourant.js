@@ -1,18 +1,18 @@
 import { DEMARRER_PARTIE, VOLEE } from "./burma.actions";
 import { lanceur } from "./lanceur";
 
-function chiffreCourant(state, action) {
+function chiffreCourant(burma, action) {
   switch (action.type) {
     case DEMARRER_PARTIE:
       return 15;
 
     case VOLEE:
-      const prochainLanceur = lanceur(state, action);
-      const finDuTour = prochainLanceur === state.joueurs[0];
+      const prochainLanceur = lanceur(burma, action);
+      const finDuTour = prochainLanceur === burma.joueurs[0];
 
       return finDuTour
-        ? chiffreQuiSuit(state.chiffreCourant)
-        : state.chiffreCourant;
+        ? chiffreQuiSuit(burma.chiffreCourant)
+        : burma.chiffreCourant;
   }
 }
 
