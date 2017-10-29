@@ -53,7 +53,8 @@ const STATE_INITIAL = {
   scores: scores(undefined, {}),
   phase: "INSCRIPTION",
   lanceur: undefined,
-  chiffreCourant: undefined
+  chiffreCourant: undefined,
+  vainqueur: undefined
 };
 
 export { burma };
