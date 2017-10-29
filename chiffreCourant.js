@@ -1,11 +1,8 @@
-import { DEMARRER_PARTIE, VOLEE } from "./burma.actions";
+import { VOLEE } from "./burma.actions";
 import * as lanceur from "./lanceur";
 
 function chiffreCourant(burma, action) {
   switch (action.type) {
-    case DEMARRER_PARTIE:
-      return 15;
-
     case VOLEE:
       const prochainLanceur = lanceur.suivant(
         burma.joueurs,

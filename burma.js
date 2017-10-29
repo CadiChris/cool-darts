@@ -18,7 +18,7 @@ const burma = (state = STATE_INITIAL, action) => {
         lanceur: state.joueurs[0],
         scores: scores(state.scores, action),
         phase: "EN_COURS",
-        chiffreCourant: chiffreCourant(state, action)
+        chiffreCourant: 15
       };
 
     case VOLEE:
