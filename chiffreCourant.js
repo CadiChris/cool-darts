@@ -1,24 +1,15 @@
-import { VOLEE } from "./burma.actions";
 import * as lanceur from "./lanceur";
 
-function chiffreCourant(burma, action) {
-  switch (action.type) {
-    case VOLEE:
-      const prochainLanceur = lanceur.suivant(
-        burma.joueurs,
-        action.payload.lanceur
-      );
-      const finDuTour = prochainLanceur === burma.joueurs[0];
+const prochainChiffre = (chiffreCourant, tousLesJoueurs, leLanceur) => {
+  const prochainLanceur = lanceur.suivant(tousLesJoueurs, leLanceur);
+  const finDuTour = prochainLanceur === tousLesJoueurs[0];
 
-      return finDuTour
-        ? chiffreQuiSuit(burma.chiffreCourant)
-        : burma.chiffreCourant;
-  }
-}
-
-const CHIFFRES_DU_BURMA = [15, 16, "D", 17, 18, "T", 19, 20, "B"];
+  return finDuTour ? chiffreQuiSuit(chiffreCourant) : chiffreCourant;
+};
 
 const chiffreQuiSuit = chiffreCourant =>
   CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.indexOf(chiffreCourant) + 1];
 
-export { chiffreCourant };
+export { prochainChiffre };
+
+const CHIFFRES_DU_BURMA = [15, 16, "D", 17, 18, "T", 19, 20, "B"];

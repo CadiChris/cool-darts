@@ -1,7 +1,7 @@
 import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./burma.actions";
 import * as lanceur from "./lanceur";
 import { scores } from "./scores";
-import { chiffreCourant } from "./chiffreCourant";
+import { prochainChiffre } from "./chiffreCourant";
 
 const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
@@ -25,7 +25,11 @@ const burma = (state = STATE_INITIAL, action) => {
       return {
         ...state,
         lanceur: lanceur.suivant(state.joueurs, action.payload.lanceur),
-        chiffreCourant: chiffreCourant(state, action),
+        chiffreCourant: prochainChiffre(
+          state.chiffreCourant,
+          state.joueurs,
+          action.payload.lanceur
+        ),
         scores: scores(state.scores, action),
         phase: derniereVolee(
           state.joueurs,
