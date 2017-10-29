@@ -6,7 +6,12 @@ Array [
     "joueur": "J1",
     "points": 55,
     "touches": Object {
-      "15": 1,
+      "15": Array [
+        Object {
+          "chiffre": 15,
+          "nombre": 1,
+        },
+      ],
     },
   },
 ]

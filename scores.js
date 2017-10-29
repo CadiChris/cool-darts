@@ -9,7 +9,7 @@ function scores(state = [], action) {
       return state.map(s =>
         noterUneVolee(
           action.payload.rang,
-          action.payload.nombreDeTouches,
+          action.payload.touches,
           s,
           action.payload.lanceur
         )
@@ -27,21 +27,24 @@ const scoreVierge = joueur => ({
 });
 const POINTS_INITIAUX = 40;
 
-const noterUneVolee = (chiffre, nombreDeTouches, score, lanceur) => {
+const noterUneVolee = (chiffre, touches, score, lanceur) => {
   const joueurNonConcerne = score.joueur !== lanceur;
   if (joueurNonConcerne) return { ...score };
 
   return {
     ...score,
     points:
-      nombreDeTouches !== 0
-        ? score.points + chiffre * nombreDeTouches
+      totalDesPoints(touches) !== 0
+        ? score.points + totalDesPoints(touches)
         : Math.round(score.points / 2),
     touches: {
       ...score.touches,
-      [chiffre]: nombreDeTouches
+      [chiffre]: touches
     }
   };
 };
 
 export { scores };
+
+const totalDesPoints = touches =>
+  touches.reduce((cumul, volee) => cumul + volee.chiffre * volee.nombre, 0);
