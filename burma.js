@@ -42,7 +42,7 @@ const burma = (state = STATE_INITIAL, action) => {
         phase: derniereVolee(
           state.joueurs,
           action.payload.lanceur,
-          action.payload.chiffre
+          action.payload.rang
         )
           ? "TERMINEE"
           : state.phase

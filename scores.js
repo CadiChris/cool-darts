@@ -8,7 +8,7 @@ function scores(state = [], action) {
     case VOLEE:
       return state.map(s =>
         noterUneVolee(
-          action.payload.chiffre,
+          action.payload.rang,
           action.payload.nombreDeTouches,
           s,
           action.payload.lanceur
