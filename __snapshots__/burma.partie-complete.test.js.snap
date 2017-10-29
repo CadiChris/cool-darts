@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`déroule une partie complète 1`] = `
+Object {
+  "chiffreCourant": 15,
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J2",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 20,
+      "touches": Object {
+        "15": 0,
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 40,
+      "touches": Object {},
+    },
+  ],
+  "vainqueur": undefined,
+}
+`;
+
+exports[`déroule une partie complète 2`] = `
+Object {
+  "chiffreCourant": 16,
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J1",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 20,
+      "touches": Object {
+        "15": 0,
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 70,
+      "touches": Object {
+        "15": 2,
+      },
+    },
+  ],
+  "vainqueur": undefined,
+}
+`;
