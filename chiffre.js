@@ -1,7 +1,6 @@
 import * as lanceur from "./lanceur";
 
-const chiffreQuiSuit = chiffreCourant =>
-  CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.indexOf(chiffreCourant) + 1];
+const CHIFFRES_DU_BURMA = [15, 16, "D", 17, 18, "T", 19, 20, "B"];
 
 const leChiffreSuivant = chiffre => ({
   avec: (lesJoueurs, leLanceur) => {
@@ -11,6 +10,7 @@ const leChiffreSuivant = chiffre => ({
   }
 });
 
-export { leChiffreSuivant };
+const chiffreQuiSuit = chiffreCourant =>
+  CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.indexOf(chiffreCourant) + 1];
 
-const CHIFFRES_DU_BURMA = [15, 16, "D", 17, 18, "T", 19, 20, "B"];
+export { leChiffreSuivant, CHIFFRES_DU_BURMA };
