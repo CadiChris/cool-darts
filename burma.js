@@ -1,6 +1,5 @@
 import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./burma.actions";
 import * as lanceur from "./lanceur";
-import { phase } from "./phase";
 import { scores } from "./scores";
 import { chiffreCourant } from "./chiffreCourant";
 
@@ -18,7 +17,7 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: state.joueurs[0],
         scores: scores(state.scores, action),
-        phase: phase(state.phase, action),
+        phase: "EN_COURS",
         chiffreCourant: chiffreCourant(state, action)
       };
 
@@ -49,7 +48,7 @@ const derniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
 const STATE_INITIAL = {
   joueurs: [],
   scores: scores(undefined, {}),
-  phase: phase(undefined, {}),
+  phase: "INSCRIPTION",
   lanceur: undefined,
   chiffreCourant: undefined
 };
