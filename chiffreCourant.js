@@ -1,5 +1,5 @@
 import { DEMARRER_PARTIE, VOLEE } from "./burma.actions";
-import { lanceur } from "./lanceur";
+import * as lanceur from "./lanceur";
 
 function chiffreCourant(burma, action) {
   switch (action.type) {
@@ -7,7 +7,10 @@ function chiffreCourant(burma, action) {
       return 15;
 
     case VOLEE:
-      const prochainLanceur = lanceur(burma, action);
+      const prochainLanceur = lanceur.suivant(
+        burma.joueurs,
+        action.payload.lanceur
+      );
       const finDuTour = prochainLanceur === burma.joueurs[0];
 
       return finDuTour
