@@ -28,8 +28,7 @@ it("note une volée", () => {
   expect(j2faitDeux15).toMatchSnapshot();
 });
 
-// TODO : gérer le bull
-it.skip("termine la partie après la dernière volée du dernier joueur", () => {
+it("termine la partie après la dernière volée du dernier joueur", () => {
   const burma1joueur = burma(undefined, inscrireJoueur("J1"));
   const burma2joueurs = burma(burma1joueur, inscrireJoueur("J2"));
   const burmaEnCours = burma(burma2joueurs, demarrerPartie());
