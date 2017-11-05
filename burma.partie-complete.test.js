@@ -1,7 +1,7 @@
 import { burma } from "./burma";
-import { inscrireJoueur, demarrerPartie, volee } from "./burma.actions";
+import { inscrireJoueur, demarrerPartie, voleeChiffree } from "./burma.actions";
 
-it.skip("déroule une partie complète", () => {
+it("déroule une partie complète", () => {
   const burma1joueur = burma(undefined, inscrireJoueur("J1"));
   const burma2joueurs = burma(burma1joueur, inscrireJoueur("J2"));
   const burmaEnCours = burma(burma2joueurs, demarrerPartie());
@@ -10,19 +10,19 @@ it.skip("déroule une partie complète", () => {
 });
 
 // TODO: gérer les doubles, triples et bull
-const partie = {
-  15: [{ joueur: "J1", touches: 0 }, { joueur: "J2", touches: 2 }],
-  16: [{ joueur: "J1", touches: 1 }, { joueur: "J2", touches: 4 }]
-};
+const partie = [
+  voleeChiffree("J1", 15, 0),
+  voleeChiffree("J2", 15, 2),
+  voleeChiffree("J1", 16, 1),
+  voleeChiffree("J2", 16, 4)
+];
 
 const derouler = partie => ({
   depuis: etatInitial => {
     let etat = etatInitial;
-    for (const chiffre in partie) {
-      partie[chiffre].forEach(coup => {
-        etat = burma(etat, volee(coup.joueur, chiffre, coup.touches));
-        expect(etat).toMatchSnapshot();
-      });
-    }
+    partie.forEach(volee => {
+      etat = burma(etat, volee);
+      expect(etat).toMatchSnapshot();
+    });
   }
 });

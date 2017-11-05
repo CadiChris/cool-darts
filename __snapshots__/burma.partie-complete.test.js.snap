@@ -14,7 +14,12 @@ Object {
       "joueur": "J1",
       "points": 20,
       "touches": Object {
-        "15": 0,
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
       },
     },
     Object {
@@ -41,14 +46,24 @@ Object {
       "joueur": "J1",
       "points": 20,
       "touches": Object {
-        "15": 0,
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
       },
     },
     Object {
       "joueur": "J2",
       "points": 70,
       "touches": Object {
-        "15": 2,
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 2,
+          },
+        ],
       },
     },
   ],
@@ -70,15 +85,30 @@ Object {
       "joueur": "J1",
       "points": 36,
       "touches": Object {
-        "15": 0,
-        "16": 1,
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 1,
+          },
+        ],
       },
     },
     Object {
       "joueur": "J2",
       "points": 70,
       "touches": Object {
-        "15": 2,
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 2,
+          },
+        ],
       },
     },
   ],
@@ -100,16 +130,36 @@ Object {
       "joueur": "J1",
       "points": 36,
       "touches": Object {
-        "15": 0,
-        "16": 1,
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 1,
+          },
+        ],
       },
     },
     Object {
       "joueur": "J2",
       "points": 134,
       "touches": Object {
-        "15": 2,
-        "16": 4,
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 2,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 4,
+          },
+        ],
       },
     },
   ],
