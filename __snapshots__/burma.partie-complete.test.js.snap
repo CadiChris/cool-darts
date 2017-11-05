@@ -1166,3 +1166,247 @@ Object {
   "vainqueur": undefined,
 }
 `;
+
+exports[`déroule une partie complète 17`] = `
+Object {
+  "chiffreCourant": "B",
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J2",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 58,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 1,
+          },
+        ],
+        "17": Array [
+          Object {
+            "chiffre": 17,
+            "nombre": 0,
+          },
+        ],
+        "18": Array [
+          Object {
+            "chiffre": 18,
+            "nombre": 3,
+          },
+        ],
+        "19": Array [
+          Object {
+            "chiffre": 19,
+            "nombre": 0,
+          },
+        ],
+        "20": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 2,
+          },
+        ],
+        "B": Array [
+          Object {
+            "chiffre": "B",
+            "nombre": 0,
+          },
+        ],
+        "DOUBLE": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 2,
+          },
+        ],
+        "TRIPLE": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 3,
+          },
+        ],
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 118,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 2,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 4,
+          },
+        ],
+        "17": Array [
+          Object {
+            "chiffre": 17,
+            "nombre": 2,
+          },
+        ],
+        "18": Array [
+          Object {
+            "chiffre": 18,
+            "nombre": 1,
+          },
+        ],
+        "19": Array [
+          Object {
+            "chiffre": 19,
+            "nombre": 2,
+          },
+        ],
+        "20": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 1,
+          },
+        ],
+        "DOUBLE": Array [],
+        "TRIPLE": Array [],
+      },
+    },
+  ],
+  "vainqueur": undefined,
+}
+`;
+
+exports[`déroule une partie complète 18`] = `
+Object {
+  "chiffreCourant": undefined,
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J1",
+  "phase": "TERMINEE",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 58,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 1,
+          },
+        ],
+        "17": Array [
+          Object {
+            "chiffre": 17,
+            "nombre": 0,
+          },
+        ],
+        "18": Array [
+          Object {
+            "chiffre": 18,
+            "nombre": 3,
+          },
+        ],
+        "19": Array [
+          Object {
+            "chiffre": 19,
+            "nombre": 0,
+          },
+        ],
+        "20": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 2,
+          },
+        ],
+        "B": Array [
+          Object {
+            "chiffre": "B",
+            "nombre": 0,
+          },
+        ],
+        "DOUBLE": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 2,
+          },
+        ],
+        "TRIPLE": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 3,
+          },
+        ],
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 168,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 2,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 4,
+          },
+        ],
+        "17": Array [
+          Object {
+            "chiffre": 17,
+            "nombre": 2,
+          },
+        ],
+        "18": Array [
+          Object {
+            "chiffre": 18,
+            "nombre": 1,
+          },
+        ],
+        "19": Array [
+          Object {
+            "chiffre": 19,
+            "nombre": 2,
+          },
+        ],
+        "20": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 1,
+          },
+        ],
+        "B": Array [
+          Object {
+            "chiffre": "B",
+            "nombre": 2,
+          },
+        ],
+        "DOUBLE": Array [],
+        "TRIPLE": Array [],
+      },
+    },
+  ],
+  "vainqueur": "J2",
+}
+`;

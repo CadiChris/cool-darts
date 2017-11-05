@@ -38,4 +38,5 @@ it("termine la partie après la dernière volée du dernier joueur", () => {
   const burmaTermine = burma(burmaEnCours, derniereVolee);
 
   expect(burmaTermine.phase).toBe("TERMINEE");
+  expect(burmaTermine.vainqueur).toBe("J2");
 });

@@ -31,6 +31,11 @@ const burma = (state = STATE_INITIAL, action) => {
       };
 
     case VOLEE:
+      const laPartieSeTermine = derniereVolee(
+        state.joueurs,
+        action.payload.lanceur,
+        action.payload.rang
+      );
       return {
         ...state,
         lanceur: lanceur.suivant(state.joueurs, action.payload.lanceur),
@@ -39,13 +44,10 @@ const burma = (state = STATE_INITIAL, action) => {
           action.payload.lanceur
         ),
         scores: scores(state.scores, action),
-        phase: derniereVolee(
-          state.joueurs,
-          action.payload.lanceur,
-          action.payload.rang
-        )
-          ? "TERMINEE"
-          : state.phase
+        phase: laPartieSeTermine ? "TERMINEE" : state.phase,
+        vainqueur: laPartieSeTermine
+          ? meilleurScore(state.scores).joueur
+          : state.vainqueur
       };
 
     default:
@@ -56,5 +58,12 @@ const burma = (state = STATE_INITIAL, action) => {
 const derniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
   tousLesJoueurs.indexOf(lanceur) === tousLesJoueurs.length - 1 &&
   chiffre === "B";
+
+const meilleurScore = scores =>
+  scores.reduce(
+    (courant, challenger) =>
+      courant.points > challenger.points ? courant : challenger,
+    scores[0]
+  );
 
 export { burma };

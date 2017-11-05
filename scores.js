@@ -47,4 +47,8 @@ const noterUneVolee = (chiffre, touches, score, lanceur) => {
 export { scores };
 
 const totalDesPoints = touches =>
-  touches.reduce((cumul, volee) => cumul + volee.chiffre * volee.nombre, 0);
+  touches.reduce(
+    (cumul, volee) =>
+      cumul + (volee.chiffre === "B" ? 25 : volee.chiffre) * volee.nombre,
+    0
+  );

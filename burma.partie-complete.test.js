@@ -23,7 +23,7 @@ it("déroule une partie complète", () => {
 // T    3x20  -> +60  -> 152 pts     0 -> /2   -> 60 pts
 // 19   0     -> /2   -> 76 pts      2 -> 38   -> 98 pts
 // 20   2     -> +40  -> 116 pts     1 -> +20  -> 118 pts
-// B
+// B    0     -> /2   -> 58 pts      2 -> +50  -> 168 pts
 
 const partie = [
   voleeChiffree("J1", 15, 0),
@@ -41,7 +41,9 @@ const partie = [
   voleeChiffree("J1", 19, 0),
   voleeChiffree("J2", 19, 2),
   voleeChiffree("J1", 20, 2),
-  voleeChiffree("J2", 20, 1)
+  voleeChiffree("J2", 20, 1),
+  voleeChiffree("J1", "B", 0),
+  voleeChiffree("J2", "B", 2)
 ];
 
 const derouler = partie => ({
