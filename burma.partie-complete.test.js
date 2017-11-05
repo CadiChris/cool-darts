@@ -1,5 +1,10 @@
 import { burma } from "./burma";
-import { inscrireJoueur, demarrerPartie, voleeChiffree } from "./burma.actions";
+import {
+  inscrireJoueur,
+  demarrerPartie,
+  voleeChiffree,
+  voleeSurDouble
+} from "./burma.actions";
 
 it("déroule une partie complète", () => {
   const burma1joueur = burma(undefined, inscrireJoueur("J1"));
@@ -9,12 +14,23 @@ it("déroule une partie complète", () => {
   derouler(partie).depuis(burmaEnCours);
 });
 
-// TODO: gérer les doubles, triples et bull
+// 15   0     -> /2   ->  20 pts      2 -> +30  -> 70 pts
+// 16   1     -> +16  ->  36 pts      4 -> +64  -> 134 pts
+// D    2x20  -> +40  ->  76 pts      0 -> /2   -> 67 pts
+// 17
+// 18
+// T
+// 19
+// 20
+// B
+
 const partie = [
   voleeChiffree("J1", 15, 0),
   voleeChiffree("J2", 15, 2),
   voleeChiffree("J1", 16, 1),
-  voleeChiffree("J2", 16, 4)
+  voleeChiffree("J2", 16, 4),
+  voleeSurDouble("J1", [{ chiffre: 20, nombre: 2 }]),
+  voleeSurDouble("J2", [])
 ];
 
 const derouler = partie => ({

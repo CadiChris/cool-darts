@@ -166,3 +166,118 @@ Object {
   "vainqueur": undefined,
 }
 `;
+
+exports[`déroule une partie complète 5`] = `
+Object {
+  "chiffreCourant": "D",
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J2",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 76,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 1,
+          },
+        ],
+        "DOUBLE": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 2,
+          },
+        ],
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 134,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 2,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 4,
+          },
+        ],
+      },
+    },
+  ],
+  "vainqueur": undefined,
+}
+`;
+
+exports[`déroule une partie complète 6`] = `
+Object {
+  "chiffreCourant": 17,
+  "joueurs": Array [
+    "J1",
+    "J2",
+  ],
+  "lanceur": "J1",
+  "phase": "EN_COURS",
+  "scores": Array [
+    Object {
+      "joueur": "J1",
+      "points": 76,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 0,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 1,
+          },
+        ],
+        "DOUBLE": Array [
+          Object {
+            "chiffre": 20,
+            "nombre": 2,
+          },
+        ],
+      },
+    },
+    Object {
+      "joueur": "J2",
+      "points": 67,
+      "touches": Object {
+        "15": Array [
+          Object {
+            "chiffre": 15,
+            "nombre": 2,
+          },
+        ],
+        "16": Array [
+          Object {
+            "chiffre": 16,
+            "nombre": 4,
+          },
+        ],
+        "DOUBLE": Array [],
+      },
+    },
+  ],
+  "vainqueur": undefined,
+}
+`;
