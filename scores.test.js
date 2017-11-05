@@ -13,18 +13,18 @@ it("donne des points", () => {
 
 const VOLEE_NULLE = 0;
 it("divise en 2 si volée nulle", () => {
-  const joueur = scores(undefined, inscrireJoueur("J1"));
-  expect(
-    scores(joueur, voleeChiffree("J1", 15, VOLEE_NULLE))[0].points
-  ).toEqual(20);
+  const score = scores(undefined, inscrireJoueur("J1"));
+  expect(scores(score, voleeChiffree("J1", 15, VOLEE_NULLE))[0].points).toEqual(
+    20
+  );
 });
 
 it("arrondi au point supérieur si besoin", () => {
-  let joueur = scores(undefined, inscrireJoueur("J1"));
-  joueur[0].points = 25;
-  expect(
-    scores(joueur, voleeChiffree("J1", 15, VOLEE_NULLE))[0].points
-  ).toEqual(13);
+  let score = scores(undefined, inscrireJoueur("J1"));
+  score[0].points = 25;
+  expect(scores(score, voleeChiffree("J1", 15, VOLEE_NULLE))[0].points).toEqual(
+    13
+  );
 });
 
 it("gère le rang des doubles", () => {
