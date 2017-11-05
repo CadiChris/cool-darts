@@ -29,8 +29,6 @@ it("arrondi au point supérieur si besoin", () => {
 
 it("gère le rang des doubles", () => {
   let score = scores(undefined, inscrireJoueur("J1"));
-  score = scores(score, voleeChiffree("J1", 15, 1));
-  score = scores(score, voleeChiffree("J1", 16, 1));
   score = scores(
     score,
     voleeSurDouble("J1", [
@@ -39,7 +37,7 @@ it("gère le rang des doubles", () => {
     ])
   );
 
-  expect(score[0].points).toBe(40 + 15 + 16 + 2 * 20 + 4 * 1);
+  expect(score[0].points).toBe(40 + 2 * 20 + 4 * 1);
 });
 
 it("gère le rang triple", () => {
