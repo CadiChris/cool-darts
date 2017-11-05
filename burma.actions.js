@@ -29,6 +29,14 @@ const voleeSurDouble = (lanceur, touches) => ({
     touches
   }
 });
+const voleeSurTriple = (lanceur, touches) => ({
+  type: VOLEE,
+  payload: {
+    lanceur,
+    rang: "TRIPLE",
+    touches
+  }
+});
 
 export {
   INSCRIRE_JOUEUR,
@@ -37,5 +45,6 @@ export {
   demarrerPartie,
   VOLEE,
   voleeChiffree,
-  voleeSurDouble
+  voleeSurDouble,
+  voleeSurTriple
 };
