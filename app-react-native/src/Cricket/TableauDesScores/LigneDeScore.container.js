@@ -2,27 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import { lancerFlechette } from "../Cricket.actions";
 import LigneDeScore from "./LigneDeScore";
-import { Vibration } from "react-native";
 
-class LigneDeScoreContainer extends React.Component {
-  constructor(props) {
-    super(props);
+const mapStateToProps = (state, ownProps) => ({
+  score: ownProps.score
+});
+
+const mapDispatchToProps = dispatch => ({
+  onLancerDansSimple: (joueur, chiffre) => {
+    const lancerSimple = 1;
+    dispatch(lancerFlechette(joueur, chiffre, lancerSimple));
   }
+});
 
-  render() {
-    return (
-      <LigneDeScore
-        {...this.props}
-        declencherLancerSimpleDans={chiffre => this.lancerSimpleDans(chiffre)}
-      />
-    );
-  }
-
-  lancerSimpleDans(chiffre) {
-    const { dispatch, score } = this.props;
-    dispatch(lancerFlechette(score.joueur, chiffre, 1));
-    Vibration.vibrate(50);
-  }
-}
-
-export default connect()(LigneDeScoreContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LigneDeScore);

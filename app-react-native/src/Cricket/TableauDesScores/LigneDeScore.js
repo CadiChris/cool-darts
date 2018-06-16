@@ -1,10 +1,10 @@
 import React from "react";
-import { Text, View, TouchableHighlight } from "react-native";
+import { Text, View, TouchableHighlight, Vibration } from "react-native";
 import { Col, Row } from "react-native-easy-grid";
 import Touches from "./Touches";
 import { Styles, Tailles, Textes } from "../styles";
 
-export default ({ score, declencherLancerSimpleDans: lancerDans }) => (
+export default ({ score, onLancerDansSimple }) => (
   <Row style={Styles.bordureHaute}>
     <Col
       style={{ justifyContent: "center" }}
@@ -28,7 +28,10 @@ export default ({ score, declencherLancerSimpleDans: lancerDans }) => (
           key={index}
         >
           <TouchableHighlight
-            onPress={() => lancerDans(chiffre)}
+            onPress={() => {
+              onLancerDansSimple(score.joueur, chiffre);
+              Vibration.vibrate(50);
+            }}
             underlayColor="transparent"
             style={[{ flex: 1, alignSelf: "stretch" }, Styles.contenuAuMilieu]}
           >
