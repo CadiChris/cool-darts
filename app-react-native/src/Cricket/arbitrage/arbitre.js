@@ -17,7 +17,7 @@ function penaliteDuLancer(scores, lancer) {
 }
 
 function trouverLeScoreDuLanceur(scores, lanceur) {
-  return scores.filter(s => s.joueur === lanceur)[0];
+  return scores.find(s => s.joueur === lanceur);
 }
 
 function calculerLaPenalite(cibleDuLanceur, lancer) {
@@ -29,7 +29,8 @@ function calculerLaPenalite(cibleDuLanceur, lancer) {
 }
 
 function scorer(score, lancer, penalite) {
-  return score.joueur === lancer.lanceur
+  const cestLeScoreDuLanceur = score.joueur === lancer.lanceur;
+  return cestLeScoreDuLanceur
     ? toucher(lancer.chiffre, lancer.touches, score)
     : scorerUnAdversaire(score, lancer.chiffre, penalite);
 }
