@@ -1,33 +1,31 @@
-const undoable = (reducer) => {
-
+const undoable = reducer => {
   const STATE_INITIAL = {
     actuel: reducer(undefined, {}),
     precedents: []
-  }
+  };
 
-  return function (state = STATE_INITIAL, action) {
-    const {actuel, precedents} = state
+  return function(state = STATE_INITIAL, action) {
+    const { actuel, precedents } = state;
 
     switch (action.type) {
-      case 'UNDO' :
+      case "UNDO":
         return {
           actuel: precedents[precedents.length - 1],
           precedents: precedents.slice(0, precedents.length - 1)
-        }
+        };
 
       default:
-        const remplacant = reducer(actuel, action)
-        const actionSansEffet = actuel === remplacant
+        const remplacant = reducer(actuel, action);
+        const actionSansEffet = actuel === remplacant;
 
-        if (actionSansEffet)
-          return state
+        if (actionSansEffet) return state;
 
         return {
           actuel: remplacant,
           precedents: [...precedents, actuel]
-        }
+        };
     }
-  }
-}
+  };
+};
 
-export default undoable
+export default undoable;

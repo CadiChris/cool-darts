@@ -7,7 +7,10 @@
     "gulp": "^3.9.1",
     "gulp-replace": "^0.6.1",
     "gulp-sequence": "^0.4.6",
+    "husky": "^0.14.3",
     "jest-expo": "~1.0.1",
+    "prettier": "1.13.5",
+    "pretty-quick": "^1.6.0",
     "react-test-renderer": "16.0.0-alpha.6",
     "yargs": "^8.0.2"
   },
@@ -17,7 +20,9 @@
     "ios": "react-native run-ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
     "release": "gulp release",
-    "info-release": "grep \"versionCode \\d\\+\" android/app/build.gradle && grep \"versionName.\\+\" android/app/build.gradle"
+    "info-release": "grep \"versionCode \\d\\+\" android/app/build.gradle && grep \"versionName.\\+\" android/app/build.gradle",
+    "precommit": "pretty-quick --staged",
+    "pretty": "pretty-quick"
   },
   "rnpm": {
     "assets": [

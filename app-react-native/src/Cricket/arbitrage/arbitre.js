@@ -1,42 +1,41 @@
-import { toucher, penaliser, chiffreEstFerme } from "./score"
+import { toucher, penaliser, chiffreEstFerme } from "./score";
 
 export function calculerLeNouveauScore(tableauDesScores, lancer) {
-  if(toucheUnChiffreInvalide(lancer))
-    return [...tableauDesScores]
+  if (toucheUnChiffreInvalide(lancer)) return [...tableauDesScores];
 
-  const penalite = penaliteDuLancer(tableauDesScores, lancer)
-  return tableauDesScores.map(s => scorer(s, lancer, penalite))
+  const penalite = penaliteDuLancer(tableauDesScores, lancer);
+  return tableauDesScores.map(s => scorer(s, lancer, penalite));
 }
 
-const toucheUnChiffreInvalide = (lancer) => lancer.chiffre < 15
+const toucheUnChiffreInvalide = lancer => lancer.chiffre < 15;
 
-const LIMITE = 3
+const LIMITE = 3;
 
 function penaliteDuLancer(scores, lancer) {
-  const scoreDuLanceur = trouverLeScoreDuLanceur(scores, lancer.lanceur)
-  return calculerLaPenalite(scoreDuLanceur.cible, lancer)
+  const scoreDuLanceur = trouverLeScoreDuLanceur(scores, lancer.lanceur);
+  return calculerLaPenalite(scoreDuLanceur.cible, lancer);
 }
 
 function trouverLeScoreDuLanceur(scores, lanceur) {
-  return scores.filter(s => (s.joueur === lanceur))[0]
+  return scores.filter(s => s.joueur === lanceur)[0];
 }
 
 function calculerLaPenalite(cibleDuLanceur, lancer) {
-  const touches = cibleDuLanceur[lancer.chiffre].touches
-  const leChiffreVaSeFermer = touches + lancer.touches >= LIMITE
-  const surplus = (touches + lancer.touches) - LIMITE
+  const touches = cibleDuLanceur[lancer.chiffre].touches;
+  const leChiffreVaSeFermer = touches + lancer.touches >= LIMITE;
+  const surplus = touches + lancer.touches - LIMITE;
 
-  return leChiffreVaSeFermer ? surplus * lancer.chiffre : 0
+  return leChiffreVaSeFermer ? surplus * lancer.chiffre : 0;
 }
 
 function scorer(score, lancer, penalite) {
   return score.joueur === lancer.lanceur
     ? toucher(lancer.chiffre, lancer.touches, score)
-    : scorerUnAdversaire(score, lancer.chiffre, penalite)
+    : scorerUnAdversaire(score, lancer.chiffre, penalite);
 }
 
 function scorerUnAdversaire(score, chiffre, pointsDePenalite) {
   return chiffreEstFerme(chiffre, score)
     ? score
-    : penaliser(pointsDePenalite, score)
+    : penaliser(pointsDePenalite, score);
 }

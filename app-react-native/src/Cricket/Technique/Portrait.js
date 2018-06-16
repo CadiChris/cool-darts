@@ -1,17 +1,16 @@
-import React from 'react'
-import Orientation from "react-native-orientation"
+import React from "react";
+import Orientation from "react-native-orientation";
 
 export default class Portrait extends React.Component {
-
   componentDidMount() {
-    Orientation.lockToPortrait()
+    Orientation.lockToPortrait();
   }
 
   componentWillUnmount() {
-    Orientation.unlockAllOrientations()
+    Orientation.unlockAllOrientations();
   }
 
   render() {
-    return this.props.children
+    return this.props.children;
   }
 }
