@@ -1,10 +1,10 @@
-import cricket from "./Cricket.reducer";
+import cricket from "./reducer";
 import {
   inscrireJoueur,
   demarrerPartie,
   lancerFlechette,
   nouvellePartie
-} from "./Cricket.actions";
+} from "./actions";
 
 it("retourne le state initial", () => {
   expect(cricket(undefined, {})).toMatchSnapshot();

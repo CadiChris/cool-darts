@@ -1,7 +1,7 @@
 import React from "react";
-import { connect, Provider } from "react-redux";
+import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-import cricket from "./src/Cricket/Cricket.reducer";
+import cricket from "./src/Cricket/reducer";
 import Cricket from "./src/Cricket/Cricket";
 import SplashScreen from "./src/Cricket/Technique/SplashScreen";
 import undoable from "./src/undo/undoable";

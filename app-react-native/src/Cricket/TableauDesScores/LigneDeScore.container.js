@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { lancerFlechette } from "../Cricket.actions";
+import { lancerFlechette } from "../actions";
 import LigneDeScore from "./LigneDeScore";
 
 const mapStateToProps = (state, ownProps) => ({

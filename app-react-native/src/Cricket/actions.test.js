@@ -3,7 +3,7 @@ import {
   demarrerPartie,
   lancerFlechette,
   nouvellePartie
-} from "./Cricket.actions";
+} from "./actions";
 
 it("inscrit un joueur", () => {
   expect(inscrireJoueur("J1")).toMatchSnapshot();

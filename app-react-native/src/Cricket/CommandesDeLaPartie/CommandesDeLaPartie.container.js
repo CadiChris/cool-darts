@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { nouvellePartie } from "./../Cricket.actions";
+import { nouvellePartie } from "../actions";
 import CommandesDeLaPartie from "./CommandesDeLaPartie";
 
 const mapStateToProps = state => ({
