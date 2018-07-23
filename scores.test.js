@@ -1,4 +1,4 @@
-import { scores } from "./scores";
+import { POINTS_INITIAUX, scores } from "./scores";
 import {
   inscrireJoueur,
   voleeChiffree,
@@ -8,7 +8,13 @@ import {
 
 it("donne des points", () => {
   const joueur = scores(undefined, inscrireJoueur("J1"));
-  expect(scores(joueur, voleeChiffree("J1", 15, 1))).toMatchSnapshot();
+  expect(scores(joueur, voleeChiffree("J1", 15, 1))[0]).toEqual({
+    joueur: "J1",
+    points: POINTS_INITIAUX + 15,
+    touches: {
+      15: [{ chiffre: 15, nombre: 1 }]
+    }
+  });
 });
 
 const VOLEE_NULLE = 0;

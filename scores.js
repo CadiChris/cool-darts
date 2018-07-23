@@ -44,7 +44,7 @@ const noterUneVolee = (chiffre, touches, score, lanceur) => {
   };
 };
 
-export { scores };
+export { scores, POINTS_INITIAUX };
 
 const totalDesPoints = touches =>
   touches.reduce(
