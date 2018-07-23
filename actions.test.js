@@ -1,4 +1,4 @@
-import { voleeChiffree, voleeSurDouble } from "./burma.actions";
+import { voleeChiffree, voleeSurDouble } from "./actions";
 
 it("crée une volée sur rang chiffré", () => {
   expect(voleeChiffree("J1", 15, 2)).toEqual({

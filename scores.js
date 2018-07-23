@@ -1,4 +1,4 @@
-import { VOLEE, INSCRIRE_JOUEUR } from "./burma.actions";
+import { VOLEE, INSCRIRE_JOUEUR } from "./actions";
 
 function scores(state = [], action) {
   switch (action.type) {

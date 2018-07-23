@@ -1,4 +1,4 @@
-import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./burma.actions";
+import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./actions";
 import * as lanceur from "./lanceur";
 import { scores } from "./scores";
 import { leChiffreSuivant, CHIFFRES_DU_BURMA } from "./chiffre";

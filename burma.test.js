@@ -1,5 +1,5 @@
 import { burma } from "./burma";
-import { inscrireJoueur, demarrerPartie, voleeChiffree } from "./burma.actions";
+import { inscrireJoueur, demarrerPartie, voleeChiffree } from "./actions";
 
 it("retourne le state initial", () => {
   expect(burma(undefined, {})).toMatchSnapshot();

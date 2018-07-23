@@ -4,7 +4,7 @@ import {
   voleeChiffree,
   voleeSurDouble,
   voleeSurTriple
-} from "./burma.actions";
+} from "./actions";
 
 it("donne des points", () => {
   const joueur = scores(undefined, inscrireJoueur("J1"));

@@ -5,7 +5,7 @@ import {
   voleeChiffree,
   voleeSurDouble,
   voleeSurTriple
-} from "./burma.actions";
+} from "./actions";
 
 it("déroule une partie complète", () => {
   const burma1joueur = burma(undefined, inscrireJoueur("J1"));
