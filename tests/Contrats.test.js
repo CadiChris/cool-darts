@@ -36,7 +36,7 @@ describe("Les contrats", () => {
       expect(new Contrats.triple([20]).valeur).toBe(20 * 3);
     });
 
-    it("le nom du contrat est `TRIPLE`", () => {
+    it("le nom du contrat est 'TRIPLE'", () => {
       expect(new Contrats.triple([9]).nom).toBe("TRIPLE");
     });
 
