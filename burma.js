@@ -38,7 +38,16 @@ const burma = (state = STATE_INITIAL, action) => {
     case VOLEE:
       const { payload: { lanceur, contrat } } = action;
 
-      const laPartieSeTermine = derniereVolee(state.joueurs, lanceur, "BULL");
+      const laPartieSeTermine = estLaDerniereVolee(
+        state.joueurs,
+        lanceur,
+        state.chiffreCourant
+      );
+
+      const chiffreSuivant = leChiffreSuivant(state.chiffreCourant).avec(
+        state.joueurs,
+        lanceur
+      );
 
       const nextScores = {
         ...state.scores,
@@ -50,10 +59,7 @@ const burma = (state = STATE_INITIAL, action) => {
         lanceur: laPartieSeTermine
           ? undefined
           : lanceurSuivant(lanceur, state.joueurs),
-        chiffreCourant: leChiffreSuivant(state.chiffreCourant).avec(
-          state.joueurs,
-          lanceur
-        ),
+        chiffreCourant: chiffreSuivant,
         scores: nextScores,
         phase: laPartieSeTermine ? "TERMINEE" : state.phase,
         vainqueur: laPartieSeTermine ? meilleurScore(nextScores) : undefined
@@ -64,7 +70,7 @@ const burma = (state = STATE_INITIAL, action) => {
   }
 };
 
-const derniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
+const estLaDerniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
   tousLesJoueurs.indexOf(lanceur) === tousLesJoueurs.length - 1 &&
   chiffre === dernierChiffre();
 

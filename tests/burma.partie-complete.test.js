@@ -47,10 +47,12 @@ describe("partie complète de Burma", () => {
       voleeSurBull("J2", 2, 0)
     ]);
 
+    const joueurAyantLePlusDePoints = "J2";
+
     expect(partieComplete).toEqual({
       phase: "TERMINEE",
       joueurs: ["J1", "J2"],
-      vainqueur: "J2",
+      vainqueur: joueurAyantLePlusDePoints,
       chiffreCourant: undefined,
       lanceur: undefined,
       scores: {
