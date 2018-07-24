@@ -7,7 +7,7 @@ import {
   VOLEE_SUR_BULL
 } from "./actions";
 import { lanceurSuivant } from "./lanceur";
-import { leChiffreSuivant, CHIFFRES_DU_BURMA } from "./chiffre";
+import { leChiffreSuivant, dernierChiffre, premierChiffre } from "./chiffre";
 import Score from "./Score";
 import Contrats from "./Contrats";
 
@@ -40,7 +40,7 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: state.joueurs[0],
         phase: "EN_COURS",
-        chiffreCourant: CHIFFRES_DU_BURMA[0]
+        chiffreCourant: premierChiffre()
       };
 
     case VOLEE_SUR_CHIFFRE: {
@@ -105,7 +105,7 @@ const burma = (state = STATE_INITIAL, action) => {
         payload: { lanceur, nombreDeSimplesBull, nombreDeDoublesBull }
       } = action;
 
-      const laPartieSeTermine = derniereVolee(state.joueurs, lanceur, "B");
+      const laPartieSeTermine = derniereVolee(state.joueurs, lanceur, "BULL");
 
       const nextScores = {
         ...state.scores,
@@ -135,7 +135,7 @@ const burma = (state = STATE_INITIAL, action) => {
 
 const derniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
   tousLesJoueurs.indexOf(lanceur) === tousLesJoueurs.length - 1 &&
-  chiffre === "B";
+  chiffre === dernierChiffre();
 
 const meilleurScore = scores =>
   Object.keys(scores).reduce((vainqueur, challenger) => {

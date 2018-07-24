@@ -13,5 +13,5 @@ it("change de chiffre au dernier lanceur", () => {
 });
 
 it("donne undefined comme chiffre suivant le Bull du dernier lanceur", () => {
-  expect(leChiffreSuivant("B").avec(joueurs, "J2")).toBe(undefined);
+  expect(leChiffreSuivant("BULL").avec(joueurs, "J2")).toBe(undefined);
 });
