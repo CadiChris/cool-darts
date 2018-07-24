@@ -1,3 +1,5 @@
+import Contrats from "./Contrats";
+
 const INSCRIRE_JOUEUR = "INSCRIRE_JOUEUR";
 const inscrireJoueur = nomDuJoueur => ({
   type: INSCRIRE_JOUEUR,
@@ -16,8 +18,7 @@ const voleeSurChiffre = (lanceur, chiffre, nombreDeTouches) => ({
   type: VOLEE_SUR_CHIFFRE,
   payload: {
     lanceur,
-    chiffre,
-    nombreDeTouches
+    contrat: new Contrats.chiffre(chiffre, nombreDeTouches)
   }
 });
 
@@ -26,7 +27,7 @@ const voleeSurDouble = (lanceur, chiffresTouches) => ({
   type: VOLEE_SUR_DOUBLE,
   payload: {
     lanceur,
-    chiffresTouches
+    contrat: new Contrats.double(chiffresTouches)
   }
 });
 
@@ -35,7 +36,7 @@ const voleeSurTriple = (lanceur, chiffresTouches) => ({
   type: VOLEE_SUR_TRIPLE,
   payload: {
     lanceur,
-    chiffresTouches
+    contrat: new Contrats.triple(chiffresTouches)
   }
 });
 
@@ -44,8 +45,7 @@ const voleeSurBull = (lanceur, nombreDeSimplesBull, nombreDeDoublesBull) => ({
   type: VOLEE_SUR_BULL,
   payload: {
     lanceur,
-    nombreDeSimplesBull,
-    nombreDeDoublesBull
+    contrat: new Contrats.bull(nombreDeSimplesBull, nombreDeDoublesBull)
   }
 });
 

@@ -44,7 +44,7 @@ const burma = (state = STATE_INITIAL, action) => {
       };
 
     case VOLEE_SUR_CHIFFRE: {
-      const { payload: { lanceur, chiffre, nombreDeTouches } } = action;
+      const { payload: { lanceur, contrat } } = action;
 
       return {
         ...state,
@@ -55,15 +55,13 @@ const burma = (state = STATE_INITIAL, action) => {
         ),
         scores: {
           ...state.scores,
-          [lanceur]: new Score(state.scores[lanceur])
-            .noter(new Contrats.chiffre(chiffre, nombreDeTouches))
-            .tableau()
+          [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
         }
       };
     }
 
     case VOLEE_SUR_DOUBLE: {
-      const { payload: { lanceur, chiffresTouches } } = action;
+      const { payload: { lanceur, contrat } } = action;
 
       return {
         ...state,
@@ -74,15 +72,13 @@ const burma = (state = STATE_INITIAL, action) => {
         ),
         scores: {
           ...state.scores,
-          [lanceur]: new Score(state.scores[lanceur])
-            .noter(new Contrats.double(chiffresTouches))
-            .tableau()
+          [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
         }
       };
     }
 
     case VOLEE_SUR_TRIPLE: {
-      const { payload: { lanceur, chiffresTouches } } = action;
+      const { payload: { lanceur, contrat } } = action;
 
       return {
         ...state,
@@ -93,25 +89,19 @@ const burma = (state = STATE_INITIAL, action) => {
         ),
         scores: {
           ...state.scores,
-          [lanceur]: new Score(state.scores[lanceur])
-            .noter(new Contrats.triple(chiffresTouches))
-            .tableau()
+          [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
         }
       };
     }
 
     case VOLEE_SUR_BULL:
-      const {
-        payload: { lanceur, nombreDeSimplesBull, nombreDeDoublesBull }
-      } = action;
+      const { payload: { lanceur, contrat } } = action;
 
       const laPartieSeTermine = derniereVolee(state.joueurs, lanceur, "BULL");
 
       const nextScores = {
         ...state.scores,
-        [lanceur]: new Score(state.scores[lanceur])
-          .noter(new Contrats.bull(nombreDeSimplesBull, nombreDeDoublesBull))
-          .tableau()
+        [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
       };
 
       return {
