@@ -23,7 +23,7 @@ describe("Score", () => {
     const tableauDeTest = [{ contrat: "17", points: 60 }];
 
     const contratNonRempli = Contrats.chiffre(18, 0);
-    expect(contratNonRempli.estRempli()).toBe(false);
+    expect(contratNonRempli.estRempli).toBe(false);
 
     expect(new Score(tableauDeTest).noter(contratNonRempli).tableau()).toEqual([
       { contrat: "17", points: 60 },
@@ -35,7 +35,7 @@ describe("Score", () => {
     const avecPointsImpairs = [{ contrat: "18", points: 3 }];
 
     const contratNonRempli = Contrats.chiffre(19, 0);
-    expect(contratNonRempli.estRempli()).toBe(false);
+    expect(contratNonRempli.estRempli).toBe(false);
 
     expect(
       new Score(avecPointsImpairs).noter(contratNonRempli).tableau()

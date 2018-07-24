@@ -10,7 +10,7 @@ class Score {
   }
 
   noter(contrat) {
-    if (contrat.estRempli()) return this.nouveauScore(contrat);
+    if (contrat.estRempli) return this.nouveauScore(contrat);
 
     return this.scoreDiviseParDeux(contrat);
   }
@@ -19,8 +19,8 @@ class Score {
     return new Score([
       ...this._tableau,
       {
-        contrat: contrat.nom(),
-        points: this.derniersPoints() + contrat.valeur()
+        contrat: contrat.nom,
+        points: this.derniersPoints() + contrat.valeur
       }
     ]);
   }
@@ -28,7 +28,7 @@ class Score {
   scoreDiviseParDeux(contrat) {
     return new Score([
       ...this._tableau,
-      { contrat: contrat.nom(), points: Math.round(this.derniersPoints() / 2) }
+      { contrat: contrat.nom, points: Math.round(this.derniersPoints() / 2) }
     ]);
   }
 
