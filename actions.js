@@ -1,20 +1,20 @@
 import Contrats from "./Contrats";
 
-const INSCRIRE_JOUEUR = "INSCRIRE_JOUEUR";
-const inscrireJoueur = nomDuJoueur => ({
+export const INSCRIRE_JOUEUR = "INSCRIRE_JOUEUR";
+export const inscrireJoueur = nomDuJoueur => ({
   type: INSCRIRE_JOUEUR,
   payload: {
     nomDuJoueur
   }
 });
 
-const DEMARRER_PARTIE = "DEMARRER_PARTIE";
-const demarrerPartie = () => ({
+export const DEMARRER_PARTIE = "DEMARRER_PARTIE";
+export const demarrerPartie = () => ({
   type: DEMARRER_PARTIE
 });
 
-const VOLEE = "VOLEE";
-const voleeSurChiffre = (lanceur, chiffre, nombreDeTouches) => ({
+export const VOLEE = "VOLEE";
+export const voleeSurChiffre = (lanceur, chiffre, nombreDeTouches) => ({
   type: VOLEE,
   payload: {
     lanceur,
@@ -22,7 +22,7 @@ const voleeSurChiffre = (lanceur, chiffre, nombreDeTouches) => ({
   }
 });
 
-const voleeSurDouble = (lanceur, chiffresTouches) => ({
+export const voleeSurDouble = (lanceur, chiffresTouches) => ({
   type: VOLEE,
   payload: {
     lanceur,
@@ -30,7 +30,7 @@ const voleeSurDouble = (lanceur, chiffresTouches) => ({
   }
 });
 
-const voleeSurTriple = (lanceur, chiffresTouches) => ({
+export const voleeSurTriple = (lanceur, chiffresTouches) => ({
   type: VOLEE,
   payload: {
     lanceur,
@@ -38,22 +38,14 @@ const voleeSurTriple = (lanceur, chiffresTouches) => ({
   }
 });
 
-const voleeSurBull = (lanceur, nombreDeSimplesBull, nombreDeDoublesBull) => ({
+export const voleeSurBull = (
+  lanceur,
+  nombreDeSimplesBull,
+  nombreDeDoublesBull
+) => ({
   type: VOLEE,
   payload: {
     lanceur,
     contrat: new Contrats.bull(nombreDeSimplesBull, nombreDeDoublesBull)
   }
 });
-
-export {
-  INSCRIRE_JOUEUR,
-  inscrireJoueur,
-  DEMARRER_PARTIE,
-  demarrerPartie,
-  VOLEE,
-  voleeSurChiffre,
-  voleeSurDouble,
-  voleeSurTriple,
-  voleeSurBull
-};
