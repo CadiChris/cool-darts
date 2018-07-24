@@ -83,4 +83,4 @@ const meilleurScore = scores =>
     return challenger;
   }, Object.keys(scores)[0]);
 
-export { burma };
+export default burma;

@@ -1,5 +1,5 @@
 import deepFreeze from "deep-freeze";
-import { burma } from "../burma";
+import burma from "../burma";
 import {
   inscrireJoueur,
   demarrerPartie,
