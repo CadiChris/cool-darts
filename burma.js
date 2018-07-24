@@ -1,15 +1,7 @@
-import {
-  INSCRIRE_JOUEUR,
-  DEMARRER_PARTIE,
-  VOLEE_SUR_CHIFFRE,
-  VOLEE_SUR_DOUBLE,
-  VOLEE_SUR_TRIPLE,
-  VOLEE_SUR_BULL
-} from "./actions";
+import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./actions";
 import { lanceurSuivant } from "./lanceur";
 import { leChiffreSuivant, dernierChiffre, premierChiffre } from "./chiffre";
 import Score from "./Score";
-import Contrats from "./Contrats";
 
 const STATE_INITIAL = {
   joueurs: [],
@@ -43,58 +35,7 @@ const burma = (state = STATE_INITIAL, action) => {
         chiffreCourant: premierChiffre()
       };
 
-    case VOLEE_SUR_CHIFFRE: {
-      const { payload: { lanceur, contrat } } = action;
-
-      return {
-        ...state,
-        lanceur: lanceurSuivant(lanceur, state.joueurs),
-        chiffreCourant: leChiffreSuivant(state.chiffreCourant).avec(
-          state.joueurs,
-          lanceur
-        ),
-        scores: {
-          ...state.scores,
-          [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
-        }
-      };
-    }
-
-    case VOLEE_SUR_DOUBLE: {
-      const { payload: { lanceur, contrat } } = action;
-
-      return {
-        ...state,
-        lanceur: lanceurSuivant(lanceur, state.joueurs),
-        chiffreCourant: leChiffreSuivant(state.chiffreCourant).avec(
-          state.joueurs,
-          lanceur
-        ),
-        scores: {
-          ...state.scores,
-          [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
-        }
-      };
-    }
-
-    case VOLEE_SUR_TRIPLE: {
-      const { payload: { lanceur, contrat } } = action;
-
-      return {
-        ...state,
-        lanceur: lanceurSuivant(lanceur, state.joueurs),
-        chiffreCourant: leChiffreSuivant(state.chiffreCourant).avec(
-          state.joueurs,
-          lanceur
-        ),
-        scores: {
-          ...state.scores,
-          [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
-        }
-      };
-    }
-
-    case VOLEE_SUR_BULL:
+    case VOLEE:
       const { payload: { lanceur, contrat } } = action;
 
       const laPartieSeTermine = derniereVolee(state.joueurs, lanceur, "BULL");
@@ -108,10 +49,10 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: laPartieSeTermine
           ? undefined
-          : lanceurSuivant(action.payload.lanceur, state.joueurs),
+          : lanceurSuivant(lanceur, state.joueurs),
         chiffreCourant: leChiffreSuivant(state.chiffreCourant).avec(
           state.joueurs,
-          action.payload.lanceur
+          lanceur
         ),
         scores: nextScores,
         phase: laPartieSeTermine ? "TERMINEE" : state.phase,

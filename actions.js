@@ -13,36 +13,33 @@ const demarrerPartie = () => ({
   type: DEMARRER_PARTIE
 });
 
-const VOLEE_SUR_CHIFFRE = "VOLEE_SUR_CHIFFRE";
+const VOLEE = "VOLEE";
 const voleeSurChiffre = (lanceur, chiffre, nombreDeTouches) => ({
-  type: VOLEE_SUR_CHIFFRE,
+  type: VOLEE,
   payload: {
     lanceur,
     contrat: new Contrats.chiffre(chiffre, nombreDeTouches)
   }
 });
 
-const VOLEE_SUR_DOUBLE = "VOLEE_SUR_DOUBLE";
 const voleeSurDouble = (lanceur, chiffresTouches) => ({
-  type: VOLEE_SUR_DOUBLE,
+  type: VOLEE,
   payload: {
     lanceur,
     contrat: new Contrats.double(chiffresTouches)
   }
 });
 
-const VOLEE_SUR_TRIPLE = "VOLEE_SUR_TRIPLE";
 const voleeSurTriple = (lanceur, chiffresTouches) => ({
-  type: VOLEE_SUR_TRIPLE,
+  type: VOLEE,
   payload: {
     lanceur,
     contrat: new Contrats.triple(chiffresTouches)
   }
 });
 
-const VOLEE_SUR_BULL = "VOLEE_SUR_BULL";
 const voleeSurBull = (lanceur, nombreDeSimplesBull, nombreDeDoublesBull) => ({
-  type: VOLEE_SUR_BULL,
+  type: VOLEE,
   payload: {
     lanceur,
     contrat: new Contrats.bull(nombreDeSimplesBull, nombreDeDoublesBull)
@@ -54,10 +51,7 @@ export {
   inscrireJoueur,
   DEMARRER_PARTIE,
   demarrerPartie,
-  VOLEE_SUR_CHIFFRE,
-  VOLEE_SUR_DOUBLE,
-  VOLEE_SUR_TRIPLE,
-  VOLEE_SUR_BULL,
+  VOLEE,
   voleeSurChiffre,
   voleeSurDouble,
   voleeSurTriple,
