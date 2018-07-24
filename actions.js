@@ -11,30 +11,41 @@ const demarrerPartie = () => ({
   type: DEMARRER_PARTIE
 });
 
-const VOLEE = "VOLEE";
-const voleeChiffree = (lanceur, rang, nombreDeTouches) => ({
-  type: VOLEE,
+const VOLEE_SUR_CHIFFRE = "VOLEE_SUR_CHIFFRE";
+const voleeSurChiffre = (lanceur, chiffre, nombreDeTouches) => ({
+  type: VOLEE_SUR_CHIFFRE,
   payload: {
     lanceur,
-    rang,
-    touches: [{ chiffre: rang, nombre: nombreDeTouches }]
+    chiffre,
+    nombreDeTouches
   }
 });
 
-const voleeSurDouble = (lanceur, touches) => ({
-  type: VOLEE,
+const VOLEE_SUR_DOUBLE = "VOLEE_SUR_DOUBLE";
+const voleeSurDouble = (lanceur, chiffresTouches) => ({
+  type: VOLEE_SUR_DOUBLE,
   payload: {
     lanceur,
-    rang: "DOUBLE",
-    touches
+    chiffresTouches
   }
 });
-const voleeSurTriple = (lanceur, touches) => ({
-  type: VOLEE,
+
+const VOLEE_SUR_TRIPLE = "VOLEE_SUR_TRIPLE";
+const voleeSurTriple = (lanceur, chiffresTouches) => ({
+  type: VOLEE_SUR_TRIPLE,
   payload: {
     lanceur,
-    rang: "TRIPLE",
-    touches
+    chiffresTouches
+  }
+});
+
+const VOLEE_SUR_BULL = "VOLEE_SUR_BULL";
+const voleeSurBull = (lanceur, nombreDeSimplesBull, nombreDeDoublesBull) => ({
+  type: VOLEE_SUR_BULL,
+  payload: {
+    lanceur,
+    nombreDeSimplesBull,
+    nombreDeDoublesBull
   }
 });
 
@@ -43,8 +54,12 @@ export {
   inscrireJoueur,
   DEMARRER_PARTIE,
   demarrerPartie,
-  VOLEE,
-  voleeChiffree,
+  VOLEE_SUR_CHIFFRE,
+  VOLEE_SUR_DOUBLE,
+  VOLEE_SUR_TRIPLE,
+  VOLEE_SUR_BULL,
+  voleeSurChiffre,
   voleeSurDouble,
-  voleeSurTriple
+  voleeSurTriple,
+  voleeSurBull
 };

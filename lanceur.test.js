@@ -1,6 +1,7 @@
-import * as lanceur from "./lanceur";
+import { lanceurSuivant } from "./lanceur";
 
-it("retourne le joueur suivant", () => {
+it("retourne le lanceur suivant", () => {
   const joueurs = ["J1", "J2"];
-  expect(lanceur.suivant(joueurs, "J1")).toBe("J2");
+  expect(lanceurSuivant("J1", joueurs)).toBe("J2");
+  expect(lanceurSuivant("J2", joueurs)).toBe("J1");
 });
