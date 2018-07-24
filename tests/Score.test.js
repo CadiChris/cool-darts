@@ -1,5 +1,5 @@
-import Score, { POINTS_INITIAUX } from "./Score";
-import Contrats from "./Contrats";
+import Score, { POINTS_INITIAUX } from "../Score";
+import Contrats from "../Contrats";
 
 describe("Score", () => {
   it("donne le tableau de score de départ", () => {

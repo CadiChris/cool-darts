@@ -1,7 +1,7 @@
 import deepFreeze from "deep-freeze";
-import { burma } from "./burma";
-import { inscrireJoueur, demarrerPartie, voleeSurBull } from "./actions";
-import { POINTS_INITIAUX } from "./Score";
+import { burma } from "../burma";
+import { inscrireJoueur, demarrerPartie, voleeSurBull } from "../actions";
+import { POINTS_INITIAUX } from "../Score";
 
 it("retourne le state initial", () => {
   expect(burma(undefined, {})).toEqual({

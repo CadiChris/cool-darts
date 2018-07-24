@@ -1,4 +1,4 @@
-import Contrats from "./Contrats";
+import Contrats from "../Contrats";
 
 describe("Les contrats", () => {
   describe("sur un chiffre", () => {

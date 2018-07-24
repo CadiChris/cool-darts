@@ -1,4 +1,4 @@
-import { lanceurSuivant } from "./lanceur";
+import { lanceurSuivant } from "../lanceur";
 
 it("retourne le lanceur suivant", () => {
   const joueurs = ["J1", "J2"];

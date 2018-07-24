@@ -1,4 +1,4 @@
-import { leChiffreSuivant } from "./chiffre";
+import { leChiffreSuivant } from "../chiffre";
 
 const joueurs = ["J1", "J2"];
 

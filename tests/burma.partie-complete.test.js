@@ -1,5 +1,5 @@
 import deepFreeze from "deep-freeze";
-import { burma } from "./burma";
+import { burma } from "../burma";
 import {
   inscrireJoueur,
   demarrerPartie,
@@ -7,8 +7,8 @@ import {
   voleeSurDouble,
   voleeSurTriple,
   voleeSurBull
-} from "./actions";
-import { POINTS_INITIAUX } from "./Score";
+} from "../actions";
+import { POINTS_INITIAUX } from "../Score";
 
 describe("partie complète de Burma", () => {
   it("arbitre une partie complète", () => {
