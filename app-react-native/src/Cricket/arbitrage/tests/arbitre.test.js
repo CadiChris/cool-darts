@@ -1,6 +1,6 @@
 import freeze from "deep-freeze";
-import { scoreVierge } from "./score";
-import * as arbitre from "./arbitre";
+import { scoreVierge } from "../score";
+import * as arbitre from "../arbitre";
 
 //	scores: [
 //		{

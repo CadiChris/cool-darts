@@ -1,11 +1,11 @@
 import freeze from "deep-freeze";
-import cricket from "./reducer";
+import cricket from "../reducer";
 import {
   inscrireJoueur,
   demarrerPartie,
   lancerFlechette,
   nouvellePartie
-} from "./actions";
+} from "../actions";
 
 it("retourne le state initial", () => {
   expect(cricket(undefined, {})).toEqual({

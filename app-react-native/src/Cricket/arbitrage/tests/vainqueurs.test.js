@@ -1,4 +1,4 @@
-import { vainqueurs } from "./vainqueurs";
+import { vainqueurs } from "../vainqueurs";
 import { score } from "./arbitre.test";
 
 const _3_TOUCHES = 3;
