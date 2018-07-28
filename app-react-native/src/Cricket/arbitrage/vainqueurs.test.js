@@ -20,7 +20,19 @@ describe("Choix du vainqueur", () => {
 
       expect(vainqueurs([seulementLe20Ferme, toutFerme])).toEqual(["J2"]);
     });
+
+    it("ne déclare pas vainqueur la cible fermée si elle a plus de pénalité qu'une autre", () => {
+      const toutFermeMaisGrossePenalite = scoreAvecCibleFermee("J1", 80);
+      const pasFermeMaisSansPenalite = score("J2", { 20: _3_TOUCHES }, 20);
+
+      const pasDeVainqueur = [];
+
+      expect(
+        vainqueurs([toutFermeMaisGrossePenalite, pasFermeMaisSansPenalite])
+      ).toEqual(pasDeVainqueur);
+    });
   });
+
   describe("Plusieurs cibles fermées", () => {
     it("déclare le joueur avec le moins de pénalité comme vainqueur", () => {
       expect(
@@ -30,6 +42,7 @@ describe("Choix du vainqueur", () => {
         ])
       ).toEqual(["joueur sans pénalité"]);
     });
+
     it("déclare plusieurs vainqueurs si toutes les cibles fermées ont la même pénalité", () => {
       expect(
         vainqueurs([

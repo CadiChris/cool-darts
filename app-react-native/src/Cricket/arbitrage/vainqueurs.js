@@ -1,11 +1,20 @@
 export function vainqueurs(scores) {
-  const vainqueurs = extraireCeuxQuiOntToutFerme(scores);
+  const toutFerme = extraireCeuxQuiOntToutFerme(scores);
 
-  switch (vainqueurs.length) {
+  const pasDeVainqueur = [];
+
+  switch (toutFerme.length) {
     case 0:
-      return [];
+      return pasDeVainqueur;
+
     case 1:
-      return [vainqueurs[0].joueur];
+      const fermeEtPlusPetitePenalite =
+        toutFerme[0].points === plusPetitePenalite(scores);
+
+      if (fermeEtPlusPetitePenalite) return [toutFerme[0].joueur];
+
+      return pasDeVainqueur;
+
     default:
       return extraireLesMoinsPenalises(scores).map(s => s.joueur);
   }
@@ -14,17 +23,20 @@ export function vainqueurs(scores) {
 function extraireCeuxQuiOntToutFerme(scores) {
   const lesChiffresDeLaCibleSontFermes = cible =>
     Object.keys(cible).every(chiffre => cible[chiffre].ferme);
+
   const scoreAvecCibleFermee = score =>
     lesChiffresDeLaCibleSontFermes(score.cible);
 
   return scores.filter(scoreAvecCibleFermee);
 }
 
+const plusPetitePenalite = scores => Math.min(...scores.map(s => s.points));
+
 function extraireLesMoinsPenalises(scores) {
-  const plusPetitePenalite = Math.min(...scores.map(s => s.points));
+  const penaliteMinimale = plusPetitePenalite(scores);
 
   const scoreAvecLaPlusPetitePenalite = score =>
-    score.points === plusPetitePenalite;
+    score.points === penaliteMinimale;
 
   return scores.filter(scoreAvecLaPlusPetitePenalite);
 }
