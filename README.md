@@ -1,6 +1,9 @@
 Un arbitre de Cricket. :dart:  
 https://en.wikipedia.org/wiki/Cricket_(darts)
 
+[![Build Status](https://travis-ci.org/cadichris/darts-cricket.svg?branch=master)](https://travis-ci.org/cadichris/darts-cricket)
+
+
 <img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/inscription.png" width="150" />
 <img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/partie_portrait.png" width="150" />
 <img src="https://github.com/cadichris/cricket/blob/master/stores/QR/QR.png" width="350" />
