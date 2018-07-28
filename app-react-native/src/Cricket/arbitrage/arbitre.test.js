@@ -1,4 +1,3 @@
-import assert from "assert";
 import freeze from "deep-freeze";
 import { scoreVierge } from "./score";
 import * as arbitre from "./arbitre";
@@ -74,7 +73,7 @@ describe("Arbitre", () => {
         lancerDansLe(20, "J1")
       );
 
-      assert.strictEqual(nouveauxScores[1].points, penaliteDeJ2 + 20);
+      expect(nouveauxScores[1].points).toBe(penaliteDeJ2 + 20);
     });
 
     it("Ne pénalise pas les adversaires ayant le chiffre fermé", () => {
@@ -86,7 +85,7 @@ describe("Arbitre", () => {
         lancerDansLe(20, "J1")
       );
 
-      assert.strictEqual(nouveauxScores[1].points, 0);
+      expect(nouveauxScores[1].points).toBe(0);
     });
   });
 
@@ -99,7 +98,7 @@ describe("Arbitre", () => {
         lancerDansLe(chiffreInvalide, "J1")
       );
 
-      assert.deepEqual(nouveauxScores, [score("J1", { 20: _0_TOUCHE }, 0)]);
+      expect(nouveauxScores).toEqual([score("J1", { 20: _0_TOUCHE }, 0)]);
     });
 
     it("Préserve l'ordre des scores", () => {
@@ -112,9 +111,9 @@ describe("Arbitre", () => {
         lancerDansLe(20, "J2")
       );
 
-      assert.strictEqual(nouveauxScores[0].joueur, "J1");
-      assert.strictEqual(nouveauxScores[1].joueur, "J2");
-      assert.strictEqual(nouveauxScores[2].joueur, "J3");
+      expect(nouveauxScores[0].joueur).toBe("J1");
+      expect(nouveauxScores[1].joueur).toBe("J2");
+      expect(nouveauxScores[2].joueur).toBe("J3");
     });
   });
 });
