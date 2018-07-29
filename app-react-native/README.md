@@ -34,7 +34,7 @@ Ce qui fonctionne bien est de démarrer l'émulateur Android depuis la ligne de 
   - Plus d'infos : https://developer.android.com/studio/run/emulator-commandline
 - Démarrer l'app :
   - se placer dans le répertoire de l'app
-  - `./node_modules/.bin/react-native run-android`
+  - `yarn android`
 
 Après ça, l'app devrait se lancer dans l'émulateur.
 
