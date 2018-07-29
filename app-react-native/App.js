@@ -6,7 +6,7 @@ import Cricket from "./src/Cricket/Cricket";
 import SplashScreen from "./src/Cricket/Technique/SplashScreen";
 import undoable from "./src/undo/undoable";
 
-let store = createStore(
+const store = createStore(
   combineReducers({
     cricket: undoable(cricket)
   })
@@ -20,4 +20,4 @@ export default () => (
   </Provider>
 );
 
-// export default from './storybook';
+// export default from "./storybook";
