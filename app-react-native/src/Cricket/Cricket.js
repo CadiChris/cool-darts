@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { View } from "react-native";
 import { connect } from "react-redux";
 import KeepAwake from "react-native-keep-awake";
@@ -7,28 +7,24 @@ import InscriptionDesJoueurs from "./InscriptionDesJoueurs/InscriptionDesJoueurs
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
 import { Styles } from "./styles";
 
-class Cricket extends Component {
-  render() {
-    const { phase } = this.props;
-
-    const afficherLesCommandes = phase !== "INSCRIPTION";
-
-    return (
-      <View style={Styles.container}>
-        {phase === "INSCRIPTION" ? (
-          <InscriptionDesJoueurs />
-        ) : (
+function Cricket({ inscriptionEnCours }) {
+  return (
+    <View style={Styles.container}>
+      {inscriptionEnCours ? (
+        <InscriptionDesJoueurs />
+      ) : (
+        <View style={{ flex: 1 }}>
           <TableauDesScores />
-        )}
-        {afficherLesCommandes && <CommandesDeLaPartie />}
-        <KeepAwake />
-      </View>
-    );
-  }
+          <CommandesDeLaPartie />
+        </View>
+      )}
+      <KeepAwake />
+    </View>
+  );
 }
 
 const mapStateToProps = state => ({
-  phase: state.cricket.actuel.phase
+  inscriptionEnCours: state.cricket.actuel.phase === "INSCRIPTION"
 });
 
 export default connect(mapStateToProps)(Cricket);
