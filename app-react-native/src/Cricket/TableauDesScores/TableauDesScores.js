@@ -5,6 +5,7 @@ import { Grid } from "react-native-easy-grid";
 import EnTete from "./EnTete";
 import LigneDeScore from "./LigneDeScore";
 import { Styles } from "../styles";
+import Celebration from "./Celebration";
 
 const TableauDesScores = ({
   scores,
@@ -13,6 +14,8 @@ const TableauDesScores = ({
   actif
 }) => (
   <Animatable.View style={[{ flex: 1 }]} animation="bounceInRight">
+    {vainqueurs.length > 0 && <Celebration />}
+
     <Grid style={[{ flexDirection: "column" }, Styles.bordureBasse]}>
       <EnTete />
       {scores.map((score, index) => (
