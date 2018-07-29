@@ -1,10 +1,10 @@
 import React from "react";
+import { View } from "react-native";
 import { connect } from "react-redux";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import InscriptionDesJoueurs from "./InscriptionDesJoueurs/InscriptionDesJoueurs.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
 import Vainqueurs from "./Vainqueurs/Vainqueurs.container";
-import { StyleSheet, Text, View } from "react-native";
 import { Styles } from "./styles";
 import KeepAwake from "react-native-keep-awake";
 

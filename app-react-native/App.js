@@ -19,3 +19,5 @@ export default () => (
     </SplashScreen>
   </Provider>
 );
+
+// export default from './storybook';

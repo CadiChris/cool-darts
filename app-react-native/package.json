@@ -12,7 +12,12 @@
     "prettier": "1.13.5",
     "pretty-quick": "^1.6.0",
     "react-test-renderer": "16.0.0-alpha.6",
-    "yargs": "^8.0.2"
+    "yargs": "^8.0.2",
+    "@storybook/react-native": "^3.4.8",
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-links": "^3.4.8",
+    "react-dom": "16.0.0-alpha.6",
+    "prop-types": "^15.6.2"
   },
   "scripts": {
     "start": "react-native start",
@@ -23,7 +28,8 @@
     "release": "gulp release",
     "info-release": "grep \"versionCode \\d\\+\" android/app/build.gradle && grep \"versionName.\\+\" android/app/build.gradle",
     "precommit": "pretty-quick --staged",
-    "pretty": "pretty-quick"
+    "pretty": "pretty-quick",
+    "storybook": "storybook start -p 7007"
   },
   "rnpm": {
     "assets": [
