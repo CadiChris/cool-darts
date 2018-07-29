@@ -15,7 +15,7 @@ const LigneDeScore = ({ score, onLancerDansSimple }) => (
       <View style={{ paddingLeft: 10 }}>
         <Text style={[Textes.basique]}>{score.joueur}</Text>
         <Text style={[Textes.light]}>
-          {`${textes.penalite} ${score.points}`}
+          {`${textes.penalite} ${score.penalite}`}
         </Text>
       </View>
     </Col>

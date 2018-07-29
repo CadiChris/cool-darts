@@ -2,24 +2,6 @@ import freeze from "deep-freeze";
 import { scoreVierge } from "../score";
 import * as arbitre from "../arbitre";
 
-//	scores: [
-//		{
-//			joueur : 'J1',
-//			cible : {
-//				20 : {touches: 1|2|3, ferme:true|false},
-//				19 : {},
-//				...
-//			},
-//			points : 32
-//		}
-//		,
-//		{
-//			joueur: 'J2',
-//			cible: {},
-//			points: 0
-//		}
-//	]
-
 const _0_TOUCHE = 0;
 const _1_TOUCHE = 1;
 const _2_TOUCHES = 2;
@@ -59,7 +41,7 @@ describe("Arbitre", () => {
 
       const scoreDeJ2 = nouveauxScores[1];
 
-      expect(scoreDeJ2.points).toEqual(0);
+      expect(scoreDeJ2.penalite).toEqual(0);
     });
 
     it("Pénalise les adversaires ouverts si un chiffre fermé est touché", () => {
@@ -73,7 +55,7 @@ describe("Arbitre", () => {
         lancerDansLe(20, "J1")
       );
 
-      expect(nouveauxScores[1].points).toBe(penaliteDeJ2 + 20);
+      expect(nouveauxScores[1].penalite).toBe(penaliteDeJ2 + 20);
     });
 
     it("Ne pénalise pas les adversaires ayant le chiffre fermé", () => {
@@ -85,7 +67,7 @@ describe("Arbitre", () => {
         lancerDansLe(20, "J1")
       );
 
-      expect(nouveauxScores[1].points).toBe(0);
+      expect(nouveauxScores[1].penalite).toBe(0);
     });
   });
 
@@ -118,10 +100,10 @@ describe("Arbitre", () => {
   });
 });
 
-export function score(leJoueur, sesChiffres, sesPoints) {
+export function score(leJoueur, sesChiffres, saPenalite) {
   const score = {
     ...scoreVierge(leJoueur),
-    points: sesPoints,
+    penalite: saPenalite,
     cible: cible(sesChiffres)
   };
   freeze(score);

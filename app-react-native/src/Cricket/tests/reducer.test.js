@@ -25,7 +25,7 @@ it("inscrit des joueurs", () => {
   expect(avecJoueurs.scores).toEqual([
     {
       joueur: "J1",
-      points: 0,
+      penalite: 0,
       cible: {
         15: { touches: 0, ferme: false },
         16: { touches: 0, ferme: false },
@@ -38,7 +38,7 @@ it("inscrit des joueurs", () => {
     },
     {
       joueur: "J2",
-      points: 0,
+      penalite: 0,
       cible: {
         15: { touches: 0, ferme: false },
         16: { touches: 0, ferme: false },

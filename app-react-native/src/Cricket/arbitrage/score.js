@@ -1,7 +1,7 @@
 export function scoreVierge(joueur) {
   return {
     joueur,
-    points: 0,
+    penalite: 0,
     cible: {
       15: { touches: 0, ferme: false },
       16: { touches: 0, ferme: false },
@@ -35,7 +35,7 @@ export function toucher(chiffre, touches, score) {
 export function penaliser(pointsDePenalite, score) {
   return {
     ...score,
-    points: score.points + pointsDePenalite
+    penalite: score.penalite + pointsDePenalite
   };
 }
 

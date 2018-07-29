@@ -4,7 +4,7 @@ describe("score.modele", () => {
   it("crée un score vierge", () => {
     expect(scoreVierge("J1")).toEqual({
       joueur: "J1",
-      points: 0,
+      penalite: 0,
       cible: {
         15: { touches: 0, ferme: false },
         16: { touches: 0, ferme: false },

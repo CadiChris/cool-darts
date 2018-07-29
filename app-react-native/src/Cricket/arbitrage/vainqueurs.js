@@ -9,7 +9,7 @@ export function vainqueurs(scores) {
 
     case 1:
       const fermeEtPlusPetitePenalite =
-        toutFerme[0].points === plusPetitePenalite(scores);
+        toutFerme[0].penalite === plusPetitePenalite(scores);
 
       if (fermeEtPlusPetitePenalite) return [toutFerme[0].joueur];
 
@@ -30,13 +30,13 @@ function extraireCeuxQuiOntToutFerme(scores) {
   return scores.filter(scoreAvecCibleFermee);
 }
 
-const plusPetitePenalite = scores => Math.min(...scores.map(s => s.points));
+const plusPetitePenalite = scores => Math.min(...scores.map(s => s.penalite));
 
 function extraireLesMoinsPenalises(scores) {
   const penaliteMinimale = plusPetitePenalite(scores);
 
   const scoreAvecLaPlusPetitePenalite = score =>
-    score.points === penaliteMinimale;
+    score.penalite === penaliteMinimale;
 
   return scores.filter(scoreAvecLaPlusPetitePenalite);
 }
