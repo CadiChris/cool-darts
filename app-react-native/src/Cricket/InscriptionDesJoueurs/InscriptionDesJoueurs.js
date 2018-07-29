@@ -76,12 +76,12 @@ class InscriptionDesJoueurs extends Component {
             {joueurs.map((nom, index) => (
               <TexteApparaissant
                 key={index}
-                style={[Textes.basique, Textes.mav, { textAlign: "center" }]}
+                style={[Textes.basique, Textes.mav]}
               >
                 <Text style={[Textes.light, { ...unPeuTransparent }]}>
                   #{index + 1}
-                </Text>{" "}
-                {nom}
+                </Text>
+                {`  ${nom}`}
               </TexteApparaissant>
             ))}
           </View>

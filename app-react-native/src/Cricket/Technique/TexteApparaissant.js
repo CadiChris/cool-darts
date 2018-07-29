@@ -1,14 +1,15 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react";
 import { Animated } from "react-native";
+import PropTypes from "prop-types";
 
-class TexteApparaissant extends React.Component {
+class TexteApparaissant extends Component {
   constructor(props) {
     super(props);
+    const { departDuDecalage = 40 } = props;
     this.state = {
       animations: {
         fade: new Animated.Value(0),
-        decalage: new Animated.Value(40)
+        decalage: new Animated.Value(departDuDecalage)
       }
     };
   }
@@ -25,21 +26,18 @@ class TexteApparaissant extends React.Component {
 
   render() {
     const { decalage, fade } = this.state.animations;
+    const { style = [], children } = this.props;
     return (
-      <Animated.Text
-        style={
-          this.props.style
-            ? [[...this.props.style], { top: decalage, opacity: fade }]
-            : {
-                top: decalage,
-                opacity: fade
-              }
-        }
-      >
-        {this.props.children}
+      <Animated.Text style={[...style, { top: decalage, opacity: fade }]}>
+        {children}
       </Animated.Text>
     );
   }
 }
+
+TexteApparaissant.propTypes = {
+  departDuDecalage: PropTypes.number,
+  style: PropTypes.array
+};
 
 export default TexteApparaissant;
