@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Text, View, TouchableHighlight, Vibration } from "react-native";
 import { Col, Row } from "react-native-easy-grid";
 import Touches from "./Touches";
 import { Styles, Tailles, Textes } from "../styles";
 
-export default ({ score, onLancerDansSimple }) => (
+const LigneDeScore = ({ score, onLancerDansSimple }) => (
   <Row style={Styles.bordureHaute}>
     <Col
       style={{ justifyContent: "center" }}
@@ -44,3 +45,10 @@ export default ({ score, onLancerDansSimple }) => (
     })}
   </Row>
 );
+
+LigneDeScore.propTypes = {
+  score: PropTypes.object.isRequired,
+  onLancerDansSimple: PropTypes.func.isRequired
+};
+
+export default LigneDeScore;
