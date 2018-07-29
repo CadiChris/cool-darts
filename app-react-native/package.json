@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-knobs": "^3.4.8",
+    "@storybook/addon-links": "^3.4.8",
+    "@storybook/react-native": "^3.4.8",
     "app-icon": "^0.6.1",
     "gulp": "^3.9.1",
     "gulp-replace": "^0.6.1",
@@ -11,13 +15,10 @@
     "jest-expo": "~1.0.1",
     "prettier": "1.13.5",
     "pretty-quick": "^1.6.0",
-    "react-test-renderer": "16.0.0-alpha.6",
-    "yargs": "^8.0.2",
-    "@storybook/react-native": "^3.4.8",
-    "@storybook/addon-actions": "^3.4.8",
-    "@storybook/addon-links": "^3.4.8",
+    "prop-types": "^15.6.2",
     "react-dom": "16.0.0-alpha.6",
-    "prop-types": "^15.6.2"
+    "react-test-renderer": "16.0.0-alpha.6",
+    "yargs": "^8.0.2"
   },
   "scripts": {
     "start": "react-native start",
@@ -50,6 +51,7 @@
     "react-native": "^0.44.0",
     "react-native-animatable": "^1.2.3",
     "react-native-easy-grid": "^0.1.13",
+    "react-native-emoji": "^1.2.0",
     "react-native-keep-awake": "^2.0.4",
     "react-native-localization": "^0.1.31",
     "react-native-orientation": "^3.0.0",

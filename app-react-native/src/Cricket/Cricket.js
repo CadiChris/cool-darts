@@ -1,28 +1,26 @@
-import React from "react";
+import React, { Component } from "react";
 import { View } from "react-native";
 import { connect } from "react-redux";
+import KeepAwake from "react-native-keep-awake";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import InscriptionDesJoueurs from "./InscriptionDesJoueurs/InscriptionDesJoueurs.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
-import Vainqueurs from "./Vainqueurs/Vainqueurs.container";
 import { Styles } from "./styles";
-import KeepAwake from "react-native-keep-awake";
 
-class Cricket extends React.Component {
+class Cricket extends Component {
   render() {
     const { phase } = this.props;
-    const ecrans = {
-      INSCRIPTION: <InscriptionDesJoueurs />,
-      EN_COURS: <TableauDesScores />,
-      TERMINEE: <Vainqueurs />
-    };
 
-    const afficherLesCommandes = phase === "EN_COURS";
+    const afficherLesCommandes = phase !== "INSCRIPTION";
 
     return (
       <View style={Styles.container}>
-        {ecrans[phase]}
-        {afficherLesCommandes ? <CommandesDeLaPartie /> : null}
+        {phase === "INSCRIPTION" ? (
+          <InscriptionDesJoueurs />
+        ) : (
+          <TableauDesScores />
+        )}
+        {afficherLesCommandes && <CommandesDeLaPartie />}
         <KeepAwake />
       </View>
     );

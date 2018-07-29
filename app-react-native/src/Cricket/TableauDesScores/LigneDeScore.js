@@ -1,23 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import LocalizedStrings from "react-native-localization";
-import { Text, View, TouchableHighlight, Vibration } from "react-native";
+import { TouchableHighlight, Vibration, View } from "react-native";
 import { Col, Row } from "react-native-easy-grid";
 import Touches from "./Touches";
-import { Styles, Tailles, Textes } from "../styles";
+import { Styles, Tailles } from "../styles";
+import Joueur from "./Joueur";
 
-const LigneDeScore = ({ score, onLancerDansSimple }) => (
+const LigneDeScore = ({ score, onLancerDansSimple, estVainqueur }) => (
   <Row style={Styles.bordureHaute}>
     <Col
       style={{ justifyContent: "center" }}
       size={Tailles.largeurDeLaColonneJoueur}
     >
-      <View style={{ paddingLeft: 10 }}>
-        <Text style={[Textes.basique]}>{score.joueur}</Text>
-        <Text style={[Textes.light]}>
-          {`${textes.penalite} ${score.penalite}`}
-        </Text>
-      </View>
+      <Joueur
+        estVainqueur={estVainqueur}
+        joueur={score.joueur}
+        penalite={score.penalite}
+      />
     </Col>
 
     {Object.keys(score.cible).map(chiffre => {
@@ -52,16 +51,8 @@ const LigneDeScore = ({ score, onLancerDansSimple }) => (
 
 LigneDeScore.propTypes = {
   score: PropTypes.object.isRequired,
+  estVainqueur: PropTypes.bool.isRequired,
   onLancerDansSimple: PropTypes.func.isRequired
 };
-
-const textes = new LocalizedStrings({
-  en: {
-    penalite: "Penalty:"
-  },
-  fr: {
-    penalite: "Pénalité :"
-  }
-});
 
 export default LigneDeScore;

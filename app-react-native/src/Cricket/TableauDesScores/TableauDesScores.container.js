@@ -4,7 +4,8 @@ import TableauDesScores from "./TableauDesScores";
 import { lancerFlechette } from "../actions";
 
 const mapStateToProps = state => ({
-  scores: [...state.cricket.actuel.scores]
+  scores: [...state.cricket.actuel.scores],
+  vainqueurs: state.cricket.actuel.vainqueurs
 });
 
 const mapDispatchToProps = dispatch => ({
