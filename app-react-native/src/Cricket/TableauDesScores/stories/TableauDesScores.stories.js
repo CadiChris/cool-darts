@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { storiesOf } from "@storybook/react-native";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, object, array } from "@storybook/addon-knobs";
+import { withKnobs, object, array, boolean } from "@storybook/addon-knobs";
 import cricket from "../../reducer";
 import TableauDesScores from "../TableauDesScores";
 import { demarrerPartie, inscrireJoueur, lancerFlechette } from "../../actions";
@@ -23,6 +23,7 @@ storiesOf("Cricket", module)
   .addDecorator(withKnobs)
   .add("Tableau des scores", () => (
     <TableauDesScores
+      actif={boolean("Actif", true)}
       vainqueurs={array("Vainqueurs", ["Noémie"])}
       scores={object("Scores", partieDeTest.scores)}
       onLancerDansSimple={action("Lancer")}

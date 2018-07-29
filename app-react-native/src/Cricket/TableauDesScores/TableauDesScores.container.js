@@ -5,7 +5,8 @@ import { lancerFlechette } from "../actions";
 
 const mapStateToProps = state => ({
   scores: [...state.cricket.actuel.scores],
-  vainqueurs: state.cricket.actuel.vainqueurs
+  vainqueurs: state.cricket.actuel.vainqueurs,
+  actif: state.cricket.actuel.phase === "EN_COURS"
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -6,7 +6,12 @@ import EnTete from "./EnTete";
 import LigneDeScore from "./LigneDeScore";
 import { Styles } from "../styles";
 
-const TableauDesScores = ({ scores, onLancerDansSimple, vainqueurs }) => (
+const TableauDesScores = ({
+  scores,
+  onLancerDansSimple,
+  vainqueurs,
+  actif
+}) => (
   <Animatable.View style={[{ flex: 1 }]} animation="bounceInRight">
     <Grid style={[{ flexDirection: "column" }, Styles.bordureBasse]}>
       <EnTete />
@@ -15,7 +20,10 @@ const TableauDesScores = ({ scores, onLancerDansSimple, vainqueurs }) => (
           score={score}
           estVainqueur={vainqueurs.includes(score.joueur)}
           key={index}
-          onLancerDansSimple={onLancerDansSimple}
+          onLancerDansSimple={(joueur, chiffre) => {
+            if (!actif) return;
+            onLancerDansSimple(joueur, chiffre);
+          }}
         />
       ))}
     </Grid>
@@ -25,7 +33,8 @@ const TableauDesScores = ({ scores, onLancerDansSimple, vainqueurs }) => (
 TableauDesScores.propTypes = {
   scores: PropTypes.array.isRequired,
   onLancerDansSimple: PropTypes.func.isRequired,
-  vainqueurs: PropTypes.array.isRequired
+  vainqueurs: PropTypes.array.isRequired,
+  actif: PropTypes.bool.isRequired
 };
 
 export default TableauDesScores;
