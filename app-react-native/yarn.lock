@@ -7396,9 +7396,9 @@ react-native-orientation@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-native-orientation/-/react-native-orientation-3.0.0.tgz#91a0a55be2d1f14ec6d0111a3bfbb5550a2e788b"
 
-react-native-simple-dialogs@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/react-native-simple-dialogs/-/react-native-simple-dialogs-0.2.3.tgz#af1dd2f5595b59eb94eb3d28a2a6ee499c6646c6"
+react-native-simple-dialogs@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-simple-dialogs/-/react-native-simple-dialogs-0.3.1.tgz#8b7cee294c6c2b140f3fd3c75f87b178e229936e"
 
 react-native-vector-icons@^4.6.0:
   version "4.6.0"
