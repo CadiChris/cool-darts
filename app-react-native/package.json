@@ -59,6 +59,6 @@
     "react-native-simple-dialogs": "^0.2.3",
     "react-native-vector-icons": "^4.6.0",
     "react-redux": "^5.0.5",
-    "redux": "^3.7.0"
+    "redux": "^3.7.2"
   }
 }
