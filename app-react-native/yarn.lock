@@ -5472,6 +5472,10 @@ loader-utils@^1.0.2, loader-utils@^1.1.0:
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
+localized-strings@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/localized-strings/-/localized-strings-0.0.11.tgz#96ccab4bd1855a850f3099dc78e1b61423f6cecd"
+
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -7335,6 +7339,13 @@ react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-localization@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/react-localization/-/react-localization-1.0.10.tgz#fdb5cfb88bf4bd70ec2109bb425d5408789fe704"
+  dependencies:
+    localized-strings "^0.0.11"
+    react "^16.0.0"
+
 react-modal@^3.3.2:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.5.1.tgz#33d38527def90ea324848f7d63e53acc4468a451"
@@ -7374,9 +7385,12 @@ react-native-keep-awake@^2.0.5:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-2.0.6.tgz#d8eaffe0a6377cc197469d9f06c7f317225403db"
 
-react-native-localization@^0.1.31:
-  version "0.1.31"
-  resolved "https://registry.yarnpkg.com/react-native-localization/-/react-native-localization-0.1.31.tgz#b711dcdc0cb84e0711fcf1ce964c515294b3b4d4"
+react-native-localization@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/react-native-localization/-/react-native-localization-1.0.12.tgz#16d21de7109a95e74685467342cd7058c4b90a74"
+  dependencies:
+    react "^16.0.0"
+    react-localization "^1.0.10"
 
 react-native-orientation@^3.0.0:
   version "3.0.0"
@@ -7543,6 +7557,15 @@ react-treebeard@^2.1.0:
 react@16.3.1:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+
+react@^16.0.0:
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"

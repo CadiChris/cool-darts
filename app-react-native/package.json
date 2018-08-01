@@ -54,7 +54,7 @@
     "react-native-confetti": "^0.0.6",
     "react-native-easy-grid": "^0.1.17",
     "react-native-keep-awake": "^2.0.5",
-    "react-native-localization": "^0.1.31",
+    "react-native-localization": "^1.0.12",
     "react-native-orientation": "^3.0.0",
     "react-native-simple-dialogs": "^0.2.3",
     "react-native-vector-icons": "^4.6.0",
