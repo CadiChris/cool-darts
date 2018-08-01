@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Text } from "react-native";
-import Emoji from "react-native-emoji";
+import Emoji from "@ardentlabs/react-native-emoji";
 import { Textes } from "../styles";
 import TexteApparaissant from "../Technique/TexteApparaissant";
 
