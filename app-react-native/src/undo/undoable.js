@@ -8,7 +8,7 @@ const undoable = reducer => {
     const { actuel, precedents } = state;
 
     switch (action.type) {
-      case "UNDO":
+      case UNDO:
         return {
           actuel: precedents[precedents.length - 1],
           precedents: precedents.slice(0, precedents.length - 1)
@@ -28,4 +28,8 @@ const undoable = reducer => {
   };
 };
 
+const UNDO = "UNDO";
+const undo = () => ({ type: UNDO });
+
 export default undoable;
+export { undo };

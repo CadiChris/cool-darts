@@ -1,4 +1,4 @@
-import undoable from "./undoable";
+import undoable, { undo } from "./undoable";
 
 const reducerDeTest = (state = 0, action) => {
   switch (action.type) {
@@ -38,12 +38,7 @@ describe("undoable", () => {
   });
 
   it("permet le undo", () => {
-    const retourA2 = executer([
-      INCREMENT,
-      INCREMENT,
-      INCREMENT,
-      { type: "UNDO" }
-    ]);
+    const retourA2 = executer([INCREMENT, INCREMENT, INCREMENT, undo()]);
 
     expect(retourA2).toEqual({
       actuel: 2,
