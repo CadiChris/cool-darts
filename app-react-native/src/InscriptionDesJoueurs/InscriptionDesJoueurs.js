@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { View, TextInput, Text, Platform } from "react-native";
 import LocalizedStrings from "react-native-localization";
 import Button from "apsl-react-native-button";
-import Portrait from "../Technique/Portrait";
-import FadeInView from "../Technique/FadeInView";
-import ViewQuiDecale from "./../Technique/ViewQuiDecale";
-import TexteApparaissant from "./../Technique/TexteApparaissant";
-import { Styles, Textes, Boutons } from "../styles";
+import Portrait from "../Cricket/Technique/Portrait";
+import FadeInView from "../Cricket/Technique/FadeInView";
+import ViewQuiDecale from "../Cricket/Technique/ViewQuiDecale";
+import TexteApparaissant from "../Cricket/Technique/TexteApparaissant";
+import { Styles, Textes, Boutons } from "../Cricket/styles";
 
 const unPeuTransparent = Platform.select({
   ios: { opacity: 0.5 },

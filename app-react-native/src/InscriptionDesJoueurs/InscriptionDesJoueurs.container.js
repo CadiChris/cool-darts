@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { inscrireJoueur, demarrerPartie } from "../actions";
+import { inscrireJoueur, demarrerPartie } from "../Cricket/actions";
 import InscriptionDesJoueurs from "./InscriptionDesJoueurs";
 
 const mapStateToProps = state => ({
