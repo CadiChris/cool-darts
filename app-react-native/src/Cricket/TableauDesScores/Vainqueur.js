@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Text } from "react-native";
 import Emoji from "@ardentlabs/react-native-emoji";
 import { Textes } from "../styles";
-import TexteApparaissant from "../Technique/TexteApparaissant";
+import TexteApparaissant from "../../Technique/TexteApparaissant";
 
 const Vainqueur = ({ taille }) => (
   <TexteApparaissant departDuDecalage={-70}>

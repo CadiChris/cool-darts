@@ -1,6 +1,6 @@
 import React from "react";
 import LocalizedStrings from "react-native-localization";
-import { View, Modal, Text } from "react-native";
+import { View } from "react-native";
 import Button from "apsl-react-native-button";
 import { ConfirmDialog } from "react-native-simple-dialogs";
 

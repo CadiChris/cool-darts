@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
-import { Styles, Textes } from "../styles";
+import { Styles, Textes } from "../Cricket/styles";
 import FadeInView from "./FadeInView";
 
 class SplashScreen extends React.Component {
@@ -33,7 +33,7 @@ class SplashScreen extends React.Component {
           ]}
         >
           <Image
-            source={require("./../../../assets/splashscreen.png")}
+            source={require("../../assets/splashscreen.png")}
             style={{ width: "66%" }}
             resizeMode="contain"
           />

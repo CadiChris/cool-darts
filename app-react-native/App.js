@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import KeepAwake from "react-native-keep-awake";
 import Cricket from "./src/Cricket/Cricket";
-import SplashScreen from "./src/Cricket/Technique/SplashScreen";
+import SplashScreen from "./src/Technique/SplashScreen";
 import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/InscriptionDesJoueurs.container";
 import { View } from "react-native";
 import { Styles } from "./src/Cricket/styles";
