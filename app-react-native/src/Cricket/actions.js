@@ -1,10 +1,6 @@
-export const inscrireJoueur = joueur => ({
-  type: "INSCRIRE_JOUEUR",
-  joueur
-});
-
-export const demarrerPartie = () => ({
-  type: "DEMARRER_PARTIE"
+export const demarrerPartie = joueurs => ({
+  type: "DEMARRER_PARTIE",
+  joueurs
 });
 
 export const lancerFlechette = (joueur, chiffre, touches) => ({

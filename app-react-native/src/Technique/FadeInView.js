@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Animated } from "react-native";
 
 class FadeInView extends React.Component {
@@ -21,12 +22,18 @@ class FadeInView extends React.Component {
 
   render() {
     const { fade } = this.state.animations;
+    const { style = [], children } = this.props;
     return (
-      <Animated.View style={[[...this.props.style], { opacity: fade }]}>
-        {this.props.children}
+      <Animated.View style={[...style, { opacity: fade }]}>
+        {children}
       </Animated.View>
     );
   }
 }
+
+FadeInView.propTypes = {
+  dureeDuFade: PropTypes.number.isRequired,
+  style: PropTypes.array
+};
 
 export default FadeInView;

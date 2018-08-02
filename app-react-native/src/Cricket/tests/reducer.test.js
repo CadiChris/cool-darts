@@ -1,70 +1,53 @@
 import freeze from "deep-freeze";
 import cricket from "../reducer";
-import {
-  inscrireJoueur,
-  demarrerPartie,
-  lancerFlechette,
-  nouvellePartie
-} from "../actions";
+import { demarrerPartie, lancerFlechette, nouvellePartie } from "../actions";
 
 it("retourne le state initial", () => {
   expect(cricket(undefined, {})).toEqual({
-    joueurs: [],
-    peutDemarrer: false,
-    phase: "INSCRIPTION",
     scores: [],
     vainqueurs: []
   });
 });
 
-it("inscrit des joueurs", () => {
-  const avecJoueurs = executer([inscrireJoueur("J1"), inscrireJoueur("J2")]);
-
-  expect(avecJoueurs.peutDemarrer).toBe(true);
-  expect(avecJoueurs.joueurs).toEqual(["J1", "J2"]);
-  expect(avecJoueurs.scores).toEqual([
-    {
-      joueur: "J1",
-      penalite: 0,
-      cible: {
-        15: { touches: 0, ferme: false },
-        16: { touches: 0, ferme: false },
-        17: { touches: 0, ferme: false },
-        18: { touches: 0, ferme: false },
-        19: { touches: 0, ferme: false },
-        20: { touches: 0, ferme: false },
-        25: { touches: 0, ferme: false }
-      }
-    },
-    {
-      joueur: "J2",
-      penalite: 0,
-      cible: {
-        15: { touches: 0, ferme: false },
-        16: { touches: 0, ferme: false },
-        17: { touches: 0, ferme: false },
-        18: { touches: 0, ferme: false },
-        19: { touches: 0, ferme: false },
-        20: { touches: 0, ferme: false },
-        25: { touches: 0, ferme: false }
-      }
-    }
-  ]);
-});
-
 it("démarre la partie", () => {
-  const partieDemarree = executer([
-    inscrireJoueur("J1"),
-    inscrireJoueur("J2"),
-    demarrerPartie()
-  ]);
+  const partieDemarree = executer([demarrerPartie(["J1", "J2"])]);
 
-  expect(partieDemarree.phase).toBe("EN_COURS");
+  expect(partieDemarree).toEqual({
+    vainqueurs: [],
+    scores: [
+      {
+        joueur: "J1",
+        penalite: 0,
+        cible: {
+          15: { touches: 0, ferme: false },
+          16: { touches: 0, ferme: false },
+          17: { touches: 0, ferme: false },
+          18: { touches: 0, ferme: false },
+          19: { touches: 0, ferme: false },
+          20: { touches: 0, ferme: false },
+          25: { touches: 0, ferme: false }
+        }
+      },
+      {
+        joueur: "J2",
+        penalite: 0,
+        cible: {
+          15: { touches: 0, ferme: false },
+          16: { touches: 0, ferme: false },
+          17: { touches: 0, ferme: false },
+          18: { touches: 0, ferme: false },
+          19: { touches: 0, ferme: false },
+          20: { touches: 0, ferme: false },
+          25: { touches: 0, ferme: false }
+        }
+      }
+    ]
+  });
 });
 
 it("modifie le score sur un lancer de fléchette", () => {
   const apresLancerDeJ1 = executer([
-    inscrireJoueur("J1"),
+    demarrerPartie(["J1"]),
     lancerFlechette("J1", 20, 1)
   ]);
 
@@ -75,30 +58,23 @@ it("modifie le score sur un lancer de fléchette", () => {
 });
 
 it("met fin à la partie sur le lancer qui désigne le vainqueur", () => {
-  const partieAvecUnJoueur = executer([inscrireJoueur("J1"), demarrerPartie()]);
+  const partieAvecUnJoueur = executer([demarrerPartie(["J1"])]);
 
   const toutFermeSaufLeBull = [15, 16, 17, 18, 19, 20].reduce(
     (state, chiffre) => cricket(state, lancerFlechette("J1", chiffre, 3)),
     partieAvecUnJoueur
   );
 
-  expect(toutFermeSaufLeBull.phase).toBe("EN_COURS");
-
   const fermerLeBull = lancerFlechette("J1", 25, 3);
   const partieTerminee = cricket(toutFermeSaufLeBull, fermerLeBull);
 
-  expect(partieTerminee.phase).toEqual("TERMINEE");
   expect(partieTerminee.vainqueurs).toEqual(["J1"]);
 });
 
 it("recrée une nouvelle partie", () => {
   const partieVierge = cricket(undefined, {});
 
-  const partieRedemarree = executer([
-    inscrireJoueur("J1"),
-    demarrerPartie(),
-    nouvellePartie()
-  ]);
+  const partieRedemarree = executer([demarrerPartie(["J1"]), nouvellePartie()]);
 
   expect(partieRedemarree).toEqual(partieVierge);
 });

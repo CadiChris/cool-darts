@@ -1,119 +1,85 @@
 import React, { Component } from "react";
-import { View, TextInput, Text, Platform } from "react-native";
+import PropTypes from "prop-types";
+import { Text, View } from "react-native";
 import LocalizedStrings from "react-native-localization";
-import Button from "apsl-react-native-button";
 import Portrait from "../Technique/Portrait";
 import FadeInView from "../Technique/FadeInView";
 import ViewQuiDecale from "../Technique/ViewQuiDecale";
-import TexteApparaissant from "../Technique/TexteApparaissant";
-import { Styles, Textes, Boutons } from "../styles";
-
-const unPeuTransparent = Platform.select({
-  ios: { opacity: 0.5 },
-  android: { color: "#8498AB" }
-});
+import { Styles, Textes } from "../styles";
+import ListeDesInscrits from "./ListeDesInscrits";
+import DemarrerLaPartie from "./DemarrerLaPartie";
+import FormulaireInscription from "./FormulaireInscription";
 
 class InscriptionDesJoueurs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      joueur: ""
-    };
+  state = {
+    inscrits: [],
+    partieEnCours: false
+  };
+
+  inscrire(joueur) {
+    const { inscrits } = this.state;
+    this.setState({
+      inscrits: [...inscrits, joueur]
+    });
+  }
+
+  laPartiePeutDemarrer() {
+    return this.state.inscrits.length > 1;
+  }
+
+  demarrerPartie() {
+    this.setState({ partieEnCours: true });
   }
 
   render() {
-    const {
-      laPartiePeutDemarrer,
-      joueurs,
-      inscriptionEstPossible,
-      onInscrireJoueur,
-      onDemarrerLaPartie
-    } = this.props;
+    const { inscrits, partieEnCours } = this.state;
+    const { children } = this.props;
 
-    const { joueur } = this.state;
+    if (partieEnCours) return children(inscrits);
 
     return (
       <Portrait>
-        <FadeInView
-          style={[
-            Styles.contenuAuMilieu,
-            { paddingHorizontal: 10, justifyContent: "space-between" }
-          ]}
-          dureeDuFade={450}
-        >
-          <Text style={[Textes.titre, { marginTop: 50 }]}>
-            Cut-Throat Cricket
-          </Text>
+        <View style={[{ flex: 1, alignItems: "center" }]}>
+          <FadeInView dureeDuFade={800}>
+            <Text
+              style={[
+                Textes.titre,
+                { textAlign: "center", marginTop: 30, marginBottom: 50 }
+              ]}
+            >
+              Cut-Throat Cricket
+            </Text>
+          </FadeInView>
 
           <ViewQuiDecale
-            dureeDuDecalage={230}
+            dureeDuDecalage={900}
             coteDeDepart="right"
-            style={[{ flex: 1, flexDirection: "row", paddingHorizontal: 50 }]}
+            style={[{ flex: 1, width: "80%" }]}
           >
-            <TextInput
-              value={joueur}
-              onChangeText={text => this.setState({ joueur: text })}
-              style={[{ flexGrow: 1, color: "white" }, Textes.light]}
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#FFF"
-              placeholder={textes.joueur}
+            <FormulaireInscription
+              inscriptionAcceptee={joueur =>
+                joueur !== "" && !inscrits.includes(joueur)
+              }
+              onSubmit={joueur => this.inscrire(joueur)}
             />
 
-            <Button
-              onPress={() => {
-                onInscrireJoueur(joueur);
-                this.setState({ joueur: "" });
-              }}
-              isDisabled={!inscriptionEstPossible(joueur)}
-              style={[{ width: 80, alignSelf: "center" }, Boutons.secondaire]}
-              textStyle={Textes.bouton}
-            >
-              {textes.inscrire}
-            </Button>
+            <ListeDesInscrits inscrits={inscrits} />
           </ViewQuiDecale>
 
-          <View style={{ flex: 1 }}>
-            {joueurs.map((nom, index) => (
-              <TexteApparaissant
-                key={index}
-                style={[Textes.basique, Textes.mav]}
-              >
-                <Text style={[Textes.light, { ...unPeuTransparent }]}>
-                  #{index + 1}
-                </Text>
-                {`  ${nom}`}
-              </TexteApparaissant>
-            ))}
-          </View>
-
-          <Button
-            onPress={onDemarrerLaPartie}
-            isDisabled={!laPartiePeutDemarrer}
-            style={[
-              Boutons.principal,
-              { marginBottom: 10, marginHorizontal: 10 }
-            ]}
-            textStyle={Textes.bouton}
-          >
-            {textes.demarrer}
-          </Button>
-        </FadeInView>
+          <ViewQuiDecale dureeDuDecalage={1000} coteDeDepart="left">
+            <DemarrerLaPartie
+              onPress={() => this.demarrerPartie()}
+              isDisabled={!this.laPartiePeutDemarrer()}
+            />
+          </ViewQuiDecale>
+        </View>
       </Portrait>
     );
   }
 }
 
-const textes = new LocalizedStrings({
-  en: {
-    joueur: "Player...",
-    inscrire: "Add",
-    demarrer: "Play"
-  },
-  fr: {
-    joueur: "Joueur...",
-    inscrire: "Inscrire",
-    demarrer: "Démarrer"
-  }
-});
+InscriptionDesJoueurs.propTypes = {
+  children: PropTypes.func.isRequired
+};
 
 export default InscriptionDesJoueurs;

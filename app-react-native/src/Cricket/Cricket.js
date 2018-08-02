@@ -1,14 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { View } from "react-native";
+import { connect } from "react-redux";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
-import { Styles } from "../styles";
+import { demarrerPartie } from "./actions";
 
-const Cricket = () => (
-  <View style={Styles.container}>
-    <TableauDesScores />
-    <CommandesDeLaPartie />
-  </View>
-);
+class Cricket extends Component {
+  componentDidMount() {
+    const { dispatch, joueurs } = this.props;
+    dispatch(demarrerPartie(joueurs));
+  }
 
-export default Cricket;
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <View style={{ flexGrow: 1 }}>
+          <TableauDesScores />
+        </View>
+        <CommandesDeLaPartie />
+      </View>
+    );
+  }
+}
+
+Cricket.propTypes = {
+  joueurs: PropTypes.array.isRequired
+};
+
+export default connect()(Cricket);

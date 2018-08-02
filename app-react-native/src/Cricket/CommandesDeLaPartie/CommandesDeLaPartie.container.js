@@ -4,9 +4,7 @@ import { nouvellePartie } from "../actions";
 import CommandesDeLaPartie from "./CommandesDeLaPartie";
 
 const mapStateToProps = state => ({
-  aucunPrecedent:
-    state.cricket.precedents[state.cricket.precedents.length - 1].phase ===
-    "INSCRIPTION"
+  aucunPrecedent: state.cricket.precedents.length === 1
 });
 
 const mapDispatchToProps = dispatch => ({

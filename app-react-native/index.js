@@ -19,3 +19,5 @@ const AppAvecStore = () => (
 );
 
 AppRegistry.registerComponent("alkeyacricket", () => AppAvecStore);
+
+// export default from "./storybook/index";

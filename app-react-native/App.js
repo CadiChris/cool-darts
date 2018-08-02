@@ -1,30 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { View } from "react-native";
 import KeepAwake from "react-native-keep-awake";
 import Cricket from "./src/Cricket/Cricket";
 import SplashScreen from "./src/Technique/SplashScreen";
-import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/InscriptionDesJoueurs.container";
-import { View } from "react-native";
+import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/InscriptionDesJoueurs";
 import { Styles } from "./src/styles";
 
-const App = ({ inscriptionEnCours }) => (
+const App = () => (
   <SplashScreen dureeDuSplash={2750}>
     <View style={Styles.container}>
-      {inscriptionEnCours ? <InscriptionDesJoueurs /> : <Cricket />}
+      <InscriptionDesJoueurs>
+        {inscrits => <Cricket joueurs={inscrits} />}
+      </InscriptionDesJoueurs>
     </View>
     <KeepAwake />
   </SplashScreen>
 );
 
-App.propTypes = {
-  inscriptionEnCours: PropTypes.bool.isRequired
-};
-
-const mapStateToProps = state => ({
-  inscriptionEnCours: state.cricket.actuel.phase === "INSCRIPTION"
-});
-
-export default connect(mapStateToProps)(App);
-
-// export default from "./storybook";
+export default App;

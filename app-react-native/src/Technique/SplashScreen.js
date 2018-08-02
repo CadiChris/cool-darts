@@ -20,12 +20,12 @@ class SplashScreen extends React.Component {
 
   render() {
     const { splashScreenActif } = this.state;
-    const { dureeDuSplash } = this.props;
+    const { dureeDuSplash, children } = this.props;
 
     const splashScreen = (
       <FadeInView
         dureeDuFade={dureeDuSplash / 1.5}
-        style={[Styles.container, { backgroundColor: "rgb(58,127,144)" }]}
+        style={[{ flex: 1, backgroundColor: "rgb(58,127,144)" }]}
       >
         <View
           style={[
@@ -44,7 +44,7 @@ class SplashScreen extends React.Component {
       </FadeInView>
     );
 
-    return splashScreenActif ? splashScreen : this.props.children;
+    return splashScreenActif ? splashScreen : children;
   }
 }
 

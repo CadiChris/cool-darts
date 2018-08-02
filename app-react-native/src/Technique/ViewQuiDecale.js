@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Animated } from "react-native";
 
 class ViewQuiDecale extends React.Component {
@@ -21,20 +22,20 @@ class ViewQuiDecale extends React.Component {
 
   render() {
     const { decalage } = this.state.animations;
-    const { coteDeDepart } = this.props;
+    const { coteDeDepart, style = [], children } = this.props;
 
     return (
-      <Animated.View
-        style={
-          this.props.style
-            ? [[...this.props.style], { [coteDeDepart]: decalage }]
-            : { [coteDeDepart]: decalage }
-        }
-      >
-        {this.props.children}
+      <Animated.View style={[...style, { [coteDeDepart]: decalage }]}>
+        {children}
       </Animated.View>
     );
   }
 }
+
+ViewQuiDecale.propTypes = {
+  dureeDuDecalage: PropTypes.number.isRequired,
+  coteDeDepart: PropTypes.oneOf(["right", "left"]).isRequired,
+  style: PropTypes.array
+};
 
 export default ViewQuiDecale;
