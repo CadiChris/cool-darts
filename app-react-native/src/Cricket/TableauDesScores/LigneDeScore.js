@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { TouchableHighlight, Vibration, View } from "react-native";
 import { Col, Row } from "react-native-easy-grid";
 import Touches from "./Touches";
-import { Styles, Tailles } from "../styles";
+import { Styles, Tailles } from "../../styles";
 import Joueur from "./Joueur";
 
 const LigneDeScore = ({ score, onLancerDansSimple, estVainqueur }) => (

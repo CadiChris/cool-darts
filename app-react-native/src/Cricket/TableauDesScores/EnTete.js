@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
-import { Tailles, Styles, Textes } from "../styles";
+import { Tailles, Styles, Textes } from "../../styles";
 
 import { Col, Row } from "react-native-easy-grid";
 

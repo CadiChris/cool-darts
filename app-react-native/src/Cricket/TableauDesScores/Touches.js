@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import * as Animatable from "react-native-animatable";
-import { Textes } from "../styles";
+import { Textes } from "../../styles";
 
 export default ({ symbole, nombre }) => {
   let croix = [];

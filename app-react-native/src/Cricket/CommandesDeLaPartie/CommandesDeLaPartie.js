@@ -2,7 +2,7 @@ import React from "react";
 import LocalizedStrings from "react-native-localization";
 import { View } from "react-native";
 import Button from "apsl-react-native-button";
-import { Boutons, Textes } from "../styles";
+import { Boutons, Textes } from "../../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import BoutonAvecConfirmation from "../../Technique/BoutonAvecConfirmation";
 

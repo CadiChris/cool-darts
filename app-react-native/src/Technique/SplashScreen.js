@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
-import { Styles, Textes } from "../Cricket/styles";
+import { Styles, Textes } from "../styles";
 import FadeInView from "./FadeInView";
 
 class SplashScreen extends React.Component {

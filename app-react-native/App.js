@@ -6,7 +6,7 @@ import Cricket from "./src/Cricket/Cricket";
 import SplashScreen from "./src/Technique/SplashScreen";
 import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/InscriptionDesJoueurs.container";
 import { View } from "react-native";
-import { Styles } from "./src/Cricket/styles";
+import { Styles } from "./src/styles";
 
 const App = ({ inscriptionEnCours }) => (
   <SplashScreen dureeDuSplash={2750}>

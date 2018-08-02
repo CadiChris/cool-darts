@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 import LocalizedStrings from "react-native-localization";
 import Vainqueur from "./Vainqueur";
-import { Textes } from "../styles";
+import { Textes } from "../../styles";
 
 const Joueur = ({ estVainqueur, joueur, penalite }) => (
   <View style={{ paddingLeft: 10, justifyContent: "center" }}>

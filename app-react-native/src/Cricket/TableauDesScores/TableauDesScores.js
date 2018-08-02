@@ -4,7 +4,7 @@ import * as Animatable from "react-native-animatable";
 import { Grid } from "react-native-easy-grid";
 import EnTete from "./EnTete";
 import LigneDeScore from "./LigneDeScore";
-import { Styles } from "../styles";
+import { Styles } from "../../styles";
 import Celebration from "./Celebration";
 
 const TableauDesScores = ({

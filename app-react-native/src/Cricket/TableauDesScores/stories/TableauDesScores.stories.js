@@ -6,7 +6,7 @@ import { withKnobs, object, array, boolean } from "@storybook/addon-knobs";
 import cricket from "../../reducer";
 import TableauDesScores from "../TableauDesScores";
 import { demarrerPartie, inscrireJoueur, lancerFlechette } from "../../actions";
-import { Styles } from "../../styles";
+import { Styles } from "../../../styles";
 
 const partieDeTest = [
   inscrireJoueur("Noémie"),

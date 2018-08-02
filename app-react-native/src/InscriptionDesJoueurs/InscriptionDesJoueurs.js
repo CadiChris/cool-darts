@@ -6,7 +6,7 @@ import Portrait from "../Technique/Portrait";
 import FadeInView from "../Technique/FadeInView";
 import ViewQuiDecale from "../Technique/ViewQuiDecale";
 import TexteApparaissant from "../Technique/TexteApparaissant";
-import { Styles, Textes, Boutons } from "../Cricket/styles";
+import { Styles, Textes, Boutons } from "../styles";
 
 const unPeuTransparent = Platform.select({
   ios: { opacity: 0.5 },
