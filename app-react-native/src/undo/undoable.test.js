@@ -20,7 +20,7 @@ describe("reducerDeTest", () => {
   });
 });
 
-let reducerAvecUndo = () => undoable(reducerDeTest);
+const reducerAvecUndo = () => undoable(reducerDeTest);
 
 describe("undoable", () => {
   it("wrap le résultat du reducer dans une structure avec actuel & precedent", () => {
@@ -38,14 +38,22 @@ describe("undoable", () => {
   });
 
   it("permet le undo", () => {
-    let reducer = reducerAvecUndo();
-    let compteurAZero = reducer(undefined, {});
-    let compteurA1 = reducer(compteurAZero, INCREMENT);
-    let compteurA2 = reducer(compteurA1, INCREMENT);
-    let retourA1 = reducer(compteurA2, { type: "UNDO" });
-    expect(retourA1).toEqual({
-      actuel: 1,
-      precedents: [0]
+    const retourA2 = executer([
+      INCREMENT,
+      INCREMENT,
+      INCREMENT,
+      { type: "UNDO" }
+    ]);
+
+    expect(retourA2).toEqual({
+      actuel: 2,
+      precedents: [0, 1]
     });
   });
 });
+
+const executer = actions =>
+  actions.reduce((state, action) => {
+    const nextState = reducerAvecUndo()(state, action);
+    return nextState;
+  }, reducerAvecUndo()(undefined, {}));
