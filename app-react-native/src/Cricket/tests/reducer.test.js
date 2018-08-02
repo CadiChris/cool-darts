@@ -71,12 +71,15 @@ it("met fin à la partie sur le lancer qui désigne le vainqueur", () => {
   expect(partieTerminee.vainqueurs).toEqual(["J1"]);
 });
 
-it("recrée une nouvelle partie", () => {
-  const partieVierge = cricket(undefined, {});
+it("écrase la partie en cours au démarrage d'une nouvelle partie", () => {
+  const partieViergeBobEtAlice = executer([demarrerPartie(["Bob", "Alice"])]);
+  const partieEnCoursQuiRedemarre = executer([
+    demarrerPartie(["John", "Franck"]),
+    lancerFlechette("John", 20, 1),
+    demarrerPartie(["Bob", "Alice"])
+  ]);
 
-  const partieRedemarree = executer([demarrerPartie(["J1"]), nouvellePartie()]);
-
-  expect(partieRedemarree).toEqual(partieVierge);
+  expect(partieEnCoursQuiRedemarre).toEqual(partieViergeBobEtAlice);
 });
 
 const executer = actions =>

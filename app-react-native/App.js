@@ -10,7 +10,12 @@ const App = () => (
   <SplashScreen dureeDuSplash={2750}>
     <View style={Styles.container}>
       <InscriptionDesJoueurs>
-        {inscrits => <Cricket joueurs={inscrits} />}
+        {(inscrits, retourAuxInscription) => (
+          <Cricket
+            joueurs={inscrits}
+            retourAuxInscriptions={retourAuxInscription}
+          />
+        )}
       </InscriptionDesJoueurs>
     </View>
     <KeepAwake />

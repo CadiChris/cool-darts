@@ -11,7 +11,7 @@ export default function partie(state = STATE_INITIAL, action) {
   switch (action.type) {
     case "DEMARRER_PARTIE":
       return {
-        ...state,
+        ...STATE_INITIAL,
         scores: action.joueurs.map(scoreVierge)
       };
 
@@ -29,11 +29,6 @@ export default function partie(state = STATE_INITIAL, action) {
         scores: nouveauScore,
         vainqueurs: vainqueursDuNouveauScore,
         phase: vainqueursDuNouveauScore.length > 0 ? "TERMINEE" : state.phase
-      };
-
-    case "NOUVELLE_PARTIE":
-      return {
-        ...STATE_INITIAL
       };
 
     default:

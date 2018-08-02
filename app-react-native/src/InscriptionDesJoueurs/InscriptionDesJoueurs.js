@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Text, View } from "react-native";
-import LocalizedStrings from "react-native-localization";
 import Portrait from "../Technique/Portrait";
 import FadeInView from "../Technique/FadeInView";
 import ViewQuiDecale from "../Technique/ViewQuiDecale";
-import { Styles, Textes } from "../styles";
+import { Textes } from "../styles";
 import ListeDesInscrits from "./ListeDesInscrits";
 import DemarrerLaPartie from "./DemarrerLaPartie";
 import FormulaireInscription from "./FormulaireInscription";
@@ -31,11 +30,16 @@ class InscriptionDesJoueurs extends Component {
     this.setState({ partieEnCours: true });
   }
 
+  retourAuxInscriptions() {
+    this.setState({ partieEnCours: false });
+  }
+
   render() {
     const { inscrits, partieEnCours } = this.state;
     const { children } = this.props;
 
-    if (partieEnCours) return children(inscrits);
+    if (partieEnCours)
+      return children(inscrits, () => this.retourAuxInscriptions());
 
     return (
       <Portrait>

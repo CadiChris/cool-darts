@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import LocalizedStrings from "react-native-localization";
 import { View } from "react-native";
 import Button from "apsl-react-native-button";
@@ -6,11 +7,7 @@ import { Boutons, Textes } from "../../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import BoutonAvecConfirmation from "../../Technique/BoutonAvecConfirmation";
 
-export default ({
-  aucunPrecedent: undoImpossible,
-  declencherNouvellePartie,
-  declencherUndo
-}) => (
+const CommandesDeLaPartie = ({ aucunPrecedent, onQuitterLaPartie, onUndo }) => (
   <View
     style={[
       {
@@ -24,7 +21,7 @@ export default ({
     <BoutonAvecConfirmation
       titre={textes.titre}
       message={textes.message}
-      apresConfirmation={declencherNouvellePartie}
+      apresConfirmation={onQuitterLaPartie}
       style={[
         Boutons.deCommande,
         { width: 60, height: 50, marginHorizontal: 30 }
@@ -35,8 +32,8 @@ export default ({
     </BoutonAvecConfirmation>
 
     <Button
-      onPress={declencherUndo}
-      isDisabled={undoImpossible}
+      onPress={onUndo}
+      isDisabled={aucunPrecedent}
       style={[
         Boutons.deCommande,
         { width: 60, height: 50, marginHorizontal: 30 }
@@ -48,6 +45,12 @@ export default ({
   </View>
 );
 
+CommandesDeLaPartie.propTypes = {
+  aucunPrecedent: PropTypes.bool.isRequired,
+  onUndo: PropTypes.func.isRequired,
+  onQuitterLaPartie: PropTypes.func.isRequired
+};
+
 const textes = new LocalizedStrings({
   en: {
     titre: "End the game",
@@ -58,3 +61,5 @@ const textes = new LocalizedStrings({
     message: "Êtes-vous sûr de vouloir quitter la partie ?"
   }
 });
+
+export default CommandesDeLaPartie;
