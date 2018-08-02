@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import Portrait from "../Technique/Portrait";
-import FadeInView from "../Technique/FadeInView";
 import ViewQuiDecale from "../Technique/ViewQuiDecale";
-import { Textes } from "../styles";
 import ListeDesInscrits from "./ListeDesInscrits";
 import DemarrerLaPartie from "./DemarrerLaPartie";
 import FormulaireInscription from "./FormulaireInscription";
@@ -51,17 +49,6 @@ class InscriptionDesJoueurs extends Component {
     return (
       <Portrait>
         <View style={[{ flex: 1, alignItems: "center" }]}>
-          <FadeInView dureeDuFade={800}>
-            <Text
-              style={[
-                Textes.titre,
-                { textAlign: "center", marginTop: 30, marginBottom: 50 }
-              ]}
-            >
-              Cut-Throat Cricket
-            </Text>
-          </FadeInView>
-
           <ViewQuiDecale
             dureeDuDecalage={900}
             coteDeDepart="right"
