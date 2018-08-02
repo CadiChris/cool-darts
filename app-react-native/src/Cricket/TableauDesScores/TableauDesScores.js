@@ -5,7 +5,7 @@ import { Grid } from "react-native-easy-grid";
 import EnTete from "./EnTete";
 import LigneDeScore from "./LigneDeScore";
 import { Styles } from "../../styles";
-import Celebration from "./Celebration";
+import Celebration from "../../Technique/Celebration";
 
 const TableauDesScores = ({
   scores,
