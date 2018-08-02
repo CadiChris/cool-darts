@@ -22,6 +22,13 @@ class InscriptionDesJoueurs extends Component {
     });
   }
 
+  desinscrire(partant) {
+    const { inscrits } = this.state;
+    this.setState({
+      inscrits: inscrits.filter(joueur => joueur !== partant)
+    });
+  }
+
   laPartiePeutDemarrer() {
     return this.state.inscrits.length > 1;
   }
@@ -67,7 +74,10 @@ class InscriptionDesJoueurs extends Component {
               onSubmit={joueur => this.inscrire(joueur)}
             />
 
-            <ListeDesInscrits inscrits={inscrits} />
+            <ListeDesInscrits
+              inscrits={inscrits}
+              onDesinscription={partant => this.desinscrire(partant)}
+            />
           </ViewQuiDecale>
 
           <ViewQuiDecale dureeDuDecalage={1000} coteDeDepart="left">

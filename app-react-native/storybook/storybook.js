@@ -5,6 +5,7 @@ import { getStorybookUI, configure } from "@storybook/react-native";
 
 // import stories
 configure(() => {
+  require("../src/InscriptionDesJoueurs/stories/ListeDesInscrits.stories");
   require("../src/Cricket/TableauDesScores/stories/TableauDesScores.stories");
   require("../src/InscriptionDesJoueurs/stories/InscriptionDesJoueurs.stories");
 }, module);
