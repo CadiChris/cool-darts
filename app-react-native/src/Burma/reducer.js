@@ -1,7 +1,11 @@
 import { DEMARRER_PARTIE, VOLEE } from "./actions";
-import { lanceurSuivant } from "./lanceur";
-import { leChiffreSuivant, dernierChiffre, premierChiffre } from "./chiffre";
-import Score from "./Score";
+import { lanceurSuivant } from "./arbitrage/lanceur";
+import {
+  leChiffreSuivant,
+  dernierChiffre,
+  premierChiffre
+} from "./arbitrage/chiffre";
+import Score from "./arbitrage/Score";
 
 const STATE_INITIAL = {
   scores: {},
@@ -10,7 +14,7 @@ const STATE_INITIAL = {
   vainqueur: undefined
 };
 
-const burma = (state = STATE_INITIAL, action) => {
+const reducer = (state = STATE_INITIAL, action) => {
   switch (action.type) {
     case DEMARRER_PARTIE:
       return {
@@ -77,4 +81,4 @@ const meilleurScore = scores =>
     return challenger;
   }, Object.keys(scores)[0]);
 
-export default burma;
+export default reducer;

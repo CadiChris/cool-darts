@@ -1,5 +1,5 @@
 import deepFreeze from "deep-freeze";
-import burma from "../burma";
+import burma from "../reducer";
 import {
   demarrerPartie,
   voleeSurBull,
@@ -7,7 +7,7 @@ import {
   voleeSurDouble,
   voleeSurTriple
 } from "../actions";
-import { POINTS_INITIAUX } from "../Score";
+import { POINTS_INITIAUX } from "../arbitrage/Score";
 
 it("retourne le state initial", () => {
   expect(burma(undefined, {})).toEqual({

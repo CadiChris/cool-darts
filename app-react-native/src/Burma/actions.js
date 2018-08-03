@@ -1,4 +1,4 @@
-import Contrats from "./Contrats";
+import Contrats from "./arbitrage/Contrats";
 
 export const DEMARRER_PARTIE = "DEMARRER_PARTIE";
 export const demarrerPartie = joueurs => ({
