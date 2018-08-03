@@ -15,7 +15,9 @@ const STATE_INITIAL = {
 const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
     case INSCRIRE_JOUEUR: {
-      const { payload: { nomDuJoueur } } = action;
+      const {
+        payload: { nomDuJoueur }
+      } = action;
 
       return {
         ...state,
@@ -36,7 +38,9 @@ const burma = (state = STATE_INITIAL, action) => {
       };
 
     case VOLEE:
-      const { payload: { lanceur, contrat } } = action;
+      const {
+        payload: { lanceur, contrat }
+      } = action;
 
       const laPartieSeTermine = estLaDerniereVolee(
         state.joueurs,
