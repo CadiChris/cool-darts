@@ -5,6 +5,7 @@ import { ColonneDesContrats } from "./ColonneDesContrats";
 import { ColonneJoueur } from "./ColonneJoueur";
 
 const HAUTEUR_DU_CONTRAT_DE_DEPART = 30;
+const HAUTEUR_DE_CONTRAT = 40;
 
 const TableauDesScores = ({ scores }) => (
   <View style={{ flex: 1 }}>
@@ -32,4 +33,4 @@ TableauDesScores.propTypes = {
 };
 
 export default TableauDesScores;
-export { HAUTEUR_DU_CONTRAT_DE_DEPART };
+export { HAUTEUR_DU_CONTRAT_DE_DEPART, HAUTEUR_DE_CONTRAT };

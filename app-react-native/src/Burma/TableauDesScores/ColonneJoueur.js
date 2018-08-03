@@ -4,6 +4,7 @@ import { Joueur } from "./Joueur";
 import PropTypes from "prop-types";
 import React from "react";
 import { HAUTEUR_DU_CONTRAT_DE_DEPART } from "./TableauDesScores";
+import { ContratChiffre } from "./ContratChiffre";
 
 export const ColonneJoueur = ({ largeur, joueur, score }) => (
   <View style={{ width: largeur }}>
@@ -19,6 +20,10 @@ export const ColonneJoueur = ({ largeur, joueur, score }) => (
         </Text>
       </View>
     </View>
+
+    {score
+      .slice(1)
+      .map(contrat => <ContratChiffre key={contrat} points={contrat.points} />)}
   </View>
 );
 

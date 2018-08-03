@@ -8,7 +8,8 @@ import { demarrerPartie, voleeSurChiffre } from "../../actions";
 
 const partieDeTest = [
   demarrerPartie(["Noémie", "Christophe", "Olivier", "Baptiste"]),
-  voleeSurChiffre("Noémie", 15, 0)
+  voleeSurChiffre("Noémie", 15, 0),
+  voleeSurChiffre("Christophe", 15, 2)
 ].reduce(burma, undefined);
 
 storiesOf("Burma", module)
