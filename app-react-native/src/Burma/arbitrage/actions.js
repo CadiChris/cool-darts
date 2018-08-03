@@ -1,16 +1,9 @@
 import Contrats from "./Contrats";
 
-export const INSCRIRE_JOUEUR = "INSCRIRE_JOUEUR";
-export const inscrireJoueur = nomDuJoueur => ({
-  type: INSCRIRE_JOUEUR,
-  payload: {
-    nomDuJoueur
-  }
-});
-
 export const DEMARRER_PARTIE = "DEMARRER_PARTIE";
-export const demarrerPartie = () => ({
-  type: DEMARRER_PARTIE
+export const demarrerPartie = joueurs => ({
+  type: DEMARRER_PARTIE,
+  joueurs
 });
 
 export const VOLEE = "VOLEE";

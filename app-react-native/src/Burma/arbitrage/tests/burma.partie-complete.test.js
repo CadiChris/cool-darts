@@ -1,7 +1,6 @@
 import deepFreeze from "deep-freeze";
 import burma from "../burma";
 import {
-  inscrireJoueur,
   demarrerPartie,
   voleeSurChiffre,
   voleeSurDouble,
@@ -24,9 +23,7 @@ describe("partie complète de Burma", () => {
     // B  |  0, 0  ->   /2  ->  93 pts   |  2, 0 -> +50  -> 168 pts
 
     const partieComplete = executer([
-      inscrireJoueur("J1"),
-      inscrireJoueur("J2"),
-      demarrerPartie(),
+      demarrerPartie(["J1", "J2"]),
       voleeSurChiffre("J1", "15", 0),
       voleeSurChiffre("J2", "15", 2),
       voleeSurChiffre("J1", "16", 1),
@@ -50,8 +47,6 @@ describe("partie complète de Burma", () => {
     const joueurAyantLePlusDePoints = "J2";
 
     expect(partieComplete).toEqual({
-      phase: "TERMINEE",
-      joueurs: ["J1", "J2"],
       vainqueur: joueurAyantLePlusDePoints,
       chiffreCourant: undefined,
       lanceur: undefined,

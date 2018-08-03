@@ -1,12 +1,10 @@
-import { INSCRIRE_JOUEUR, DEMARRER_PARTIE, VOLEE } from "./actions";
+import { DEMARRER_PARTIE, VOLEE } from "./actions";
 import { lanceurSuivant } from "./lanceur";
 import { leChiffreSuivant, dernierChiffre, premierChiffre } from "./chiffre";
 import Score from "./Score";
 
 const STATE_INITIAL = {
-  joueurs: [],
   scores: {},
-  phase: "INSCRIPTION",
   lanceur: undefined,
   chiffreCourant: undefined,
   vainqueur: undefined
@@ -14,26 +12,17 @@ const STATE_INITIAL = {
 
 const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
-    case INSCRIRE_JOUEUR: {
-      const {
-        payload: { nomDuJoueur }
-      } = action;
-
-      return {
-        ...state,
-        joueurs: [...state.joueurs, nomDuJoueur],
-        scores: {
-          ...state.scores,
-          [nomDuJoueur]: new Score().tableau()
-        }
-      };
-    }
-
     case DEMARRER_PARTIE:
       return {
-        ...state,
-        lanceur: state.joueurs[0],
-        phase: "EN_COURS",
+        ...STATE_INITIAL,
+        lanceur: action.joueurs[0],
+        scores: action.joueurs.reduce(
+          (scores, joueur) => ({
+            ...scores,
+            [joueur]: new Score().tableau()
+          }),
+          {}
+        ),
         chiffreCourant: premierChiffre()
       };
 
@@ -43,13 +32,13 @@ const burma = (state = STATE_INITIAL, action) => {
       } = action;
 
       const laPartieSeTermine = estLaDerniereVolee(
-        state.joueurs,
+        lesJoueurs(state),
         lanceur,
         state.chiffreCourant
       );
 
       const chiffreSuivant = leChiffreSuivant(state.chiffreCourant).avec(
-        state.joueurs,
+        lesJoueurs(state),
         lanceur
       );
 
@@ -62,10 +51,9 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: laPartieSeTermine
           ? undefined
-          : lanceurSuivant(lanceur, state.joueurs),
+          : lanceurSuivant(lanceur, lesJoueurs(state)),
         chiffreCourant: chiffreSuivant,
         scores: nextScores,
-        phase: laPartieSeTermine ? "TERMINEE" : state.phase,
         vainqueur: laPartieSeTermine ? meilleurScore(nextScores) : undefined
       };
 
@@ -73,6 +61,8 @@ const burma = (state = STATE_INITIAL, action) => {
       return state;
   }
 };
+
+const lesJoueurs = state => Object.keys(state.scores);
 
 const estLaDerniereVolee = (tousLesJoueurs, lanceur, chiffre) =>
   tousLesJoueurs.indexOf(lanceur) === tousLesJoueurs.length - 1 &&
