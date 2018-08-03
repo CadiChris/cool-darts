@@ -14,7 +14,7 @@ const STATE_INITIAL = {
   vainqueur: undefined
 };
 
-const reducer = (state = STATE_INITIAL, action) => {
+const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
     case DEMARRER_PARTIE:
       return {
@@ -81,4 +81,4 @@ const meilleurScore = scores =>
     return challenger;
   }, Object.keys(scores)[0]);
 
-export default reducer;
+export default burma;
