@@ -4,7 +4,7 @@ import { Joueur } from "./Joueur";
 import PropTypes from "prop-types";
 import React from "react";
 import { HAUTEUR_DU_CONTRAT_DE_DEPART } from "./TableauDesScores";
-import { ContratChiffre } from "./ContratChiffre";
+import { UnContrat } from "./UnContrat";
 
 export const ColonneJoueur = ({ largeur, joueur, score }) => (
   <View style={{ width: largeur }}>
@@ -12,10 +12,14 @@ export const ColonneJoueur = ({ largeur, joueur, score }) => (
       <Joueur nom={joueur} />
     </View>
     <View
-      style={[Styles.bordureBasse, { height: HAUTEUR_DU_CONTRAT_DE_DEPART }]}
+      style={[
+        Styles.bordureBasse,
+        Styles.bordureGauche,
+        { height: HAUTEUR_DU_CONTRAT_DE_DEPART }
+      ]}
     >
-      <View style={{ flex: 1, justifyContent: "center" }}>
-        <Text style={[Textes.basique, { textAlign: "center" }]}>
+      <View style={{ flex: 1, justifyContent: "center", paddingRight: 6 }}>
+        <Text style={[Textes.basique, { fontSize: 19, alignSelf: "flex-end" }]}>
           {score[0].points}
         </Text>
       </View>
@@ -23,7 +27,15 @@ export const ColonneJoueur = ({ largeur, joueur, score }) => (
 
     {score
       .slice(1)
-      .map(contrat => <ContratChiffre key={contrat} points={contrat.points} />)}
+      .map((contrat, index) => (
+        <UnContrat
+          key={contrat}
+          points={contrat.points}
+          pointsPrecedents={
+            index == 0 ? score[0].points : score[index - 1].points
+          }
+        />
+      ))}
   </View>
 );
 
