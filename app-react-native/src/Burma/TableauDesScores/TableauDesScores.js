@@ -7,7 +7,7 @@ import { ColonneJoueur } from "./ColonneJoueur";
 const HAUTEUR_DU_CONTRAT_DE_DEPART = 30;
 const HAUTEUR_DE_CONTRAT = 40;
 
-const TableauDesScores = ({ scores }) => (
+const TableauDesScores = ({ scores, lanceur }) => (
   <View style={{ flex: 1 }}>
     <View style={{ flex: 1, flexDirection: "row" }}>
       <ColonneDesContrats />
@@ -21,6 +21,7 @@ const TableauDesScores = ({ scores }) => (
               joueur={joueur}
               score={score}
               largeur={`${100 / Object.keys(scores).length}%`}
+              estLeLanceur={joueur === lanceur}
             />
           ))}
       </View>
@@ -29,7 +30,8 @@ const TableauDesScores = ({ scores }) => (
 );
 
 TableauDesScores.propTypes = {
-  scores: PropTypes.object.isRequired
+  scores: PropTypes.object.isRequired,
+  lanceur: PropTypes.string.isRequired
 };
 
 export default TableauDesScores;

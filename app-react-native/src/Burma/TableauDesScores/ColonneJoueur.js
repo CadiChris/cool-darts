@@ -1,12 +1,13 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 import { Styles, Textes } from "../../styles";
 import { Joueur } from "./Joueur";
-import PropTypes from "prop-types";
-import React from "react";
 import { HAUTEUR_DU_CONTRAT_DE_DEPART } from "./TableauDesScores";
 import { UnContrat } from "./UnContrat";
+import { Lanceur } from "./Lanceur";
 
-export const ColonneJoueur = ({ largeur, joueur, score }) => (
+export const ColonneJoueur = ({ largeur, joueur, score, estLeLanceur }) => (
   <View style={{ width: largeur }}>
     <View style={[{ height: 40 }, Styles.bordureBasse, Styles.bordureGauche]}>
       <Joueur nom={joueur} />
@@ -25,21 +26,20 @@ export const ColonneJoueur = ({ largeur, joueur, score }) => (
       </View>
     </View>
 
-    {score
-      .slice(1)
-      .map((contrat, index) => (
-        <UnContrat
-          key={contrat}
-          points={contrat.points}
-          pointsPrecedents={
-            index == 0 ? score[0].points : score[index - 1].points
-          }
-        />
-      ))}
+    {score.slice(1).map((contrat, index) => (
+      <UnContrat
+        key={contrat}
+        points={contrat.points}
+        pointsPrecedents={score[index].points} // index car on a slice(1)
+      />
+    ))}
+
+    {estLeLanceur && <Lanceur />}
   </View>
 );
 
 ColonneJoueur.propTypes = {
   joueur: PropTypes.string.isRequired,
-  largeur: PropTypes.string.isRequired
+  largeur: PropTypes.string.isRequired,
+  estLeLanceur: PropTypes.bool.isRequired
 };

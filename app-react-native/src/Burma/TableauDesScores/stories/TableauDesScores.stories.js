@@ -8,14 +8,19 @@ import { demarrerPartie, voleeSurChiffre } from "../../actions";
 
 const partieDeTest = [
   demarrerPartie(["Noémie", "Christophe", "Olivier", "Baptiste"]),
-  voleeSurChiffre("Noémie", 15, 0),
-  voleeSurChiffre("Christophe", 15, 2),
-  voleeSurChiffre("Olivier", 15, 1),
-  voleeSurChiffre("Baptiste", 15, 0)
+  voleeSurChiffre("Noémie", "15", 0),
+  voleeSurChiffre("Christophe", "15", 2),
+  voleeSurChiffre("Olivier", "15", 1),
+  voleeSurChiffre("Baptiste", "15", 0),
+  voleeSurChiffre("Noémie", "16", 3),
+  voleeSurChiffre("Christophe", "16", 0)
 ].reduce(burma, undefined);
 
 storiesOf("Burma", module)
   .addDecorator(story => <View style={[Styles.container]}>{story()}</View>)
   .add("Tableau des scores", () => (
-    <TableauDesScores scores={partieDeTest.scores} />
+    <TableauDesScores
+      scores={partieDeTest.scores}
+      lanceur={partieDeTest.lanceur}
+    />
   ));
