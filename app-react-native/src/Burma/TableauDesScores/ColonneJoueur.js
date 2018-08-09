@@ -22,7 +22,7 @@ const ColonneJoueur = ({
 
     {avecLesContratsPasEncoreJoues(score)
       .slice(1)
-      .map((contrat, index) => (
+      .map(({ contrat, delta }) => (
         <View
           key={contrat}
           style={[
@@ -31,15 +31,10 @@ const ColonneJoueur = ({
             { height: HAUTEUR_DE_CONTRAT }
           ]}
         >
-          {estLeLanceur && contrat.contrat === chiffreCourant ? (
+          {estLeLanceur && contrat === chiffreCourant ? (
             <Lanceur />
           ) : (
-            <UnContrat
-              points={contrat.points}
-              pointsPrecedents={
-                avecLesContratsPasEncoreJoues(score)[index].points
-              }
-            />
+            <UnContrat delta={delta} />
           )}
         </View>
       ))}

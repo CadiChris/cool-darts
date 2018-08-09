@@ -1,27 +1,26 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Text, View } from "react-native";
-import { Styles, Textes } from "../../styles";
-import { HAUTEUR_DE_CONTRAT } from "./TableauDesScores";
+import { Textes } from "../../styles";
 
-export const UnContrat = ({ points, pointsPrecedents }) => (
+export const UnContrat = ({ delta }) => (
   <View
     style={{
       flex: 1,
       justifyContent: "center"
     }}
   >
-    {points > pointsPrecedents && (
+    {delta > 0 && (
       <Text
         style={[
           Textes.light,
           { fontSize: 19, color: "#8df69a", textAlign: "center" }
         ]}
       >
-        +{points - pointsPrecedents}
+        +{delta}
       </Text>
     )}
-    {points < pointsPrecedents && (
+    {delta < 0 && (
       <Text
         style={[
           Textes.light,
@@ -35,6 +34,5 @@ export const UnContrat = ({ points, pointsPrecedents }) => (
 );
 
 UnContrat.propTypes = {
-  points: PropTypes.number,
-  pointsPrecedents: PropTypes.number
+  delta: PropTypes.number
 };
