@@ -9,7 +9,11 @@ export const Tailles = {
 };
 
 export const Couleurs = {
-  bordure: "white"
+  bordure: "white",
+  fond: "#355C7D",
+  un: "#6C5B7B",
+  deux: "#C06C84",
+  trois: "#F67280"
 };
 
 const fonts = {
@@ -44,7 +48,7 @@ export const Textes = StyleSheet.create({
 
 export const Boutons = StyleSheet.create({
   principal: {
-    backgroundColor: "#6C5B7B",
+    backgroundColor: Couleurs.un,
     borderTopWidth: 0,
     borderBottomWidth: 0.25,
     borderLeftWidth: 0,
@@ -52,7 +56,7 @@ export const Boutons = StyleSheet.create({
     borderWidth: 0
   },
   secondaire: {
-    backgroundColor: "#C06C84",
+    backgroundColor: Couleurs.deux,
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
@@ -60,7 +64,7 @@ export const Boutons = StyleSheet.create({
     borderWidth: 0
   },
   deCommande: {
-    backgroundColor: "#6C5B7B",
+    backgroundColor: Couleurs.un,
     borderWidth: 0,
     opacity: 0.9,
     borderBottomWidth: 0.25
@@ -70,7 +74,7 @@ export const Boutons = StyleSheet.create({
 export const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#355C7D"
+    backgroundColor: Couleurs.fond
   },
   contenuAuMilieu: {
     flex: 1,
@@ -90,6 +94,6 @@ export const Styles = StyleSheet.create({
     borderTopWidth: 1
   },
   chiffreFerme: {
-    backgroundColor: "#F67280"
+    backgroundColor: Couleurs.trois
   }
 });
