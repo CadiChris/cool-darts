@@ -9,13 +9,14 @@ export const Lanceur = () => (
     <View
       style={{
         flex: 1,
-        margin: 5,
+        margin: 6,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: Couleurs.deux
+        backgroundColor: Couleurs.deux,
+        borderRadius: 4
       }}
     >
-      <Icon name="target" color="white" size={26} style={{ opacity: 0.85 }} />
+      <Icon name="target" color="white" size={20} style={{ opacity: 0.85 }} />
     </View>
   </View>
 );
