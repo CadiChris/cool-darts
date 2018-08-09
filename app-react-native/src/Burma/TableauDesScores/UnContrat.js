@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Textes } from "../../styles";
+import TexteApparaissant from "../../Technique/TexteApparaissant";
 
 export const UnContrat = ({ delta }) => (
   <View
@@ -11,24 +12,24 @@ export const UnContrat = ({ delta }) => (
     }}
   >
     {delta > 0 && (
-      <Text
+      <TexteApparaissant
         style={[
           Textes.light,
           { fontSize: 19, color: "#8df69a", textAlign: "center" }
         ]}
       >
         +{delta}
-      </Text>
+      </TexteApparaissant>
     )}
     {delta < 0 && (
-      <Text
+      <TexteApparaissant
         style={[
           Textes.light,
           { fontSize: 19, color: "#f6655d", textAlign: "center" }
         ]}
       >
         / 2
-      </Text>
+      </TexteApparaissant>
     )}
   </View>
 );
