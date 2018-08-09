@@ -1,19 +1,19 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-// Palette de couleurs : https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/
-
 export const Tailles = {
   hauteurEnTete: 30,
   largeurDeLaColonneJoueur: 3
 };
 
+// Palette de couleurs : https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/
 export const Couleurs = {
   bordure: "white",
   fond: "#355C7D",
   un: "#6C5B7B",
   deux: "#C06C84",
-  trois: "#F67280"
+  trois: "#F67280",
+  quatre: "#F8B195"
 };
 
 const fonts = {
