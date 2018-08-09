@@ -29,7 +29,7 @@ Site utilisé pour générer le QR : https://www.unitag.io/fr/qrcode
 Ce qui fonctionne bien est de démarrer l'émulateur Android depuis la ligne de commande, puis de démarrer l'app dessus.
 
 - Démarrer l'émulateur :
-  - `~/Library/Android/sdk/tools/emulator -avd <nom_de_l_avd>`
+  - `yarn emulator <nom_de_l_avd>`
   - Lister les avds : `emulator -list-avds`
   - Plus d'infos : https://developer.android.com/studio/run/emulator-commandline
 - Démarrer l'app :
