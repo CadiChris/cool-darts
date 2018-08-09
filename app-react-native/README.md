@@ -38,6 +38,10 @@ Ce qui fonctionne bien est de démarrer l'émulateur Android depuis la ligne de 
 
 Après ça, l'app devrait se lancer dans l'émulateur.
 
+### Storybook
+
+Suivre [la doc Storybook](https://github.com/storybooks/storybook/tree/master/app/react-native#create-react-native-app-crna) pour utiliser Storybook.
+
 ### Prettier
 
 Le format du code repose sur Prettier. Il s'exécute en precommit hook.  
