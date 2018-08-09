@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text, View } from "react-native";
+import { Text, View, Easing } from "react-native";
 import { Styles, Textes } from "../../styles";
 import { Joueur } from "./Joueur";
 import { HAUTEUR_DE_CONTRAT } from "./TableauDesScores";
 import { UnContrat } from "./UnContrat";
 import { Lanceur } from "./Lanceur";
 import { CHIFFRES_DU_BURMA } from "../arbitrage/chiffre";
+import AnimatedNumber from "../../Technique/AnimatedNumber";
 
 const ColonneJoueur = ({
   largeur,
@@ -48,9 +49,16 @@ const ColonneJoueur = ({
       ]}
     >
       <View style={{ flex: 1, justifyContent: "center" }}>
-        <Text style={[Textes.titre, { fontSize: 19, textAlign: "center" }]}>
-          {score[score.length - 1].points}
-        </Text>
+        <AnimatedNumber
+          value={score[score.length - 1].points}
+          duration={1500}
+          easing={Easing.out(Easing.circle)}
+          renderValue={value => (
+            <Text style={[Textes.titre, { fontSize: 19, textAlign: "center" }]}>
+              {Math.round(value)}
+            </Text>
+          )}
+        />
       </View>
     </View>
   </View>

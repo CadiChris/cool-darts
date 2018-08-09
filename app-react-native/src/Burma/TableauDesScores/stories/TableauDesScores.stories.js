@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { storiesOf } from "@storybook/react-native";
+import { withKnobs, object } from "@storybook/addon-knobs/react";
 import TableauDesScores from "../TableauDesScores";
 import { Styles } from "../../../styles";
 import burma from "../../reducer";
@@ -17,10 +18,11 @@ const partieDeTest = [
 ].reduce(burma, undefined);
 
 storiesOf("Burma", module)
+  .addDecorator(withKnobs)
   .addDecorator(story => <View style={[Styles.container]}>{story()}</View>)
   .add("Tableau des scores", () => (
     <TableauDesScores
-      scores={partieDeTest.scores}
+      scores={object("scores", partieDeTest.scores)}
       lanceur={partieDeTest.lanceur}
       chiffreCourant={partieDeTest.chiffreCourant}
     />
