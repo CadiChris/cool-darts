@@ -15,7 +15,7 @@ describe("Score", () => {
 
     expect(new Score(tableauDeTest).noter(contratRempli).tableau()).toEqual([
       { contrat: "19", points: 120 },
-      { contrat: "20", points: 120 + 20 * 3 }
+      { contrat: "20", points: 120 + 20 * 3, delta: 20 * 3 }
     ]);
   });
 
@@ -27,7 +27,7 @@ describe("Score", () => {
 
     expect(new Score(tableauDeTest).noter(contratNonRempli).tableau()).toEqual([
       { contrat: "17", points: 60 },
-      { contrat: "18", points: 30 }
+      { contrat: "18", points: 30, delta: -30 }
     ]);
   });
 
@@ -39,7 +39,10 @@ describe("Score", () => {
 
     expect(
       new Score(avecPointsImpairs).noter(contratNonRempli).tableau()
-    ).toEqual([{ contrat: "18", points: 3 }, { contrat: "19", points: 2 }]);
+    ).toEqual([
+      { contrat: "18", points: 3 },
+      { contrat: "19", points: 2, delta: -1 }
+    ]);
   });
 
   it("dit qu'un score est meilleur si son dernier contrat a plus de points", () => {

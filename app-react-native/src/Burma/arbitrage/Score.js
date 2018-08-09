@@ -20,15 +20,21 @@ class Score {
       ...this._tableau,
       {
         contrat: contrat.nom,
-        points: this.derniersPoints() + contrat.valeur
+        points: this.derniersPoints() + contrat.valeur,
+        delta: contrat.valeur
       }
     ]);
   }
 
   scoreDiviseParDeux(contrat) {
+    const division = Math.round(this.derniersPoints() / 2);
     return new Score([
       ...this._tableau,
-      { contrat: contrat.nom, points: Math.round(this.derniersPoints() / 2) }
+      {
+        contrat: contrat.nom,
+        points: division,
+        delta: division - this.derniersPoints()
+      }
     ]);
   }
 

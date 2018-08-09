@@ -53,27 +53,27 @@ describe("partie complète de Burma", () => {
       scores: {
         J1: [
           { contrat: "DEPART", points: POINTS_INITIAUX },
-          { contrat: "15", points: 20 },
-          { contrat: "16", points: 36 },
-          { contrat: "DOUBLE", points: 116 },
-          { contrat: "17", points: 58 },
-          { contrat: "18", points: 112 },
-          { contrat: "TRIPLE", points: 292 },
-          { contrat: "19", points: 146 },
-          { contrat: "20", points: 186 },
-          { contrat: "BULL", points: 93 }
+          { contrat: "15", points: 20, delta: -20 },
+          { contrat: "16", points: 36, delta: 16 },
+          { contrat: "DOUBLE", points: 116, delta: 80 },
+          { contrat: "17", points: 58, delta: -58 },
+          { contrat: "18", points: 112, delta: 54 },
+          { contrat: "TRIPLE", points: 292, delta: 180 },
+          { contrat: "19", points: 146, delta: -146 },
+          { contrat: "20", points: 186, delta: 40 },
+          { contrat: "BULL", points: 93, delta: -93 }
         ],
         J2: [
           { contrat: "DEPART", points: POINTS_INITIAUX },
-          { contrat: "15", points: 70 },
-          { contrat: "16", points: 134 },
-          { contrat: "DOUBLE", points: 67 },
-          { contrat: "17", points: 101 },
-          { contrat: "18", points: 119 },
-          { contrat: "TRIPLE", points: 60 },
-          { contrat: "19", points: 98 },
-          { contrat: "20", points: 118 },
-          { contrat: "BULL", points: 168 }
+          { contrat: "15", points: 70, delta: 30 },
+          { contrat: "16", points: 134, delta: 64 },
+          { contrat: "DOUBLE", points: 67, delta: -67 },
+          { contrat: "17", points: 101, delta: 34 },
+          { contrat: "18", points: 119, delta: 18 },
+          { contrat: "TRIPLE", points: 60, delta: -59 },
+          { contrat: "19", points: 98, delta: 38 },
+          { contrat: "20", points: 118, delta: 20 },
+          { contrat: "BULL", points: 168, delta: 50 }
         ]
       }
     });
