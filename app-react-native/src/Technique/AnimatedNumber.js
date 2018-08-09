@@ -1,14 +1,8 @@
-// https://raw.githubusercontent.com/xotahal/react-native-motion/master/src/AnimatedNumber.js
+// https://github.com/xotahal/react-native-motion/blob/master/src/AnimatedNumber.js
 import React from "react";
-import { Animated } from "react-native";
+import { Animated, Easing } from "react-native";
 import PropTypes from "prop-types";
 
-const propTypes = {
-  type: PropTypes.string
-};
-const defaultProps = {
-  type: "timing"
-};
 class AnimatedNumber extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -32,22 +26,32 @@ class AnimatedNumber extends React.PureComponent {
     });
   };
   move = props => {
-    const { value, style, type, ...rest } = props;
+    const { value, type, easing, ...rest } = props;
 
     Animated[type](this.state.animatedValue, {
       toValue: value,
+      easing,
       ...rest
     }).start();
   };
   render() {
-    const { renderValue } = this.props;
+    const { children } = this.props;
     const { value } = this.state;
 
-    return renderValue(value);
+    return children(value);
   }
 }
 
-AnimatedNumber.propTypes = propTypes;
-AnimatedNumber.defaultProps = defaultProps;
+AnimatedNumber.propTypes = {
+  type: PropTypes.string,
+  children: PropTypes.func.isRequired,
+  easing: PropTypes.func,
+  duration: PropTypes.number
+};
+AnimatedNumber.defaultProps = {
+  type: "timing",
+  easing: Easing.out(Easing.circle),
+  duration: 2000
+};
 
 export default AnimatedNumber;

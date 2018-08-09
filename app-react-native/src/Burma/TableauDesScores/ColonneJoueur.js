@@ -49,16 +49,13 @@ const ColonneJoueur = ({
       ]}
     >
       <View style={{ flex: 1, justifyContent: "center" }}>
-        <AnimatedNumber
-          value={score[score.length - 1].points}
-          duration={1500}
-          easing={Easing.out(Easing.circle)}
-          renderValue={value => (
+        <AnimatedNumber value={score[score.length - 1].points}>
+          {value => (
             <Text style={[Textes.titre, { fontSize: 19, textAlign: "center" }]}>
               {Math.round(value)}
             </Text>
           )}
-        />
+        </AnimatedNumber>
       </View>
     </View>
   </View>
