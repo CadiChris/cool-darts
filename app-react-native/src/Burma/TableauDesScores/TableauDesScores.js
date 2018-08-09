@@ -2,12 +2,11 @@ import React from "react";
 import { View } from "react-native";
 import PropTypes from "prop-types";
 import { ColonneDesContrats } from "./ColonneDesContrats";
-import { ColonneJoueur } from "./ColonneJoueur";
+import ColonneJoueur from "./ColonneJoueur";
 
-const HAUTEUR_DU_CONTRAT_DE_DEPART = 30;
 const HAUTEUR_DE_CONTRAT = 40;
 
-const TableauDesScores = ({ scores, lanceur }) => (
+const TableauDesScores = ({ scores, lanceur, chiffreCourant }) => (
   <View style={{ flex: 1 }}>
     <View style={{ flex: 1, flexDirection: "row" }}>
       <ColonneDesContrats />
@@ -22,6 +21,7 @@ const TableauDesScores = ({ scores, lanceur }) => (
               score={score}
               largeur={`${100 / Object.keys(scores).length}%`}
               estLeLanceur={joueur === lanceur}
+              chiffreCourant={chiffreCourant}
             />
           ))}
       </View>
@@ -31,8 +31,9 @@ const TableauDesScores = ({ scores, lanceur }) => (
 
 TableauDesScores.propTypes = {
   scores: PropTypes.object.isRequired,
-  lanceur: PropTypes.string.isRequired
+  lanceur: PropTypes.string.isRequired,
+  chiffreCourant: PropTypes.string.isRequired
 };
 
 export default TableauDesScores;
-export { HAUTEUR_DU_CONTRAT_DE_DEPART, HAUTEUR_DE_CONTRAT };
+export { HAUTEUR_DE_CONTRAT };

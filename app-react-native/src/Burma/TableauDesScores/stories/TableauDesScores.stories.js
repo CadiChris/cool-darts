@@ -22,5 +22,6 @@ storiesOf("Burma", module)
     <TableauDesScores
       scores={partieDeTest.scores}
       lanceur={partieDeTest.lanceur}
+      chiffreCourant={partieDeTest.chiffreCourant}
     />
   ));
