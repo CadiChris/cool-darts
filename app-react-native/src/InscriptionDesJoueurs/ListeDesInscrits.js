@@ -8,7 +8,7 @@ import TexteApparaissant from "../Technique/TexteApparaissant";
 import FadeInView from "../Technique/FadeInView";
 
 const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
-  <View style={{ flex: 1 }}>
+  <View style={{ flex: 1, marginTop: 20 }}>
     {inscrits.map((nom, index) => (
       <View
         key={index}

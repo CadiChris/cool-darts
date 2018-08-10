@@ -22,7 +22,7 @@ class FormulaireInscription extends Component {
         <TextInput
           value={joueur}
           onChangeText={text => this.setState({ joueur: text })}
-          style={[{ flexGrow: 1, color: "white" }, Textes.light]}
+          style={[{ flexGrow: 1, color: "white", fontSize: 18 }, Textes.light]}
           underlineColorAndroid="transparent"
           placeholderTextColor="#FFF"
           placeholder={textes.joueur}
