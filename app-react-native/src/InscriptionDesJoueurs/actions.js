@@ -9,3 +9,9 @@ export const desinscrireJoueur = nomDuJouer => ({
   type: DESINSCRIRE_JOUEUR,
   nomDuJouer
 });
+
+export const CHOISIR_JEU = "CHOISIR_JEU";
+export const choisirJeu = jeuChoisi => ({
+  type: CHOISIR_JEU,
+  jeuChoisi
+});

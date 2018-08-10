@@ -1,16 +1,18 @@
 import InscriptionDesJoueurs from "./InscriptionDesJoueurs";
 import { connect } from "react-redux";
-import { desinscrireJoueur, inscrireJoueur } from "./actions";
+import { choisirJeu, desinscrireJoueur, inscrireJoueur } from "./actions";
 
 const mapStateToProps = state => ({
   inscrits: state.inscriptionDesJoueurs.inscrits,
-  jeu: "cricket",
+  jeuxDisponibles: state.inscriptionDesJoueurs.jeuxDisponibles,
+  jeu: state.inscriptionDesJoueurs.jeuChoisi,
   demarrerLaPartieEstPossible: state.inscriptionDesJoueurs.laPartiePeutDemarrer
 });
 
 const mapDispatchToProps = dispatch => ({
   onInscription: nomInscrit => dispatch(inscrireJoueur(nomInscrit)),
-  onDesinscription: nomDesinscrit => dispatch(desinscrireJoueur(nomDesinscrit))
+  onDesinscription: nomDesinscrit => dispatch(desinscrireJoueur(nomDesinscrit)),
+  onChangementDeJeu: jeuChoisi => dispatch(choisirJeu(jeuChoisi))
 });
 
 export default connect(

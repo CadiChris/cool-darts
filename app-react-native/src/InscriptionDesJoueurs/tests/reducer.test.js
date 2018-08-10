@@ -1,11 +1,13 @@
 import deepFreeze from "deep-freeze";
 import inscriptionDesJoueurs from "../reducer";
-import { desinscrireJoueur, inscrireJoueur } from "../actions";
+import { choisirJeu, desinscrireJoueur, inscrireJoueur } from "../actions";
 
 describe("reducer Inscription des joueurs", () => {
   it("retourne le state initial", () => {
     expect(inscriptionDesJoueurs(undefined, {})).toEqual({
       inscrits: [],
+      jeuxDisponibles: ["burma", "cricket"],
+      jeuChoisi: "burma",
       laPartiePeutDemarrer: false
     });
   });
@@ -34,6 +36,12 @@ describe("reducer Inscription des joueurs", () => {
     ]);
 
     expect(apresPlusieursFoisLeMemeInscrit.inscrits).toEqual(["A"]);
+  });
+
+  it("permet de choisir un jeu", () => {
+    const apresChoixDeJeu = executer([choisirJeu("mon jeu favori")]);
+
+    expect(apresChoixDeJeu.jeuChoisi).toBe("mon jeu favori");
   });
 
   it("permet de démarrer la partie dès qu'on a 2 inscrits", () => {

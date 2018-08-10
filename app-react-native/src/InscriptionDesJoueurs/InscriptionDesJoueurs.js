@@ -6,13 +6,16 @@ import ViewQuiDecale from "../Technique/ViewQuiDecale";
 import ListeDesInscrits from "./ListeDesInscrits";
 import DemarrerLaPartie from "./DemarrerLaPartie";
 import FormulaireInscription from "./FormulaireInscription";
+import ChoixDuJeu from "./ChoixDuJeu";
 import Titre from "./Titre";
 
 function InscriptionDesJoueurs({
   inscrits,
   onInscription,
   onDesinscription,
+  jeuxDisponibles,
   jeu,
+  onChangementDeJeu,
   demarrerLaPartieEstPossible
 }) {
   return (
@@ -29,6 +32,11 @@ function InscriptionDesJoueurs({
           <ListeDesInscrits
             inscrits={inscrits}
             onDesinscription={onDesinscription}
+          />
+          <ChoixDuJeu
+            jeuxDisponibles={jeuxDisponibles}
+            jeuChoisi={jeu}
+            onChangementDeJeu={onChangementDeJeu}
           />
         </ViewQuiDecale>
 
@@ -48,6 +56,8 @@ InscriptionDesJoueurs.propTypes = {
   onInscription: PropTypes.func.isRequired,
   onDesinscription: PropTypes.func.isRequired,
   jeu: PropTypes.string.isRequired,
+  jeuxDisponibles: PropTypes.array.isRequired,
+  onChangementDeJeu: PropTypes.func.isRequired,
   demarrerLaPartieEstPossible: PropTypes.bool.isRequired
 };
 

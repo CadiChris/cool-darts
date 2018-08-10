@@ -1,7 +1,9 @@
-import { DESINSCRIRE_JOUEUR, INSCRIRE_JOUEUR } from "./actions";
+import { CHOISIR_JEU, DESINSCRIRE_JOUEUR, INSCRIRE_JOUEUR } from "./actions";
 
 const STATE_INITIAL = {
   inscrits: [],
+  jeuxDisponibles: ["burma", "cricket"],
+  jeuChoisi: "burma",
   laPartiePeutDemarrer: false
 };
 
@@ -25,6 +27,12 @@ function inscriptionDesJoueurs(state = STATE_INITIAL, action) {
         ...state,
         inscrits: sansLeDesinscrit,
         laPartiePeutDemarrer: sansLeDesinscrit.length > 1
+      };
+
+    case CHOISIR_JEU:
+      return {
+        ...state,
+        jeuChoisi: action.jeuChoisi
       };
 
     default:
