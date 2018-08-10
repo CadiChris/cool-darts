@@ -35,6 +35,7 @@ class FormulaireInscription extends Component {
           }}
           style={[{ width: 80, alignSelf: "center" }, Boutons.secondaire]}
           textStyle={Textes.bouton}
+          isDisabled={joueur === ""}
         >
           {textes.inscrire}
         </Button>
