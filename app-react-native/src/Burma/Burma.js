@@ -16,7 +16,9 @@ class Burma extends Component {
     return (
       <View style={{ flex: 1 }}>
         <TableauDesScores />
-        <CommandesDeLaPartie />
+        <View style={{ flexGrow: 1, justifyContent: "center" }}>
+          <CommandesDeLaPartie />
+        </View>
       </View>
     );
   }
