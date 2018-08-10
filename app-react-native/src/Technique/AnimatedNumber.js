@@ -50,8 +50,8 @@ AnimatedNumber.propTypes = {
 };
 AnimatedNumber.defaultProps = {
   type: "timing",
-  easing: Easing.out(Easing.circle),
-  duration: 2000
+  easing: Easing.linear,
+  duration: 750
 };
 
 export default AnimatedNumber;
