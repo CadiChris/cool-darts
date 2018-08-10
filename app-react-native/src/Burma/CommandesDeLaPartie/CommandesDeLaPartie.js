@@ -66,13 +66,9 @@ class CommandesDeLaPartie extends Component {
             <TouchableHighlight
               onPress={() => this.toucher(-1)}
               disabled={touches === 1}
+              style={{ marginRight: 20 }}
             >
-              <Icon
-                name="minus"
-                size={20}
-                color="white"
-                style={{ marginRight: 20 }}
-              />
+              <Icon name="minus" size={20} color="white" />
             </TouchableHighlight>
             <Button
               style={[Boutons.deCommande, { paddingHorizontal: 20 }]}
@@ -89,13 +85,9 @@ class CommandesDeLaPartie extends Component {
             <TouchableHighlight
               onPress={() => this.toucher(+1)}
               disabled={touches === 9}
+              style={{ marginLeft: 20 }}
             >
-              <Icon
-                name="plus"
-                size={20}
-                color="white"
-                style={{ marginLeft: 20 }}
-              />
+              <Icon name="plus" size={20} color="white" />
             </TouchableHighlight>
           </View>
         </View>
@@ -105,9 +97,9 @@ class CommandesDeLaPartie extends Component {
 }
 
 CommandesDeLaPartie.propTypes = {
-  lanceur: PropTypes.string.isRequired,
-  chiffreCourant: PropTypes.string.isRequired,
-  onLancer: PropTypes.func.isRequired
+  lanceur: PropTypes.string,
+  chiffreCourant: PropTypes.string,
+  onLancer: PropTypes.func
 };
 
 export default CommandesDeLaPartie;
