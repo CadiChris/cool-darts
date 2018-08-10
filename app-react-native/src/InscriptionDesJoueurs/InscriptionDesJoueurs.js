@@ -6,6 +6,7 @@ import ViewQuiDecale from "../Technique/ViewQuiDecale";
 import ListeDesInscrits from "./ListeDesInscrits";
 import DemarrerLaPartie from "./DemarrerLaPartie";
 import FormulaireInscription from "./FormulaireInscription";
+import Titre from "./Titre";
 
 function InscriptionDesJoueurs({
   inscrits,
@@ -16,6 +17,7 @@ function InscriptionDesJoueurs({
 }) {
   return (
     <Portrait>
+      <Titre />
       <View style={[{ flex: 1, alignItems: "center" }]}>
         <ViewQuiDecale
           dureeDuDecalage={900}

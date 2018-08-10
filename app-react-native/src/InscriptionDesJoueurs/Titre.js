@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
-import { Textes } from "./styles";
-import FadeInView from "./Technique/FadeInView";
+import { Textes } from "../styles";
+import FadeInView from "../Technique/FadeInView";
 
 const Titre = () => (
   <FadeInView dureeDuFade={800}>
