@@ -25,7 +25,7 @@ DemarrerLaPartie.propTypes = {
 
 const textes = new LocalizedStrings({
   en: {
-    demarrer: "Play"
+    demarrer: "Start"
   },
   fr: {
     demarrer: "Démarrer"
