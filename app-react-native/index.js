@@ -1,6 +1,6 @@
 import React from "react";
 import { AppRegistry } from "react-native";
-import { NativeRouter } from "react-router-native";
+import { BackButton, NativeRouter } from "react-router-native";
 import { Provider } from "react-redux";
 import { combineReducers, createStore } from "redux";
 import App from "./App";
@@ -20,7 +20,9 @@ const store = createStore(
 const AppDecoree = () => (
   <Provider store={store}>
     <NativeRouter>
-      <App />
+      <BackButton>
+        <App />
+      </BackButton>
     </NativeRouter>
   </Provider>
 );
