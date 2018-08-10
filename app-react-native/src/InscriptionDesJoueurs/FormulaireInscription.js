@@ -12,7 +12,7 @@ class FormulaireInscription extends Component {
 
   render() {
     const { joueur } = this.state;
-    const { inscriptionAcceptee, onSubmit } = this.props;
+    const { onSubmit } = this.props;
     return (
       <View
         style={{
@@ -33,7 +33,6 @@ class FormulaireInscription extends Component {
             onSubmit(joueur);
             this.setState({ joueur: "" });
           }}
-          isDisabled={!inscriptionAcceptee(joueur)}
           style={[{ width: 80, alignSelf: "center" }, Boutons.secondaire]}
           textStyle={Textes.bouton}
         >
@@ -45,7 +44,6 @@ class FormulaireInscription extends Component {
 }
 
 FormulaireInscription.propTypes = {
-  inscriptionAcceptee: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 };
 

@@ -5,7 +5,7 @@ import Button from "apsl-react-native-button";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Boutons, Textes } from "../styles";
 import TexteApparaissant from "../Technique/TexteApparaissant";
-import ViewQuiDecale from "../Technique/ViewQuiDecale";
+import FadeInView from "../Technique/FadeInView";
 
 const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
   <View style={{ flex: 1 }}>
@@ -25,7 +25,7 @@ const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
           </Text>
           {`  ${nom}`}
         </TexteApparaissant>
-        <ViewQuiDecale dureeDuDecalage={250} coteDeDepart="left">
+        <FadeInView dureeDuFade={100}>
           <Button
             style={[
               Boutons.deCommande,
@@ -35,7 +35,7 @@ const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
           >
             <Icon name="remove" size={20} color="white" />
           </Button>
-        </ViewQuiDecale>
+        </FadeInView>
       </View>
     ))}
   </View>
