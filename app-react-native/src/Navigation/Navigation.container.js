@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-native";
-import CommandesDeLaPartie from "./CommandesDeLaPartie";
-import { undo } from "../../undo/undoable";
+import Navigation from "./Navigation";
+import { undo } from "../undo/undoable";
 
 const mapStateToProps = state => ({
   aucunPrecedent: state.cricket.precedents.length === 1
@@ -17,5 +17,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(CommandesDeLaPartie)
+  )(Navigation)
 );

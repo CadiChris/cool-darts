@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View } from "react-native";
 import { connect } from "react-redux";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
-import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
 import { demarrerPartie } from "./actions";
 
 class Cricket extends Component {
@@ -13,14 +11,7 @@ class Cricket extends Component {
   }
 
   render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <View style={{ flexGrow: 1 }}>
-          <TableauDesScores />
-        </View>
-        <CommandesDeLaPartie />
-      </View>
-    );
+    return <TableauDesScores />;
   }
 }
 

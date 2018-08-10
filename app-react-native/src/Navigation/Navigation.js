@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import LocalizedStrings from "react-native-localization";
 import { View } from "react-native";
 import Button from "apsl-react-native-button";
-import { Boutons, Textes } from "../../styles";
+import { Boutons, Textes } from "../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
-import BoutonAvecConfirmation from "../../Technique/BoutonAvecConfirmation";
+import BoutonAvecConfirmation from "../Technique/BoutonAvecConfirmation";
 
-const CommandesDeLaPartie = ({ aucunPrecedent, onQuitterLaPartie, onUndo }) => (
+const Navigation = ({ aucunPrecedent, onQuitterLaPartie, onUndo }) => (
   <View
     style={[
       {
@@ -45,7 +45,7 @@ const CommandesDeLaPartie = ({ aucunPrecedent, onQuitterLaPartie, onUndo }) => (
   </View>
 );
 
-CommandesDeLaPartie.propTypes = {
+Navigation.propTypes = {
   aucunPrecedent: PropTypes.bool.isRequired,
   onUndo: PropTypes.func.isRequired,
   onQuitterLaPartie: PropTypes.func.isRequired
@@ -62,4 +62,4 @@ const textes = new LocalizedStrings({
   }
 });
 
-export default CommandesDeLaPartie;
+export default Navigation;
