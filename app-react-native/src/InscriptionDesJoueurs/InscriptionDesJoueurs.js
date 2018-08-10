@@ -40,7 +40,7 @@ function InscriptionDesJoueurs({
           />
         </ViewQuiDecale>
 
-        <ViewQuiDecale dureeDuDecalage={1000} coteDeDepart="left">
+        <ViewQuiDecale dureeDuDecalage={900} coteDeDepart="left">
           <DemarrerLaPartie
             jeu={jeu}
             isDisabled={!demarrerLaPartieEstPossible}
