@@ -31,8 +31,8 @@ const TableauDesScores = ({ scores, lanceur, chiffreCourant }) => (
 
 TableauDesScores.propTypes = {
   scores: PropTypes.object.isRequired,
-  lanceur: PropTypes.string.isRequired,
-  chiffreCourant: PropTypes.string.isRequired
+  lanceur: PropTypes.string,
+  chiffreCourant: PropTypes.string
 };
 
 export default TableauDesScores;
