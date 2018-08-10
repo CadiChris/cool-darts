@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, { history }) => ({
-  onQuitterLaPartie: () => history.push("/"),
+  onQuitterLaPartie: () => history.push("/inscription"),
   onUndo: () => dispatch(undo())
 });
 
