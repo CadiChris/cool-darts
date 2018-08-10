@@ -4,6 +4,7 @@ import { desinscrireJoueur, inscrireJoueur } from "./actions";
 
 const mapStateToProps = state => ({
   inscrits: state.inscriptionDesJoueurs.inscrits,
+  jeu: "cricket",
   demarrerLaPartieEstPossible: state.inscriptionDesJoueurs.laPartiePeutDemarrer
 });
 

@@ -13,21 +13,23 @@ class Cricket extends Component {
   }
 
   render() {
-    const { retourAuxInscriptions } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flexGrow: 1 }}>
           <TableauDesScores />
         </View>
-        <CommandesDeLaPartie retourAuxInscriptions={retourAuxInscriptions} />
+        <CommandesDeLaPartie />
       </View>
     );
   }
 }
 
 Cricket.propTypes = {
-  joueurs: PropTypes.array.isRequired,
-  retourAuxInscriptions: PropTypes.func.isRequired
+  joueurs: PropTypes.array.isRequired
 };
 
-export default connect()(Cricket);
+const mapStateToProps = state => ({
+  joueurs: state.inscriptionDesJoueurs.inscrits
+});
+
+export default connect(mapStateToProps)(Cricket);

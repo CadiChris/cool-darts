@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import { Boutons, Textes } from "../styles";
 import Button from "apsl-react-native-button";
 import LocalizedStrings from "react-native-localization";
+import { Link } from "react-router-native";
 
-const DemarrerLaPartie = ({ onPress, isDisabled }) => (
-  <Button
-    onPress={onPress}
+const DemarrerLaPartie = ({ jeu, isDisabled }) => (
+  <Link
+    to={`/jeu/${jeu}`}
+    component={Button}
     isDisabled={isDisabled}
     style={[
       Boutons.principal,
@@ -15,11 +17,11 @@ const DemarrerLaPartie = ({ onPress, isDisabled }) => (
     textStyle={Textes.bouton}
   >
     {textes.demarrer}
-  </Button>
+  </Link>
 );
 
 DemarrerLaPartie.propTypes = {
-  onPress: PropTypes.func.isRequired,
+  jeu: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool.isRequired
 };
 

@@ -11,8 +11,8 @@ function InscriptionDesJoueurs({
   inscrits,
   onInscription,
   onDesinscription,
-  demarrerLaPartieEstPossible,
-  onDemarrerLaPartie
+  jeu,
+  demarrerLaPartieEstPossible
 }) {
   return (
     <Portrait>
@@ -32,7 +32,7 @@ function InscriptionDesJoueurs({
 
         <ViewQuiDecale dureeDuDecalage={1000} coteDeDepart="left">
           <DemarrerLaPartie
-            onPress={onDemarrerLaPartie}
+            jeu={jeu}
             isDisabled={!demarrerLaPartieEstPossible}
           />
         </ViewQuiDecale>
@@ -45,8 +45,8 @@ InscriptionDesJoueurs.propTypes = {
   inscrits: PropTypes.array.isRequired,
   onInscription: PropTypes.func.isRequired,
   onDesinscription: PropTypes.func.isRequired,
-  demarrerLaPartieEstPossible: PropTypes.bool.isRequired,
-  onDemarrerLaPartie: PropTypes.func.isRequired
+  jeu: PropTypes.string.isRequired,
+  demarrerLaPartieEstPossible: PropTypes.bool.isRequired
 };
 
 export default InscriptionDesJoueurs;
