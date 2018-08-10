@@ -11,7 +11,7 @@ const Titre = () => (
         { textAlign: "center", marginTop: 30, marginBottom: 50 }
       ]}
     >
-      Cut-Throat Cricket
+      Cool Darts
     </Text>
   </FadeInView>
 );
