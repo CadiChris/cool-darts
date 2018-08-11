@@ -26,6 +26,8 @@ class FormulaireInscription extends Component {
           underlineColorAndroid="transparent"
           placeholderTextColor="#FFF"
           placeholder={textes.joueur}
+          autoCapitalize="words"
+          autoCorrect={false}
         />
 
         <Button
