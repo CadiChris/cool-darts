@@ -21,7 +21,7 @@ export const UnContrat = ({ delta }) => (
         +{delta}
       </TexteApparaissant>
     )}
-    {delta < 0 && (
+    {delta <= 0 && (
       <TexteApparaissant
         style={[
           Textes.light,
