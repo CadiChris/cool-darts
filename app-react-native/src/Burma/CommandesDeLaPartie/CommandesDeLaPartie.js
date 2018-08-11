@@ -5,13 +5,24 @@ import ContratDouble from "./Contrats/ContratDouble";
 
 class CommandesDeLaPartie extends Component {
   render() {
-    const { chiffreCourant, lanceur } = this.props;
+    const {
+      chiffreCourant,
+      lanceur,
+      onLancerSurChiffre,
+      onLancerSurDouble
+    } = this.props;
 
     switch (chiffreCourant) {
       case "DOUBLE":
-        return <ContratDouble lanceur={lanceur} />;
+        return <ContratDouble lanceur={lanceur} onLancer={onLancerSurDouble} />;
       default:
-        return <ContratChiffre {...this.props} />;
+        return (
+          <ContratChiffre
+            chiffreCourant={chiffreCourant}
+            lanceur={lanceur}
+            onLancer={onLancerSurChiffre}
+          />
+        );
     }
   }
 }
@@ -19,7 +30,8 @@ class CommandesDeLaPartie extends Component {
 CommandesDeLaPartie.propTypes = {
   lanceur: PropTypes.string,
   chiffreCourant: PropTypes.string,
-  onLancer: PropTypes.func
+  onLancerSurChiffre: PropTypes.func.isRequired,
+  onLancerSurDouble: PropTypes.func.isRequired
 };
 
 export default CommandesDeLaPartie;

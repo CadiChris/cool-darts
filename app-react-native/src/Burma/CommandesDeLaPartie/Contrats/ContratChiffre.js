@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Text, TouchableHighlight, View } from "react-native";
+import { TouchableHighlight, View } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Boutons, Textes } from "../../../styles";
 import Button from "apsl-react-native-button";
 import TexteApparaissant from "../../../Technique/TexteApparaissant";
 import EnTete from "./EnTete";
+import AucuneTouche from "./AucuneTouche";
 
 class ContratChiffre extends Component {
   decalageDuTexte = 8;
@@ -48,20 +49,7 @@ class ContratChiffre extends Component {
             justifyContent: "space-around"
           }}
         >
-          <View>
-            <Button
-              style={[Boutons.deCommande, { paddingHorizontal: 20 }]}
-              onPress={() => this.lancer(0)}
-            >
-              <Icon
-                name="ban"
-                size={20}
-                color="white"
-                style={{ marginRight: 10 }}
-              />
-              <Text style={[Textes.light, { fontSize: 20 }]}>Aucun</Text>
-            </Button>
-          </View>
+          <AucuneTouche onPress={() => this.lancer(0)} />
 
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <TouchableHighlight
@@ -100,7 +88,7 @@ class ContratChiffre extends Component {
 ContratChiffre.propTypes = {
   lanceur: PropTypes.string,
   chiffreCourant: PropTypes.string,
-  onLancer: PropTypes.func
+  onLancer: PropTypes.func.isRequired
 };
 
 export default ContratChiffre;

@@ -1,7 +1,7 @@
 import CommandesDeLaPartie from "./CommandesDeLaPartie";
 import { connect } from "react-redux";
 import React from "react";
-import { voleeSurChiffre } from "../actions";
+import { voleeSurChiffre, voleeSurDouble } from "../actions";
 
 const mapStateToProps = state => ({
   lanceur: state.burma.actuel.lanceur,
@@ -9,8 +9,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLancer: (lanceur, chiffreCourant, touches) =>
-    dispatch(voleeSurChiffre(lanceur, chiffreCourant, touches))
+  onLancerSurChiffre: (lanceur, chiffreCourant, touches) =>
+    dispatch(voleeSurChiffre(lanceur, chiffreCourant, touches)),
+  onLancerSurDouble: (lanceur, chiffresTouches) =>
+    dispatch(voleeSurDouble(lanceur, chiffresTouches))
 });
 
 export default connect(
