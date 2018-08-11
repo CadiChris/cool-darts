@@ -4,6 +4,7 @@ import { Text, View } from "react-native";
 import LocalizedStrings from "react-native-localization";
 import Vainqueur from "./Vainqueur";
 import { Textes } from "../../styles";
+import AnimatedNumber from "../../Technique/AnimatedNumber";
 
 const Joueur = ({ estVainqueur, joueur, penalite }) => (
   <View style={{ paddingLeft: 10, justifyContent: "center" }}>
@@ -14,7 +15,13 @@ const Joueur = ({ estVainqueur, joueur, penalite }) => (
     )}
     <Text style={[Textes.basique]}>{joueur}</Text>
     <View style={{ marginTop: 8 }}>
-      <Text style={[Textes.light]}>{`${textes.penalite} ${penalite}`}</Text>
+      <AnimatedNumber value={penalite}>
+        {value => (
+          <Text style={[Textes.light]}>{`${textes.penalite} ${Math.round(
+            value
+          )}`}</Text>
+        )}
+      </AnimatedNumber>
     </View>
   </View>
 );

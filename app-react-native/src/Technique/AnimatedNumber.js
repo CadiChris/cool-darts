@@ -43,6 +43,7 @@ class AnimatedNumber extends React.PureComponent {
 }
 
 AnimatedNumber.propTypes = {
+  value: PropTypes.number,
   type: PropTypes.string,
   children: PropTypes.func.isRequired,
   easing: PropTypes.func,
