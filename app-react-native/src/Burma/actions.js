@@ -31,14 +31,10 @@ export const voleeSurTriple = (lanceur, chiffresTouches) => ({
   }
 });
 
-export const voleeSurBull = (
-  lanceur,
-  nombreDeSimplesBull,
-  nombreDeDoublesBull
-) => ({
+export const voleeSurBull = (lanceur, nombreDeBulls) => ({
   type: VOLEE,
   payload: {
     lanceur,
-    contrat: new Contrats.bull(nombreDeSimplesBull, nombreDeDoublesBull)
+    contrat: new Contrats.bull(nombreDeBulls)
   }
 });

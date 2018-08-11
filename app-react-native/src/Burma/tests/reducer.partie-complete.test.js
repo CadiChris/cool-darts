@@ -20,7 +20,7 @@ describe("partie complète de Burma", () => {
     // T  |  3x20  -> +180  -> 292 pts   |  0    ->  /2  ->  60 pts
     // 19 |  0     ->   /2  -> 146 pts   |  2    -> +38  ->  98 pts
     // 20 |  2     ->  +40  -> 186 pts   |  1    -> +20  -> 118 pts
-    // B  |  0, 0  ->   /2  ->  93 pts   |  2, 0 -> +50  -> 168 pts
+    // B  |  0     ->   /2  ->  93 pts   |  2    -> +50  -> 168 pts
 
     const partieComplete = executer([
       demarrerPartie(["J1", "J2"]),
@@ -40,8 +40,8 @@ describe("partie complète de Burma", () => {
       voleeSurChiffre("J2", "19", 2),
       voleeSurChiffre("J1", "20", 2),
       voleeSurChiffre("J2", "20", 1),
-      voleeSurBull("J1", 0, 0),
-      voleeSurBull("J2", 2, 0)
+      voleeSurBull("J1", 0),
+      voleeSurBull("J2", 2)
     ]);
 
     const joueurAyantLePlusDePoints = "J2";

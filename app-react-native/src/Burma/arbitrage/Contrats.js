@@ -17,10 +17,10 @@ const Contrats = {
     estRempli: chiffresTouches.length > 0
   }),
 
-  bull: (nombreDeSimplesBull, nombreDeDoublesBull) => ({
-    valeur: nombreDeSimplesBull * 25 + nombreDeDoublesBull * 50,
+  bull: nombreDeBulls => ({
+    valeur: nombreDeBulls * 25,
     nom: "BULL",
-    estRempli: nombreDeSimplesBull > 0 || nombreDeDoublesBull > 0
+    estRempli: nombreDeBulls > 0
   })
 };
 
