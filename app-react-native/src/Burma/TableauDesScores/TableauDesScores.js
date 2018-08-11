@@ -1,13 +1,14 @@
 import React from "react";
 import { View } from "react-native";
 import PropTypes from "prop-types";
+import * as Animatable from "react-native-animatable";
 import { ColonneDesContrats } from "./ColonneDesContrats";
 import ColonneJoueur from "./ColonneJoueur";
 
 const HAUTEUR_DE_CONTRAT = 40;
 
 const TableauDesScores = ({ scores, lanceur, chiffreCourant }) => (
-  <View style={{ flexDirection: "row" }}>
+  <Animatable.View style={{ flexDirection: "row" }} animation="bounceInRight">
     <ColonneDesContrats />
 
     <View style={{ flex: 1, flexDirection: "row" }}>
@@ -24,7 +25,7 @@ const TableauDesScores = ({ scores, lanceur, chiffreCourant }) => (
           />
         ))}
     </View>
-  </View>
+  </Animatable.View>
 );
 
 TableauDesScores.propTypes = {
