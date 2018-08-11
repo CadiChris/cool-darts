@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import { Text, TouchableHighlight, View } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Boutons, Textes } from "../../../styles";
 import Button from "apsl-react-native-button";
 import TexteApparaissant from "../../../Technique/TexteApparaissant";
+import EnTete from "./EnTete";
 
 class ContratChiffre extends Component {
   decalageDuTexte = 8;
@@ -35,9 +36,9 @@ class ContratChiffre extends Component {
     const { touches, decalageDuTexte } = this.state;
     return (
       <View>
-        <Text style={[Textes.basique, { fontSize: 16, textAlign: "center" }]}>
+        <EnTete>
           Combien de {chiffreCourant} a fait {lanceur} ?
-        </Text>
+        </EnTete>
 
         <View
           style={{
