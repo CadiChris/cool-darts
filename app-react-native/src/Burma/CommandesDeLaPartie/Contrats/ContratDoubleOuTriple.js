@@ -7,10 +7,19 @@ import EnTete from "./EnTete";
 import AucuneTouche from "./AucuneTouche";
 import Button from "apsl-react-native-button";
 
-class ContratDouble extends Component {
-  state = {
-    chiffresTouches: ["", "", ""]
-  };
+class ContratDoubleOuTriple extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      chiffresTouches: ["", "", ""]
+    };
+
+    this.onLancer = {
+      DOUBLE: props.onLancerSurDouble,
+      TRIPLE: props.onLancerSurTriple
+    };
+  }
 
   toucher(chiffre, index) {
     const nextChiffres = [...this.state.chiffresTouches];
@@ -19,8 +28,8 @@ class ContratDouble extends Component {
   }
 
   lancer() {
-    const { lanceur, onLancer } = this.props;
-    onLancer(lanceur, this.chiffresNonVides());
+    const { lanceur, chiffreCourant } = this.props;
+    this.onLancer[chiffreCourant](lanceur, this.chiffresNonVides());
   }
 
   chiffresNonVides() {
@@ -37,11 +46,14 @@ class ContratDouble extends Component {
   }
 
   render() {
-    const { lanceur, onLancer } = this.props;
+    const { lanceur, chiffreCourant } = this.props;
     const { chiffresTouches } = this.state;
+
     return (
       <View>
-        <EnTete>Quels DOUBLE a touché {lanceur} ?</EnTete>
+        <EnTete>
+          Quels {chiffreCourant} a touché {lanceur} ?
+        </EnTete>
 
         <View
           style={{
@@ -51,7 +63,9 @@ class ContratDouble extends Component {
             justifyContent: "space-around"
           }}
         >
-          <AucuneTouche onPress={() => onLancer(lanceur, [])} />
+          <AucuneTouche
+            onPress={() => this.onLancer[chiffreCourant](lanceur, [])}
+          />
 
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             {chiffresTouches.map((chiffre, index) => (
@@ -89,9 +103,11 @@ class ContratDouble extends Component {
   }
 }
 
-ContratDouble.propTypes = {
+ContratDoubleOuTriple.propTypes = {
   lanceur: PropTypes.string,
-  onLancer: PropTypes.func.isRequired
+  chiffreCourant: PropTypes.string,
+  onLancerSurDouble: PropTypes.func.isRequired,
+  onLancerSurTriple: PropTypes.func.isRequired
 };
 
-export default ContratDouble;
+export default ContratDoubleOuTriple;
