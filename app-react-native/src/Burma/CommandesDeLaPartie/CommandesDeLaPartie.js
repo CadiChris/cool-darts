@@ -9,12 +9,21 @@ const CommandesDeLaPartie = ({
   onLancerSurChiffre,
   onLancerSurDouble
 }) => {
+  const reRenderAuChangement = { key: `${lanceur}-${chiffreCourant}` };
+
   switch (chiffreCourant) {
     case "DOUBLE":
-      return <ContratDouble lanceur={lanceur} onLancer={onLancerSurDouble} />;
+      return (
+        <ContratDouble
+          {...reRenderAuChangement}
+          lanceur={lanceur}
+          onLancer={onLancerSurDouble}
+        />
+      );
     default:
       return (
         <ContratChiffre
+          {...reRenderAuChangement}
           chiffreCourant={chiffreCourant}
           lanceur={lanceur}
           onLancer={onLancerSurChiffre}
