@@ -1,5 +1,6 @@
 import * as lanceur from "./lanceur";
 
+const BULL = "25";
 const CHIFFRES_DU_BURMA = [
   "15",
   "16",
@@ -9,7 +10,7 @@ const CHIFFRES_DU_BURMA = [
   "TRIPLE",
   "19",
   "20",
-  "BULL"
+  BULL
 ];
 
 const premierChiffre = () => CHIFFRES_DU_BURMA[0];
@@ -26,4 +27,10 @@ const leChiffreSuivant = chiffre => ({
 const chiffreQuiSuit = chiffreCourant =>
   CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.indexOf(chiffreCourant) + 1];
 
-export { premierChiffre, dernierChiffre, leChiffreSuivant, CHIFFRES_DU_BURMA };
+export {
+  premierChiffre,
+  dernierChiffre,
+  leChiffreSuivant,
+  BULL,
+  CHIFFRES_DU_BURMA
+};

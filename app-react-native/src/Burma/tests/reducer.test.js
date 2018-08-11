@@ -2,12 +2,12 @@ import deepFreeze from "deep-freeze";
 import burma from "../reducer";
 import {
   demarrerPartie,
-  voleeSurBull,
   voleeSurChiffre,
   voleeSurDouble,
   voleeSurTriple
 } from "../actions";
 import { POINTS_INITIAUX } from "../arbitrage/Score";
+import { BULL } from "../arbitrage/chiffre";
 
 it("retourne le state initial", () => {
   expect(burma(undefined, {})).toEqual({
@@ -53,7 +53,7 @@ describe("fin de la partie", () => {
       voleeSurTriple("J1", []),
       voleeSurChiffre("J1", 19, 0),
       voleeSurChiffre("J1", 20, 0),
-      voleeSurBull("J1", 0, 0)
+      voleeSurChiffre("J1", BULL, 0)
     ];
 
     const burmaTermine = executer([

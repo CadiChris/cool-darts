@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 import CommandesDeLaPartie from "../CommandesDeLaPartie";
 import { View } from "react-native";
 import { Styles } from "../../../styles";
+import { BULL } from "../../arbitrage/chiffre";
 
 storiesOf("Burma", module)
   .addDecorator(withKnobs)
@@ -14,13 +15,8 @@ storiesOf("Burma", module)
   .add("Commandes de la partie", () => (
     <CommandesDeLaPartie
       lanceur={text("lanceur", "Noémie")}
-      chiffreCourant={selectV2(
-        "chiffre courant",
-        ["17", "DOUBLE", "BULL"],
-        "BULL"
-      )}
+      chiffreCourant={selectV2("chiffre courant", ["17", "DOUBLE", BULL], BULL)}
       onLancerSurChiffre={action("lancer sur Chiffre")}
       onLancerSurDouble={action("lancer sur Double")}
-      onLancerSurBull={action("lancer sur Bull")}
     />
   ));

@@ -7,6 +7,7 @@ import Button from "apsl-react-native-button";
 import TexteApparaissant from "../../../Technique/TexteApparaissant";
 import EnTete from "./EnTete";
 import AucuneTouche from "./AucuneTouche";
+import { BULL } from "../../arbitrage/chiffre";
 
 class ContratChiffre extends Component {
   decalageDuTexte = 8;
@@ -33,13 +34,15 @@ class ContratChiffre extends Component {
   }
 
   render() {
-    const { lanceur, chiffreCourant, nombreDeTouchesMax } = this.props;
+    const { lanceur, chiffreCourant } = this.props;
     const { touches, decalageDuTexte } = this.state;
+    const nombreDeTouchesMax = chiffreCourant === BULL ? 6 : 9;
 
     return (
       <View>
         <EnTete>
-          Combien de {chiffreCourant} a fait {lanceur} ?
+          Combien de {chiffreCourant === BULL ? "BULL" : chiffreCourant} a fait{" "}
+          {lanceur} ?
         </EnTete>
 
         <View
@@ -89,7 +92,6 @@ class ContratChiffre extends Component {
 ContratChiffre.propTypes = {
   lanceur: PropTypes.string,
   chiffreCourant: PropTypes.string,
-  nombreDeTouchesMax: PropTypes.number,
   onLancer: PropTypes.func.isRequired
 };
 

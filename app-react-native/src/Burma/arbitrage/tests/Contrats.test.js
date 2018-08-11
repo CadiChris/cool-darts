@@ -45,24 +45,4 @@ describe("Les contrats", () => {
       expect(new Contrats.triple(aucunChiffre).estRempli).toBe(false);
     });
   });
-
-  describe("sur le Bull", () => {
-    it("la valeur du contrat est 25 par Bull", () => {
-      const contratDeuxBulls = new Contrats.bull(2);
-
-      expect(contratDeuxBulls.valeur).toBe(25 * 2);
-    });
-
-    it("le nom du contrat est `BULL`", () => {
-      expect(new Contrats.bull(1, 0).nom).toBe("BULL");
-    });
-
-    it("le contrat est raté si le bull n'est pas touché du tout", () => {
-      const contratAucunBull = new Contrats.bull(0);
-
-      expect(contratAucunBull.estRempli).toBe(false);
-
-      expect(new Contrats.bull(2).estRempli).toBe(true);
-    });
-  });
 });

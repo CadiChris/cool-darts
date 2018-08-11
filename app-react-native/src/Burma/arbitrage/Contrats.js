@@ -15,12 +15,6 @@ const Contrats = {
     valeur: chiffresTouches.reduce((total, chiffre) => total + chiffre * 3, 0),
     nom: "TRIPLE",
     estRempli: chiffresTouches.length > 0
-  }),
-
-  bull: nombreDeBulls => ({
-    valeur: nombreDeBulls * 25,
-    nom: "BULL",
-    estRempli: nombreDeBulls > 0
   })
 };
 

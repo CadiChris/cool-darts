@@ -4,8 +4,7 @@ import {
   demarrerPartie,
   voleeSurChiffre,
   voleeSurDouble,
-  voleeSurTriple,
-  voleeSurBull
+  voleeSurTriple
 } from "../actions";
 import { POINTS_INITIAUX } from "../arbitrage/Score";
 
@@ -40,8 +39,8 @@ describe("partie complète de Burma", () => {
       voleeSurChiffre("J2", "19", 2),
       voleeSurChiffre("J1", "20", 2),
       voleeSurChiffre("J2", "20", 1),
-      voleeSurBull("J1", 0),
-      voleeSurBull("J2", 2)
+      voleeSurChiffre("J1", "25", 0),
+      voleeSurChiffre("J2", "25", 2)
     ]);
 
     const joueurAyantLePlusDePoints = "J2";
@@ -61,7 +60,7 @@ describe("partie complète de Burma", () => {
           { contrat: "TRIPLE", points: 292, delta: 180 },
           { contrat: "19", points: 146, delta: -146 },
           { contrat: "20", points: 186, delta: 40 },
-          { contrat: "BULL", points: 93, delta: -93 }
+          { contrat: "25", points: 93, delta: -93 }
         ],
         J2: [
           { contrat: "DEPART", points: POINTS_INITIAUX },
@@ -73,7 +72,7 @@ describe("partie complète de Burma", () => {
           { contrat: "TRIPLE", points: 60, delta: -59 },
           { contrat: "19", points: 98, delta: 38 },
           { contrat: "20", points: 118, delta: 20 },
-          { contrat: "BULL", points: 168, delta: 50 }
+          { contrat: "25", points: 168, delta: 50 }
         ]
       }
     });

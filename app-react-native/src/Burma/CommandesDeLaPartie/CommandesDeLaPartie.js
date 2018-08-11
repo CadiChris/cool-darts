@@ -7,8 +7,7 @@ const CommandesDeLaPartie = ({
   chiffreCourant,
   lanceur,
   onLancerSurChiffre,
-  onLancerSurDouble,
-  onLancerSurBull
+  onLancerSurDouble
 }) => {
   const reRenderAuChangement = { key: `${lanceur}-${chiffreCourant}` };
 
@@ -21,17 +20,13 @@ const CommandesDeLaPartie = ({
           onLancer={onLancerSurDouble}
         />
       );
-    case "BULL":
     default:
       return (
         <ContratChiffre
           {...reRenderAuChangement}
           chiffreCourant={chiffreCourant}
-          nombreDeTouchesMax={chiffreCourant === "BULL" ? 6 : 9}
           lanceur={lanceur}
-          onLancer={
-            chiffreCourant === "BULL" ? onLancerSurBull : onLancerSurChiffre
-          }
+          onLancer={onLancerSurChiffre}
         />
       );
   }
@@ -41,8 +36,7 @@ CommandesDeLaPartie.propTypes = {
   lanceur: PropTypes.string,
   chiffreCourant: PropTypes.string,
   onLancerSurChiffre: PropTypes.func.isRequired,
-  onLancerSurDouble: PropTypes.func.isRequired,
-  onLancerSurBull: PropTypes.func.isRequired
+  onLancerSurDouble: PropTypes.func.isRequired
 };
 
 export default CommandesDeLaPartie;

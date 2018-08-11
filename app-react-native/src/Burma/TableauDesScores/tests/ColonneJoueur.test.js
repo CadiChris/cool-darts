@@ -18,7 +18,7 @@ describe("<ColonneJoueur />", () => {
       { contrat: "TRIPLE", points: undefined },
       { contrat: "19", points: undefined },
       { contrat: "20", points: undefined },
-      { contrat: "BULL", points: undefined }
+      { contrat: "25", points: undefined }
     ];
 
     expect(tableauComplet).toEqual([...contratsDejaJoues, ...contratsAVenir]);
