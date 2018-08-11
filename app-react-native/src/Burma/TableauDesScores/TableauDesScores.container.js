@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import React from "react";
 
 const mapStateToProps = state => ({
-  scores: state.burma.scores,
-  lanceur: state.burma.lanceur,
-  chiffreCourant: state.burma.chiffreCourant
+  scores: state.burma.actuel.scores,
+  lanceur: state.burma.actuel.lanceur,
+  chiffreCourant: state.burma.actuel.chiffreCourant
 });
 
 export default connect(mapStateToProps)(TableauDesScores);

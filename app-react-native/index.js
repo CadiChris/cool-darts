@@ -13,7 +13,7 @@ const store = createStore(
   combineReducers({
     inscriptionDesJoueurs,
     cricket: undoable(cricket),
-    burma
+    burma: undoable(burma)
   })
 );
 

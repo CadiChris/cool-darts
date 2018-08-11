@@ -4,8 +4,8 @@ import React from "react";
 import { voleeSurChiffre } from "../actions";
 
 const mapStateToProps = state => ({
-  lanceur: state.burma.lanceur,
-  chiffreCourant: state.burma.chiffreCourant
+  lanceur: state.burma.actuel.lanceur,
+  chiffreCourant: state.burma.actuel.chiffreCourant
 });
 
 const mapDispatchToProps = dispatch => ({

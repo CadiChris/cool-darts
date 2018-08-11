@@ -5,7 +5,8 @@ import Navigation from "./Navigation";
 import { undo } from "../undo/undoable";
 
 const mapStateToProps = state => ({
-  aucunPrecedent: state.cricket.precedents.length === 1
+  aucunPrecedent:
+    state[state.inscriptionDesJoueurs.jeuChoisi].precedents.length === 1
 });
 
 const mapDispatchToProps = (dispatch, { history }) => ({
