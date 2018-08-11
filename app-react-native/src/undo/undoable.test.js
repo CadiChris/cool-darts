@@ -9,40 +9,63 @@ const reducerDeTest = (state = 0, action) => {
   }
 };
 
-const INCREMENT = { type: "+" };
+const incrementer = () => ({ type: "+" });
 
 describe("reducerDeTest", () => {
   it("a 0 comme state initial", () => {
     expect(reducerDeTest(undefined, {})).toEqual(0);
   });
   it("incrémente", () => {
-    expect(reducerDeTest(undefined, INCREMENT)).toEqual(1);
+    expect(reducerDeTest(undefined, incrementer())).toEqual(1);
   });
 });
 
 const reducerAvecUndo = () => undoable(reducerDeTest);
 
 describe("undoable", () => {
-  it("wrap le résultat du reducer dans une structure avec actuel & precedent", () => {
-    expect(reducerAvecUndo()(undefined, {})).toEqual({
-      actuel: 0,
-      precedents: []
+  describe("la structure", () => {
+    it("wrap le résultat du reducer dans une structure avec actuel & precedent", () => {
+      expect(reducerAvecUndo()(undefined, {})).toEqual({
+        actuel: 0,
+        precedents: []
+      });
+    });
+
+    it("alimente actuel et precedent sur une action", () => {
+      expect(reducerAvecUndo()(undefined, incrementer())).toEqual({
+        actuel: 1,
+        precedents: [0]
+      });
     });
   });
 
-  it("alimente actuel et precedent sur une action", () => {
-    expect(reducerAvecUndo()(undefined, INCREMENT)).toEqual({
-      actuel: 1,
-      precedents: [0]
+  describe("le undo", () => {
+    it("permet le undo", () => {
+      const retourA2 = executer([
+        incrementer(),
+        incrementer(),
+        incrementer(),
+        undo()
+      ]);
+
+      expect(retourA2).toEqual({
+        actuel: 2,
+        precedents: [0, 1]
+      });
     });
-  });
 
-  it("permet le undo", () => {
-    const retourA2 = executer([INCREMENT, INCREMENT, INCREMENT, undo()]);
+    it("ne fait rien s'il n'y a rien à undo", () => {
+      const apresPleinDeUndoInutiles = executer([
+        incrementer(),
+        undo(),
+        undo(),
+        undo()
+      ]);
 
-    expect(retourA2).toEqual({
-      actuel: 2,
-      precedents: [0, 1]
+      expect(apresPleinDeUndoInutiles).toEqual({
+        actuel: 0,
+        precedents: []
+      });
     });
   });
 });

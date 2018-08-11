@@ -9,6 +9,9 @@ const undoable = reducer => {
 
     switch (action.type) {
       case UNDO:
+        const rienAUndo = precedents.length === 0;
+        if (rienAUndo) return state;
+
         return {
           actuel: precedents[precedents.length - 1],
           precedents: precedents.slice(0, precedents.length - 1)
