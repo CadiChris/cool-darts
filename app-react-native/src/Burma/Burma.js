@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { demarrerPartie } from "./actions";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
+import Vainqueur from "./Vainqueur/Vainqueur";
 
 class Burma extends Component {
   componentDidMount() {
@@ -13,11 +14,13 @@ class Burma extends Component {
   }
 
   render() {
+    const { vainqueur } = this.props;
+
     return (
       <View style={{ flex: 1 }}>
         <TableauDesScores />
         <View style={{ flexGrow: 1, justifyContent: "center" }}>
-          <CommandesDeLaPartie />
+          {!vainqueur ? <CommandesDeLaPartie /> : <Vainqueur nom={vainqueur} />}
         </View>
       </View>
     );
@@ -25,11 +28,13 @@ class Burma extends Component {
 }
 
 Burma.propTypes = {
-  joueurs: PropTypes.array.isRequired
+  joueurs: PropTypes.array.isRequired,
+  vainqueur: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  joueurs: state.inscriptionDesJoueurs.inscrits
+  joueurs: state.inscriptionDesJoueurs.inscrits,
+  vainqueur: state.burma.actuel.vainqueur
 });
 
 export default connect(mapStateToProps)(Burma);

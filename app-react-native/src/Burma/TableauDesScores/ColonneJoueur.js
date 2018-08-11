@@ -66,7 +66,7 @@ ColonneJoueur.propTypes = {
   joueur: PropTypes.string.isRequired,
   score: PropTypes.array.isRequired,
   estLeLanceur: PropTypes.bool.isRequired,
-  chiffreCourant: PropTypes.string.isRequired
+  chiffreCourant: PropTypes.string
 };
 
 function avecLesContratsPasEncoreJoues(contratsDejaJoues) {
