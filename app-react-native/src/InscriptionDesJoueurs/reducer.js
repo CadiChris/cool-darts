@@ -16,7 +16,7 @@ function inscriptionDesJoueurs(state = STATE_INITIAL, action) {
       return {
         ...state,
         inscrits: inscritsSansDoublon,
-        laPartiePeutDemarrer: inscritsSansDoublon.length > 1
+        laPartiePeutDemarrer: inscritsSansDoublon.length > 0
       };
 
     case DESINSCRIRE_JOUEUR:
@@ -26,7 +26,7 @@ function inscriptionDesJoueurs(state = STATE_INITIAL, action) {
       return {
         ...state,
         inscrits: sansLeDesinscrit,
-        laPartiePeutDemarrer: sansLeDesinscrit.length > 1
+        laPartiePeutDemarrer: sansLeDesinscrit.length > 0
       };
 
     case CHOISIR_JEU:

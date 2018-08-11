@@ -44,20 +44,10 @@ describe("reducer Inscription des joueurs", () => {
     expect(apresChoixDeJeu.jeuChoisi).toBe("mon jeu favori");
   });
 
-  it("permet de démarrer la partie dès qu'on a 2 inscrits", () => {
-    const avecDeuxInscrits = executer([
-      inscrireJoueur("#1"),
-      inscrireJoueur("#2")
-    ]);
+  it("permet de démarrer la partie dès qu'on a 1 inscrit", () => {
+    const avecUnInscrit = executer([inscrireJoueur("#1")]);
 
-    expect(avecDeuxInscrits.laPartiePeutDemarrer).toBe(true);
-
-    const avecUnSeulRestant = executer(
-      [desinscrireJoueur("#2")],
-      avecDeuxInscrits
-    );
-
-    expect(avecUnSeulRestant.laPartiePeutDemarrer).toBe(false);
+    expect(avecUnInscrit.laPartiePeutDemarrer).toBe(true);
   });
 });
 
