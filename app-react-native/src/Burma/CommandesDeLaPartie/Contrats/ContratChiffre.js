@@ -33,8 +33,9 @@ class ContratChiffre extends Component {
   }
 
   render() {
-    const { lanceur, chiffreCourant } = this.props;
+    const { lanceur, chiffreCourant, nombreDeTouchesMax } = this.props;
     const { touches, decalageDuTexte } = this.state;
+
     return (
       <View>
         <EnTete>
@@ -73,7 +74,7 @@ class ContratChiffre extends Component {
             </Button>
             <TouchableHighlight
               onPress={() => this.toucher(+1)}
-              disabled={touches === 9}
+              disabled={touches === nombreDeTouchesMax}
               style={{ marginLeft: 20 }}
             >
               <Icon name="plus" size={20} color="white" />
@@ -88,6 +89,7 @@ class ContratChiffre extends Component {
 ContratChiffre.propTypes = {
   lanceur: PropTypes.string,
   chiffreCourant: PropTypes.string,
+  nombreDeTouchesMax: PropTypes.number,
   onLancer: PropTypes.func.isRequired
 };
 

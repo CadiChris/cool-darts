@@ -14,8 +14,13 @@ storiesOf("Burma", module)
   .add("Commandes de la partie", () => (
     <CommandesDeLaPartie
       lanceur={text("lanceur", "Noémie")}
-      chiffreCourant={selectV2("chiffre courant", ["17", "DOUBLE"], "DOUBLE")}
+      chiffreCourant={selectV2(
+        "chiffre courant",
+        ["17", "DOUBLE", "BULL"],
+        "BULL"
+      )}
       onLancerSurChiffre={action("lancer sur Chiffre")}
       onLancerSurDouble={action("lancer sur Double")}
+      onLancerSurBull={action("lancer sur Bull")}
     />
   ));
