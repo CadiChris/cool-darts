@@ -4,12 +4,12 @@ import { View } from "react-native";
 import { connect } from "react-redux";
 import KeepAwake from "react-native-keep-awake";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
-import { demarrerPartie } from "./actions";
+import { demarrerCricket } from "./actions";
 
 class Cricket extends Component {
   componentDidMount() {
     const { dispatch, joueurs } = this.props;
-    dispatch(demarrerPartie(joueurs));
+    dispatch(demarrerCricket(joueurs));
   }
 
   render() {

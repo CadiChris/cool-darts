@@ -1,7 +1,7 @@
 import deepFreeze from "deep-freeze";
 import burma from "../reducer";
 import {
-  demarrerPartie,
+  demarrerBurma,
   voleeSurChiffre,
   voleeSurDouble,
   voleeSurTriple
@@ -22,7 +22,7 @@ describe("partie complète de Burma", () => {
     // B  |  0     ->   /2  ->  93 pts   |  2    -> +50  -> 168 pts
 
     const partieComplete = executer([
-      demarrerPartie(["J1", "J2"]),
+      demarrerBurma(["J1", "J2"]),
       voleeSurChiffre("J1", "15", 0),
       voleeSurChiffre("J2", "15", 2),
       voleeSurChiffre("J1", "16", 1),

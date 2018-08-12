@@ -1,7 +1,7 @@
 import deepFreeze from "deep-freeze";
 import burma from "../reducer";
 import {
-  demarrerPartie,
+  demarrerBurma,
   voleeSurChiffre,
   voleeSurDouble,
   voleeSurTriple
@@ -19,7 +19,7 @@ it("retourne le state initial", () => {
 });
 
 it("démarre la partie", () => {
-  const burmaEnCoursAvec2joueurs = executer([demarrerPartie(["J1", "J2"])]);
+  const burmaEnCoursAvec2joueurs = executer([demarrerBurma(["J1", "J2"])]);
 
   expect(burmaEnCoursAvec2joueurs).toEqual({
     chiffreCourant: "15",
@@ -35,7 +35,7 @@ it("démarre la partie", () => {
 describe("fin de la partie", () => {
   it("ne termine pas la partie tant que les lanceurs n'ont pas joué le contrat du BULL", () => {
     const burmaEnCours = executer([
-      demarrerPartie(["J1"]),
+      demarrerBurma(["J1"]),
       voleeSurChiffre("J1", 15, 0),
       voleeSurChiffre("J1", 16, 0)
     ]);
@@ -57,7 +57,7 @@ describe("fin de la partie", () => {
     ];
 
     const burmaTermine = executer([
-      demarrerPartie(["J1"]),
+      demarrerBurma(["J1"]),
       ...toutesLesVoleesDuBurma
     ]);
 

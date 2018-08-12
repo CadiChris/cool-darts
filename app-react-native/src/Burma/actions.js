@@ -1,12 +1,12 @@
 import Contrats from "./arbitrage/Contrats";
 
-export const DEMARRER_PARTIE = "DEMARRER_PARTIE";
-export const demarrerPartie = joueurs => ({
-  type: DEMARRER_PARTIE,
+export const DEMARRER_BURMA = "BURMA/DEMARRER";
+export const demarrerBurma = joueurs => ({
+  type: DEMARRER_BURMA,
   joueurs
 });
 
-export const VOLEE = "VOLEE";
+export const VOLEE = "BURMA/VOLEE";
 export const voleeSurChiffre = (lanceur, chiffre, nombreDeTouches) => ({
   type: VOLEE,
   payload: {
@@ -28,13 +28,5 @@ export const voleeSurTriple = (lanceur, chiffresTouches) => ({
   payload: {
     lanceur,
     contrat: new Contrats.triple(chiffresTouches)
-  }
-});
-
-export const voleeSurBull = (lanceur, nombreDeBulls) => ({
-  type: VOLEE,
-  payload: {
-    lanceur,
-    contrat: new Contrats.bull(nombreDeBulls)
   }
 });

@@ -5,10 +5,10 @@ import { withKnobs, object, text } from "@storybook/addon-knobs/react";
 import TableauDesScores from "../TableauDesScores";
 import { Styles } from "../../../styles";
 import burma from "../../reducer";
-import { demarrerPartie, voleeSurChiffre } from "../../actions";
+import { demarrerBurma, voleeSurChiffre } from "../../actions";
 
 const partieDeTest = [
-  demarrerPartie(["Noémie", "Christophe", "Olivier", "Baptiste"]),
+  demarrerBurma(["Noémie", "Christophe", "Olivier", "Baptiste"]),
   voleeSurChiffre("Noémie", "15", 0),
   voleeSurChiffre("Christophe", "15", 2),
   voleeSurChiffre("Olivier", "15", 1),

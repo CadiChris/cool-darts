@@ -1,6 +1,6 @@
 import freeze from "deep-freeze";
 import cricket from "../reducer";
-import { demarrerPartie, lancerFlechette, nouvellePartie } from "../actions";
+import { demarrerCricket, lancerFlechette } from "../actions";
 
 it("retourne le state initial", () => {
   expect(cricket(undefined, {})).toEqual({
@@ -10,7 +10,7 @@ it("retourne le state initial", () => {
 });
 
 it("démarre la partie", () => {
-  const partieDemarree = executer([demarrerPartie(["J1", "J2"])]);
+  const partieDemarree = executer([demarrerCricket(["J1", "J2"])]);
 
   expect(partieDemarree).toEqual({
     vainqueurs: [],
@@ -47,7 +47,7 @@ it("démarre la partie", () => {
 
 it("modifie le score sur un lancer de fléchette", () => {
   const apresLancerDeJ1 = executer([
-    demarrerPartie(["J1"]),
+    demarrerCricket(["J1"]),
     lancerFlechette("J1", 20, 1)
   ]);
 
@@ -58,7 +58,7 @@ it("modifie le score sur un lancer de fléchette", () => {
 });
 
 it("met fin à la partie sur le lancer qui désigne le vainqueur", () => {
-  const partieAvecUnJoueur = executer([demarrerPartie(["J1"])]);
+  const partieAvecUnJoueur = executer([demarrerCricket(["J1"])]);
 
   const toutFermeSaufLeBull = [15, 16, 17, 18, 19, 20].reduce(
     (state, chiffre) => cricket(state, lancerFlechette("J1", chiffre, 3)),
@@ -72,11 +72,11 @@ it("met fin à la partie sur le lancer qui désigne le vainqueur", () => {
 });
 
 it("écrase la partie en cours au démarrage d'une nouvelle partie", () => {
-  const partieViergeBobEtAlice = executer([demarrerPartie(["Bob", "Alice"])]);
+  const partieViergeBobEtAlice = executer([demarrerCricket(["Bob", "Alice"])]);
   const partieEnCoursQuiRedemarre = executer([
-    demarrerPartie(["John", "Franck"]),
+    demarrerCricket(["John", "Franck"]),
     lancerFlechette("John", 20, 1),
-    demarrerPartie(["Bob", "Alice"])
+    demarrerCricket(["Bob", "Alice"])
   ]);
 
   expect(partieEnCoursQuiRedemarre).toEqual(partieViergeBobEtAlice);

@@ -8,12 +8,14 @@ import undoable from "./src/undo/undoable";
 import cricket from "./src/Cricket/reducer";
 import burma from "./src/Burma/reducer";
 import inscriptionDesJoueurs from "./src/InscriptionDesJoueurs/reducer";
+import { DEMARRER_BURMA } from "./src/Burma/actions";
+import { DEMARRER_CRICKET } from "./src/Cricket/actions";
 
 const store = createStore(
   combineReducers({
     inscriptionDesJoueurs,
-    cricket: undoable(cricket),
-    burma: undoable(burma)
+    cricket: undoable(cricket, [DEMARRER_CRICKET]),
+    burma: undoable(burma, [DEMARRER_BURMA])
   })
 );
 

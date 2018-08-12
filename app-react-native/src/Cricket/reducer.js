@@ -1,6 +1,7 @@
 import { scoreVierge } from "./arbitrage/score";
 import { calculerLeNouveauScore } from "./arbitrage/arbitre";
 import { vainqueurs } from "./arbitrage/vainqueurs";
+import { DEMARRER_CRICKET, LANCER_FLECHETTE } from "./actions";
 
 const STATE_INITIAL = {
   scores: [],
@@ -9,13 +10,13 @@ const STATE_INITIAL = {
 
 export default function partie(state = STATE_INITIAL, action) {
   switch (action.type) {
-    case "DEMARRER_PARTIE":
+    case DEMARRER_CRICKET:
       return {
         ...STATE_INITIAL,
         scores: action.joueurs.map(scoreVierge)
       };
 
-    case "LANCER_FLECHETTE":
+    case LANCER_FLECHETTE:
       const lancer = {
         lanceur: action.joueur,
         chiffre: action.chiffre,

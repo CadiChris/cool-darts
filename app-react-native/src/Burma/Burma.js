@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { View } from "react-native";
 import { connect } from "react-redux";
 import KeepAwake from "react-native-keep-awake";
-import { demarrerPartie } from "./actions";
+import { demarrerBurma } from "./actions";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
 import Vainqueur from "./Vainqueur/Vainqueur";
@@ -11,7 +11,7 @@ import Vainqueur from "./Vainqueur/Vainqueur";
 class Burma extends Component {
   componentDidMount() {
     const { dispatch, joueurs } = this.props;
-    dispatch(demarrerPartie(joueurs));
+    dispatch(demarrerBurma(joueurs));
   }
 
   render() {

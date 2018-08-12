@@ -1,4 +1,4 @@
-import { DEMARRER_PARTIE, VOLEE } from "./actions";
+import { DEMARRER_BURMA, VOLEE } from "./actions";
 import { lanceurSuivant } from "./arbitrage/lanceur";
 import {
   leChiffreSuivant,
@@ -16,7 +16,7 @@ const STATE_INITIAL = {
 
 const burma = (state = STATE_INITIAL, action) => {
   switch (action.type) {
-    case DEMARRER_PARTIE:
+    case DEMARRER_BURMA:
       return {
         ...STATE_INITIAL,
         lanceur: action.joueurs[0],

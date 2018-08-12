@@ -5,11 +5,11 @@ import { action } from "@storybook/addon-actions";
 import { withKnobs, object, array, boolean } from "@storybook/addon-knobs";
 import cricket from "../../reducer";
 import TableauDesScores from "../TableauDesScores";
-import { demarrerPartie, lancerFlechette } from "../../actions";
+import { demarrerCricket, lancerFlechette } from "../../actions";
 import { Styles } from "../../../styles";
 
 const partieDeTest = [
-  demarrerPartie(["Noémie", "Christophe"]),
+  demarrerCricket(["Noémie", "Christophe"]),
   lancerFlechette("Noémie", 17, 3),
   lancerFlechette("Noémie", 20, 1),
   lancerFlechette("Noémie", 17, 2),

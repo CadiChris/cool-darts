@@ -1,4 +1,4 @@
-const undoable = reducer => {
+const undoable = (reducer, typesActionQuiVident = []) => {
   const STATE_INITIAL = {
     actuel: reducer(undefined, {}),
     precedents: []
@@ -20,12 +20,13 @@ const undoable = reducer => {
       default:
         const remplacant = reducer(actuel, action);
         const actionSansEffet = actuel === remplacant;
-
         if (actionSansEffet) return state;
+
+        const doitVider = typesActionQuiVident.includes(action.type);
 
         return {
           actuel: remplacant,
-          precedents: [...precedents, actuel]
+          precedents: doitVider ? [] : [...precedents, actuel]
         };
     }
   };

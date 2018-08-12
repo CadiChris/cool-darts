@@ -6,7 +6,7 @@ import { undo } from "../undo/undoable";
 
 const mapStateToProps = state => ({
   aucunPrecedent:
-    state[state.inscriptionDesJoueurs.jeuChoisi].precedents.length === 1
+    state[state.inscriptionDesJoueurs.jeuChoisi].precedents.length === 0
 });
 
 const mapDispatchToProps = (dispatch, { history }) => ({

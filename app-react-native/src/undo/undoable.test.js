@@ -4,12 +4,15 @@ const reducerDeTest = (state = 0, action) => {
   switch (action.type) {
     case "+":
       return state + 1;
+    case "+10":
+      return state + 10;
     default:
       return state;
   }
 };
 
 const incrementer = () => ({ type: "+" });
+const plus10 = () => ({ type: "+10" });
 
 describe("reducerDeTest", () => {
   it("a 0 comme state initial", () => {
@@ -65,6 +68,28 @@ describe("undoable", () => {
       expect(apresPleinDeUndoInutiles).toEqual({
         actuel: 0,
         precedents: []
+      });
+    });
+  });
+
+  describe("le vidage des précédents", () => {
+    it("vide les précédents lorsqu'une action de vidage arrive", () => {
+      const reducerQuiVideSurPlus10 = () =>
+        undoable(reducerDeTest, [plus10().type]);
+
+      const incrementsPuisVidage = [
+        incrementer(),
+        incrementer(),
+        plus10()
+      ].reduce(
+        reducerQuiVideSurPlus10(),
+        reducerQuiVideSurPlus10()(undefined, {})
+      );
+
+      const precedentsVides = [];
+      expect(incrementsPuisVidage).toEqual({
+        actuel: 12,
+        precedents: precedentsVides
       });
     });
   });
