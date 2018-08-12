@@ -7,6 +7,7 @@ import { demarrerBurma } from "./actions";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
 import Vainqueur from "./Vainqueur/Vainqueur";
+import Portrait from "../Technique/Portrait";
 
 class Burma extends Component {
   componentDidMount() {
@@ -18,15 +19,21 @@ class Burma extends Component {
     const { vainqueur } = this.props;
 
     return (
-      <View style={{ flex: 1 }}>
-        <TableauDesScores />
+      <Portrait>
+        <View style={{ flex: 1 }}>
+          <TableauDesScores />
 
-        <View style={{ flexGrow: 1, justifyContent: "center" }}>
-          {!vainqueur ? <CommandesDeLaPartie /> : <Vainqueur nom={vainqueur} />}
+          <View style={{ flexGrow: 1, justifyContent: "center" }}>
+            {!vainqueur ? (
+              <CommandesDeLaPartie />
+            ) : (
+              <Vainqueur nom={vainqueur} />
+            )}
+          </View>
+
+          <KeepAwake />
         </View>
-
-        <KeepAwake />
-      </View>
+      </Portrait>
     );
   }
 }
