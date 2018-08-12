@@ -1,4 +1,4 @@
-import undoable, { undo } from "./undoable";
+import undoable, { redo, undo } from "./undoable";
 
 const reducerDeTest = (state = 0, action) => {
   switch (action.type) {
@@ -27,17 +27,19 @@ const reducerAvecUndo = () => undoable(reducerDeTest);
 
 describe("undoable", () => {
   describe("la structure", () => {
-    it("wrap le résultat du reducer dans une structure avec actuel & precedent", () => {
+    it("wrap le résultat du reducer dans une structure qui permet le undo et le redo", () => {
       expect(reducerAvecUndo()(undefined, {})).toEqual({
+        precedents: [],
         actuel: 0,
-        precedents: []
+        suivants: []
       });
     });
 
     it("alimente actuel et precedent sur une action", () => {
       expect(reducerAvecUndo()(undefined, incrementer())).toEqual({
+        precedents: [0],
         actuel: 1,
-        precedents: [0]
+        suivants: []
       });
     });
   });
@@ -48,12 +50,15 @@ describe("undoable", () => {
         incrementer(),
         incrementer(),
         incrementer(),
+        incrementer(),
+        undo(),
         undo()
       ]);
 
       expect(retourA2).toEqual({
+        precedents: [0, 1],
         actuel: 2,
-        precedents: [0, 1]
+        suivants: [3, 4]
       });
     });
 
@@ -66,8 +71,44 @@ describe("undoable", () => {
       ]);
 
       expect(apresPleinDeUndoInutiles).toEqual({
+        precedents: [],
         actuel: 0,
-        precedents: []
+        suivants: [1]
+      });
+    });
+  });
+
+  describe("le redo", () => {
+    it("permet le redo", () => {
+      const redoPourRevenirA2 = executer([
+        incrementer(),
+        incrementer(),
+        incrementer(),
+        undo(),
+        undo(),
+        redo()
+      ]);
+
+      expect(redoPourRevenirA2).toEqual({
+        precedents: [0, 1],
+        actuel: 2,
+        suivants: [3]
+      });
+    });
+
+    it("ne fait rien s'il n'y a rien à redo", () => {
+      const apresPleinDeRedoInutiles = executer([
+        incrementer(),
+        undo(),
+        redo(),
+        redo(),
+        redo()
+      ]);
+
+      expect(apresPleinDeRedoInutiles).toEqual({
+        precedents: [0],
+        actuel: 1,
+        suivants: []
       });
     });
   });
@@ -86,10 +127,11 @@ describe("undoable", () => {
         reducerQuiVideSurPlus10()(undefined, {})
       );
 
-      const precedentsVides = [];
+      const vide = [];
       expect(incrementsPuisVidage).toEqual({
         actuel: 12,
-        precedents: precedentsVides
+        precedents: vide,
+        suivants: vide
       });
     });
   });
