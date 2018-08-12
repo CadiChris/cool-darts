@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { View } from "react-native";
 import { connect } from "react-redux";
+import KeepAwake from "react-native-keep-awake";
 import { demarrerPartie } from "./actions";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
@@ -19,9 +20,12 @@ class Burma extends Component {
     return (
       <View style={{ flex: 1 }}>
         <TableauDesScores />
+
         <View style={{ flexGrow: 1, justifyContent: "center" }}>
           {!vainqueur ? <CommandesDeLaPartie /> : <Vainqueur nom={vainqueur} />}
         </View>
+
+        <KeepAwake />
       </View>
     );
   }

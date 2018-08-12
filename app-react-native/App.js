@@ -1,7 +1,6 @@
 import React from "react";
 import { View } from "react-native";
 import { Switch, Route, Redirect } from "react-router-native";
-import KeepAwake from "react-native-keep-awake";
 import SplashScreen from "./src/Technique/SplashScreen";
 import { Styles } from "./src/styles";
 import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/InscriptionDesJoueurs.container";
@@ -29,7 +28,6 @@ const App = () => (
         <Redirect to="/inscription" />
       </Switch>
     </View>
-    <KeepAwake />
   </SplashScreen>
 );
 
