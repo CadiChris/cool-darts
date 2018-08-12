@@ -7,7 +7,13 @@ import { Boutons, Textes } from "../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import BoutonAvecConfirmation from "../Technique/BoutonAvecConfirmation";
 
-const Navigation = ({ aucunPrecedent, onQuitterLaPartie, onUndo }) => (
+const Navigation = ({
+  aucunPrecedent,
+  onQuitterLaPartie,
+  onUndo,
+  onRedo,
+  aucunSuivant
+}) => (
   <View
     style={[
       {
@@ -42,12 +48,30 @@ const Navigation = ({ aucunPrecedent, onQuitterLaPartie, onUndo }) => (
     >
       <Icon name="undo" size={20} color="white" />
     </Button>
+    <Button
+      onPress={onRedo}
+      isDisabled={aucunSuivant}
+      style={[
+        Boutons.deCommande,
+        { width: 60, height: 50, marginHorizontal: 30 }
+      ]}
+      textStyle={[Textes.bouton, { fontSize: 12 }]}
+    >
+      <Icon
+        name="undo"
+        size={20}
+        color="white"
+        style={{ transform: [{ rotateY: "180deg" }] }}
+      />
+    </Button>
   </View>
 );
 
 Navigation.propTypes = {
   aucunPrecedent: PropTypes.bool.isRequired,
   onUndo: PropTypes.func.isRequired,
+  aucunSuivant: PropTypes.bool.isRequired,
+  onRedo: PropTypes.func.isRequired,
   onQuitterLaPartie: PropTypes.func.isRequired
 };
 
