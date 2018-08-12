@@ -8,8 +8,14 @@ import Emoji from "@ardentlabs/react-native-emoji";
 const Vainqueur = ({ nom }) => (
   <View>
     <Celebration />
-    <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
-      <Text style={[Textes.titre]}>
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center"
+      }}
+    >
+      <Text style={{ fontSize: 40, color: "white" }}>
         <Emoji name="trophy" />
       </Text>
       <Text style={[Textes.titre]}>{nom}</Text>
