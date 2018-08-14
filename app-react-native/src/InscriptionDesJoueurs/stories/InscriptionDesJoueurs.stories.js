@@ -17,7 +17,7 @@ storiesOf("Inscription des joueurs", module)
   .add("Inscription", () => (
     <InscriptionDesJoueurs
       inscrits={array("inscrits", ["Christophe", "Noémie"])}
-      jeuxDisponibles={array("jeux disponibles", ["Burma", "Cricket"])}
+      jeuxDisponibles={array("jeux disponibles", ["burma", "cricket"])}
       demarrerLaPartieEstPossible={boolean(
         "démarrer la partie est possible",
         true
