@@ -42,11 +42,13 @@ class ContratChiffre extends Component {
     return (
       <View>
         <EnTete>
-          {textes.formatString(
-            textes.enTete,
-            chiffreCourant === BULL ? "BULL" : chiffreCourant,
-            lanceur
-          )}
+          {chiffreCourant &&
+            lanceur &&
+            textes.formatString(
+              textes.enTete,
+              chiffreCourant === BULL ? "BULL" : chiffreCourant,
+              lanceur
+            )}
         </EnTete>
 
         <View
