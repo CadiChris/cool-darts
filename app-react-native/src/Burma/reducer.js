@@ -1,5 +1,5 @@
 import { DEMARRER_BURMA, VOLEE } from "./actions";
-import { lanceurSuivant } from "./arbitrage/lanceur";
+import { elementSuivant } from "../Technique/tableau";
 import {
   leChiffreSuivant,
   dernierChiffre,
@@ -55,7 +55,7 @@ const burma = (state = STATE_INITIAL, action) => {
         ...state,
         lanceur: laPartieSeTermine
           ? undefined
-          : lanceurSuivant(lanceur, lesJoueurs(state)),
+          : elementSuivant(lanceur, lesJoueurs(state)),
         chiffreCourant: chiffreSuivant,
         scores: nextScores,
         vainqueur: laPartieSeTermine ? meilleurScore(nextScores) : undefined

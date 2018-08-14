@@ -1,4 +1,4 @@
-import * as lanceur from "./lanceur";
+import { elementSuivant } from "../../Technique/tableau";
 
 const BULL = "25";
 const CHIFFRES_DU_BURMA = [
@@ -18,7 +18,7 @@ const dernierChiffre = () => CHIFFRES_DU_BURMA[CHIFFRES_DU_BURMA.length - 1];
 
 const leChiffreSuivant = chiffre => ({
   avec: (lesJoueurs, leLanceur) => {
-    const prochainLanceur = lanceur.lanceurSuivant(leLanceur, lesJoueurs);
+    const prochainLanceur = elementSuivant(leLanceur, lesJoueurs);
     const finDuTour = prochainLanceur === lesJoueurs[0];
     return finDuTour ? chiffreQuiSuit(chiffre) : chiffre;
   }
