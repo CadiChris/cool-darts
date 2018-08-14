@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { TouchableHighlight, View } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Boutons, Textes } from "../../../styles";
 import Button from "apsl-react-native-button";
+import LocalizedStrings from "react-native-localization";
+import { Boutons, Textes } from "../../../styles";
 import TexteApparaissant from "../../../Technique/TexteApparaissant";
 import EnTete from "./EnTete";
 import AucuneTouche from "./AucuneTouche";
@@ -41,8 +42,11 @@ class ContratChiffre extends Component {
     return (
       <View>
         <EnTete>
-          Combien de {chiffreCourant === BULL ? "BULL" : chiffreCourant} a fait{" "}
-          {lanceur} ?
+          {textes.formatString(
+            textes.enTete,
+            chiffreCourant === BULL ? "BULL" : chiffreCourant,
+            lanceur
+          )}
         </EnTete>
 
         <View
@@ -94,5 +98,14 @@ ContratChiffre.propTypes = {
   chiffreCourant: PropTypes.string,
   onLancer: PropTypes.func.isRequired
 };
+
+const textes = new LocalizedStrings({
+  en: {
+    enTete: "How many {0} did {1} hit?"
+  },
+  fr: {
+    enTete: "Combien de {0} a fait {1} ?"
+  }
+});
 
 export default ContratChiffre;
