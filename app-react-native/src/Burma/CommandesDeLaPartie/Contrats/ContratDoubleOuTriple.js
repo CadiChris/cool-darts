@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { TextInput, View } from "react-native";
+import Button from "apsl-react-native-button";
+import LocalizedStrings from "react-native-localization";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Boutons, Textes } from "../../../styles";
 import EnTete from "./EnTete";
 import AucuneTouche from "./AucuneTouche";
-import Button from "apsl-react-native-button";
 
 class ContratDoubleOuTriple extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class ContratDoubleOuTriple extends Component {
     return (
       <View>
         <EnTete>
-          Quels {chiffreCourant} a touché {lanceur} ?
+          {textes.formatString(textes.enTete, chiffreCourant, lanceur)}
         </EnTete>
 
         <View
@@ -109,5 +110,14 @@ ContratDoubleOuTriple.propTypes = {
   onLancerSurDouble: PropTypes.func.isRequired,
   onLancerSurTriple: PropTypes.func.isRequired
 };
+
+const textes = new LocalizedStrings({
+  en: {
+    enTete: "Which {0} did {1} hit?"
+  },
+  fr: {
+    enTete: "Quels {0} a touché {1} ?"
+  }
+});
 
 export default ContratDoubleOuTriple;
