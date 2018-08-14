@@ -89,7 +89,7 @@ class ContratDoubleOuTriple extends Component {
             <Button
               style={[
                 Boutons.deCommande,
-                { paddingHorizontal: 20, marginLeft: 6 }
+                { paddingHorizontal: 24, marginLeft: 6 }
               ]}
               onPress={() => this.lancer()}
               isDisabled={this.chiffresNonVides().length === 0}

@@ -59,12 +59,12 @@ class ContratChiffre extends Component {
             <TouchableHighlight
               onPress={() => this.toucher(-1)}
               disabled={touches === 1}
-              style={{ marginRight: 20 }}
+              style={{ paddingHorizontal: 20, paddingVertical: 10 }}
             >
               <Icon name="minus" size={20} color="white" />
             </TouchableHighlight>
             <Button
-              style={[Boutons.deCommande, { paddingHorizontal: 20 }]}
+              style={[Boutons.deCommande, { paddingHorizontal: 40 }]}
               onPress={() => this.lancer(touches)}
             >
               <TexteApparaissant
@@ -78,7 +78,7 @@ class ContratChiffre extends Component {
             <TouchableHighlight
               onPress={() => this.toucher(+1)}
               disabled={touches === nombreDeTouchesMax}
-              style={{ marginLeft: 20 }}
+              style={{ paddingHorizontal: 20, paddingVertical: 10 }}
             >
               <Icon name="plus" size={20} color="white" />
             </TouchableHighlight>

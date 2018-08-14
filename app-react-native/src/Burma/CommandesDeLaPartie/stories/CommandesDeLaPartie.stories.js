@@ -18,7 +18,7 @@ storiesOf("Burma", module)
       chiffreCourant={selectV2(
         "chiffre courant",
         ["17", "DOUBLE", "TRIPLE", BULL],
-        BULL
+        "17"
       )}
       onLancerSurChiffre={action("lancer sur Chiffre")}
       onLancerSurDouble={action("lancer sur Double")}
