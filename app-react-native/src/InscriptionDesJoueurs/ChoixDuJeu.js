@@ -3,6 +3,7 @@ import { View, Text, Dimensions, TouchableHighlight } from "react-native";
 import PropTypes from "prop-types";
 import SideSwipe from "react-native-sideswipe";
 import Icon from "react-native-vector-icons/FontAwesome";
+import LocalizedStrings from "react-native-localization";
 import { Textes } from "../styles";
 import { elementPrecedent, elementSuivant } from "../Technique/tableau";
 
@@ -41,7 +42,7 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
             }}
           >
             <Text style={[Textes.basique, Textes.mav, { textAlign: "center" }]}>
-              {jeu.charAt(0).toUpperCase() + jeu.slice(1)}
+              {textes[jeu]}
             </Text>
           </View>
         )}
@@ -60,7 +61,9 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
         />
       </TouchableHighlight>
     </View>
-    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+    <View
+      style={{ flexDirection: "row", justifyContent: "center", marginTop: 15 }}
+    >
       {jeuxDisponibles.map(j => (
         <Icon
           key={j}
@@ -81,5 +84,16 @@ ChoixDuJeu.propTypes = {
   jeuChoisi: PropTypes.string.isRequired,
   onChangementDeJeu: PropTypes.func.isRequired
 };
+
+const textes = new LocalizedStrings({
+  en: {
+    cricket: "Cut-Throat\nCricket",
+    burma: "Burma"
+  },
+  fr: {
+    cricket: "Cricket\nCut-Throat",
+    burma: "Burma"
+  }
+});
 
 export default ChoixDuJeu;
