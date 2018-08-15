@@ -24,7 +24,7 @@ storiesOf("Inscription des joueurs", module)
       )}
       onInscription={action("inscription")}
       onDesinscription={action("désinscription")}
-      jeu={text("Jeu", "Cricket")}
+      jeu={text("Jeu", "cricket")}
       onChangementDeJeu={action("Changement de jeu")}
       onDemarrerLaPartie={action("démarrage")}
     />

@@ -11,12 +11,12 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
     <View
       style={{
         flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        alignItems: "center"
       }}
     >
       <TouchableHighlight
-        style={{ paddingVertical: 20, paddingHorizontal: 10 }}
+        style={{ paddingVertical: 10, paddingHorizontal: 10 }}
         onPress={() =>
           onChangementDeJeu(elementPrecedent(jeuChoisi, jeuxDisponibles))
         }
@@ -48,7 +48,7 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
       />
       <TouchableHighlight
         onPress={() => onChangementDeJeu("burma")}
-        style={{ paddingVertical: 20, paddingHorizontal: 10 }}
+        style={{ paddingVertical: 10, paddingHorizontal: 10 }}
       >
         <Icon
           name="angle-double-right"
@@ -60,14 +60,19 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
         />
       </TouchableHighlight>
     </View>
-    <Text
-      style={[
-        Textes.light,
-        { textAlign: "center", color: "rgba(255,255,255,0.4)", fontSize: 15 }
-      ]}
-    >
-      {jeuxDisponibles.indexOf(jeuChoisi) + 1} / {jeuxDisponibles.length}
-    </Text>
+    <View style={{ flexDirection: "row", justifyContent: "center" }}>
+      {jeuxDisponibles.map(j => (
+        <Icon
+          key={j}
+          name="circle"
+          size={10}
+          style={{
+            marginHorizontal: 5,
+            color: j === jeuChoisi ? "white" : "rgba(255,255,255,0.3)"
+          }}
+        />
+      ))}
+    </View>
   </View>
 );
 
