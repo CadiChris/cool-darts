@@ -11,7 +11,10 @@ class FormulaireInscription extends Component {
   };
 
   inscrire() {
-    this.props.onSubmit(this.state.joueur);
+    const { joueur } = this.state;
+    if (joueur === "") return;
+
+    this.props.onSubmit(joueur);
     this.setState({ joueur: "" });
   }
 
