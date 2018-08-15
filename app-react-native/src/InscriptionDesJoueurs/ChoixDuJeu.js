@@ -48,16 +48,15 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
         )}
       />
       <TouchableHighlight
-        onPress={() => onChangementDeJeu("burma")}
+        onPress={() =>
+          onChangementDeJeu(elementSuivant(jeuChoisi, jeuxDisponibles))
+        }
         style={{ paddingVertical: 10, paddingHorizontal: 10 }}
       >
         <Icon
           name="angle-double-right"
           size={30}
           style={{ color: "rgba(255,255,255,0.4)" }}
-          onPress={() =>
-            onChangementDeJeu(elementSuivant(jeuChoisi, jeuxDisponibles))
-          }
         />
       </TouchableHighlight>
     </View>
