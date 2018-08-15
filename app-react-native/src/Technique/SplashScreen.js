@@ -37,7 +37,12 @@ class SplashScreen extends React.Component {
             style={{ width: "66%" }}
             resizeMode="contain"
           />
-          <Text style={[Textes.titre, { fontSize: 15, textAlign: "center" }]}>
+          <Text
+            style={[
+              Textes.titre,
+              { fontSize: 15, textAlign: "center", color: "white" }
+            ]}
+          >
             Développeurs de produits sur mesure
           </Text>
         </View>
