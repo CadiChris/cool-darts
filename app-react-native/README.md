@@ -24,6 +24,10 @@ Par contre le package est en `devDependencies` et pas en global, donc il faut ut
 
 Site utilisé pour générer le QR : https://www.unitag.io/fr/qrcode
 
+### Screenshots mobiles
+
+Site web utilisé pour générer les screenshots : https://screenshot-maker.appinstitute.com/app-screenshot-maker/
+
 ### Lancer l'app sur le simulateur Android, pour développer
 
 Ce qui fonctionne bien est de démarrer l'émulateur Android depuis la ligne de commande, puis de démarrer l'app dessus.

@@ -3,9 +3,9 @@ https://en.wikipedia.org/wiki/Cricket_(darts)
 
 [![Build Status](https://travis-ci.org/cadichris/darts-cricket.svg?branch=master)](https://travis-ci.org/cadichris/darts-cricket)
 
-<img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/FR/inscription.png" width="150" />
-<img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/FR/partie.png" width="150" />
-<img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/FR/victoire.png" width="150" />
+<img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/FR/Nexus 6P-Screenshot1.png" width="150" />
+<img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/FR/Nexus 6P-Screenshot2.png" width="150" />
+<img align="left" src="https://github.com/cadichris/cricket/blob/master/stores/screenshots/FR/Nexus 6P-Screenshot4.png" width="150" />
 <img src="https://github.com/cadichris/cricket/blob/master/stores/QR/QR.png" width="350" />
 
 ## Vocabulaire du Cricket
