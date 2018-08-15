@@ -8,6 +8,7 @@ import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
 import Vainqueur from "./Vainqueur/Vainqueur";
 import Portrait from "../Technique/Portrait";
+import Celebration from "../Technique/Celebration";
 
 class Burma extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class Burma extends Component {
     return (
       <Portrait>
         <View style={{ flex: 1 }}>
+          {vainqueur && <Celebration />}
           <TableauDesScores />
 
           <View style={{ flexGrow: 1, justifyContent: "center" }}>
