@@ -10,9 +10,13 @@ class FormulaireInscription extends Component {
     joueur: ""
   };
 
+  inscrire() {
+    this.props.onSubmit(this.state.joueur);
+    this.setState({ joueur: "" });
+  }
+
   render() {
     const { joueur } = this.state;
-    const { onSubmit } = this.props;
     return (
       <View
         style={{
@@ -22,6 +26,7 @@ class FormulaireInscription extends Component {
         <TextInput
           value={joueur}
           onChangeText={text => this.setState({ joueur: text })}
+          onSubmitEditing={() => this.inscrire()}
           style={[{ flexGrow: 1, color: "white", fontSize: 18 }, Textes.light]}
           underlineColorAndroid="transparent"
           placeholderTextColor="#FFF"
@@ -31,10 +36,7 @@ class FormulaireInscription extends Component {
         />
 
         <Button
-          onPress={() => {
-            onSubmit(joueur);
-            this.setState({ joueur: "" });
-          }}
+          onPress={() => this.inscrire()}
           style={[{ width: 80, alignSelf: "center" }, Boutons.secondaire]}
           textStyle={Textes.bouton}
           isDisabled={joueur === ""}
