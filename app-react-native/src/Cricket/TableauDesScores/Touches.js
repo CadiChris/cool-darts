@@ -27,5 +27,14 @@ export default ({ symbole, nombre }) => {
     );
   }
 
-  return <View>{croix}</View>;
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "center"
+      }}
+    >
+      {croix}
+    </View>
+  );
 };
