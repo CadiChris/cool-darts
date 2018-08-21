@@ -4,6 +4,7 @@ import { TextInput, View } from "react-native";
 import Button from "apsl-react-native-button";
 import LocalizedStrings from "react-native-localization";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { scale, verticalScale } from "react-native-size-matters";
 import { Boutons, FontSizes, Textes } from "../../../styles";
 import AucuneTouche from "./AucuneTouche";
 
@@ -52,17 +53,23 @@ class ContratDoubleOuTriple extends Component {
     return (
       <View
         style={{
-          height: 40,
-          marginTop: 20,
+          height: verticalScale(80),
+          marginTop: verticalScale(20),
           flexDirection: "row",
-          justifyContent: "space-around"
+          justifyContent: "space-around",
+          alignItems: "center"
         }}
       >
         <AucuneTouche
           onPress={() => this.onLancer[chiffreCourant](lanceur, [])}
         />
 
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            height: verticalScale(40)
+          }}
+        >
           {chiffresTouches.map((chiffre, index) => (
             <TextInput
               key={index}
@@ -73,18 +80,23 @@ class ContratDoubleOuTriple extends Component {
                 this.toucher(chiffre, index);
               }}
               style={[
-                { width: 40, color: "white", fontSize: FontSizes.standard },
+                {
+                  width: 40,
+                  color: "white",
+                  fontSize: FontSizes.standard,
+                  height: verticalScale(50)
+                },
                 Textes.light
               ]}
               underlineColorAndroid="transparent"
-              placeholderTextColor="rgba(255, 255, 255, 0.5)"
+              placeholderTextColor="rgba(255, 255, 255, 0.7)"
               placeholder={`#${index + 1}`}
             />
           ))}
           <Button
             style={[
               Boutons.deCommande,
-              { paddingHorizontal: 24, marginLeft: 6 }
+              { paddingHorizontal: scale(24), marginLeft: 6 }
             ]}
             onPress={() => this.lancer()}
             isDisabled={this.chiffresNonVides().length === 0}

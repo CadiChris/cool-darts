@@ -4,6 +4,7 @@ import { Boutons, Textes } from "../styles";
 import Button from "apsl-react-native-button";
 import LocalizedStrings from "react-native-localization";
 import { Link } from "react-router-native";
+import { verticalScale } from "react-native-size-matters";
 
 const DemarrerLaPartie = ({ jeu, isDisabled }) => (
   <Link
@@ -12,7 +13,7 @@ const DemarrerLaPartie = ({ jeu, isDisabled }) => (
     isDisabled={isDisabled}
     style={[
       Boutons.principal,
-      { marginBottom: 10, marginHorizontal: 10, width: "90%" }
+      { marginBottom: verticalScale(10), marginHorizontal: 10, width: "90%" }
     ]}
     textStyle={Textes.bouton}
   >

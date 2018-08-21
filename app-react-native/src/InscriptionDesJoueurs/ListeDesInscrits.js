@@ -3,18 +3,19 @@ import PropTypes from "prop-types";
 import { Platform, Text, View } from "react-native";
 import Button from "apsl-react-native-button";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { verticalScale } from "react-native-size-matters";
 import { Boutons, FontSizes, Textes } from "../styles";
 import TexteApparaissant from "../Technique/TexteApparaissant";
 import FadeInView from "../Technique/FadeInView";
 
 const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
-  <View style={{ flex: 1, marginTop: 20 }}>
+  <View style={{ flex: 1, marginTop: verticalScale(12) }}>
     {inscrits.map((nom, index) => (
       <View
         key={index}
         style={{
           flexDirection: "row",
-          height: 40,
+          height: verticalScale(34),
           alignItems: "center",
           justifyContent: "space-between"
         }}
@@ -31,7 +32,7 @@ const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
           <Button
             style={[
               Boutons.deCommande,
-              { width: 30, height: 30, marginTop: 10 }
+              { width: 30, height: verticalScale(30), marginTop: 10 }
             ]}
             onPress={() => onDesinscription(nom)}
           >

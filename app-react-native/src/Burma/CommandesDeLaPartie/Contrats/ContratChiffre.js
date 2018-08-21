@@ -3,6 +3,7 @@ import { TouchableHighlight, View } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Button from "apsl-react-native-button";
+import { verticalScale } from "react-native-size-matters";
 import { Boutons, FontSizes, Textes } from "../../../styles";
 import TexteApparaissant from "../../../Technique/TexteApparaissant";
 import AucuneTouche from "./AucuneTouche";
@@ -40,8 +41,8 @@ class ContratChiffre extends Component {
     return (
       <View
         style={{
-          height: 40,
-          marginTop: 20,
+          height: verticalScale(40),
+          marginTop: verticalScale(20),
           flexDirection: "row",
           justifyContent: "space-around"
         }}

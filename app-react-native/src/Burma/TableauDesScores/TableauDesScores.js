@@ -2,10 +2,11 @@ import React from "react";
 import { View } from "react-native";
 import PropTypes from "prop-types";
 import * as Animatable from "react-native-animatable";
+import { verticalScale } from "react-native-size-matters";
 import { ColonneDesContrats } from "./ColonneDesContrats";
 import ColonneJoueur from "./ColonneJoueur";
 
-const HAUTEUR_DE_CONTRAT = 40;
+const HAUTEUR_DE_CONTRAT = verticalScale(42);
 
 const TableauDesScores = ({ scores, lanceur, chiffreCourant }) => (
   <Animatable.View style={{ flexDirection: "row" }} animation="bounceInRight">

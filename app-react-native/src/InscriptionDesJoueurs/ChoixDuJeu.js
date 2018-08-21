@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import SideSwipe from "react-native-sideswipe";
 import Icon from "react-native-vector-icons/FontAwesome";
 import LocalizedStrings from "react-native-localization";
+import { verticalScale } from "react-native-size-matters";
 import { FontSizes, Textes } from "../styles";
 import { elementPrecedent, elementSuivant } from "../Technique/tableau";
 
@@ -31,7 +32,7 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
       <SideSwipe
         data={jeuxDisponibles}
         itemWidth={Dimensions.get("window").width * 0.4}
-        style={{ width: "50%", height: 50 }}
+        style={{ width: "50%", height: verticalScale(50) }}
         index={jeuxDisponibles.indexOf(jeuChoisi)}
         onIndexChange={index => onChangementDeJeu(jeuxDisponibles[index])}
         renderItem={({ item: jeu }) => (
@@ -66,7 +67,11 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
       </TouchableHighlight>
     </View>
     <View
-      style={{ flexDirection: "row", justifyContent: "center", marginTop: 15 }}
+      style={{
+        flexDirection: "row",
+        justifyContent: "center",
+        marginTop: verticalScale(12)
+      }}
     >
       {jeuxDisponibles.map(j => (
         <Icon
