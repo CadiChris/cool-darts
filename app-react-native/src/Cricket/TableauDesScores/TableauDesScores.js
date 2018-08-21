@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as Animatable from "react-native-animatable";
 import { Text, TouchableHighlight, View } from "react-native";
+import { verticalScale } from "react-native-size-matters";
 import Celebration from "../../Technique/Celebration";
 import { FontSizes, Styles, Textes } from "../../styles";
 import Joueur from "./Joueur";
@@ -9,7 +10,7 @@ import Touches from "./Touches";
 import AnimatedNumber from "../../Technique/AnimatedNumber";
 import Vainqueurs from "./Vainqueurs";
 
-const HAUTEUR_DE_LIGNE = 40;
+const HAUTEUR_DE_LIGNE = verticalScale(40);
 
 const TableauDesScores = ({
   scores,
