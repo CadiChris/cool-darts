@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Text } from "react-native";
-import { Textes } from "../../styles";
+import { FontSizes, Textes } from "../../styles";
 import Emoji from "@ardentlabs/react-native-emoji";
 
 const Vainqueur = ({ nom }) => (
@@ -13,7 +13,7 @@ const Vainqueur = ({ nom }) => (
         alignItems: "center"
       }}
     >
-      <Text style={{ fontSize: 40, color: "white" }}>
+      <Text style={{ fontSize: FontSizes.enorme, color: "white" }}>
         <Emoji name="trophy" />
       </Text>
       <Text style={[Textes.titre]}>{nom}</Text>

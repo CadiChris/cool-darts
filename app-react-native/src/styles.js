@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 
 export const Tailles = {
   hauteurEnTete: 30,
@@ -22,6 +23,11 @@ const fonts = {
   fine: "Lato-Italic"
 };
 
+export const FontSizes = {
+  enorme: moderateScale(52, 1.2),
+  standard: moderateScale(18)
+};
+
 export const Textes = StyleSheet.create({
   basique: {
     fontFamily: fonts.basique,
@@ -29,15 +35,11 @@ export const Textes = StyleSheet.create({
   },
   titre: {
     fontFamily: fonts.epaisse,
-    fontSize: 38,
+    fontSize: FontSizes.enorme,
     color: "white"
   },
   light: {
     fontFamily: fonts.fine,
-    color: "white"
-  },
-  mav: {
-    fontSize: 22,
     color: "white"
   },
   bouton: {

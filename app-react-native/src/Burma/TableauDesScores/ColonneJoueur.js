@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Text, View, Easing } from "react-native";
-import { Styles, Textes } from "../../styles";
+import { FontSizes, Styles, Textes } from "../../styles";
 import { Joueur } from "./Joueur";
 import { HAUTEUR_DE_CONTRAT } from "./TableauDesScores";
 import { UnContrat } from "./UnContrat";
@@ -51,7 +51,12 @@ const ColonneJoueur = ({
       <View style={{ flex: 1, justifyContent: "center" }}>
         <AnimatedNumber value={score[score.length - 1].points}>
           {value => (
-            <Text style={[Textes.titre, { fontSize: 19, textAlign: "center" }]}>
+            <Text
+              style={[
+                Textes.titre,
+                { fontSize: FontSizes.standard, textAlign: "center" }
+              ]}
+            >
               {Math.round(value)}
             </Text>
           )}

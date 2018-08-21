@@ -32,7 +32,7 @@ const Navigation = ({
         Boutons.deCommande,
         { width: 60, height: 50, marginHorizontal: 30 }
       ]}
-      textStyle={[Textes.bouton, { fontSize: 12 }]}
+      textStyle={[Textes.bouton]}
     >
       <Icon name="home" size={20} color="white" />
     </BoutonAvecConfirmation>
@@ -44,7 +44,7 @@ const Navigation = ({
         Boutons.deCommande,
         { width: 60, height: 50, marginHorizontal: 30 }
       ]}
-      textStyle={[Textes.bouton, { fontSize: 12 }]}
+      textStyle={[Textes.bouton]}
     >
       <Icon name="undo" size={20} color="white" />
     </Button>
@@ -55,7 +55,7 @@ const Navigation = ({
         Boutons.deCommande,
         { width: 60, height: 50, marginHorizontal: 30 }
       ]}
-      textStyle={[Textes.bouton, { fontSize: 12 }]}
+      textStyle={[Textes.bouton]}
     >
       <Icon
         name="undo"

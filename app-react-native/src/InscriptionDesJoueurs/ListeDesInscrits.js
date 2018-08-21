@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Platform, Text, View } from "react-native";
 import Button from "apsl-react-native-button";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Boutons, Textes } from "../styles";
+import { Boutons, FontSizes, Textes } from "../styles";
 import TexteApparaissant from "../Technique/TexteApparaissant";
 import FadeInView from "../Technique/FadeInView";
 
@@ -19,7 +19,9 @@ const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
           justifyContent: "space-between"
         }}
       >
-        <TexteApparaissant style={[Textes.basique, Textes.mav]}>
+        <TexteApparaissant
+          style={[Textes.basique, { fontSize: FontSizes.standard }]}
+        >
           <Text style={[Textes.light, { ...unPeuTransparent }]}>
             #{index + 1}
           </Text>

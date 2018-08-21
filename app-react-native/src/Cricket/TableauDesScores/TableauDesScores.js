@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import * as Animatable from "react-native-animatable";
 import { Text, TouchableHighlight, View } from "react-native";
 import Celebration from "../../Technique/Celebration";
-import { Styles, Textes } from "../../styles";
+import { FontSizes, Styles, Textes } from "../../styles";
 import Joueur from "./Joueur";
 import Touches from "./Touches";
 import AnimatedNumber from "../../Technique/AnimatedNumber";
@@ -24,7 +24,9 @@ const TableauDesScores = ({
         {[15, 16, 17, 18, 19, 20, "Bull"].map(chiffre => (
           <View key={chiffre} style={[{ height: HAUTEUR_DE_LIGNE }]}>
             <View style={{ flex: 1, justifyContent: "center" }}>
-              <Text style={[Textes.light, { fontSize: 18 }]}>{chiffre}</Text>
+              <Text style={[Textes.light, { fontSize: FontSizes.standard }]}>
+                {chiffre}
+              </Text>
             </View>
           </View>
         ))}
@@ -75,7 +77,7 @@ const TableauDesScores = ({
                   <Text
                     style={[
                       Textes.titre,
-                      { fontSize: 19, textAlign: "center" }
+                      { fontSize: FontSizes.standard, textAlign: "center" }
                     ]}
                   >
                     {Math.round(value)}

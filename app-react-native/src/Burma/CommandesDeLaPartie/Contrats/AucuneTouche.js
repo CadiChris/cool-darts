@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 import Button from "apsl-react-native-button";
 import Icon from "react-native-vector-icons/FontAwesome";
 import LocalizedStrings from "react-native-localization";
-import { Boutons, Textes } from "../../../styles";
+import { Boutons, FontSizes, Textes } from "../../../styles";
 
 const AucuneTouche = props => (
   <View>
@@ -13,7 +13,9 @@ const AucuneTouche = props => (
       onPress={props.onPress}
     >
       <Icon name="ban" size={20} color="white" style={{ marginRight: 10 }} />
-      <Text style={[Textes.light, { fontSize: 20 }]}>{textes.aucun}</Text>
+      <Text style={[Textes.light, { fontSize: FontSizes.standard }]}>
+        {textes.aucun}
+      </Text>
     </Button>
   </View>
 );

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Text, View } from "react-native";
-import { Styles, Textes } from "../../styles";
+import { FontSizes, Styles, Textes } from "../../styles";
 
 const Joueur = ({ joueur }) => (
   <View
@@ -15,7 +15,11 @@ const Joueur = ({ joueur }) => (
       numberOfLines={1}
       style={[
         Textes.titre,
-        { fontSize: 15, textAlign: "center", paddingHorizontal: 10 }
+        {
+          fontSize: FontSizes.standard,
+          textAlign: "center",
+          paddingHorizontal: 10
+        }
       ]}
     >
       {joueur}

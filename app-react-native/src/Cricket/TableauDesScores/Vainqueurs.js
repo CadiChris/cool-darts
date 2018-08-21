@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 import Emoji from "@ardentlabs/react-native-emoji";
-import { Textes } from "../../styles";
+import { FontSizes, Textes } from "../../styles";
 import TexteApparaissant from "../../Technique/TexteApparaissant";
 
 const Vainqueurs = ({ noms }) => (
@@ -15,7 +15,7 @@ const Vainqueurs = ({ noms }) => (
     }}
   >
     <TexteApparaissant departDuDecalage={70}>
-      <Text style={[Textes.basique, { fontSize: 80 }]}>
+      <Text style={[Textes.basique, { fontSize: FontSizes.enorme }]}>
         <Emoji name="trophy" />
       </Text>
     </TexteApparaissant>

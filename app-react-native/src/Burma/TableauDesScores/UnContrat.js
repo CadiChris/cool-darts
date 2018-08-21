@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { View } from "react-native";
-import { Textes } from "../../styles";
+import { FontSizes, Textes } from "../../styles";
 import TexteApparaissant from "../../Technique/TexteApparaissant";
 
 export const UnContrat = ({ delta }) => (
@@ -15,7 +15,11 @@ export const UnContrat = ({ delta }) => (
       <TexteApparaissant
         style={[
           Textes.light,
-          { fontSize: 19, color: "#8df69a", textAlign: "center" }
+          {
+            fontSize: FontSizes.standard,
+            color: "#8df69a",
+            textAlign: "center"
+          }
         ]}
       >
         +{delta}
@@ -25,7 +29,11 @@ export const UnContrat = ({ delta }) => (
       <TexteApparaissant
         style={[
           Textes.light,
-          { fontSize: 19, color: "#f6655d", textAlign: "center" }
+          {
+            fontSize: FontSizes.standard,
+            color: "#f6655d",
+            textAlign: "center"
+          }
         ]}
       >
         / 2

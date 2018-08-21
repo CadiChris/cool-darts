@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import SideSwipe from "react-native-sideswipe";
 import Icon from "react-native-vector-icons/FontAwesome";
 import LocalizedStrings from "react-native-localization";
-import { Textes } from "../styles";
+import { FontSizes, Textes } from "../styles";
 import { elementPrecedent, elementSuivant } from "../Technique/tableau";
 
 const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
-  <View style={{ flex: 1 }}>
+  <View style={{ marginBottom: 25 }}>
     <View
       style={{
         flexDirection: "row",
@@ -41,7 +41,12 @@ const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
               justifyContent: "center"
             }}
           >
-            <Text style={[Textes.basique, Textes.mav, { textAlign: "center" }]}>
+            <Text
+              style={[
+                Textes.basique,
+                { fontSize: FontSizes.standard, textAlign: "center" }
+              ]}
+            >
               {textes[jeu]}
             </Text>
           </View>

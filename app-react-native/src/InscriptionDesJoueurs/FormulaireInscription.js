@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Button from "apsl-react-native-button";
 import { View, TextInput } from "react-native";
-import { Boutons, Textes } from "../styles";
+import { Boutons, FontSizes, Textes } from "../styles";
 import LocalizedStrings from "react-native-localization";
 
 class FormulaireInscription extends Component {
@@ -30,7 +30,10 @@ class FormulaireInscription extends Component {
           value={joueur}
           onChangeText={text => this.setState({ joueur: text })}
           onSubmitEditing={() => this.inscrire()}
-          style={[{ flexGrow: 1, color: "white", fontSize: 18 }, Textes.light]}
+          style={[
+            { flexGrow: 1, color: "white", fontSize: FontSizes.standard },
+            Textes.light
+          ]}
           underlineColorAndroid="transparent"
           placeholderTextColor="#FFF"
           placeholder={textes.joueur}
