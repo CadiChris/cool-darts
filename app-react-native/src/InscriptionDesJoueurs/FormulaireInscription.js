@@ -32,10 +32,10 @@ class FormulaireInscription extends Component {
           onSubmitEditing={() => this.inscrire()}
           style={[
             { flexGrow: 1, color: "white", fontSize: FontSizes.standard },
-            Textes.light
+            Textes.basique
           ]}
           underlineColorAndroid="transparent"
-          placeholderTextColor="#FFF"
+          placeholderTextColor="rgba(255,255,255,.7)"
           placeholder={textes.joueur}
           autoCapitalize="words"
           autoCorrect={false}
