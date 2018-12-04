@@ -1,6 +1,6 @@
 export function vainqueurs(scores) {
   const toutFerme = extraireCeuxQuiOntToutFerme(scores);
-
+  const penaliteMini = penaliteMinimum(scores);
   const pasDeVainqueur = [];
 
   switch (toutFerme.length) {
@@ -8,35 +8,26 @@ export function vainqueurs(scores) {
       return pasDeVainqueur;
 
     case 1:
-      const fermeEtPlusPetitePenalite =
-        toutFerme[0].penalite === plusPetitePenalite(scores);
+      const fermeEtPlusPetitePenalite = toutFerme[0].penalite === penaliteMini;
 
       if (fermeEtPlusPetitePenalite) return [toutFerme[0].joueur];
 
       return pasDeVainqueur;
 
     default:
-      return extraireLesMoinsPenalises(scores).map(s => s.joueur);
+      return extraireParPenalite(toutFerme, penaliteMini).map(s => s.joueur);
   }
 }
 
+const penaliteMinimum = scores => Math.min(...scores.map(s => s.penalite));
+
 function extraireCeuxQuiOntToutFerme(scores) {
-  const lesChiffresDeLaCibleSontFermes = cible =>
+  const cibleEstFermee = ({ cible }) =>
     Object.keys(cible).every(chiffre => cible[chiffre].ferme);
 
-  const scoreAvecCibleFermee = score =>
-    lesChiffresDeLaCibleSontFermes(score.cible);
-
-  return scores.filter(scoreAvecCibleFermee);
+  return scores.filter(cibleEstFermee);
 }
 
-const plusPetitePenalite = scores => Math.min(...scores.map(s => s.penalite));
-
-function extraireLesMoinsPenalises(scores) {
-  const penaliteMinimale = plusPetitePenalite(scores);
-
-  const scoreAvecLaPlusPetitePenalite = score =>
-    score.penalite === penaliteMinimale;
-
-  return scores.filter(scoreAvecLaPlusPetitePenalite);
+function extraireParPenalite(scores, penaliteCherchee) {
+  return scores.filter(({ penalite }) => penalite === penaliteCherchee);
 }

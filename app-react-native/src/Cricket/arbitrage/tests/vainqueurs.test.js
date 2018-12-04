@@ -2,6 +2,7 @@ import { vainqueurs } from "../vainqueurs";
 import { score } from "./arbitre.test";
 
 const _3_TOUCHES = 3;
+const _1_TOUCHE = 1;
 
 describe("Choix du vainqueur", () => {
   describe("Aucune cible férmee", () => {
@@ -50,6 +51,26 @@ describe("Choix du vainqueur", () => {
           scoreAvecCibleFermee("J2", 30)
         ])
       ).toEqual(["J1", "J2"]);
+    });
+
+    it("ne déclare pas vainqueur celui qui a moins de points s'il n'a pas tout fermé", () => {
+      const j1 = scoreAvecCibleFermee("J1", 90);
+      const j2 = scoreAvecCibleFermee("J2", 122);
+      const j3 = score(
+        "J3",
+        {
+          15: _3_TOUCHES,
+          16: _3_TOUCHES,
+          17: _3_TOUCHES,
+          18: _3_TOUCHES,
+          19: _3_TOUCHES,
+          20: _3_TOUCHES,
+          25: _1_TOUCHE
+        },
+        89
+      );
+
+      expect(vainqueurs([j1, j2, j3])).toEqual([]);
     });
   });
 });
