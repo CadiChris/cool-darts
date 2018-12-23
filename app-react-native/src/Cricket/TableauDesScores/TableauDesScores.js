@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as Animatable from "react-native-animatable";
-import { Text, TouchableHighlight, View, Dimensions } from "react-native";
-import { verticalScale } from "react-native-size-matters";
+import { Text, TouchableHighlight, View } from "react-native";
 import Celebration from "../../Technique/Celebration";
 import { FontSizes, Styles, Textes } from "../../styles";
 import Joueur from "./Joueur";
@@ -10,8 +9,8 @@ import Touches from "./Touches";
 import AnimatedNumber from "../../Technique/AnimatedNumber";
 import Vainqueurs from "./Vainqueurs";
 import { splitArray } from "../../utils/splitArray";
-
-const HAUTEUR_DE_LIGNE = verticalScale(40);
+import { ColonneDesChiffres } from "./ColonneDesChiffres";
+import { HAUTEUR_DE_LIGNE, LARGEUR_COLONNE_JOUEUR } from "./dimensions";
 
 const TableauDesScores = ({
   scores,
@@ -27,7 +26,7 @@ const TableauDesScores = ({
           score,
           [
             {
-              width: largeurColonneJoueur(scores.length)
+              width: LARGEUR_COLONNE_JOUEUR(scores.length)
             },
             Styles.bordureDroite
           ],
@@ -43,7 +42,7 @@ const TableauDesScores = ({
           score,
           [
             {
-              width: largeurColonneJoueur(scores.length)
+              width: LARGEUR_COLONNE_JOUEUR(scores.length)
             },
             Styles.bordureGauche
           ],
@@ -56,9 +55,6 @@ const TableauDesScores = ({
     {vainqueurs.length > 0 && <Vainqueurs noms={vainqueurs} />}
   </Animatable.View>
 );
-
-const largeurColonneJoueur = nbJoueurs =>
-  (Dimensions.get("window").width - LARGEUR_COLONNE_DES_CHIFFRES) / nbJoueurs;
 
 const colonneJoueur = function(score, style, actif, onLancerDansSimple) {
   return (
@@ -111,28 +107,6 @@ const colonneJoueur = function(score, style, actif, onLancerDansSimple) {
     </View>
   );
 };
-
-const LARGEUR_COLONNE_DES_CHIFFRES = 50;
-
-const ColonneDesChiffres = (
-  <View style={[{ width: LARGEUR_COLONNE_DES_CHIFFRES, marginTop: 40 }]}>
-    {[20, 19, 18, 17, 16, 15, "Bull"].map(chiffre => (
-      <View
-        key={chiffre}
-        style={[{ height: HAUTEUR_DE_LIGNE, justifyContent: "center" }]}
-      >
-        <Text
-          style={[
-            Textes.light,
-            { textAlign: "center", fontSize: FontSizes.standard }
-          ]}
-        >
-          {chiffre}
-        </Text>
-      </View>
-    ))}
-  </View>
-);
 
 TableauDesScores.propTypes = {
   scores: PropTypes.array.isRequired,
