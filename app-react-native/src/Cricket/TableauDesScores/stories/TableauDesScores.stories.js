@@ -22,7 +22,7 @@ storiesOf("Cricket", module)
   .add("Tableau des scores", () => (
     <TableauDesScores
       actif={boolean("Actif", true)}
-      vainqueurs={array("Vainqueurs", ["Noémie"])}
+      vainqueurs={array("Vainqueurs", [])}
       scores={object("Scores", partieDeTest.scores)}
       onLancerDansSimple={action("Lancer")}
     />
