@@ -5,11 +5,11 @@ import { Provider } from "react-redux";
 import { combineReducers, createStore } from "redux";
 import App from "./App";
 import undoable from "./src/undo/undoable";
-import cricket from "./src/Cricket/reducer";
-import burma from "./src/Burma/reducer";
-import inscriptionDesJoueurs from "./src/InscriptionDesJoueurs/reducer";
-import { DEMARRER_BURMA } from "./src/Burma/actions";
-import { DEMARRER_CRICKET } from "./src/Cricket/actions";
+import cricket from "./src/Cricket/domaine/reducer";
+import burma from "./src/Burma/domaine/reducer";
+import inscriptionDesJoueurs from "./src/InscriptionDesJoueurs/domaine/reducer";
+import { DEMARRER_BURMA } from "./src/Burma/domaine/actions";
+import { DEMARRER_CRICKET } from "./src/Cricket/domaine/actions";
 
 const store = createStore(
   combineReducers({

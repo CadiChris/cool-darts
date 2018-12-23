@@ -3,9 +3,9 @@ import { View } from "react-native";
 import { Switch, Route, Redirect } from "react-router-native";
 import SplashScreen from "./src/Technique/SplashScreen";
 import { Styles } from "./src/styles";
-import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/InscriptionDesJoueurs.container";
-import Burma from "./src/Burma/Burma";
-import Cricket from "./src/Cricket/Cricket";
+import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/ui/InscriptionDesJoueurs.container";
+import Burma from "./src/Burma/ui/Burma";
+import Cricket from "./src/Cricket/ui/Cricket";
 import Navigation from "./src/Navigation/Navigation.container";
 
 const App = () => (
