@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Platform, Text, View } from "react-native";
 import Button from "apsl-react-native-button";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { verticalScale } from "react-native-size-matters";
+import { scale, verticalScale } from "react-native-size-matters";
 import { Boutons, FontSizes, Textes } from "../styles";
 import TexteApparaissant from "../Technique/TexteApparaissant";
 import FadeInView from "../Technique/FadeInView";
@@ -32,7 +32,7 @@ const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
           <Button
             style={[
               Boutons.deCommande,
-              { width: 30, height: verticalScale(30), marginTop: 10 }
+              { width: scale(30), height: verticalScale(30), marginTop: 10 }
             ]}
             onPress={() => onDesinscription(nom)}
           >

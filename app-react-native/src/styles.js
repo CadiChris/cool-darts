@@ -25,6 +25,7 @@ const fonts = {
 
 export const FontSizes = {
   enorme: moderateScale(52, 1.2),
+  grand: moderateScale(30, 1.2),
   standard: moderateScale(18)
 };
 

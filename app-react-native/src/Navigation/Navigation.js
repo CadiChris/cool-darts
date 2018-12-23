@@ -6,6 +6,7 @@ import Button from "apsl-react-native-button";
 import { Boutons, Textes } from "../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import BoutonAvecConfirmation from "../Technique/BoutonAvecConfirmation";
+import { scale, verticalScale } from "react-native-size-matters";
 
 const Navigation = ({
   aucunPrecedent,
@@ -30,7 +31,7 @@ const Navigation = ({
       apresConfirmation={onQuitterLaPartie}
       style={[
         Boutons.deCommande,
-        { width: 60, height: 50, marginHorizontal: 30 }
+        { width: scale(60), height: verticalScale(50), marginHorizontal: 30 }
       ]}
       textStyle={[Textes.bouton]}
     >
@@ -42,7 +43,7 @@ const Navigation = ({
       isDisabled={aucunPrecedent}
       style={[
         Boutons.deCommande,
-        { width: 60, height: 50, marginHorizontal: 30 }
+        { width: scale(60), height: verticalScale(50), marginHorizontal: 30 }
       ]}
       textStyle={[Textes.bouton]}
     >
@@ -53,7 +54,7 @@ const Navigation = ({
       isDisabled={aucunSuivant}
       style={[
         Boutons.deCommande,
-        { width: 60, height: 50, marginHorizontal: 30 }
+        { width: scale(60), height: verticalScale(50), marginHorizontal: 30 }
       ]}
       textStyle={[Textes.bouton]}
     >

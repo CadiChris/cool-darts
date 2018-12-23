@@ -81,7 +81,7 @@ class ContratDoubleOuTriple extends Component {
               }}
               style={[
                 {
-                  width: 40,
+                  width: scale(40),
                   color: "white",
                   fontSize: FontSizes.standard,
                   height: verticalScale(50)

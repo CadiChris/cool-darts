@@ -4,6 +4,7 @@ import Button from "apsl-react-native-button";
 import { View, TextInput } from "react-native";
 import { Boutons, FontSizes, Textes } from "../styles";
 import LocalizedStrings from "react-native-localization";
+import { scale } from "react-native-size-matters";
 
 class FormulaireInscription extends Component {
   state = {
@@ -43,7 +44,10 @@ class FormulaireInscription extends Component {
 
         <Button
           onPress={() => this.inscrire()}
-          style={[{ width: 80, alignSelf: "center" }, Boutons.secondaire]}
+          style={[
+            { width: scale(80), alignSelf: "center" },
+            Boutons.secondaire
+          ]}
           textStyle={Textes.bouton}
           isDisabled={joueur === ""}
         >
