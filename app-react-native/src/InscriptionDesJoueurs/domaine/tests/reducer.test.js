@@ -1,6 +1,11 @@
 import deepFreeze from "deep-freeze";
 import inscriptionDesJoueurs from "../reducer";
-import { choisirJeu, desinscrireJoueur, inscrireJoueur } from "../actions";
+import {
+  choisirJeu,
+  desinscrireJoueur,
+  inscrireJoueur,
+  reordonnerJoueur
+} from "../actions";
 
 describe("reducer Inscription des joueurs", () => {
   it("retourne le state initial", () => {
@@ -36,6 +41,24 @@ describe("reducer Inscription des joueurs", () => {
     ]);
 
     expect(apresPlusieursFoisLeMemeInscrit.inscrits).toEqual(["A"]);
+  });
+
+  it("ré-ordonne les joueurs", () => {
+    const ordreModifie = executer([
+      inscrireJoueur("A"),
+      inscrireJoueur("B"),
+      inscrireJoueur("C"),
+      reordonnerJoueur(0, +1)
+    ]);
+
+    expect(ordreModifie.inscrits).toEqual(["B", "A", "C"]);
+
+    const deuxiemeModification = executer(
+      [reordonnerJoueur(2, -1)],
+      ordreModifie
+    );
+
+    expect(deuxiemeModification.inscrits).toEqual(["B", "C", "A"]);
   });
 
   it("permet de choisir un jeu", () => {

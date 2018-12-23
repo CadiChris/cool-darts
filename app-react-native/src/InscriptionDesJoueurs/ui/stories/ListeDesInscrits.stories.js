@@ -10,6 +10,7 @@ storiesOf("Inscription des joueurs", module)
   .add("Liste des inscrits", () => (
     <ListeDesInscrits
       inscrits={["Pamela", "Jim"]}
+      onReordonner={action("Réordonne")}
       onDesinscription={action("Désinscription")}
     />
   ));

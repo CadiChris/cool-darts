@@ -8,7 +8,7 @@ import { Boutons, FontSizes, Textes } from "../../styles";
 import TexteApparaissant from "../../Kit/TexteApparaissant";
 import FadeInView from "../../Kit/FadeInView";
 
-const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
+const ListeDesInscrits = ({ inscrits, onReordonner, onDesinscription }) => (
   <View style={{ flex: 1, marginTop: verticalScale(12) }}>
     {inscrits.map((nom, index) => (
       <View
@@ -28,7 +28,28 @@ const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
           </Text>
           {`  ${nom}`}
         </TexteApparaissant>
-        <FadeInView dureeDuFade={100}>
+        <FadeInView
+          dureeDuFade={100}
+          style={[{ display: "flex", flexDirection: "row" }]}
+        >
+          <Button
+            style={[
+              Boutons.deCommande,
+              { width: scale(30), height: verticalScale(30), marginTop: 10 }
+            ]}
+            onPress={() => onReordonner(index, -1)}
+          >
+            <Icon name="arrow-up" size={20} color="white" />
+          </Button>
+          <Button
+            style={[
+              Boutons.deCommande,
+              { width: scale(30), height: verticalScale(30), marginTop: 10 }
+            ]}
+            onPress={() => onReordonner(index, +1)}
+          >
+            <Icon name="arrow-down" size={20} color="white" />
+          </Button>
           <Button
             style={[
               Boutons.deCommande,
@@ -46,6 +67,7 @@ const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
 
 ListeDesInscrits.propTypes = {
   inscrits: PropTypes.array.isRequired,
+  onReordonner: PropTypes.func.isRequired,
   onDesinscription: PropTypes.func.isRequired
 };
 

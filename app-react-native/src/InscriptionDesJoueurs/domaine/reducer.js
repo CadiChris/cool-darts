@@ -1,4 +1,10 @@
-import { CHOISIR_JEU, DESINSCRIRE_JOUEUR, INSCRIRE_JOUEUR } from "./actions";
+import arrayMove from "array-move";
+import {
+  CHOISIR_JEU,
+  DESINSCRIRE_JOUEUR,
+  INSCRIRE_JOUEUR,
+  REORDONNER_JOUEUR
+} from "./actions";
 
 const STATE_INITIAL = {
   inscrits: [],
@@ -17,6 +23,16 @@ function inscriptionDesJoueurs(state = STATE_INITIAL, action) {
         ...state,
         inscrits: inscritsSansDoublon,
         laPartiePeutDemarrer: inscritsSansDoublon.length > 0
+      };
+
+    case REORDONNER_JOUEUR:
+      return {
+        ...state,
+        inscrits: arrayMove(
+          state.inscrits,
+          action.position,
+          action.position + action.mouvement
+        )
       };
 
     case DESINSCRIRE_JOUEUR:

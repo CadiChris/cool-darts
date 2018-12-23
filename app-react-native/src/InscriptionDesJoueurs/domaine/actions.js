@@ -15,3 +15,10 @@ export const choisirJeu = jeuChoisi => ({
   type: CHOISIR_JEU,
   jeuChoisi
 });
+
+export const REORDONNER_JOUEUR = "REORDONNER_JOUEUR";
+export const reordonnerJoueur = (position, mouvement) => ({
+  type: REORDONNER_JOUEUR,
+  position,
+  mouvement
+});

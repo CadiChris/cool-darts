@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import {
   choisirJeu,
   desinscrireJoueur,
-  inscrireJoueur
+  inscrireJoueur,
+  reordonnerJoueur
 } from "../domaine/actions";
 
 const mapStateToProps = state => ({
@@ -15,6 +16,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onInscription: nomInscrit => dispatch(inscrireJoueur(nomInscrit)),
+  onReordonner: (position, mouvement) =>
+    dispatch(reordonnerJoueur(position, mouvement)),
   onDesinscription: nomDesinscrit => dispatch(desinscrireJoueur(nomDesinscrit)),
   onChangementDeJeu: jeuChoisi => dispatch(choisirJeu(jeuChoisi))
 });

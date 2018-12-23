@@ -12,6 +12,7 @@ import Titre from "./Titre";
 function InscriptionDesJoueurs({
   inscrits,
   onInscription,
+  onReordonner,
   onDesinscription,
   jeuxDisponibles,
   jeu,
@@ -31,6 +32,7 @@ function InscriptionDesJoueurs({
 
           <ListeDesInscrits
             inscrits={inscrits}
+            onReordonner={onReordonner}
             onDesinscription={onDesinscription}
           />
           <ChoixDuJeu
@@ -54,6 +56,7 @@ function InscriptionDesJoueurs({
 InscriptionDesJoueurs.propTypes = {
   inscrits: PropTypes.array.isRequired,
   onInscription: PropTypes.func.isRequired,
+  onReordonner: PropTypes.func.isRequired,
   onDesinscription: PropTypes.func.isRequired,
   jeu: PropTypes.string.isRequired,
   jeuxDisponibles: PropTypes.array.isRequired,
