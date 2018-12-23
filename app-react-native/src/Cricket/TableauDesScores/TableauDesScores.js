@@ -22,7 +22,7 @@ const TableauDesScores = ({
     {vainqueurs.length > 0 && <Celebration />}
     <View style={{ flexDirection: "row" }}>
       <View style={{ width: 56, marginTop: 40, paddingLeft: 5 }}>
-        {[15, 16, 17, 18, 19, 20, "Bull"].map(chiffre => (
+        {[20, 19, 18, 17, 16, 15, "Bull"].map(chiffre => (
           <View key={chiffre} style={[{ height: HAUTEUR_DE_LIGNE }]}>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Text style={[Textes.light, { fontSize: FontSizes.standard }]}>
@@ -36,9 +36,9 @@ const TableauDesScores = ({
         {scores.map(score => (
           <View key={score.joueur} style={{ width: `${100 / scores.length}%` }}>
             <View style={{ height: HAUTEUR_DE_LIGNE }}>
-              <Joueur penalite={2} joueur={score.joueur} estVainqueur={false} />
+              <Joueur nom={score.joueur} />
             </View>
-            {Object.keys(score.cible).map(chiffre => (
+            {[20, 19, 18, 17, 16, 15, 25].map(chiffre => (
               <TouchableHighlight
                 key={chiffre}
                 disabled={!actif}

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 import { FontSizes, Styles, Textes } from "../../styles";
 
-const Joueur = ({ joueur }) => (
+const Joueur = ({ nom }) => (
   <View
     style={[
       { flex: 1, justifyContent: "center" },
@@ -22,13 +22,13 @@ const Joueur = ({ joueur }) => (
         }
       ]}
     >
-      {joueur}
+      {nom}
     </Text>
   </View>
 );
 
 Joueur.propTypes = {
-  penalite: PropTypes.number.isRequired
+  nom: PropTypes.string.isRequired
 };
 
 export default Joueur;

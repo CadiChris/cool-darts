@@ -31,4 +31,4 @@ const AppDecoree = () => (
 
 AppRegistry.registerComponent("alkeyacricket", () => AppDecoree);
 
-// export default from "./storybook/index";
+// export default from "./storybook";
