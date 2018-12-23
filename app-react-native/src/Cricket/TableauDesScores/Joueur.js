@@ -4,13 +4,7 @@ import { Text, View } from "react-native";
 import { FontSizes, Styles, Textes } from "../../styles";
 
 const Joueur = ({ nom }) => (
-  <View
-    style={[
-      { flex: 1, justifyContent: "center" },
-      Styles.bordureBasse,
-      Styles.bordureGauche
-    ]}
-  >
+  <View style={[{ flex: 1, justifyContent: "center" }, Styles.bordureBasse]}>
     <Text
       numberOfLines={1}
       style={[

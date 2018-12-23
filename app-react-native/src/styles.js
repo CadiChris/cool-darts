@@ -87,6 +87,10 @@ export const Styles = StyleSheet.create({
     borderLeftColor: Couleurs.bordure,
     borderLeftWidth: 1
   },
+  bordureDroite: {
+    borderRightColor: Couleurs.bordure,
+    borderRightWidth: 1
+  },
   bordureBasse: {
     borderBottomColor: Couleurs.bordure,
     borderBottomWidth: 1
