@@ -5,7 +5,7 @@ import { View } from "react-native";
 import Button from "apsl-react-native-button";
 import { Boutons, Textes } from "../styles";
 import Icon from "react-native-vector-icons/FontAwesome";
-import BoutonAvecConfirmation from "../Technique/BoutonAvecConfirmation";
+import BoutonAvecConfirmation from "../Kit/BoutonAvecConfirmation";
 import { scale, verticalScale } from "react-native-size-matters";
 
 const Navigation = ({

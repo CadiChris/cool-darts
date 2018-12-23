@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View } from "react-native";
-import Portrait from "../../Technique/Portrait";
-import ViewQuiDecale from "../../Technique/ViewQuiDecale";
+import Portrait from "../../Kit/Portrait";
+import ViewQuiDecale from "../../Kit/ViewQuiDecale";
 import ListeDesInscrits from "./ListeDesInscrits";
 import DemarrerLaPartie from "./DemarrerLaPartie";
 import FormulaireInscription from "./FormulaireInscription";

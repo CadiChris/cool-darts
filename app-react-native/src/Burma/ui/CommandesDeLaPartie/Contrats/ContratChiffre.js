@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import Button from "apsl-react-native-button";
 import { verticalScale } from "react-native-size-matters";
 import { Boutons, FontSizes, Textes } from "../../../../styles";
-import TexteApparaissant from "../../../../Technique/TexteApparaissant";
+import TexteApparaissant from "../../../../Kit/TexteApparaissant";
 import AucuneTouche from "./AucuneTouche";
 import { BULL } from "../../../domaine/arbitrage/chiffre";
 

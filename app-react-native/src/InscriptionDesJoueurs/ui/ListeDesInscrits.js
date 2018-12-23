@@ -5,8 +5,8 @@ import Button from "apsl-react-native-button";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { scale, verticalScale } from "react-native-size-matters";
 import { Boutons, FontSizes, Textes } from "../../styles";
-import TexteApparaissant from "../../Technique/TexteApparaissant";
-import FadeInView from "../../Technique/FadeInView";
+import TexteApparaissant from "../../Kit/TexteApparaissant";
+import FadeInView from "../../Kit/FadeInView";
 
 const ListeDesInscrits = ({ inscrits, onDesinscription }) => (
   <View style={{ flex: 1, marginTop: verticalScale(12) }}>

@@ -5,7 +5,7 @@ import { HAUTEUR_DE_LIGNE } from "./dimensions";
 import Joueur from "./Joueur";
 import { FontSizes, Styles, Textes } from "../../../styles";
 import Touches from "./Touches";
-import AnimatedNumber from "../../../Technique/AnimatedNumber";
+import AnimatedNumber from "../../../Kit/AnimatedNumber";
 
 export const ColonneJoueur = function({
   score,

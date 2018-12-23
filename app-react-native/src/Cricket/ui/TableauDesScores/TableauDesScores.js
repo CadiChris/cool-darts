@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import * as Animatable from "react-native-animatable";
 import { View } from "react-native";
 import { scale } from "react-native-size-matters";
-import Celebration from "../../../Technique/Celebration";
+import Celebration from "../../../Kit/Celebration";
 import { Styles } from "../../../styles";
 import Vainqueurs from "./Vainqueurs";
-import { splitArray } from "../../../utils/splitArray";
+import { split } from "../../../utils/tableau";
 import { ColonneDesChiffres } from "./ColonneDesChiffres";
 import { LARGEUR_COLONNE_JOUEUR } from "./dimensions";
 import { ColonneJoueur } from "./ColonneJoueur";
@@ -48,7 +48,7 @@ class TableauDesScores extends Component {
       <Animatable.View style={[{ flex: 1 }]} animation="bounceInRight">
         {vainqueurs.length > 0 && <Celebration />}
         <View style={{ flexDirection: "row" }}>
-          {splitArray(scores).premier.map(score => (
+          {split(scores).premier.map(score => (
             <ColonneJoueur
               key={score.joueur}
               score={score}
@@ -67,7 +67,7 @@ class TableauDesScores extends Component {
 
           {ColonneDesChiffres}
 
-          {splitArray(scores).second.map(score => (
+          {split(scores).second.map(score => (
             <ColonneJoueur
               key={score.joueur}
               score={score}

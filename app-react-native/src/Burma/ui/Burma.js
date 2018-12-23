@@ -7,8 +7,8 @@ import { demarrerBurma } from "../domaine/actions";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import CommandesDeLaPartie from "./CommandesDeLaPartie/CommandesDeLaPartie.container";
 import Vainqueur from "./Vainqueur/Vainqueur";
-import Portrait from "../../Technique/Portrait";
-import Celebration from "../../Technique/Celebration";
+import Portrait from "../../Kit/Portrait";
+import Celebration from "../../Kit/Celebration";
 
 class Burma extends Component {
   componentDidMount() {

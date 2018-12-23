@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import KeepAwake from "react-native-keep-awake";
 import TableauDesScores from "./TableauDesScores/TableauDesScores.container";
 import { demarrerCricket } from "../domaine/actions";
-import Portrait from "../../Technique/Portrait";
+import Portrait from "../../Kit/Portrait";
 
 class Cricket extends Component {
   componentDidMount() {

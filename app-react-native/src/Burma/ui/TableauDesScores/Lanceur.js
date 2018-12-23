@@ -2,7 +2,7 @@ import React from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { View } from "react-native";
 import { HAUTEUR_DE_CONTRAT } from "./TableauDesScores";
-import FadeInView from "../../../Technique/FadeInView";
+import FadeInView from "../../../Kit/FadeInView";
 
 export const Lanceur = () => (
   <FadeInView style={[{ height: HAUTEUR_DE_CONTRAT }]} dureeDuFade={300}>

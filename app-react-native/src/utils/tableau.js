@@ -1,4 +1,4 @@
-function elementPrecedent(actuel, tous) {
+export function elementPrecedent(actuel, tous) {
   const indexActuel = tous.indexOf(actuel);
   const auDebut = indexActuel === 0;
   const dernierElement = tous[tous.length - 1];
@@ -8,10 +8,15 @@ function elementPrecedent(actuel, tous) {
   return tous[indexActuel - 1];
 }
 
-function elementSuivant(actuel, tous) {
+export function elementSuivant(actuel, tous) {
   const indexActuel = tous.indexOf(actuel);
   const suivant = tous[(indexActuel + 1) % tous.length];
   return suivant;
 }
 
-export { elementPrecedent, elementSuivant };
+export function split(array) {
+  return {
+    premier: array.slice(0, array.length / 2),
+    second: array.slice(array.length / 2)
+  };
+}

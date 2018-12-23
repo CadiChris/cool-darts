@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Switch, Route, Redirect } from "react-router-native";
-import SplashScreen from "./src/Technique/SplashScreen";
+import SplashScreen from "./src/Kit/SplashScreen";
 import { Styles } from "./src/styles";
 import InscriptionDesJoueurs from "./src/InscriptionDesJoueurs/ui/InscriptionDesJoueurs.container";
 import Burma from "./src/Burma/ui/Burma";

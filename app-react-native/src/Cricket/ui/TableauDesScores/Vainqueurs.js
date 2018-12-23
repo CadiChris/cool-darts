@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 import Emoji from "@ardentlabs/react-native-emoji";
 import { FontSizes, Textes } from "../../../styles";
-import TexteApparaissant from "../../../Technique/TexteApparaissant";
+import TexteApparaissant from "../../../Kit/TexteApparaissant";
 
 const Vainqueurs = ({ noms }) => (
   <View

@@ -1,4 +1,4 @@
-import { elementSuivant } from "../../../Technique/tableau";
+import { elementSuivant } from "../../../utils/tableau";
 
 const BULL = "25";
 const CHIFFRES_DU_BURMA = [

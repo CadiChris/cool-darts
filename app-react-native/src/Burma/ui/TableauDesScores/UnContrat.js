@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { View } from "react-native";
 import { FontSizes, Textes } from "../../../styles";
-import TexteApparaissant from "../../../Technique/TexteApparaissant";
+import TexteApparaissant from "../../../Kit/TexteApparaissant";
 
 export const UnContrat = ({ delta }) => (
   <View

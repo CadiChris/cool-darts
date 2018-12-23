@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import LocalizedStrings from "react-native-localization";
 import { verticalScale } from "react-native-size-matters";
 import { FontSizes, Textes } from "../../styles";
-import { elementPrecedent, elementSuivant } from "../../Technique/tableau";
+import { elementPrecedent, elementSuivant } from "../../utils/tableau";
 
 const ChoixDuJeu = ({ jeuxDisponibles, jeuChoisi, onChangementDeJeu }) => (
   <View style={{ marginBottom: 25 }}>

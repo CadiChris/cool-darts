@@ -1,5 +1,5 @@
 import { DEMARRER_BURMA, VOLEE } from "./actions";
-import { elementSuivant } from "../../Technique/tableau";
+import { elementSuivant } from "../../utils/tableau";
 import {
   leChiffreSuivant,
   dernierChiffre,

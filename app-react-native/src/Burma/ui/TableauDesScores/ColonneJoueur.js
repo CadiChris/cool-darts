@@ -7,7 +7,7 @@ import { HAUTEUR_DE_CONTRAT } from "./TableauDesScores";
 import { UnContrat } from "./UnContrat";
 import { Lanceur } from "./Lanceur";
 import { CHIFFRES_DU_BURMA } from "../../domaine/arbitrage/chiffre";
-import AnimatedNumber from "../../../Technique/AnimatedNumber";
+import AnimatedNumber from "../../../Kit/AnimatedNumber";
 
 const ColonneJoueur = ({
   largeur,

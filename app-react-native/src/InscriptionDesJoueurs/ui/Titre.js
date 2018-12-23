@@ -2,7 +2,7 @@ import React from "react";
 import { Text } from "react-native";
 import { verticalScale } from "react-native-size-matters";
 import { Textes } from "../../styles";
-import FadeInView from "../../Technique/FadeInView";
+import FadeInView from "../../Kit/FadeInView";
 
 const Titre = () => (
   <FadeInView
