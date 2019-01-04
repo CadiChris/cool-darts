@@ -1,13 +1,12 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
-import { Text, View } from "react-native";
-import { Couleurs, FontSizes, Styles, Textes } from "../../../styles";
+import React from "react";
+import { View } from "react-native";
+import { FontSizes, Textes } from "../../../styles";
 import TexteApparaissant from "../../../Kit/TexteApparaissant";
 import { scale, verticalScale } from "react-native-size-matters";
-import FadeInView from "../../../Kit/FadeInView";
 
 export const UnContrat = ({ delta, touches, contrat }) => (
-  <View style={{ flex: 1 }}>
+  <View style={{ flex: 1, justifyContent: "space-between" }}>
     <View
       style={{
         justifyContent: "center",
@@ -22,7 +21,7 @@ export const UnContrat = ({ delta, touches, contrat }) => (
       )}
     </View>
 
-    <View style={{ alignSelf: "flex-end" }}>
+    <View style={styleDeContrat.conteneur}>
       {delta > 0 && (
         <TexteApparaissant style={[Textes.light, styleDeContrat.rempli]}>
           +{delta}
@@ -50,16 +49,17 @@ const styleDesTouches = {
 };
 
 const styleDeContrat = {
+  conteneur: {
+    alignSelf: "flex-end",
+    paddingRight: scale(6),
+    paddingBottom: verticalScale(1)
+  },
   rempli: {
     fontSize: FontSizes.standard - verticalScale(2),
-    paddingRight: scale(6),
-    paddingBottom: verticalScale(2.2),
     color: "#8df69a"
   },
   manque: {
     fontSize: FontSizes.standard - verticalScale(2),
-    paddingRight: scale(6),
-    paddingBottom: verticalScale(2),
     color: "#f6655d"
   }
 };
