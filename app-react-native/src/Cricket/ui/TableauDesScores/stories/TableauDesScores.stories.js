@@ -24,6 +24,6 @@ storiesOf("Cricket", module)
       actif={boolean("Actif", true)}
       vainqueurs={array("Vainqueurs", [])}
       scores={object("Scores", partieDeTest.scores)}
-      onLancerDansSimple={action("Lancer")}
+      onVisite={action("Lancer")}
     />
   ));

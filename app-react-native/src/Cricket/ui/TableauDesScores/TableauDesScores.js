@@ -35,8 +35,8 @@ class TableauDesScores extends Component {
 
   validerVisite() {
     const { visite, lanceur } = this.state;
-    const { onLancerDansSimple } = this.props;
-    visite.forEach(c => onLancerDansSimple(lanceur, c));
+    const { onVisite } = this.props;
+    onVisite(lanceur, visite);
     this.nouvelleVisite();
   }
 
@@ -112,7 +112,7 @@ class TableauDesScores extends Component {
 
 TableauDesScores.propTypes = {
   scores: PropTypes.array.isRequired,
-  onLancerDansSimple: PropTypes.func.isRequired,
+  onVisite: PropTypes.func.isRequired,
   vainqueurs: PropTypes.array.isRequired,
   actif: PropTypes.bool.isRequired
 };

@@ -1,6 +1,6 @@
 import freeze from "deep-freeze";
 import cricket from "../reducer";
-import { demarrerCricket, lancerFlechette } from "../actions";
+import { demarrerCricket, visiter } from "../actions";
 
 it("retourne le state initial", () => {
   expect(cricket(undefined, {})).toEqual({
@@ -48,7 +48,7 @@ it("démarre la partie", () => {
 it("modifie le score sur un lancer de fléchette", () => {
   const apresLancerDeJ1 = executer([
     demarrerCricket(["J1"]),
-    lancerFlechette("J1", 20, 1)
+    visiter("J1", [20])
   ]);
 
   expect(apresLancerDeJ1.scores[0].cible[20]).toEqual({
@@ -57,15 +57,30 @@ it("modifie le score sur un lancer de fléchette", () => {
   });
 });
 
+it("permet de lancer les fléchettes en visite", () => {
+  const avecTroisLancersSimples = executer([
+    demarrerCricket(["J1"]),
+    visiter("J1", [20, 20, 20])
+  ]);
+
+  const avecUneVisiteDeTroisFlechettes = executer([
+    demarrerCricket(["J1"]),
+    visiter("J1", [20, 20, 20])
+  ]);
+
+  expect(avecTroisLancersSimples).toEqual(avecUneVisiteDeTroisFlechettes);
+});
+
+const triple = chiffre => [chiffre, chiffre, chiffre];
 it("met fin à la partie sur le lancer qui désigne le vainqueur", () => {
   const partieAvecUnJoueur = executer([demarrerCricket(["J1"])]);
 
   const toutFermeSaufLeBull = [15, 16, 17, 18, 19, 20].reduce(
-    (state, chiffre) => cricket(state, lancerFlechette("J1", chiffre, 3)),
+    (state, chiffre) => cricket(state, visiter("J1", triple(chiffre))),
     partieAvecUnJoueur
   );
 
-  const fermerLeBull = lancerFlechette("J1", 25, 3);
+  const fermerLeBull = visiter("J1", triple(25));
   const partieTerminee = cricket(toutFermeSaufLeBull, fermerLeBull);
 
   expect(partieTerminee.vainqueurs).toEqual(["J1"]);
@@ -75,7 +90,7 @@ it("écrase la partie en cours au démarrage d'une nouvelle partie", () => {
   const partieViergeBobEtAlice = executer([demarrerCricket(["Bob", "Alice"])]);
   const partieEnCoursQuiRedemarre = executer([
     demarrerCricket(["John", "Franck"]),
-    lancerFlechette("John", 20, 1),
+    visiter("John", [20]),
     demarrerCricket(["Bob", "Alice"])
   ]);
 

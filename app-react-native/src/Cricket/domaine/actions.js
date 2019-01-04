@@ -4,10 +4,9 @@ export const demarrerCricket = joueurs => ({
   joueurs
 });
 
-export const LANCER_FLECHETTE = "CRICKET/LANCER_FLECHETTE";
-export const lancerFlechette = (joueur, chiffre, touches) => ({
-  type: LANCER_FLECHETTE,
+export const VISITER = "CRICKET/VISITER";
+export const visiter = (joueur, chiffresTouches) => ({
+  type: VISITER,
   joueur,
-  chiffre,
-  touches
+  chiffresTouches
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import TableauDesScores from "./TableauDesScores";
-import { lancerFlechette } from "../../domaine/actions";
+import { visiter } from "../../domaine/actions";
 
 const mapStateToProps = state => ({
   scores: state.cricket.actuel.scores,
@@ -10,10 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLancerDansSimple: (joueur, chiffre) => {
-    const uneTouche = 1;
-    dispatch(lancerFlechette(joueur, chiffre, uneTouche));
-  }
+  onVisite: (joueur, visite) => dispatch(visiter(joueur, visite))
 });
 
 export default connect(
