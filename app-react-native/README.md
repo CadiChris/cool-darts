@@ -13,7 +13,7 @@ Pour une nouvelle release :
 
 Cela va taguer le repo et générer l'apk pour le store. Le process d'upload sur le store est encore manuel.
 
-Le process pour build pour l'app store est très manuel : https://facebook.github.io/react-native/docs/running-on-device.html#building-your-app-for-production
+Le process pour build iOS est très manuel : https://facebook.github.io/react-native/docs/running-on-device.html#building-your-app-for-production
 
 ### Icônes
 
