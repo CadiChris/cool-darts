@@ -23,7 +23,7 @@ const ColonneJoueur = ({
 
     {avecLesContratsPasEncoreJoues(score)
       .slice(1)
-      .map(({ contrat, delta }) => (
+      .map(({ contrat, delta, touches }) => (
         <View
           key={contrat}
           style={[
@@ -35,7 +35,7 @@ const ColonneJoueur = ({
           {estLeLanceur && contrat === chiffreCourant ? (
             <Lanceur />
           ) : (
-            <UnContrat delta={delta} />
+            <UnContrat delta={delta} touches={touches} contrat={contrat} />
           )}
         </View>
       ))}
@@ -81,7 +81,8 @@ function avecLesContratsPasEncoreJoues(contratsDejaJoues) {
     ...CHIFFRES_DU_BURMA.slice(contratsDejaJoues.length - contratDepart).map(
       contratRestant => ({
         contrat: contratRestant,
-        points: undefined
+        points: undefined,
+        touches: []
       })
     )
   ];

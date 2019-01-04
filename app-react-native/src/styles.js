@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { moderateScale } from "react-native-size-matters";
+import { moderateScale, scale } from "react-native-size-matters";
 
 export const Tailles = {
   hauteurEnTete: 30,
@@ -26,7 +26,8 @@ const fonts = {
 export const FontSizes = {
   enorme: moderateScale(52, 1.2),
   grand: moderateScale(30, 1.2),
-  standard: moderateScale(18)
+  standard: scale(17),
+  mini: scale(9.5)
 };
 
 export const Textes = StyleSheet.create({

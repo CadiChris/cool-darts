@@ -6,7 +6,7 @@ import { verticalScale } from "react-native-size-matters";
 import { ColonneDesContrats } from "./ColonneDesContrats";
 import ColonneJoueur from "./ColonneJoueur";
 
-const HAUTEUR_DE_CONTRAT = verticalScale(42);
+const HAUTEUR_DE_CONTRAT = verticalScale(45);
 
 const TableauDesScores = ({ scores, lanceur, chiffreCourant }) => (
   <Animatable.View style={{ flexDirection: "row" }} animation="bounceInRight">

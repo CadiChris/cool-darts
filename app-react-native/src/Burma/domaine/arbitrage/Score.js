@@ -21,7 +21,8 @@ class Score {
       {
         contrat: contrat.nom,
         points: this.derniersPoints() + contrat.valeur,
-        delta: contrat.valeur
+        delta: contrat.valeur,
+        touches: contrat.touches
       }
     ]);
   }
@@ -33,7 +34,8 @@ class Score {
       {
         contrat: contrat.nom,
         points: division,
-        delta: division - this.derniersPoints()
+        delta: division - this.derniersPoints(),
+        touches: contrat.touches
       }
     ]);
   }

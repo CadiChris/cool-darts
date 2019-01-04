@@ -3,11 +3,15 @@ import { Text, View } from "react-native";
 import { FontSizes, Textes } from "../../../styles";
 import { BULL, CHIFFRES_DU_BURMA } from "../../domaine/arbitrage/chiffre";
 import { HAUTEUR_DE_CONTRAT } from "./TableauDesScores";
-import { scale, verticalScale } from "react-native-size-matters";
+import { scale } from "react-native-size-matters";
 
 export const ColonneDesContrats = () => (
   <View
-    style={{ width: scale(90), marginTop: verticalScale(40), paddingLeft: 5 }}
+    style={{
+      width: scale(90),
+      marginTop: HAUTEUR_DE_CONTRAT,
+      paddingLeft: scale(5)
+    }}
   >
     {CHIFFRES_DU_BURMA.map(contrat => (
       <View key={contrat} style={[{ height: HAUTEUR_DE_CONTRAT }]}>

@@ -42,7 +42,6 @@ class ContratChiffre extends Component {
       <View
         style={{
           height: verticalScale(40),
-          marginTop: verticalScale(20),
           flexDirection: "row",
           justifyContent: "space-around"
         }}

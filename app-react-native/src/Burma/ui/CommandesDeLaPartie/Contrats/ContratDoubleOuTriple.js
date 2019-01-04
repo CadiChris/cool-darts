@@ -54,7 +54,6 @@ class ContratDoubleOuTriple extends Component {
       <View
         style={{
           height: verticalScale(80),
-          marginTop: verticalScale(20),
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center"

@@ -27,5 +27,6 @@ storiesOf("Inscription des joueurs", module)
       jeu={text("Jeu", "cricket")}
       onChangementDeJeu={action("Changement de jeu")}
       onDemarrerLaPartie={action("démarrage")}
+      onReordonner={action("réorganiser")}
     />
   ));

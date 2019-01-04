@@ -13,12 +13,12 @@ describe("<ColonneJoueur />", () => {
     const tableauComplet = avecLesContratsPasEncoreJoues(contratsDejaJoues);
 
     const contratsAVenir = [
-      { contrat: "17", points: undefined },
-      { contrat: "18", points: undefined },
-      { contrat: "TRIPLE", points: undefined },
-      { contrat: "19", points: undefined },
-      { contrat: "20", points: undefined },
-      { contrat: "25", points: undefined }
+      { contrat: "17", points: undefined, touches: [] },
+      { contrat: "18", points: undefined, touches: [] },
+      { contrat: "TRIPLE", points: undefined, touches: [] },
+      { contrat: "19", points: undefined, touches: [] },
+      { contrat: "20", points: undefined, touches: [] },
+      { contrat: "25", points: undefined, touches: [] }
     ];
 
     expect(tableauComplet).toEqual([...contratsDejaJoues, ...contratsAVenir]);
