@@ -1,8 +1,9 @@
 ### Releaser une nouvelle version
 
-Le fichier `keystore.properties` qui contient nos infos confidentielles n'est pas commit.
-Il doit être placé à la racine du projet android.  
-`alkeya.keystore` doit être commit dans `android/app/`
+Le fichier `keystore.properties` qui contient nos infos confidentielles n'est pas commit.  
+Il doit être placé à la racine du projet android.   
+`alkeya.keystore` doit être commit dans `android/app/`  
+Ces fichiers sont commit sur notre Drive.
 
 Pour une nouvelle release :
 `yarn release --code=3 --name=1.2`
