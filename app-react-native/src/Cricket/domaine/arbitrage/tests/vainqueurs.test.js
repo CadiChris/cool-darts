@@ -1,8 +1,10 @@
 import {vainqueurs} from '../vainqueurs';
-import {score} from './arbitre.test';
-
-const _3_TOUCHES = 3;
-const _1_TOUCHE = 1;
+import {
+  _1_TOUCHE,
+  _3_TOUCHES,
+  score,
+  scoreAvecCibleFermee,
+} from './aideAuxTests';
 
 describe('Choix du vainqueur', () => {
   describe('Aucune cible férmee', () => {
@@ -74,18 +76,3 @@ describe('Choix du vainqueur', () => {
     });
   });
 });
-
-const scoreAvecCibleFermee = (leJoueur, saPenalite = 0) =>
-  score(
-    leJoueur,
-    {
-      20: _3_TOUCHES,
-      19: _3_TOUCHES,
-      18: _3_TOUCHES,
-      17: _3_TOUCHES,
-      16: _3_TOUCHES,
-      15: _3_TOUCHES,
-      25: _3_TOUCHES,
-    },
-    saPenalite,
-  );

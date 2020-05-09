@@ -1,11 +1,11 @@
-import freeze from 'deep-freeze';
-import {scoreVierge} from '../score';
 import * as arbitre from '../arbitre';
-
-const _0_TOUCHE = 0;
-const _1_TOUCHE = 1;
-const _2_TOUCHES = 2;
-const _3_TOUCHES = 3;
+import {
+  _0_TOUCHE,
+  _2_TOUCHES,
+  _3_TOUCHES,
+  lancerDansLe,
+  score,
+} from './aideAuxTests';
 
 describe('Arbitre', () => {
   describe("Fermeture d'un chiffre", () => {
@@ -96,35 +96,3 @@ describe('Arbitre', () => {
     });
   });
 });
-
-export function score(leJoueur, sesChiffres, saPenalite) {
-  const score = {
-    ...scoreVierge(leJoueur),
-    penalite: saPenalite,
-    cible: cible(sesChiffres),
-  };
-  freeze(score);
-  return score;
-}
-
-function cible(chiffres) {
-  const cible = scoreVierge().cible;
-  for (const c in chiffres) {
-    cible[c] = {
-      touches: chiffres[c],
-      ferme: chiffres[c] === _3_TOUCHES,
-    };
-  }
-  freeze(cible);
-  return cible;
-}
-
-function lancerDansLe(chiffre, lanceur, touches = _1_TOUCHE) {
-  const lancer = {
-    lanceur: lanceur,
-    chiffre: chiffre,
-    touches: touches,
-  };
-  freeze(lancer);
-  return lancer;
-}
