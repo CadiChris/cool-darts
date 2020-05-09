@@ -1,7 +1,12 @@
+### Infos utiles
+
+- App Display name : "Cool Darts"
+- App ID : `com.alkeya.cricket`
+
 ### Releaser une nouvelle version
 
 Le fichier `keystore.properties` qui contient nos infos confidentielles n'est pas commit.  
-Il doit être placé à la racine du projet android.   
+Il doit être placé à la racine du projet android.  
 `alkeya.keystore` doit être commit dans `android/app/`  
 Ces fichiers sont commit sur notre Drive.
 
