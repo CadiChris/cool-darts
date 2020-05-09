@@ -30,11 +30,6 @@ it('démarre la partie', () => {
     },
     vainqueur: undefined,
   });
-
-  const {scores} = burmaEnCoursAvec2joueurs;
-  Object.keys(scores)
-    .map(joueur => ({joueur, score: scores[joueur]}))
-    .map(({joueur, score}) => console.log(joueur, score));
 });
 
 describe('fin de la partie', () => {
