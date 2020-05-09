@@ -1,11 +1,11 @@
-import { scoreVierge } from "./arbitrage/score";
-import { calculerLeNouveauScore } from "./arbitrage/arbitre";
-import { vainqueurs } from "./arbitrage/vainqueurs";
-import { DEMARRER_CRICKET, LANCER_FLECHETTE, VISITER } from "./actions";
+import {scoreVierge} from './arbitrage/score';
+import {calculerLeNouveauScore} from './arbitrage/arbitre';
+import {vainqueurs} from './arbitrage/vainqueurs';
+import {DEMARRER_CRICKET, VISITER} from './actions';
 
 const STATE_INITIAL = {
   scores: [],
-  vainqueurs: []
+  vainqueurs: [],
 };
 
 export default function partie(state = STATE_INITIAL, action) {
@@ -13,7 +13,7 @@ export default function partie(state = STATE_INITIAL, action) {
     case DEMARRER_CRICKET:
       return {
         ...STATE_INITIAL,
-        scores: action.joueurs.map(scoreVierge)
+        scores: action.joueurs.map(scoreVierge),
       };
 
     case VISITER:
@@ -21,7 +21,7 @@ export default function partie(state = STATE_INITIAL, action) {
         return calculerLeNouveauScore(score, {
           lanceur: action.joueur,
           chiffre,
-          touches: 1
+          touches: 1,
         });
       }, state.scores);
 
@@ -31,7 +31,7 @@ export default function partie(state = STATE_INITIAL, action) {
         ...state,
         scores: nouveauScore,
         vainqueurs: vainqueursDuNouveauScore,
-        phase: estTerminee(vainqueursDuNouveauScore) || state.phase
+        phase: estTerminee(vainqueursDuNouveauScore) || state.phase,
       };
 
     default:
@@ -40,4 +40,4 @@ export default function partie(state = STATE_INITIAL, action) {
 }
 
 const estTerminee = vainqueursDuNouveauScore =>
-  vainqueursDuNouveauScore.length > 0 ? "TERMINEE" : null;
+  vainqueursDuNouveauScore.length > 0 ? 'TERMINEE' : null;

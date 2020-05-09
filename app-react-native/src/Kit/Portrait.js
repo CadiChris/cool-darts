@@ -1,5 +1,5 @@
-import React from "react";
-import Orientation from "react-native-orientation";
+import React from 'react';
+import Orientation from 'react-native-orientation';
 
 export default class Portrait extends React.Component {
   componentDidMount() {

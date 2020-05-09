@@ -1,67 +1,72 @@
-import deepFreeze from "deep-freeze";
-import burma from "../reducer";
+import deepFreeze from 'deep-freeze';
+import burma from '../reducer';
 import {
   demarrerBurma,
   voleeSurChiffre,
   voleeSurDouble,
-  voleeSurTriple
-} from "../actions";
-import { POINTS_INITIAUX } from "../arbitrage/Score";
-import { BULL } from "../arbitrage/chiffre";
+  voleeSurTriple,
+} from '../actions';
+import {POINTS_INITIAUX} from '../arbitrage/Score';
+import {BULL} from '../arbitrage/chiffre';
 
-it("retourne le state initial", () => {
+it('retourne le state initial', () => {
   expect(burma(undefined, {})).toEqual({
     chiffreCourant: undefined,
     lanceur: undefined,
     vainqueur: undefined,
-    scores: {}
+    scores: {},
   });
 });
 
-it("démarre la partie", () => {
-  const burmaEnCoursAvec2joueurs = executer([demarrerBurma(["J1", "J2"])]);
+it('démarre la partie', () => {
+  const burmaEnCoursAvec2joueurs = executer([demarrerBurma(['J1', 'J2'])]);
 
   expect(burmaEnCoursAvec2joueurs).toEqual({
-    chiffreCourant: "15",
-    lanceur: "J1",
+    chiffreCourant: '15',
+    lanceur: 'J1',
     scores: {
-      J1: [{ contrat: "DEPART", points: POINTS_INITIAUX }],
-      J2: [{ contrat: "DEPART", points: POINTS_INITIAUX }]
+      J1: [{contrat: 'DEPART', points: POINTS_INITIAUX}],
+      J2: [{contrat: 'DEPART', points: POINTS_INITIAUX}],
     },
-    vainqueur: undefined
+    vainqueur: undefined,
   });
+
+  const {scores} = burmaEnCoursAvec2joueurs;
+  Object.keys(scores)
+    .map(joueur => ({joueur, score: scores[joueur]}))
+    .map(({joueur, score}) => console.log(joueur, score));
 });
 
-describe("fin de la partie", () => {
+describe('fin de la partie', () => {
   it("ne termine pas la partie tant que les lanceurs n'ont pas joué le contrat du BULL", () => {
     const burmaEnCours = executer([
-      demarrerBurma(["J1"]),
-      voleeSurChiffre("J1", 15, 0),
-      voleeSurChiffre("J1", 16, 0)
+      demarrerBurma(['J1']),
+      voleeSurChiffre('J1', 15, 0),
+      voleeSurChiffre('J1', 16, 0),
     ]);
 
     expect(burmaEnCours.vainqueur).toBe(undefined);
   });
 
-  it("termine la partie après le contrat du BULL du dernier lanceur", () => {
+  it('termine la partie après le contrat du BULL du dernier lanceur', () => {
     const toutesLesVoleesDuBurma = [
-      voleeSurChiffre("J1", 15, 0),
-      voleeSurChiffre("J1", 16, 0),
-      voleeSurDouble("J1", []),
-      voleeSurChiffre("J1", 17, 0),
-      voleeSurChiffre("J1", 18, 0),
-      voleeSurTriple("J1", []),
-      voleeSurChiffre("J1", 19, 0),
-      voleeSurChiffre("J1", 20, 0),
-      voleeSurChiffre("J1", BULL, 0)
+      voleeSurChiffre('J1', 15, 0),
+      voleeSurChiffre('J1', 16, 0),
+      voleeSurDouble('J1', []),
+      voleeSurChiffre('J1', 17, 0),
+      voleeSurChiffre('J1', 18, 0),
+      voleeSurTriple('J1', []),
+      voleeSurChiffre('J1', 19, 0),
+      voleeSurChiffre('J1', 20, 0),
+      voleeSurChiffre('J1', BULL, 0),
     ];
 
     const burmaTermine = executer([
-      demarrerBurma(["J1"]),
-      ...toutesLesVoleesDuBurma
+      demarrerBurma(['J1']),
+      ...toutesLesVoleesDuBurma,
     ]);
 
-    expect(burmaTermine.vainqueur).toBe("J1");
+    expect(burmaTermine.vainqueur).toBe('J1');
   });
 });
 

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Confetti from "react-native-confetti";
+import React, {Component} from 'react';
+import Confetti from 'react-native-confetti';
 
 class Celebration extends Component {
   componentDidMount() {

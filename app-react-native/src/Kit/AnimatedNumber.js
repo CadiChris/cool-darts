@@ -1,58 +1,74 @@
-// https://github.com/xotahal/react-native-motion/blob/master/src/AnimatedNumber.js
-import React from "react";
-import { Animated, Easing } from "react-native";
-import PropTypes from "prop-types";
+import React from 'react';
+import {Animated, InteractionManager} from 'react-native';
+import PropTypes from 'prop-types';
 
+const propTypes = {
+  type: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  value: PropTypes.number,
+  initialValue: PropTypes.number,
+  animateOnDidMount: PropTypes.bool,
+  useNativeDriver: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
+};
+const defaultProps = {
+  type: 'timing',
+  value: 0,
+  initialValue: null,
+  animateOnDidMount: false,
+  useNativeDriver: false,
+};
+/**
+ */
 class AnimatedNumber extends React.PureComponent {
   constructor(props) {
     super(props);
-
-    const animatedValue = new Animated.Value(props.value);
+    const {initialValue} = props;
+    const firstValue = initialValue !== null ? initialValue : props.value;
+    const animatedValue = new Animated.Value(firstValue);
     animatedValue.addListener(this.onValueChanged);
 
     this.state = {
       animatedValue,
-      value: props.value
+      value: firstValue,
     };
   }
-  componentWillReceiveProps(nextProps) {
-    if (this.props.value !== nextProps.value) {
-      this.move(nextProps);
+  componentDidMount() {
+    const {animateOnDidMount} = this.props;
+    if (animateOnDidMount) {
+      InteractionManager.runAfterInteractions().then(() => {
+        this.move(this.props);
+      });
+    }
+  }
+  componentDidUpdate(prevProps) {
+    const {value} = this.props;
+
+    if (prevProps.value !== value) {
+      this.move(this.props);
     }
   }
   onValueChanged = e => {
     this.setState({
-      value: e.value
+      value: e.value,
     });
   };
   move = props => {
-    const { value, type, easing, ...rest } = props;
+    const {value, style, type, ...rest} = props;
+    const {animatedValue} = this.state;
 
-    Animated[type](this.state.animatedValue, {
+    Animated[type](animatedValue, {
       toValue: value,
-      easing,
-      ...rest
+      ...rest,
     }).start();
   };
   render() {
-    const { children } = this.props;
-    const { value } = this.state;
+    const {renderValue} = this.props;
+    const {value} = this.state;
 
-    return children(value);
+    return renderValue(value);
   }
 }
 
-AnimatedNumber.propTypes = {
-  value: PropTypes.number,
-  type: PropTypes.string,
-  children: PropTypes.func.isRequired,
-  easing: PropTypes.func,
-  duration: PropTypes.number
-};
-AnimatedNumber.defaultProps = {
-  type: "timing",
-  easing: Easing.linear,
-  duration: 750
-};
+AnimatedNumber.propTypes = propTypes;
+AnimatedNumber.defaultProps = defaultProps;
 
 export default AnimatedNumber;

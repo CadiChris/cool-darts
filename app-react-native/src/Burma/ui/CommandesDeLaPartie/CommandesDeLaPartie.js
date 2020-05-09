@@ -1,20 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ContratChiffre from "./Contrats/ContratChiffre";
-import ContratDoubleOuTriple from "./Contrats/ContratDoubleOuTriple";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ContratChiffre from './Contrats/ContratChiffre';
+import ContratDoubleOuTriple from './Contrats/ContratDoubleOuTriple';
 
 const CommandesDeLaPartie = ({
   chiffreCourant,
   lanceur,
   onLancerSurChiffre,
   onLancerSurDouble,
-  onLancerSurTriple
+  onLancerSurTriple,
 }) => {
-  const reRenderAuChangement = { key: `${lanceur}-${chiffreCourant}` };
-
+  const reRenderAuChangement = {key: `${lanceur}-${chiffreCourant}`};
   switch (chiffreCourant) {
-    case "DOUBLE":
-    case "TRIPLE":
+    case 'DOUBLE':
+    case 'TRIPLE':
       return (
         <ContratDoubleOuTriple
           {...reRenderAuChangement}
@@ -41,7 +40,7 @@ CommandesDeLaPartie.propTypes = {
   chiffreCourant: PropTypes.string,
   onLancerSurChiffre: PropTypes.func.isRequired,
   onLancerSurDouble: PropTypes.func.isRequired,
-  onLancerSurTriple: PropTypes.func.isRequired
+  onLancerSurTriple: PropTypes.func.isRequired,
 };
 
 export default CommandesDeLaPartie;

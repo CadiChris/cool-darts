@@ -2,11 +2,11 @@ const undoable = (reducer, typesActionQuiVident = []) => {
   const STATE_INITIAL = {
     precedents: [],
     actuel: reducer(undefined, {}),
-    suivants: []
+    suivants: [],
   };
 
   return function(state = STATE_INITIAL, action) {
-    const { precedents, actuel, suivants } = state;
+    const {precedents, actuel, suivants} = state;
 
     switch (action.type) {
       case UNDO:
@@ -16,7 +16,7 @@ const undoable = (reducer, typesActionQuiVident = []) => {
         return {
           precedents: precedents.slice(0, precedents.length - 1),
           actuel: precedents[precedents.length - 1],
-          suivants: [actuel, ...suivants]
+          suivants: [actuel, ...suivants],
         };
 
       case REDO:
@@ -26,7 +26,7 @@ const undoable = (reducer, typesActionQuiVident = []) => {
         return {
           precedents: [...precedents, actuel],
           actuel: suivants[0],
-          suivants: suivants.slice(1)
+          suivants: suivants.slice(1),
         };
 
       default:
@@ -39,16 +39,16 @@ const undoable = (reducer, typesActionQuiVident = []) => {
         return {
           precedents: doitVider ? [] : [...precedents, actuel],
           actuel: remplacant,
-          suivants: []
+          suivants: [],
         };
     }
   };
 };
 
-const UNDO = "UNDO";
-const undo = () => ({ type: UNDO });
-const REDO = "REDO";
-const redo = () => ({ type: REDO });
+const UNDO = 'UNDO';
+const undo = () => ({type: UNDO});
+const REDO = 'REDO';
+const redo = () => ({type: REDO});
 
 export default undoable;
-export { undo, redo };
+export {undo, redo};

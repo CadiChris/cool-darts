@@ -3,14 +3,14 @@ export function scoreVierge(joueur) {
     joueur,
     penalite: 0,
     cible: {
-      15: { touches: 0, ferme: false },
-      16: { touches: 0, ferme: false },
-      17: { touches: 0, ferme: false },
-      18: { touches: 0, ferme: false },
-      19: { touches: 0, ferme: false },
-      20: { touches: 0, ferme: false },
-      25: { touches: 0, ferme: false }
-    }
+      15: {touches: 0, ferme: false},
+      16: {touches: 0, ferme: false},
+      17: {touches: 0, ferme: false},
+      18: {touches: 0, ferme: false},
+      19: {touches: 0, ferme: false},
+      20: {touches: 0, ferme: false},
+      25: {touches: 0, ferme: false},
+    },
   };
 }
 
@@ -26,16 +26,16 @@ export function toucher(chiffre, touches, score) {
       ...score.cible,
       [chiffre]: {
         touches: nouvellesTouches,
-        ferme: nouvellesTouches >= LIMITE
-      }
-    }
+        ferme: nouvellesTouches >= LIMITE,
+      },
+    },
   };
 }
 
 export function penaliser(pointsDePenalite, score) {
   return {
     ...score,
-    penalite: score.penalite + pointsDePenalite
+    penalite: score.penalite + pointsDePenalite,
   };
 }
 

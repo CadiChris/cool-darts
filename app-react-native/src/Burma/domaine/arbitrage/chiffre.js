@@ -1,16 +1,16 @@
-import { elementSuivant } from "../../../utils/tableau";
+import {elementSuivant} from '../../../utils/tableau';
 
-const BULL = "25";
+const BULL = '25';
 const CHIFFRES_DU_BURMA = [
-  "15",
-  "16",
-  "DOUBLE",
-  "17",
-  "18",
-  "TRIPLE",
-  "19",
-  "20",
-  BULL
+  '15',
+  '16',
+  'DOUBLE',
+  '17',
+  '18',
+  'TRIPLE',
+  '19',
+  '20',
+  BULL,
 ];
 
 const premierChiffre = () => CHIFFRES_DU_BURMA[0];
@@ -21,7 +21,7 @@ const leChiffreSuivant = chiffre => ({
     const prochainLanceur = elementSuivant(leLanceur, lesJoueurs);
     const finDuTour = prochainLanceur === lesJoueurs[0];
     return finDuTour ? chiffreQuiSuit(chiffre) : chiffre;
-  }
+  },
 });
 
 const chiffreQuiSuit = chiffreCourant =>
@@ -32,5 +32,5 @@ export {
   dernierChiffre,
   leChiffreSuivant,
   BULL,
-  CHIFFRES_DU_BURMA
+  CHIFFRES_DU_BURMA,
 };

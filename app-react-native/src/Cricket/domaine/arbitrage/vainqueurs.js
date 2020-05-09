@@ -22,12 +22,12 @@ export function vainqueurs(scores) {
 const penaliteMinimum = scores => Math.min(...scores.map(s => s.penalite));
 
 function extraireCeuxQuiOntToutFerme(scores) {
-  const cibleEstFermee = ({ cible }) =>
+  const cibleEstFermee = ({cible}) =>
     Object.keys(cible).every(chiffre => cible[chiffre].ferme);
 
   return scores.filter(cibleEstFermee);
 }
 
 function extraireParPenalite(scores, penaliteCherchee) {
-  return scores.filter(({ penalite }) => penalite === penaliteCherchee);
+  return scores.filter(({penalite}) => penalite === penaliteCherchee);
 }

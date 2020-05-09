@@ -2,7 +2,7 @@ const POINTS_INITIAUX = 40;
 
 class Score {
   static TABLEAU_DE_DEPART() {
-    return [{ contrat: "DEPART", points: POINTS_INITIAUX }];
+    return [{contrat: 'DEPART', points: POINTS_INITIAUX}];
   }
 
   constructor(tableau = Score.TABLEAU_DE_DEPART()) {
@@ -22,8 +22,8 @@ class Score {
         contrat: contrat.nom,
         points: this.derniersPoints() + contrat.valeur,
         delta: contrat.valeur,
-        touches: contrat.touches
-      }
+        touches: contrat.touches,
+      },
     ]);
   }
 
@@ -35,8 +35,8 @@ class Score {
         contrat: contrat.nom,
         points: division,
         delta: division - this.derniersPoints(),
-        touches: contrat.touches
-      }
+        touches: contrat.touches,
+      },
     ]);
   }
 
@@ -54,4 +54,4 @@ class Score {
 }
 
 export default Score;
-export { POINTS_INITIAUX };
+export {POINTS_INITIAUX};

@@ -1,62 +1,62 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import * as Animatable from "react-native-animatable";
-import { View } from "react-native";
-import { scale } from "react-native-size-matters";
-import Celebration from "../../../Kit/Celebration";
-import { Styles } from "../../../styles";
-import Vainqueurs from "./Vainqueurs";
-import { split } from "../../../utils/tableau";
-import { ColonneDesChiffres } from "./ColonneDesChiffres";
-import { LARGEUR_COLONNE_JOUEUR } from "./dimensions";
-import { ColonneJoueur } from "./ColonneJoueur";
-import Visite from "./Visite";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import * as Animatable from 'react-native-animatable';
+import {View} from 'react-native';
+import {scale} from 'react-native-size-matters';
+import Celebration from '../../../Kit/Celebration';
+import {Styles} from '../../../styles';
+import Vainqueurs from './Vainqueurs';
+import {split} from '../../../utils/tableau';
+import {ColonneDesChiffres} from './ColonneDesChiffres';
+import {LARGEUR_COLONNE_JOUEUR} from './dimensions';
+import {ColonneJoueur} from './ColonneJoueur';
+import Visite from './Visite';
 
 class TableauDesScores extends Component {
   state = {
-    lanceur: "",
-    visite: []
+    lanceur: '',
+    visite: [],
   };
 
   visiter(joueur, chiffre) {
-    const { lanceur, visite } = this.state;
+    const {lanceur, visite} = this.state;
 
-    if (!lanceur) this.setState({ lanceur: joueur });
+    if (!lanceur) this.setState({lanceur: joueur});
 
-    this.setState({ visite: [...visite, chiffre] });
+    this.setState({visite: [...visite, chiffre]});
   }
 
   nouvelleVisite() {
     this.setState({
-      lanceur: "",
-      visite: []
+      lanceur: '',
+      visite: [],
     });
   }
 
   validerVisite() {
-    const { visite, lanceur } = this.state;
-    const { onVisite } = this.props;
+    const {visite, lanceur} = this.state;
+    const {onVisite} = this.props;
     onVisite(lanceur, visite);
     this.nouvelleVisite();
   }
 
   render() {
-    const { scores, vainqueurs, actif } = this.props;
-    const { visite, lanceur } = this.state;
+    const {scores, vainqueurs, actif} = this.props;
+    const {visite, lanceur} = this.state;
 
     return (
-      <Animatable.View style={[{ flex: 1 }]} animation="bounceInRight">
+      <Animatable.View style={[{flex: 1}]} animation="bounceInRight">
         {vainqueurs.length > 0 && <Celebration />}
-        <View style={{ flexDirection: "row" }}>
+        <View style={{flexDirection: 'row'}}>
           {split(scores).premier.map(score => (
             <ColonneJoueur
               key={score.joueur}
               score={score}
               style={[
                 {
-                  width: LARGEUR_COLONNE_JOUEUR(scores.length)
+                  width: LARGEUR_COLONNE_JOUEUR(scores.length),
                 },
-                Styles.bordureDroite
+                Styles.bordureDroite,
               ]}
               actif={actif}
               onLancerDansSimple={(joueur, chiffre) =>
@@ -73,9 +73,9 @@ class TableauDesScores extends Component {
               score={score}
               style={[
                 {
-                  width: LARGEUR_COLONNE_JOUEUR(scores.length)
+                  width: LARGEUR_COLONNE_JOUEUR(scores.length),
                 },
-                Styles.bordureGauche
+                Styles.bordureGauche,
               ]}
               actif={actif}
               onLancerDansSimple={(joueur, chiffre) =>
@@ -88,14 +88,13 @@ class TableauDesScores extends Component {
         {vainqueurs.length > 0 ? (
           <Vainqueurs noms={vainqueurs} />
         ) : (
-          lanceur !== "" && (
+          lanceur !== '' && (
             <View
               style={{
                 flex: 1,
-                justifyContent: "center",
-                paddingHorizontal: scale(10)
-              }}
-            >
+                justifyContent: 'center',
+                paddingHorizontal: scale(10),
+              }}>
               <Visite
                 joueur={lanceur}
                 chiffres={visite}
@@ -114,7 +113,7 @@ TableauDesScores.propTypes = {
   scores: PropTypes.array.isRequired,
   onVisite: PropTypes.func.isRequired,
   vainqueurs: PropTypes.array.isRequired,
-  actif: PropTypes.bool.isRequired
+  actif: PropTypes.bool.isRequired,
 };
 
 export default TableauDesScores;

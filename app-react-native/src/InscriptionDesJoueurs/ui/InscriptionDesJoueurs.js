@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { View } from "react-native";
-import Portrait from "../../Kit/Portrait";
-import ViewQuiDecale from "../../Kit/ViewQuiDecale";
-import ListeDesInscrits from "./ListeDesInscrits";
-import DemarrerLaPartie from "./DemarrerLaPartie";
-import FormulaireInscription from "./FormulaireInscription";
-import ChoixDuJeu from "./ChoixDuJeu";
-import Titre from "./Titre";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {View} from 'react-native';
+import Portrait from '../../Kit/Portrait';
+import ViewQuiDecale from '../../Kit/ViewQuiDecale';
+import ListeDesInscrits from './ListeDesInscrits';
+import DemarrerLaPartie from './DemarrerLaPartie';
+import FormulaireInscription from './FormulaireInscription';
+import ChoixDuJeu from './ChoixDuJeu';
+import Titre from './Titre';
 
 function InscriptionDesJoueurs({
   inscrits,
@@ -17,17 +17,16 @@ function InscriptionDesJoueurs({
   jeuxDisponibles,
   jeu,
   onChangementDeJeu,
-  demarrerLaPartieEstPossible
+  demarrerLaPartieEstPossible,
 }) {
   return (
     <Portrait>
       <Titre />
-      <View style={[{ flex: 1, alignItems: "center" }]}>
+      <View style={[{flex: 1, alignItems: 'center'}]}>
         <ViewQuiDecale
           dureeDuDecalage={900}
           coteDeDepart="right"
-          style={[{ flex: 1, width: "80%" }]}
-        >
+          style={[{flex: 1, width: '80%'}]}>
           <FormulaireInscription onSubmit={onInscription} />
 
           <ListeDesInscrits
@@ -61,7 +60,7 @@ InscriptionDesJoueurs.propTypes = {
   jeu: PropTypes.string.isRequired,
   jeuxDisponibles: PropTypes.array.isRequired,
   onChangementDeJeu: PropTypes.func.isRequired,
-  demarrerLaPartieEstPossible: PropTypes.bool.isRequired
+  demarrerLaPartieEstPossible: PropTypes.bool.isRequired,
 };
 
 export default InscriptionDesJoueurs;

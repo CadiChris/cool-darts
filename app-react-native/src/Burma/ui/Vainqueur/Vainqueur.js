@@ -1,19 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { View, Text } from "react-native";
-import { FontSizes, Textes } from "../../../styles";
-import Emoji from "@ardentlabs/react-native-emoji";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Text, View} from 'react-native';
+import {FontSizes, Textes} from '../../../styles';
+import Emoji from '@ardentlabs/react-native-emoji';
 
-const Vainqueur = ({ nom }) => (
+const Vainqueur = ({nom}) => (
   <View>
     <View
       style={{
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        alignItems: "center"
-      }}
-    >
-      <Text style={{ fontSize: FontSizes.enorme, color: "white" }}>
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+      }}>
+      <Text style={{fontSize: FontSizes.enorme, color: 'white'}}>
         <Emoji name="trophy" />
       </Text>
       <Text style={[Textes.titre]}>{nom}</Text>
@@ -22,7 +21,7 @@ const Vainqueur = ({ nom }) => (
 );
 
 Vainqueur.propTypes = {
-  nom: PropTypes.string.isRequired
+  nom: PropTypes.string.isRequired,
 };
 
 export default Vainqueur;

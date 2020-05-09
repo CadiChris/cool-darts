@@ -1,9 +1,9 @@
-import React from "react";
-import { View } from "react-native";
-import * as Animatable from "react-native-animatable";
-import { FontSizes, Textes } from "../../../styles";
+import React from 'react';
+import {View} from 'react-native';
+import * as Animatable from 'react-native-animatable';
+import {FontSizes, Textes} from '../../../styles';
 
-export default ({ symbole, nombre }) => {
+export default ({symbole, nombre}) => {
   let croix = [];
 
   for (let i = 0; i < nombre; i++) {
@@ -17,23 +17,21 @@ export default ({ symbole, nombre }) => {
           Textes.basique,
           {
             fontSize: FontSizes.standard,
-            textAlign: "center",
-            letterSpacing: 3
-          }
-        ]}
-      >
+            textAlign: 'center',
+            letterSpacing: 3,
+          },
+        ]}>
         {symbole}
-      </Animatable.Text>
+      </Animatable.Text>,
     );
   }
 
   return (
     <View
       style={{
-        flexDirection: "row",
-        justifyContent: "center"
-      }}
-    >
+        flexDirection: 'row',
+        justifyContent: 'center',
+      }}>
       {croix}
     </View>
   );

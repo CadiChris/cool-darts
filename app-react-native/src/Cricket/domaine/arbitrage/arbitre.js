@@ -1,4 +1,4 @@
-import { toucher, penaliser, chiffreEstFerme } from "./score";
+import {chiffreEstFerme, penaliser, toucher} from './score';
 
 export function calculerLeNouveauScore(tableauDesScores, lancer) {
   if (toucheUnChiffreInvalide(lancer)) return [...tableauDesScores];

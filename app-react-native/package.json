@@ -1,68 +1,63 @@
 {
-  "name": "app-react-native",
-  "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.8",
-    "@storybook/addon-knobs": "^3.4.8",
-    "@storybook/addon-links": "^3.4.8",
-    "@storybook/react-native": "^3.4.8",
-    "app-icon": "^0.6.1",
-    "gulp": "^3.9.1",
-    "gulp-replace": "^0.6.1",
-    "gulp-sequence": "^0.4.6",
-    "husky": "^0.14.3",
-    "jest-expo": "~1.0.1",
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@storybook/addon-actions": "3.4.8",
+    "@storybook/addon-knobs": "3.4.8",
+    "@storybook/addon-links": "3.4.8",
+    "@storybook/react-native": "3.4.8",
+    "app-icon": "0.6.1",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "gulp": "3.9.1",
+    "gulp-replace": "0.6.1",
+    "gulp-sequence": "0.4.6",
+    "husky": "0.14.3",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.0",
     "prettier": "1.13.5",
-    "pretty-quick": "^1.6.0",
-    "prop-types": "^15.6.2",
-    "react-dom": "16.3.1",
-    "react-test-renderer": "16.3.1",
-    "yargs": "^8.0.2"
+    "pretty-quick": "1.6.0",
+    "react-test-renderer": "16.9.0",
+    "yargs": "8.0.2"
   },
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js",
-    "test:watch": "node node_modules/jest/bin/jest.js --watch",
     "emulator": "~/Library/Android/sdk/tools/emulator -avd",
+    "test": "jest",
+    "lint": "eslint .",
     "release": "gulp release",
     "info-release": "grep \"versionCode \\d\\+\" android/app/build.gradle && grep \"versionName.\\+\" android/app/build.gradle",
     "precommit": "pretty-quick --staged",
-    "pretty": "pretty-quick",
     "storybook": "storybook start -p 7007"
   },
-  "rnpm": {
-    "assets": [
-      "./assets/fonts/"
-    ]
+  "dependencies": {
+    "@ardentlabs/react-native-emoji": "1.2.1",
+    "apsl-react-native-button": "3.1.1",
+    "array-move": "1.0.0",
+    "deep-freeze": "0.0.1",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-animatable": "^1.3.3",
+    "react-native-confetti": "0.0.6",
+    "react-native-keep-awake": "^4.0.0",
+    "react-native-localization": "^2.1.6",
+    "react-native-orientation": "^3.1.3",
+    "react-native-sideswipe": "^1.5.0",
+    "react-native-simple-dialogs": "1.2.1",
+    "react-native-size-matters": "^0.3.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-redux": "^7.2.0",
+    "react-router-native": "^5.1.2",
+    "redux": "^4.0.5"
   },
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
       "node_modules/(?!react-native|apsl-react-native-button)/"
     ]
-  },
-  "dependencies": {
-    "@ardentlabs/react-native-emoji": "^1.2.1",
-    "apsl-react-native-button": "^3.1.1",
-    "array-move": "^1.0.0",
-    "babel-preset-react-native": "^2.0.0",
-    "deep-freeze": "^0.0.1",
-    "react": "16.3.1",
-    "react-native": "^0.55.0",
-    "react-native-animatable": "^1.2.3",
-    "react-native-confetti": "^0.0.6",
-    "react-native-keep-awake": "^2.0.5",
-    "react-native-localization": "^1.0.12",
-    "react-native-orientation": "^3.0.0",
-    "react-native-sideswipe": "^1.4.2",
-    "react-native-simple-dialogs": "^0.3.1",
-    "react-native-size-matters": "^0.1.3",
-    "react-native-vector-icons": "^4.6.0",
-    "react-redux": "^5.0.5",
-    "react-router-native": "^4.3.0",
-    "redux": "^3.7.2"
   }
 }

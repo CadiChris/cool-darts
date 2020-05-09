@@ -1,24 +1,24 @@
-export const INSCRIRE_JOUEUR = "INSCRIRE_JOUEUR";
+export const INSCRIRE_JOUEUR = 'INSCRIRE_JOUEUR';
 export const inscrireJoueur = nomDuJoueur => ({
   type: INSCRIRE_JOUEUR,
-  nomDuJoueur
+  nomDuJoueur,
 });
 
-export const DESINSCRIRE_JOUEUR = "DESINSCRIRE_JOUEUR";
+export const DESINSCRIRE_JOUEUR = 'DESINSCRIRE_JOUEUR';
 export const desinscrireJoueur = nomDuJouer => ({
   type: DESINSCRIRE_JOUEUR,
-  nomDuJouer
+  nomDuJouer,
 });
 
-export const CHOISIR_JEU = "CHOISIR_JEU";
+export const CHOISIR_JEU = 'CHOISIR_JEU';
 export const choisirJeu = jeuChoisi => ({
   type: CHOISIR_JEU,
-  jeuChoisi
+  jeuChoisi,
 });
 
-export const REORDONNER_JOUEUR = "REORDONNER_JOUEUR";
+export const REORDONNER_JOUEUR = 'REORDONNER_JOUEUR';
 export const reordonnerJoueur = (position, mouvement) => ({
   type: REORDONNER_JOUEUR,
   position,
-  mouvement
+  mouvement,
 });

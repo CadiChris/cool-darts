@@ -1,15 +1,15 @@
-import CommandesDeLaPartie from "./CommandesDeLaPartie";
-import { connect } from "react-redux";
-import React from "react";
+import CommandesDeLaPartie from './CommandesDeLaPartie';
+import {connect} from 'react-redux';
+import React from 'react';
 import {
   voleeSurChiffre,
   voleeSurDouble,
-  voleeSurTriple
-} from "../../domaine/actions";
+  voleeSurTriple,
+} from '../../domaine/actions';
 
 const mapStateToProps = state => ({
   lanceur: state.burma.actuel.lanceur,
-  chiffreCourant: state.burma.actuel.chiffreCourant
+  chiffreCourant: state.burma.actuel.chiffreCourant,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -18,10 +18,10 @@ const mapDispatchToProps = dispatch => ({
   onLancerSurDouble: (lanceur, chiffresTouches) =>
     dispatch(voleeSurDouble(lanceur, chiffresTouches)),
   onLancerSurTriple: (lanceur, chiffresTouches) =>
-    dispatch(voleeSurTriple(lanceur, chiffresTouches))
+    dispatch(voleeSurTriple(lanceur, chiffresTouches)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CommandesDeLaPartie);

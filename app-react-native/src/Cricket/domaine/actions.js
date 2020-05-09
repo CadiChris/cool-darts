@@ -1,12 +1,12 @@
-export const DEMARRER_CRICKET = "CRICKET/DEMARRER";
+export const DEMARRER_CRICKET = 'CRICKET/DEMARRER';
 export const demarrerCricket = joueurs => ({
   type: DEMARRER_CRICKET,
-  joueurs
+  joueurs,
 });
 
-export const VISITER = "CRICKET/VISITER";
+export const VISITER = 'CRICKET/VISITER';
 export const visiter = (joueur, chiffresTouches) => ({
   type: VISITER,
   joueur,
-  chiffresTouches
+  chiffresTouches,
 });

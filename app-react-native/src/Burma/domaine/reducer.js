@@ -1,17 +1,17 @@
-import { DEMARRER_BURMA, VOLEE } from "./actions";
-import { elementSuivant } from "../../utils/tableau";
+import {DEMARRER_BURMA, VOLEE} from './actions';
+import {elementSuivant} from '../../utils/tableau';
 import {
-  leChiffreSuivant,
   dernierChiffre,
-  premierChiffre
-} from "./arbitrage/chiffre";
-import Score from "./arbitrage/Score";
+  leChiffreSuivant,
+  premierChiffre,
+} from './arbitrage/chiffre';
+import Score from './arbitrage/Score';
 
 const STATE_INITIAL = {
   scores: {},
   lanceur: undefined,
   chiffreCourant: undefined,
-  vainqueur: undefined
+  vainqueur: undefined,
 };
 
 const burma = (state = STATE_INITIAL, action) => {
@@ -23,32 +23,32 @@ const burma = (state = STATE_INITIAL, action) => {
         scores: action.joueurs.reduce(
           (scores, joueur) => ({
             ...scores,
-            [joueur]: new Score().tableau()
+            [joueur]: new Score().tableau(),
           }),
-          {}
+          {},
         ),
-        chiffreCourant: premierChiffre()
+        chiffreCourant: premierChiffre(),
       };
 
     case VOLEE:
       const {
-        payload: { lanceur, contrat }
+        payload: {lanceur, contrat},
       } = action;
 
       const laPartieSeTermine = estLaDerniereVolee(
         lesJoueurs(state),
         lanceur,
-        state.chiffreCourant
+        state.chiffreCourant,
       );
 
       const chiffreSuivant = leChiffreSuivant(state.chiffreCourant).avec(
         lesJoueurs(state),
-        lanceur
+        lanceur,
       );
 
       const nextScores = {
         ...state.scores,
-        [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau()
+        [lanceur]: new Score(state.scores[lanceur]).noter(contrat).tableau(),
       };
 
       return {
@@ -58,7 +58,7 @@ const burma = (state = STATE_INITIAL, action) => {
           : elementSuivant(lanceur, lesJoueurs(state)),
         chiffreCourant: chiffreSuivant,
         scores: nextScores,
-        vainqueur: laPartieSeTermine ? meilleurScore(nextScores) : undefined
+        vainqueur: laPartieSeTermine ? meilleurScore(nextScores) : undefined,
       };
 
     default:
