@@ -7,7 +7,6 @@ import {demarrerBurma} from '../domaine/actions';
 import TableauDesScores from './TableauDesScores/TableauDesScores.container';
 import CommandesDeLaPartie from './CommandesDeLaPartie/CommandesDeLaPartie.container';
 import Vainqueur from './Vainqueur/Vainqueur';
-import Portrait from '../../Kit/Portrait';
 import Celebration from '../../Kit/Celebration';
 
 class Burma extends Component {
@@ -20,22 +19,16 @@ class Burma extends Component {
     const {vainqueur} = this.props;
 
     return (
-      <Portrait>
-        <View style={{flex: 1}}>
-          {vainqueur && <Celebration />}
-          <TableauDesScores />
+      <View style={{flex: 1}}>
+        {vainqueur && <Celebration />}
+        <TableauDesScores />
 
-          <View style={{flexGrow: 1, justifyContent: 'center'}}>
-            {!vainqueur ? (
-              <CommandesDeLaPartie />
-            ) : (
-              <Vainqueur nom={vainqueur} />
-            )}
-          </View>
-
-          <KeepAwake />
+        <View style={{flexGrow: 1, justifyContent: 'center'}}>
+          {!vainqueur ? <CommandesDeLaPartie /> : <Vainqueur nom={vainqueur} />}
         </View>
-      </Portrait>
+
+        <KeepAwake />
+      </View>
     );
   }
 }

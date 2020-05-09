@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import KeepAwake from 'react-native-keep-awake';
 import TableauDesScores from './TableauDesScores/TableauDesScores.container';
 import {demarrerCricket} from '../domaine/actions';
-import Portrait from '../../Kit/Portrait';
 
 class Cricket extends Component {
   componentDidMount() {
@@ -15,12 +14,10 @@ class Cricket extends Component {
 
   render() {
     return (
-      <Portrait>
-        <View style={{flex: 1}}>
-          <TableauDesScores />
-          <KeepAwake />
-        </View>
-      </Portrait>
+      <View style={{flex: 1}}>
+        <TableauDesScores />
+        <KeepAwake />
+      </View>
     );
   }
 }

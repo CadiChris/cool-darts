@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import Portrait from '../../Kit/Portrait';
 import ViewQuiDecale from '../../Kit/ViewQuiDecale';
 import ListeDesInscrits from './ListeDesInscrits';
 import DemarrerLaPartie from './DemarrerLaPartie';
@@ -20,7 +19,7 @@ function InscriptionDesJoueurs({
   demarrerLaPartieEstPossible,
 }) {
   return (
-    <Portrait>
+    <>
       <Titre />
       <View style={[{flex: 1, alignItems: 'center'}]}>
         <ViewQuiDecale
@@ -48,7 +47,7 @@ function InscriptionDesJoueurs({
           />
         </ViewQuiDecale>
       </View>
-    </Portrait>
+    </>
   );
 }
 
