@@ -7,7 +7,7 @@
     "@storybook/addon-actions": "3.4.8",
     "@storybook/addon-knobs": "3.4.8",
     "@storybook/addon-links": "3.4.8",
-    "@storybook/react-native": "3.4.8",
+    "@storybook/react-native": "^5.3.18",
     "@testing-library/jest-native": "^3.1.0",
     "@testing-library/react-native": "^5.0.3",
     "app-icon": "0.6.1",
@@ -33,8 +33,7 @@
     "lint": "eslint .",
     "release": "gulp release",
     "info-release": "grep \"versionCode \\d\\+\" android/app/build.gradle && grep \"versionName.\\+\" android/app/build.gradle",
-    "precommit": "pretty-quick --staged",
-    "storybook": "storybook start -p 7007"
+    "precommit": "pretty-quick --staged"
   },
   "dependencies": {
     "@ardentlabs/react-native-emoji": "1.2.1",
