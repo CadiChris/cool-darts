@@ -8,6 +8,8 @@
     "@storybook/addon-knobs": "3.4.8",
     "@storybook/addon-links": "3.4.8",
     "@storybook/react-native": "3.4.8",
+    "@testing-library/jest-native": "^3.1.0",
+    "@testing-library/react-native": "^5.0.3",
     "app-icon": "0.6.1",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
@@ -54,9 +56,14 @@
     "redux": "^4.0.5"
   },
   "jest": {
-    "preset": "react-native",
+    "preset": "@testing-library/react-native",
     "transformIgnorePatterns": [
       "node_modules/(?!react-native|apsl-react-native-button)/"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/react-native/cleanup-after-each",
+      "@testing-library/jest-native/extend-expect",
+      "./src/utils/test-utils/jest.mocks.js"
     ]
   }
 }

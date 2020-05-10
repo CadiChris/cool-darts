@@ -21,12 +21,8 @@ const AucuneTouche = props => (
 );
 
 const textes = new LocalizedStrings({
-  en: {
-    aucun: 'None',
-  },
-  fr: {
-    aucun: 'Aucun',
-  },
+  en: {aucun: 'None'},
+  fr: {aucun: 'Aucun'},
 });
 
 AucuneTouche.propTypes = {onPress: PropTypes.func};
