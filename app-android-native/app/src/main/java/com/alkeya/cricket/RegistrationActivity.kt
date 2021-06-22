@@ -45,7 +45,6 @@ class RegistrationActivity : AppCompatActivity() {
 
 // TODO
 // [ ] Binder le nom de l'inscrit sur le viewmodel ?
-// [ ] "Player..." devrait être le placeholder, pas le texte par défaut
 // [ ] Vider le nom du joueur après l'inscription
 // [ ] Interdire 2 joueurs avec le même nom
 // [ ] Styliser le titre de l'app

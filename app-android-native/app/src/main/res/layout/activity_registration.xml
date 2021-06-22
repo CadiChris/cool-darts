@@ -41,7 +41,8 @@
             android:layout_marginStart="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/player_name_placeholder"
+            android:hint="@string/player_name_placeholder"
+            android:importantForAutofill="no"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
