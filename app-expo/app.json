@@ -3,6 +3,7 @@
     "name": "cool-darts",
     "slug": "cool-darts",
     "version": "1.0.0",
+    "backgroundColor": "#231212",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
