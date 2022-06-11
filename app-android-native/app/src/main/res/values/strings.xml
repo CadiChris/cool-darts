@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Cool Darts</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="title_activity_registration">Register Players</string>
-    <string name="add_player">Add</string>
-    <string name="player_name_placeholder">Player…</string>
-</resources>
