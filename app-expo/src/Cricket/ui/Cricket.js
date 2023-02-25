@@ -12,7 +12,13 @@ export function Cricket() {
 
       <TableauDesScores />
 
-      <CommandesPartie />
+      <CommandesPartie
+        joueur="Olive"
+        touches={[
+          { chiffre: 19, fois: 1 },
+          { chiffre: 17, fois: 2 },
+        ]}
+      />
     </View>
   );
 }
