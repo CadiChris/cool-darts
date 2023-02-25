@@ -4,7 +4,6 @@ import { moderateScale, scale } from "react-native-size-matters";
 
 // Palette de couleurs : https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/
 export const Couleurs = {
-  bordure: "white",
   fond: "#0C1E31",
   vertUn: "#2ECFAB",
   vertDeux: "#155B4C",
@@ -12,11 +11,8 @@ export const Couleurs = {
   sombreDeux: "#809AB8",
   sombreTrois: "#36495F",
   sombreQuatre: "#0B1828",
+  sombreCinq: "#193759",
   blanc: "#fff",
-  un: "#6C5B7B",
-  deux: "#C06C84",
-  trois: "#F67280",
-  quatre: "#F8B195",
 };
 
 const fonts = {

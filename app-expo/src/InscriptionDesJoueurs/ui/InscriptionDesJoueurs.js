@@ -7,7 +7,7 @@ import { Couleurs } from "../../styles";
 import { ChoixDuJeu } from "./ChoixDuJeu";
 import { Demarrer } from "./Demarrer";
 
-export const InscriptionDesJoueurs = () => (
+export const InscriptionDesJoueurs = ({ navigation }) => (
   <View style={$.principal}>
     <View style={$.haut}>
       <Titre />
@@ -18,7 +18,7 @@ export const InscriptionDesJoueurs = () => (
       <SousTitre chiffre="2." texte={i18n.t("inscrire")} />
       <FormulaireInscription />
     </View>
-    <Demarrer style={$.demarrer} />
+    <Demarrer style={$.demarrer} navigation={navigation} />
   </View>
 );
 
