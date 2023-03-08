@@ -12,6 +12,7 @@ export const Couleurs = {
   sombreTrois: "#36495F",
   sombreQuatre: "#0B1828",
   sombreCinq: "#193759",
+  sombreSix: "#A6B1C9",
   blanc: "#fff",
 };
 

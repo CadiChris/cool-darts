@@ -1,8 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/Check.svg.js";
+import { DoigtQuiTouche } from "../../../assets/DoigtQuiTouche.svg.js";
 
 export function CommandesPartie({ joueur, touches, onSubmit }) {
+  if (!joueur) return <Instructions />;
+
   const [a, b, c] = touches;
   return (
     <View style={$.principal}>
@@ -20,6 +24,20 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
         </View>
       </View>
       <View style={$.undoRedo}></View>
+    </View>
+  );
+}
+
+function Instructions() {
+  return (
+    <View style={[$.principal, $.instructions.boite]}>
+      <DoigtQuiTouche width={60} height={60} transform={{ marginBottom: 20 }} />
+      <Text style={$.instructions.texte}>
+        {i18n.t("cricket.instructions1")}
+      </Text>
+      <Text style={$.instructions.texte}>
+        {i18n.t("cricket.instructions2")}
+      </Text>
     </View>
   );
 }
@@ -55,6 +73,10 @@ const $ = StyleSheet.create({
     backgroundColor: Couleurs.sombreQuatre,
     flex: 1,
     justifyContent: "space-around",
+  },
+  instructions: {
+    boite: { justifyContent: "center", alignItems: "center" },
+    texte: { color: Couleurs.sombreSix, textAlign: "center", lineHeight: 24 },
   },
   joueur: {
     boite: { height: 40, justifyContent: "center" },
