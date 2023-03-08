@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/Check.svg.js";
 
-export function CommandesPartie({ joueur, touches }) {
+export function CommandesPartie({ joueur, touches, onSubmit }) {
   const [a, b, c] = touches;
   return (
     <View style={$.principal}>
@@ -16,7 +16,7 @@ export function CommandesPartie({ joueur, touches }) {
             <UnChiffre touche={b} />
             <UnChiffre touche={c} avecBordure={false} />
           </View>
-          <Valider />
+          <Valider onTap={onSubmit} />
         </View>
       </View>
       <View style={$.undoRedo}></View>
@@ -40,9 +40,9 @@ function UnChiffre({ touche, avecBordure = true }) {
   );
 }
 
-function Valider() {
+function Valider({ onTap }) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onTap}>
       <View style={$.resume.check}>
         <Check width={18} height={16} />
       </View>

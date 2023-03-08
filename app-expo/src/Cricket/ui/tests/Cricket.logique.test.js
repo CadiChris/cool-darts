@@ -1,6 +1,6 @@
-import { integreTouche } from "../Cricket";
+const { aplatis, integreTouche } = require("../Cricket.logique");
 
-describe("<TableauDesScores />", () => {
+describe("La logique du Cricket UI />", () => {
   describe("l'intégration des touches", () => {
     it("crée une touche « 1 fois » lorsque c'est la première fois sur le chiffre", () => {
       const avant = [];
@@ -24,6 +24,21 @@ describe("<TableauDesScores />", () => {
       const apres = integreTouche(20, avant);
 
       expect(apres).toEqual([{ chiffre: 20, fois: 3 }]);
+    });
+  });
+
+  describe("l'aplatissement des touches", () => {
+    it("aplatit un seul chiffre", () => {
+      expect(aplatis([{ chiffre: 20, fois: 3 }])).toEqual([20, 20, 20]);
+    });
+
+    it("aplatit deux chiffres", () => {
+      expect(
+        aplatis([
+          { chiffre: 20, fois: 3 },
+          { chiffre: 18, fois: 2 },
+        ])
+      ).toEqual([20, 20, 20, 18, 18]);
     });
   });
 });
