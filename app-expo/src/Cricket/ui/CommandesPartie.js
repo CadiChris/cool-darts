@@ -11,36 +11,39 @@ export function CommandesPartie({ joueur, touches }) {
       <View style={$.resume.ligne}>
         <View style={$.resume.boite}>
           <View style={$.resume.chiffres}>
-            <View
-              style={[$.resume.unChiffre.boite, $.resume.unChiffre.bordure]}
-            >
-              <Text style={$.resume.unChiffre.valeur}>{a && a.chiffre}</Text>
-              <Text style={$.resume.unChiffre.multiplicateur}>
-                {a && `x${a.fois}`}
-              </Text>
-            </View>
-            <View
-              style={[$.resume.unChiffre.boite, $.resume.unChiffre.bordure]}
-            >
-              <Text style={$.resume.unChiffre.valeur}>{b && b.chiffre}</Text>
-              <Text style={$.resume.unChiffre.multiplicateur}>
-                {b && `x${b.fois}`}
-              </Text>
-            </View>
-            <View style={$.resume.unChiffre.boite}>
-              <Text style={$.resume.unChiffre.valeur}>{c && c.chiffre}</Text>
-              <Text style={$.resume.unChiffre.multiplicateur}>
-                {c && `x${c.fois}`}
-              </Text>
-            </View>
+            <UnChiffre touche={a} />
+            <UnChiffre touche={b} />
+            <UnChiffre touche={c} avecBordure={false} />
           </View>
-          <TouchableOpacity>
-            <View style={$.resume.check}></View>
-          </TouchableOpacity>
+          <Valider />
         </View>
       </View>
       <View style={$.undoRedo}></View>
     </View>
+  );
+}
+
+function UnChiffre({ touche, avecBordure = true }) {
+  return (
+    <View
+      style={[
+        $.resume.unChiffre.boite,
+        avecBordure ? $.resume.unChiffre.bordure : null,
+      ]}
+    >
+      <Text style={$.resume.unChiffre.valeur}>{touche && touche.chiffre}</Text>
+      <Text style={$.resume.unChiffre.multiplicateur}>
+        {touche && `x${touche.fois}`}
+      </Text>
+    </View>
+  );
+}
+
+function Valider() {
+  return (
+    <TouchableOpacity>
+      <View style={$.resume.check}></View>
+    </TouchableOpacity>
   );
 }
 
