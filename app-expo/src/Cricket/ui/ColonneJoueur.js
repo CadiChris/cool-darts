@@ -29,7 +29,7 @@ export function ColonneJoueur({ joueur, onTap }) {
 const Chiffre = ({ nbTouches, onTap }) => {
   const ouvert = nbTouches < 3;
   return (
-    <TouchableOpacity onPress={onTap}>
+    <TouchableOpacity onPressIn={onTap}>
       {ouvert ? (
         <View style={[$.case, $.chiffre]}>
           {Array.from({ length: nbTouches }, (_, i) => (

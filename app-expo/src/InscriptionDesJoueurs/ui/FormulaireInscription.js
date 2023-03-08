@@ -37,14 +37,14 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
       <Text style={$.inscrit.texte}>{nom}</Text>
       <View style={$.inscrit.commandes}>
         {!estPremier && (
-          <TouchableOpacity onPress={remonter}>
+          <TouchableOpacity onPressIn={remonter}>
             <View style={[$.inscrit.actions.fleche]}>
               <FlecheHaut width={12} height={14} />
             </View>
           </TouchableOpacity>
         )}
         {!estDernier && (
-          <TouchableOpacity onPress={baisser}>
+          <TouchableOpacity onPressIn={baisser}>
             <View style={[$.inscrit.actions.fleche]}>
               <FlecheBas
                 width={12}

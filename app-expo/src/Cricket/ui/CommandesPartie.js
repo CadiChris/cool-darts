@@ -64,7 +64,7 @@ function UnChiffre({ touche, avecBordure = true }) {
 
 function Valider({ onTap }) {
   return (
-    <TouchableOpacity onPress={onTap}>
+    <TouchableOpacity onPressIn={onTap}>
       <View style={$.resume.check}>
         <Check width={18} height={16} />
       </View>
