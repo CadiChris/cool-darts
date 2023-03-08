@@ -25,6 +25,21 @@ describe("La logique du Cricket UI />", () => {
 
       expect(apres).toEqual([{ chiffre: 20, fois: 3 }]);
     });
+
+    it("remplace le premier chiffre par celui touché quand on donne un quatrième chiffre", () => {
+      const avant = [
+        { chiffre: 20, fois: 1 },
+        { chiffre: 19, fois: 1 },
+        { chiffre: 18, fois: 1 },
+      ];
+      const apres = integreTouche(15, avant);
+
+      expect(apres).toEqual([
+        { chiffre: 19, fois: 1 },
+        { chiffre: 18, fois: 1 },
+        { chiffre: 15, fois: 1 },
+      ]);
+    });
   });
 
   describe("l'aplatissement des touches", () => {

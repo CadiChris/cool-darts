@@ -10,7 +10,7 @@ export const aplatis = (touches) =>
 export const integreTouche = (chiffre, touches) => {
   const chiffreExistant = touches.find((t) => t.chiffre === chiffre);
 
-  if (!chiffreExistant) return [...touches, { chiffre, fois: 1 }];
+  if (!chiffreExistant) return [...touches, { chiffre, fois: 1 }].slice(-3);
 
   return touches.map((t) =>
     t.chiffre !== chiffre ? t : { chiffre: t.chiffre, fois: t.fois + 1 }
