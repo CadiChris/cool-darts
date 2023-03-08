@@ -43,6 +43,8 @@ function Instructions() {
 }
 
 function UnChiffre({ touche, avecBordure = true }) {
+  const label = (chiffre) => (chiffre === 25 ? "Bull" : chiffre);
+
   return (
     <View
       style={[
@@ -50,7 +52,9 @@ function UnChiffre({ touche, avecBordure = true }) {
         avecBordure ? $.resume.unChiffre.bordure : null,
       ]}
     >
-      <Text style={$.resume.unChiffre.valeur}>{touche && touche.chiffre}</Text>
+      <Text style={$.resume.unChiffre.valeur}>
+        {touche && label(touche.chiffre)}
+      </Text>
       <Text style={$.resume.unChiffre.multiplicateur}>
         {touche && `x${touche.fois}`}
       </Text>
