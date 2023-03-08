@@ -19,8 +19,8 @@ export function ColonneJoueur({ joueur, onTap }) {
   );
 }
 
-const Chiffre = () => (
-  <TouchableOpacity>
+const Chiffre = ({ onTap }) => (
+  <TouchableOpacity onPress={onTap}>
     <Text style={$.chiffre}></Text>
   </TouchableOpacity>
 );

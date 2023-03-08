@@ -4,17 +4,17 @@ import { joueursEnGroupe } from "../domaine/reducer";
 import { ColonneJoueur } from "./ColonneJoueur";
 import { ColonneChiffres } from "./ColonneChiffres";
 
-export function TableauDesScores() {
+export function TableauDesScores({ onTap }) {
   const [groupe1, groupe2] = useCricketFn(joueursEnGroupe);
 
   return (
     <View style={$.principal}>
       {groupe1.map((j) => (
-        <ColonneJoueur key={j} joueur={j} />
+        <ColonneJoueur key={j} joueur={j} onTap={onTap} />
       ))}
       <ColonneChiffres />
       {groupe2.map((j) => (
-        <ColonneJoueur key={j} joueur={j} />
+        <ColonneJoueur key={j} joueur={j} onTap={onTap} />
       ))}
     </View>
   );

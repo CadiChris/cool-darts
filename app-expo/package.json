@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "prepare": "cd .. && husky install app-expo/.husky"
+    "prepare": "cd .. && husky install app-expo/.husky",
+    "test": "jest src/"
   },
   "dependencies": {
     "@expo-google-fonts/lato": "^0.2.2",
