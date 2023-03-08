@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Couleurs } from "../../styles";
+import { Check } from "../../../assets/Check.svg.js";
 
 export function CommandesPartie({ joueur, touches }) {
   const [a, b, c] = touches;
@@ -42,7 +43,9 @@ function UnChiffre({ touche, avecBordure = true }) {
 function Valider() {
   return (
     <TouchableOpacity>
-      <View style={$.resume.check}></View>
+      <View style={$.resume.check}>
+        <Check width={18} height={16} />
+      </View>
     </TouchableOpacity>
   );
 }
@@ -88,6 +91,8 @@ const $ = StyleSheet.create({
       multiplicateur: { color: Couleurs.blanc, fontSize: 16 },
     },
     check: {
+      justifyContent: "center",
+      alignItems: "center",
       width: 50,
       height: 40,
       backgroundColor: Couleurs.vertUn,
