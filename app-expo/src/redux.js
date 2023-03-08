@@ -16,5 +16,5 @@ export const getStore = () =>
 export const useInscription = (selecteur) =>
   useSelector((state) => state.inscriptionDesJoueurs[selecteur]);
 
-export const useCricketFn = (fn) =>
-  useSelector((state) => fn(state.cricket.actuel));
+export const useCricketFn = (fn, ...params) =>
+  useSelector((state) => fn(state.cricket.actuel, ...params));

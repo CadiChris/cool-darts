@@ -48,3 +48,7 @@ export function joueursEnGroupe(state) {
   const joueurs = state.scores.map((s) => s.joueur);
   return [joueurs.splice(0, milieu), joueurs.splice(-milieu)];
 }
+
+export function scoreDuJoueur(state, joueur) {
+  return state.scores.find((s) => s.joueur === joueur);
+}
