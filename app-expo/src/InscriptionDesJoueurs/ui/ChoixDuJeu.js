@@ -20,7 +20,6 @@ export function ChoixDuJeu({ style }) {
         </Text>
         <Text style={[$.texte.grand, getStyleTexte("cricket")]}>Cricket</Text>
       </TouchableOpacity>
-      <View style={$.separation} />
       <TouchableOpacity
         style={[$.boite, getStyleBoite("burma")]}
         onPress={() => dispatch(choisirJeu("burma"))}
@@ -44,12 +43,12 @@ const $ = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 10,
+    columnGap: 10,
   },
   boite: {
-    width: 40,
     borderRadius: 6,
     flex: 1,
-    height: 86,
+    paddingVertical: 10,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -59,10 +58,9 @@ const $ = StyleSheet.create({
   jeuInactif: {
     backgroundColor: Couleurs.sombreUn,
   },
-  separation: { width: 10 },
   texte: {
-    petit: { fontSize: 14 },
-    grand: { fontSize: 26 },
+    petit: { fontSize: 12 },
+    grand: { fontSize: 22 },
     jeuActif: { color: Couleurs.vertDeux, fontWeight: "bold" },
     jeuInactif: { color: Couleurs.sombreDeux, fontWeight: "bold" },
   },
