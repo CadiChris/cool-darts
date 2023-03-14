@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Couleurs } from "../../styles";
@@ -23,10 +23,6 @@ export function Cricket() {
 
   return (
     <View style={$.principal}>
-      <View style={$.titre.boite}>
-        <Text style={$.titre.texte}>Cricket</Text>
-      </View>
-
       <TableauDesScores onTap={onTap} />
 
       <CommandesPartie joueur={joueur} touches={touches} onSubmit={onSubmit} />
@@ -38,18 +34,6 @@ const $ = StyleSheet.create({
   principal: {
     flex: 1,
     backgroundColor: Couleurs.fond,
-  },
-  titre: {
-    boite: {
-      marginVertical: 30,
-      height: 30,
-      flexDirection: "row",
-      justifyContent: "center",
-    },
-    texte: {
-      color: Couleurs.blanc,
-      textAlign: "center",
-      fontSize: 25,
-    },
+    paddingTop: 20,
   },
 });
