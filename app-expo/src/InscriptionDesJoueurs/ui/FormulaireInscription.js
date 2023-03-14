@@ -37,26 +37,29 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
       <Text style={$.inscrit.texte}>{nom}</Text>
       <View style={$.inscrit.commandes}>
         {!estPremier && (
-          <TouchableOpacity onPressIn={remonter}>
-            <View style={[$.inscrit.actions.fleche]}>
-              <FlecheHaut width={12} height={14} />
-            </View>
+          <TouchableOpacity
+            onPressIn={remonter}
+            style={[$.inscrit.actions.uneAction, $.inscrit.actions.fleche]}
+          >
+            <FlecheHaut width={12} height={14} />
           </TouchableOpacity>
         )}
         {!estDernier && (
-          <TouchableOpacity onPressIn={baisser}>
-            <View style={[$.inscrit.actions.fleche]}>
-              <FlecheBas
-                width={12}
-                height={14}
-                transform={[{ translateY: 2 }]}
-              />
+          <TouchableOpacity
+            onPressIn={baisser}
+            style={[$.inscrit.actions.uneAction, $.inscrit.actions.fleche]}
+          >
+            <View>
+              <FlecheBas width={12} height={14} />
             </View>
           </TouchableOpacity>
         )}
-        <TouchableOpacity onPress={desinscrire}>
-          <View style={[$.inscrit.actions.croix]}>
-            <Croix width={12} height={12} transform={[{ translateY: 1 }]} />
+        <TouchableOpacity
+          onPress={desinscrire}
+          style={[$.inscrit.actions.uneAction, $.inscrit.actions.croix]}
+        >
+          <View>
+            <Croix width={12} height={12} />
           </View>
         </TouchableOpacity>
       </View>
@@ -67,7 +70,6 @@ const $ = StyleSheet.create({
   principal: { marginTop: 10 },
   inscrit: {
     boite: {
-      height: 40,
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
@@ -81,19 +83,20 @@ const $ = StyleSheet.create({
     commandes: {
       flexDirection: "row",
       alignItems: "center",
+      justifyContent: "center",
     },
     actions: {
-      fleche: {
+      uneAction: {
+        alignItems: "center",
         justifyContent: "center",
-        height: 20,
-        paddingHorizontal: 10,
+        width: 30,
+        height: 24,
+      },
+      fleche: {
         borderRightWidth: 1,
         borderRightColor: Couleurs.sombreTrois,
       },
-      croix: {
-        paddingLeft: 10,
-        paddingRight: 2,
-      },
+      croix: { width: "auto", paddingLeft: 9 },
     },
   },
 });
