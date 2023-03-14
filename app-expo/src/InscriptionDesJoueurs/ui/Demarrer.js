@@ -37,7 +37,7 @@ export function Demarrer({ navigation }) {
 
 const $ = StyleSheet.create({
   principal: {
-    height: 110,
+    paddingVertical: 20,
     backgroundColor: Couleurs.sombreQuatre,
     alignItems: "center",
     justifyContent: "center",
