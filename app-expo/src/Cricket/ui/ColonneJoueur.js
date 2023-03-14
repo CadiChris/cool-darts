@@ -4,6 +4,7 @@ import { useCricketFn } from "../../redux";
 import { scoreDuJoueur } from "../domaine/reducer";
 import { X } from "../../../assets/X.svg.js";
 import { Ferme } from "../../../assets/Ferme.svg.js";
+import { HauteurLigneDeTableau } from "./style";
 
 export function ColonneJoueur({ joueur, onTap }) {
   const score = useCricketFn(scoreDuJoueur, joueur);
@@ -57,14 +58,14 @@ const $ = StyleSheet.create({
     backgroundColor: Couleurs.sombreUn,
     alignItems: "center",
     justifyContent: "center",
-    height: 50,
+    height: HauteurLigneDeTableau,
     borderTopLeftRadius: 6,
     borderTopRightRadius: 6,
     marginBottom: 2,
   },
   pseudo: { color: Couleurs.blanc },
   case: {
-    height: 50,
+    height: HauteurLigneDeTableau,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
@@ -76,10 +77,10 @@ const $ = StyleSheet.create({
   },
   ferme: {
     backgroundColor: Couleurs.vertUn,
-    height: 50,
+    height: HauteurLigneDeTableau,
   },
   score: {
-    height: 50,
+    height: HauteurLigneDeTableau,
     backgroundColor: Couleurs.sombreCinq,
     textAlign: "center",
     textAlignVertical: "center",

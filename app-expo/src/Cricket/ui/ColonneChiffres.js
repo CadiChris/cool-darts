@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet } from "react-native";
 import { Couleurs } from "../../styles";
+import { HauteurLigneDeTableau } from "./style";
 
 export function ColonneChiffres() {
   return (
@@ -20,13 +21,13 @@ const $ = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     flex: 1,
-    marginTop: 51,
+    marginTop: HauteurLigneDeTableau + 1,
     backgroundColor: Couleurs.sombreQuatre,
     borderRadius: 6,
-    height: 7 * 50 + 7 * 2,
+    height: 7 * HauteurLigneDeTableau + 7 * 2,
   },
   chiffre: {
-    height: 50,
+    height: HauteurLigneDeTableau,
     textAlignVertical: "center",
     color: Couleurs.blanc,
     fontSize: 18,
