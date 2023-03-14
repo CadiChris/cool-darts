@@ -7,6 +7,7 @@ import { FlecheBas } from "../../../assets/FlecheBas.svg.js";
 import { FlecheHaut } from "../../../assets/FlecheHaut.svg.js";
 import { Croix } from "../../../assets/Croix.svg.js";
 import { desinscrireJoueur, reordonnerJoueur } from "../domaine/actions";
+import { Pastille } from "../../Kit/Pastille";
 
 export const FormulaireInscription = () => {
   const inscrits = useInscription("inscrits");
@@ -33,8 +34,11 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
   const desinscrire = () => dispatch(desinscrireJoueur(nom));
 
   return (
-    <View style={$.inscrit.boite}>
-      <Text style={$.inscrit.texte}>{nom}</Text>
+    <View style={$.inscrit.ligne}>
+      <View style={$.inscrit.pseudo}>
+        <Pastille lettre={nom.charAt(0)} index={position} />
+        <Text style={$.inscrit.texte}>{nom}</Text>
+      </View>
       <View style={$.inscrit.commandes}>
         {!estPremier && (
           <TouchableOpacity
@@ -69,7 +73,7 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
 const $ = StyleSheet.create({
   principal: { marginTop: 10 },
   inscrit: {
-    boite: {
+    ligne: {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
@@ -79,6 +83,7 @@ const $ = StyleSheet.create({
       paddingVertical: 8,
       paddingHorizontal: 10,
     },
+    pseudo: { flexDirection: "row", alignItems: "center", columnGap: 10 },
     texte: { fontSize: 18, color: Couleurs.blanc, fontWeight: "bold" },
     commandes: {
       flexDirection: "row",
