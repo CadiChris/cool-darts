@@ -40,7 +40,7 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
   return (
     <View style={$.inscrit.ligne}>
       <View style={$.inscrit.pseudo}>
-        <Pastille lettre={nom.charAt(0)} couleur={couleur} index={position} />
+        <Pastille lettre={nom.charAt(0)} couleur={couleur} />
         <Text style={$.inscrit.texte}>{nom}</Text>
       </View>
       <View style={$.inscrit.commandes}>

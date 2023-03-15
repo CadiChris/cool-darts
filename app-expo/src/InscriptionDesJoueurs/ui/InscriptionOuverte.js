@@ -31,7 +31,6 @@ export function InscriptionOuverte() {
       <View style={$.inscrit.pseudo}>
         <Pastille
           lettre={pseudo?.charAt(0)}
-          index={0}
           couleur={useInscriptionFn(couleurDispo)}
           style={{ transform: clavierVisible ? [{ translateY: -10 }] : [] }}
         />
