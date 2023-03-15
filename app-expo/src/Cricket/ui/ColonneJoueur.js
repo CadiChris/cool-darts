@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Couleurs } from "../../styles";
 import { useCricketFn, useInscriptionFn } from "../../redux";
@@ -27,7 +28,7 @@ export function ColonneJoueur({ joueur, onTap }) {
       <Chiffre nbTouches={t(16)} onTap={() => onTap(joueur, 16)} />
       <Chiffre nbTouches={t(15)} onTap={() => onTap(joueur, 15)} />
       <Chiffre nbTouches={t(25)} onTap={() => onTap(joueur, 25)} />
-      <Score>{score.penalite}</Score>
+      <Score penalite={score.penalite}>{score.penalite}</Score>
     </View>
   );
 }
@@ -51,7 +52,26 @@ const Chiffre = ({ nbTouches, onTap }) => {
   );
 };
 
-const Score = ({ children }) => <Text style={$.score}>{children}</Text>;
+const Score = ({ penalite }) => {
+  const [valeur, setValeur] = useState(penalite);
+
+  useEffect(() => {
+    const interval = setInterval(
+      () =>
+        setValeur((valeur) => {
+          if (valeur === penalite) {
+            clearInterval(interval);
+            return valeur;
+          } else return valeur + 1;
+        }),
+      10
+    );
+
+    return () => clearInterval(interval);
+  }, [penalite]);
+
+  return <Text style={$.score}>{valeur}</Text>;
+};
 
 const $ = StyleSheet.create({
   principal: {
