@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Keyboard, StyleSheet, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TextInput, View } from "react-native";
 import { useDispatch } from "react-redux";
 import i18n from "i18n-js";
 import { Inscrit } from "./style";
@@ -10,21 +10,7 @@ import { useInscriptionFn } from "../../redux";
 
 export function InscriptionOuverte() {
   const [pseudo, setPseudo] = useState("");
-  const [clavierVisible, setClavierVisible] = useState(false);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const listenTo = (eventType, booleenClavier) =>
-      Keyboard.addListener(eventType, () => setClavierVisible(booleenClavier));
-
-    const ecouteClavierVisible = listenTo("keyboardDidShow", true);
-    const ecouteClavierInvisible = listenTo("keyboardDidHide", false);
-
-    return () => {
-      ecouteClavierVisible.remove();
-      ecouteClavierInvisible.remove();
-    };
-  }, []);
 
   return (
     <View style={[$.inscrit.ligne]}>
@@ -32,7 +18,6 @@ export function InscriptionOuverte() {
         <Pastille
           lettre={pseudo?.charAt(0)}
           couleur={useInscriptionFn(couleurDispo)}
-          style={{ transform: clavierVisible ? [{ translateY: -10 }] : [] }}
         />
         <TextInput
           placeholder={i18n.t("inscription.placeholder")}
@@ -42,11 +27,7 @@ export function InscriptionOuverte() {
             dispatch(inscrireJoueur(pseudo));
             setPseudo("");
           }}
-          style={[
-            $.inscrit.texte,
-            $.nouvelInscrit,
-            { paddingBottom: clavierVisible * 20 },
-          ]}
+          style={[$.inscrit.texte, $.nouvelInscrit]}
         >
           {pseudo}
         </TextInput>
