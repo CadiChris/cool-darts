@@ -5,6 +5,8 @@ import i18n from "i18n-js";
 import { Inscrit } from "./style";
 import { Pastille } from "../../Kit/Pastille";
 import { inscrireJoueur } from "../domaine/actions";
+import { couleurDispo } from "../domaine/reducer";
+import { useInscriptionFn } from "../../redux";
 
 export function InscriptionOuverte() {
   const [pseudo, setPseudo] = useState("");
@@ -30,6 +32,7 @@ export function InscriptionOuverte() {
         <Pastille
           lettre={pseudo?.charAt(0)}
           index={0}
+          couleur={useInscriptionFn(couleurDispo)}
           style={{ transform: clavierVisible ? [{ translateY: -10 }] : [] }}
         />
         <TextInput

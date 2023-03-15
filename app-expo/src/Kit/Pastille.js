@@ -1,12 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export function Pastille({ lettre, index, style }) {
+export function Pastille({ lettre, index, couleur, style }) {
   const backgroundColor = (i) => ({
-    backgroundColor: $.couleurs[i % $.couleurs.length].backgroundColor,
+    backgroundColor:
+      couleur?.backgroundColor ??
+      $.couleurs[i % $.couleurs.length].backgroundColor,
   });
+
   const fontColor = (i) => ({
-    color: $.couleurs[i % $.couleurs.length].color,
+    color: couleur?.color ?? $.couleurs[i % $.couleurs.length].color,
   });
 
   return (

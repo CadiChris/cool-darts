@@ -13,8 +13,11 @@ export const getStore = () =>
     })
   );
 
+export const useCricketFn = (fn, ...params) =>
+  useSelector((state) => fn(state.cricket.actuel, ...params));
+
 export const useInscription = (selecteur) =>
   useSelector((state) => state.inscriptionDesJoueurs[selecteur]);
 
-export const useCricketFn = (fn, ...params) =>
-  useSelector((state) => fn(state.cricket.actuel, ...params));
+export const useInscriptionFn = (fn, ...params) =>
+  useSelector((state) => fn(state.inscriptionDesJoueurs, ...params));

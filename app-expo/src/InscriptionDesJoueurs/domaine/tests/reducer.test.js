@@ -1,5 +1,8 @@
 import deepFreeze from "deep-freeze";
-import inscriptionDesJoueurs from "../reducer";
+import inscriptionDesJoueurs, {
+  couleurDuJoueur,
+  CouleursJoueurs,
+} from "../reducer";
 import {
   choisirJeu,
   desinscrireJoueur,
@@ -11,6 +14,7 @@ describe("reducer Inscription des joueurs", () => {
   it("retourne le state initial", () => {
     expect(inscriptionDesJoueurs(undefined, {})).toEqual({
       inscrits: [],
+      couleurs: [],
       jeuxDisponibles: ["burma", "cricket"],
       jeuChoisi: "burma",
       laPartiePeutDemarrer: false,
@@ -21,6 +25,42 @@ describe("reducer Inscription des joueurs", () => {
     const deuxInscrits = executer([inscrireJoueur("A"), inscrireJoueur("B")]);
 
     expect(deuxInscrits.inscrits).toEqual(["A", "B"]);
+  });
+
+  describe("pour la gestion des couleurs des joueurs", () => {
+    it("attribue la première couleur au premier joueur", () => {
+      const unInscrit = executer([inscrireJoueur("A")]);
+
+      expect(couleurDuJoueur(unInscrit, "A")).toBe(CouleursJoueurs[0]);
+    });
+
+    it("attribue la seconde couleur au second joueur", () => {
+      const deuxInscrits = executer([inscrireJoueur("A"), inscrireJoueur("B")]);
+
+      expect(couleurDuJoueur(deuxInscrits, "A")).toBe(CouleursJoueurs[0]);
+      expect(couleurDuJoueur(deuxInscrits, "B")).toBe(CouleursJoueurs[1]);
+    });
+
+    it("ne change pas la couleur d'un joueur dont on inscrit deux fois le nom", () => {
+      const unInscritDeuxFois = executer([
+        inscrireJoueur("A"),
+        inscrireJoueur("A"),
+      ]);
+
+      expect(couleurDuJoueur(unInscritDeuxFois, "A")).toBe(CouleursJoueurs[0]);
+    });
+
+    it("réutilise la couleur d'un joueur désinscrit", () => {
+      const quiRecycle = executer([
+        inscrireJoueur("A"),
+        inscrireJoueur("B"),
+        desinscrireJoueur("A"),
+        inscrireJoueur("C"),
+      ]);
+
+      expect(couleurDuJoueur(quiRecycle, "B")).toBe(CouleursJoueurs[1]);
+      expect(couleurDuJoueur(quiRecycle, "C")).toBe(CouleursJoueurs[0]);
+    });
   });
 
   it("désinscrit des joueurs", () => {
