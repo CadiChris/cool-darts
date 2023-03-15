@@ -10,7 +10,7 @@ const STATE_INITIAL = {
   inscrits: [],
   couleurs: [],
   jeuxDisponibles: ["burma", "cricket"],
-  jeuChoisi: "burma",
+  jeuChoisi: "cricket",
   laPartiePeutDemarrer: false,
 };
 

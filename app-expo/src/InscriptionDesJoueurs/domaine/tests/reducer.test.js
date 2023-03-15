@@ -16,7 +16,7 @@ describe("reducer Inscription des joueurs", () => {
       inscrits: [],
       couleurs: [],
       jeuxDisponibles: ["burma", "cricket"],
-      jeuChoisi: "burma",
+      jeuChoisi: "cricket",
       laPartiePeutDemarrer: false,
     });
   });
