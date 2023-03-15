@@ -28,6 +28,7 @@ export function InscriptionOuverte() {
             setPseudo("");
           }}
           style={[$.inscrit.texte, $.nouvelInscrit]}
+          blurOnSubmit={false}
         >
           {pseudo}
         </TextInput>
