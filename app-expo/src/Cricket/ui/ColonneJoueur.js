@@ -1,10 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Couleurs } from "../../styles";
-import { useCricketFn } from "../../redux";
+import { useCricketFn, useInscriptionFn } from "../../redux";
 import { scoreDuJoueur } from "../domaine/reducer";
 import { X } from "../../../assets/X.svg.js";
 import { Ferme } from "../../../assets/Ferme.svg.js";
 import { HauteurLigneDeTableau } from "./style";
+import { Pastille } from "../../Kit/Pastille";
+import { couleurDuJoueur } from "../../InscriptionDesJoueurs/domaine/reducer";
 
 export function ColonneJoueur({ joueur, onTap }) {
   const score = useCricketFn(scoreDuJoueur, joueur);
@@ -13,7 +15,10 @@ export function ColonneJoueur({ joueur, onTap }) {
   return (
     <View style={$.principal}>
       <View style={$.vignette}>
-        <Text style={$.pseudo}>{joueur.charAt(0)}</Text>
+        <Pastille
+          lettre={joueur.charAt(0)}
+          couleur={useInscriptionFn(couleurDuJoueur, joueur)}
+        />
       </View>
       <Chiffre nbTouches={t(20)} onTap={() => onTap(joueur, 20)} />
       <Chiffre nbTouches={t(19)} onTap={() => onTap(joueur, 19)} />
@@ -63,7 +68,6 @@ const $ = StyleSheet.create({
     borderTopRightRadius: 6,
     marginBottom: 2,
   },
-  pseudo: { color: Couleurs.blanc },
   case: {
     height: HauteurLigneDeTableau,
     flexDirection: "row",
