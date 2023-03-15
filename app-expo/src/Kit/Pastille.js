@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export function Pastille({ lettre, index }) {
+export function Pastille({ lettre, index, style }) {
   const backgroundColor = (i) => ({
     backgroundColor: $.couleurs[i % $.couleurs.length].backgroundColor,
   });
@@ -10,7 +10,7 @@ export function Pastille({ lettre, index }) {
   });
 
   return (
-    <View style={[$.principal, backgroundColor(index)]}>
+    <View style={[$.principal, backgroundColor(index), style]}>
       <Text style={[$.texte, fontColor(index)]}>{lettre}</Text>
     </View>
   );

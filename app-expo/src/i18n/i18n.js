@@ -14,6 +14,9 @@ i18n.translations = {
       instructions2: "to mark a player's dart",
     },
     inscrire: "Add the players",
+    inscription: {
+      placeholder: "Player's name",
+    },
     jouer: "Start",
     joueur: "Player...",
   },
@@ -24,6 +27,9 @@ i18n.translations = {
       instructions2: "pour indiquer une touche du joueur",
     },
     inscrire: "Ajoutez les joueurs",
+    inscription: {
+      placeholder: "Nom du joueur",
+    },
     jouer: "Jouer",
     joueur: "Joueur...",
   },

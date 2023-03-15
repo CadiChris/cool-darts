@@ -2,12 +2,13 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { useInscription } from "../../redux";
-import { Couleurs } from "../../styles";
 import { FlecheBas } from "../../../assets/FlecheBas.svg.js";
 import { FlecheHaut } from "../../../assets/FlecheHaut.svg.js";
 import { Croix } from "../../../assets/Croix.svg.js";
 import { desinscrireJoueur, reordonnerJoueur } from "../domaine/actions";
 import { Pastille } from "../../Kit/Pastille";
+import { InscriptionOuverte } from "./InscriptionOuverte";
+import { Inscrit } from "./style";
 
 export const FormulaireInscription = () => {
   const inscrits = useInscription("inscrits");
@@ -23,6 +24,7 @@ export const FormulaireInscription = () => {
           estDernier={i === inscrits.length - 1}
         />
       ))}
+      <InscriptionOuverte />
     </View>
   );
 };
@@ -70,38 +72,8 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
     </View>
   );
 }
+
 const $ = StyleSheet.create({
   principal: { marginTop: 10 },
-  inscrit: {
-    ligne: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      backgroundColor: Couleurs.sombreUn,
-      marginVertical: 3,
-      borderRadius: 6,
-      paddingVertical: 8,
-      paddingHorizontal: 10,
-    },
-    pseudo: { flexDirection: "row", alignItems: "center", columnGap: 10 },
-    texte: { fontSize: 18, color: Couleurs.blanc, fontWeight: "bold" },
-    commandes: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    actions: {
-      uneAction: {
-        alignItems: "center",
-        justifyContent: "center",
-        width: 30,
-        height: 24,
-      },
-      fleche: {
-        borderRightWidth: 1,
-        borderRightColor: Couleurs.sombreTrois,
-      },
-      croix: { width: "auto", paddingLeft: 9 },
-    },
-  },
+  inscrit: Inscrit,
 });
