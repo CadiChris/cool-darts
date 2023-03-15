@@ -6,19 +6,26 @@ import Titre from "./Titre";
 import { Couleurs } from "../../styles";
 import { ChoixDuJeu } from "./ChoixDuJeu";
 import { Demarrer } from "./Demarrer";
+import { ViewQuiDecale } from "../../Kit/ViewQuiDecale";
 
 export const InscriptionDesJoueurs = ({ navigation }) => (
   <View style={$.principal}>
     <View style={$.haut}>
       <Titre />
 
-      <SousTitre chiffre="1." texte={i18n.t("choixJeu")} />
-      <ChoixDuJeu style={$.choixDuJeu} />
+      <ViewQuiDecale depuisGauche>
+        <SousTitre chiffre="1." texte={i18n.t("choixJeu")} />
+        <ChoixDuJeu style={$.choixDuJeu} />
+      </ViewQuiDecale>
 
-      <SousTitre chiffre="2." texte={i18n.t("inscrire")} />
-      <FormulaireInscription />
+      <ViewQuiDecale depuisDroite>
+        <SousTitre chiffre="2." texte={i18n.t("inscrire")} />
+        <FormulaireInscription />
+      </ViewQuiDecale>
     </View>
-    <Demarrer style={$.demarrer} navigation={navigation} />
+    <ViewQuiDecale depuisBas>
+      <Demarrer style={$.demarrer} navigation={navigation} />
+    </ViewQuiDecale>
   </View>
 );
 

@@ -1,42 +1,40 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Animated } from "react-native";
+import React, { useEffect } from "react";
+import { useWindowDimensions } from "react-native";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
 
-class ViewQuiDecale extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      animations: {
-        decalage: new Animated.Value(1000),
+export const ViewQuiDecale = ({
+  depuisGauche,
+  depuisDroite,
+  depuisHaut,
+  depuisBas,
+  style,
+  children,
+}) => {
+  const { width, height } = useWindowDimensions();
+  const decalageHorizontal = useSharedValue(depuisDroite ? width : -width);
+  const decalageVertical = useSharedValue(depuisBas ? height : -height);
+
+  useEffect(() => {
+    (depuisGauche || depuisDroite) && (decalageHorizontal.value = 0);
+    (depuisHaut || depuisBas) && (decalageVertical.value = 0);
+  }, []);
+
+  const $$decalage = useAnimatedStyle(() => {
+    const transform = [
+      (depuisGauche || depuisDroite) && {
+        translateX: withSpring(decalageHorizontal.value),
       },
-    };
-  }
+      (depuisHaut || depuisBas) && {
+        translateY: withSpring(decalageVertical.value),
+      },
+    ].filter((t) => !!t);
 
-  componentDidMount() {
-    const { dureeDuDecalage } = this.props;
-    Animated.timing(this.state.animations.decalage, {
-      toValue: 0,
-      duration: dureeDuDecalage,
-      useNativeDriver: false,
-    }).start();
-  }
+    return { transform };
+  });
 
-  render() {
-    const { decalage } = this.state.animations;
-    const { coteDeDepart, style = [], children } = this.props;
-
-    return (
-      <Animated.View style={[...style, { [coteDeDepart]: decalage }]}>
-        {children}
-      </Animated.View>
-    );
-  }
-}
-
-ViewQuiDecale.propTypes = {
-  dureeDuDecalage: PropTypes.number.isRequired,
-  coteDeDepart: PropTypes.oneOf(["right", "left"]).isRequired,
-  style: PropTypes.array,
+  return <Animated.View style={[style, $$decalage]}>{children}</Animated.View>;
 };
-
-export default ViewQuiDecale;
