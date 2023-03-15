@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Keyboard, StyleSheet, TextInput, View } from "react-native";
+import { useDispatch } from "react-redux";
 import i18n from "i18n-js";
 import { Inscrit } from "./style";
 import { Pastille } from "../../Kit/Pastille";
+import { inscrireJoueur } from "../domaine/actions";
 
 export function InscriptionOuverte() {
   const [pseudo, setPseudo] = useState("");
   const [clavierVisible, setClavierVisible] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const listenTo = (eventType, booleenClavier) =>
@@ -33,6 +36,10 @@ export function InscriptionOuverte() {
           placeholder={i18n.t("inscription.placeholder")}
           placeholderTextColor="#A6B1C9"
           onChangeText={(t) => setPseudo(t)}
+          onSubmitEditing={() => {
+            dispatch(inscrireJoueur(pseudo));
+            setPseudo("");
+          }}
           style={[
             $.inscrit.texte,
             $.nouvelInscrit,
