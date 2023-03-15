@@ -12,6 +12,7 @@ import { Inscrit } from "./style";
 import { couleurDuJoueur } from "../domaine/reducer";
 
 export const FormulaireInscription = () => {
+  const NB_JOUEURS_MAX = 6;
   const inscrits = useInscription("inscrits");
 
   return (
@@ -25,7 +26,7 @@ export const FormulaireInscription = () => {
           estDernier={i === inscrits.length - 1}
         />
       ))}
-      <InscriptionOuverte />
+      {inscrits.length < NB_JOUEURS_MAX && <InscriptionOuverte />}
     </View>
   );
 };
