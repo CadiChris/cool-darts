@@ -9,6 +9,9 @@ import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/Check.svg.js";
 import { DoigtQuiTouche } from "../../../assets/DoigtQuiTouche.svg.js";
 import { PastilleJoueur } from "../../Kit/Pastille";
+import { Corbeille } from "../../../assets/Corbeille.svg.js";
+import { Undo } from "../../../assets/Undo.svg.js";
+import { Redo } from "../../../assets/Redo.svg.js";
 
 export function CommandesPartie({ joueur, touches, onSubmit }) {
   return (
@@ -46,7 +49,19 @@ function CommandesVisite({ joueur, touches, onTap }) {
 }
 
 function UndoRedo() {
-  return <View style={$.undoRedo}></View>;
+  return (
+    <View style={$.undoRedo.boite}>
+      <View style={[$.undoRedo.bouton, $.undoRedo.gros]}>
+        <Undo width={20} height={20} />
+      </View>
+      <View style={[$.undoRedo.bouton, $.undoRedo.petit]}>
+        <Corbeille width={14} height={16} />
+      </View>
+      <View style={[$.undoRedo.bouton, $.undoRedo.gros]}>
+        <Redo width={20} height={20} />
+      </View>
+    </View>
+  );
 }
 
 function Instructions() {
@@ -169,5 +184,24 @@ const $ = StyleSheet.create({
       borderRadius: 6,
     },
   },
-  undoRedo: { height: 54 },
+  undoRedo: {
+    boite: {
+      marginVertical: 10,
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      columnGap: 10,
+    },
+    bouton: {
+      elevation: 3,
+      width: 34,
+      height: 34,
+      borderRadius: 17,
+      backgroundColor: Couleurs.sombreCinq,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    petit: { width: 34, height: 34, borderRadius: 17 },
+    gros: { width: 44, height: 44, borderRadius: 22 },
+  },
 });
