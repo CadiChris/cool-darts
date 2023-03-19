@@ -9,9 +9,7 @@ import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/Check.svg.js";
 import { DoigtQuiTouche } from "../../../assets/DoigtQuiTouche.svg.js";
-import { Pastille } from "../../Kit/Pastille";
-import { useInscriptionFn } from "../../redux";
-import { couleurDuJoueur } from "../../InscriptionDesJoueurs/domaine/reducer";
+import { PastilleJoueur } from "../../Kit/Pastille";
 
 export function CommandesPartie({ joueur, touches, onSubmit }) {
   if (!joueur) return <Instructions />;
@@ -35,10 +33,7 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
           </View>
         </View>
         <View style={$.joueur.boite}>
-          <Pastille
-            lettre={joueur.charAt(0)}
-            couleur={useInscriptionFn(couleurDuJoueur, joueur)}
-          />
+          <PastilleJoueur joueur={joueur} />
           <Text style={$.joueur.texte}>{joueur}</Text>
         </View>
         <View style={$.undoRedo}></View>

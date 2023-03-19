@@ -6,13 +6,12 @@ import Animated, {
   PinwheelIn,
 } from "react-native-reanimated";
 import { Couleurs } from "../../styles";
-import { useCricketFn, useInscriptionFn } from "../../redux";
+import { useCricketFn } from "../../redux";
 import { scoreDuJoueur } from "../domaine/reducer";
 import { X } from "../../../assets/X.svg.js";
 import { Ferme } from "../../../assets/Ferme.svg.js";
 import { HauteurLigneDeTableau } from "./style";
-import { Pastille } from "../../Kit/Pastille";
-import { couleurDuJoueur } from "../../InscriptionDesJoueurs/domaine/reducer";
+import { PastilleJoueur } from "../../Kit/Pastille";
 
 export function ColonneJoueur({ joueur, onTap }) {
   const score = useCricketFn(scoreDuJoueur, joueur);
@@ -21,10 +20,7 @@ export function ColonneJoueur({ joueur, onTap }) {
   return (
     <View style={$.principal}>
       <View style={$.vignette}>
-        <Pastille
-          lettre={joueur.charAt(0)}
-          couleur={useInscriptionFn(couleurDuJoueur, joueur)}
-        />
+        <PastilleJoueur joueur={joueur} />
       </View>
       <Chiffre nbTouches={t(20)} onTap={() => onTap(joueur, 20)} />
       <Chiffre nbTouches={t(19)} onTap={() => onTap(joueur, 19)} />

@@ -1,5 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { useInscriptionFn } from "../redux";
+import { couleurDuJoueur } from "../InscriptionDesJoueurs/domaine/reducer";
+
+export const PastilleJoueur = ({ joueur }) => {
+  if (!joueur) return <></>;
+
+  return (
+    <Pastille
+      lettre={joueur.charAt(0)}
+      couleur={useInscriptionFn(couleurDuJoueur, joueur)}
+    />
+  );
+};
 
 export function Pastille({ lettre, couleur, style }) {
   const backgroundColor = () => ({ backgroundColor: couleur.backgroundColor });
