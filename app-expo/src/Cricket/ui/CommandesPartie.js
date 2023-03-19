@@ -1,8 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, {
   FadeInDown,
+  FadeInLeft,
+  FadeInRight,
   FadeInUp,
   FadeOutDown,
+  FadeOutLeft,
   FadeOutUp,
 } from "react-native-reanimated";
 import i18n from "i18n-js";
@@ -76,12 +79,27 @@ function UnChiffre({ touche, avecBordure = true }) {
         avecBordure ? $.resume.unChiffre.bordure : null,
       ]}
     >
-      <Text style={$.resume.unChiffre.valeur}>
-        {touche && label(touche.chiffre)}
-      </Text>
-      <Text style={$.resume.unChiffre.multiplicateur}>
-        {touche && `x${touche.fois}`}
-      </Text>
+      {!touche ? (
+        <></>
+      ) : (
+        <>
+          <Animated.Text
+            key={touche.chiffre}
+            style={$.resume.unChiffre.valeur}
+            entering={FadeInLeft}
+          >
+            {label(touche.chiffre)}
+          </Animated.Text>
+          <Animated.Text
+            key={touche.fois}
+            entering={FadeInRight}
+            exiting={FadeOutLeft.duration(70)}
+            style={$.resume.unChiffre.multiplicateur}
+          >
+            {`x${touche.fois}`}
+          </Animated.Text>
+        </>
+      )}
     </View>
   );
 }
