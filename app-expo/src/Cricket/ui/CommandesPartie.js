@@ -9,6 +9,9 @@ import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/Check.svg.js";
 import { DoigtQuiTouche } from "../../../assets/DoigtQuiTouche.svg.js";
+import { Pastille } from "../../Kit/Pastille";
+import { useInscriptionFn } from "../../redux";
+import { couleurDuJoueur } from "../../InscriptionDesJoueurs/domaine/reducer";
 
 export function CommandesPartie({ joueur, touches, onSubmit }) {
   if (!joueur) return <Instructions />;
@@ -32,6 +35,10 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
           </View>
         </View>
         <View style={$.joueur.boite}>
+          <Pastille
+            lettre={joueur.charAt(0)}
+            couleur={useInscriptionFn(couleurDuJoueur, joueur)}
+          />
           <Text style={$.joueur.texte}>{joueur}</Text>
         </View>
         <View style={$.undoRedo}></View>
@@ -112,8 +119,14 @@ const $ = StyleSheet.create({
     texte: { color: Couleurs.sombreSix, textAlign: "center", lineHeight: 24 },
   },
   joueur: {
-    boite: { height: 40, justifyContent: "center" },
-    texte: { color: Couleurs.blanc, fontSize: 19, textAlign: "center" },
+    boite: {
+      height: 40,
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      columnGap: 10,
+    },
+    texte: { color: Couleurs.blanc, fontSize: 24, textAlign: "center" },
   },
   resume: {
     ligne: { alignSelf: "center" },
