@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
+import Animated from "react-native-reanimated";
 import { useDispatch } from "react-redux";
 import i18n from "i18n-js";
-import { Inscrit } from "./style";
+import { $$spring, Inscrit } from "./style";
 import { Pastille } from "../../Kit/Pastille";
 import { inscrireJoueur } from "../domaine/actions";
 import { couleurDispo } from "../domaine/reducer";
@@ -13,7 +14,7 @@ export function InscriptionOuverte() {
   const dispatch = useDispatch();
 
   return (
-    <View style={[$.inscrit.ligne]}>
+    <Animated.View style={[$.inscrit.ligne]} layout={$$spring}>
       <View style={$.inscrit.pseudo}>
         <Pastille
           lettre={pseudo?.charAt(0)}
@@ -28,12 +29,11 @@ export function InscriptionOuverte() {
             setPseudo("");
           }}
           style={[$.inscrit.texte, $.nouvelInscrit]}
-          blurOnSubmit={false}
         >
           {pseudo}
         </TextInput>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 

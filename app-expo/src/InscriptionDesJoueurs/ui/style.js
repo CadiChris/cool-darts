@@ -1,4 +1,5 @@
 import { Couleurs } from "../../styles";
+import { Layout } from "react-native-reanimated";
 
 export const Inscrit = {
   ligne: {
@@ -32,3 +33,5 @@ export const Inscrit = {
     croix: { width: "auto", paddingLeft: 9 },
   },
 };
+
+export const $$spring = Layout.springify().damping(30).mass(1).stiffness(470);

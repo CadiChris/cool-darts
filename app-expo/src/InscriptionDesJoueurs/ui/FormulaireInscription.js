@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch } from "react-redux";
+import Animated, { FadeInDown, SlideOutRight } from "react-native-reanimated";
 import { useInscription, useInscriptionFn } from "../../redux";
 import { FlecheBas } from "../../../assets/FlecheBas.svg.js";
 import { FlecheHaut } from "../../../assets/FlecheHaut.svg.js";
@@ -8,7 +9,7 @@ import { Croix } from "../../../assets/Croix.svg.js";
 import { desinscrireJoueur, reordonnerJoueur } from "../domaine/actions";
 import { Pastille } from "../../Kit/Pastille";
 import { InscriptionOuverte } from "./InscriptionOuverte";
-import { Inscrit } from "./style";
+import { $$spring, Inscrit } from "./style";
 import { couleurDuJoueur } from "../domaine/reducer";
 
 export const FormulaireInscription = () => {
@@ -39,7 +40,12 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
   const desinscrire = () => dispatch(desinscrireJoueur(nom));
 
   return (
-    <View style={$.inscrit.ligne}>
+    <Animated.View
+      style={$.inscrit.ligne}
+      entering={FadeInDown}
+      exiting={SlideOutRight}
+      layout={$$spring}
+    >
       <View style={$.inscrit.pseudo}>
         <Pastille lettre={nom.charAt(0)} couleur={couleur} />
         <Text style={$.inscrit.texte}>{nom}</Text>
@@ -72,7 +78,7 @@ function UnInscrit({ nom, position, estPremier, estDernier }) {
           </View>
         </TouchableOpacity>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 
