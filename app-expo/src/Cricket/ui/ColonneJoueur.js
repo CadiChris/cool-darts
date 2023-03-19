@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Animated, {
+  BounceIn,
+  CurvedTransition,
+  PinwheelIn,
+} from "react-native-reanimated";
 import { Couleurs } from "../../styles";
 import { useCricketFn, useInscriptionFn } from "../../redux";
 import { scoreDuJoueur } from "../domaine/reducer";
@@ -40,13 +45,19 @@ const Chiffre = ({ nbTouches, onTap }) => {
       {ouvert ? (
         <View style={[$.case, $.chiffre]}>
           {Array.from({ length: nbTouches }, (_, i) => (
-            <X key={i} width={15} height={15} />
+            <Animated.View
+              key={i}
+              entering={BounceIn.duration(260)}
+              layout={CurvedTransition.duration(100)}
+            >
+              <X width={15} height={15} />
+            </Animated.View>
           ))}
         </View>
       ) : (
-        <View style={[$.case, $.ferme]}>
+        <Animated.View style={[$.case, $.ferme]} entering={PinwheelIn}>
           <Ferme width={24} height={24} />
-        </View>
+        </Animated.View>
       )}
     </TouchableOpacity>
   );
