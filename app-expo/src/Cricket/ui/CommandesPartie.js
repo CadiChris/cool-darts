@@ -3,6 +3,7 @@ import Animated, {
   FadeInLeft,
   FadeInRight,
   FadeOut,
+  FadeOutRight,
 } from "react-native-reanimated";
 import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
@@ -95,7 +96,7 @@ function UnChiffre({ touche, avecBordure = true }) {
           <Animated.Text
             key={touche.fois}
             entering={FadeInLeft.duration(140)}
-            exiting={FadeOut}
+            exiting={FadeOutRight.duration(140)}
             style={$.resume.unChiffre.multiplicateur}
           >
             {`${touche.fois}x`}
@@ -103,7 +104,7 @@ function UnChiffre({ touche, avecBordure = true }) {
           <Animated.Text
             key={touche.chiffre}
             style={$.resume.unChiffre.valeur}
-            entering={FadeInRight.duration(100)}
+            entering={FadeInRight.duration(140)}
           >
             {label(touche.chiffre)}
           </Animated.Text>
