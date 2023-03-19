@@ -1,4 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Animated, {
+  FadeInDown,
+  FadeInUp,
+  FadeOutDown,
+  FadeOutUp,
+} from "react-native-reanimated";
 import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/Check.svg.js";
@@ -9,35 +15,51 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
 
   const [a, b, c] = touches;
   return (
-    <View style={$.principal}>
-      <View style={$.joueur.boite}>
-        <Text style={$.joueur.texte}>{joueur}</Text>
-      </View>
-      <View style={$.resume.ligne}>
-        <View style={$.resume.boite}>
-          <View style={$.resume.chiffres}>
-            <UnChiffre touche={a} />
-            <UnChiffre touche={b} />
-            <UnChiffre touche={c} avecBordure={false} />
-          </View>
-          <Valider onTap={onSubmit} />
+    <View style={[$.fond, $.principal]}>
+      <Animated.View
+        style={$.principal}
+        entering={FadeInDown.duration($$.dureeFadeCommandes - 20)}
+        exiting={FadeOutDown.duration($$.dureeFadeCommandes)}
+      >
+        <View style={$.joueur.boite}>
+          <Text style={$.joueur.texte}>{joueur}</Text>
         </View>
-      </View>
-      <View style={$.undoRedo}></View>
+        <View style={$.resume.ligne}>
+          <View style={$.resume.boite}>
+            <View style={$.resume.chiffres}>
+              <UnChiffre touche={a} />
+              <UnChiffre touche={b} />
+              <UnChiffre touche={c} avecBordure={false} />
+            </View>
+            <Valider onTap={onSubmit} />
+          </View>
+        </View>
+        <View style={$.undoRedo}></View>
+      </Animated.View>
     </View>
   );
 }
 
 function Instructions() {
   return (
-    <View style={[$.principal, $.instructions.boite]}>
-      <DoigtQuiTouche width={60} height={60} transform={{ marginBottom: 20 }} />
-      <Text style={$.instructions.texte}>
-        {i18n.t("cricket.instructions1")}
-      </Text>
-      <Text style={$.instructions.texte}>
-        {i18n.t("cricket.instructions2")}
-      </Text>
+    <View style={[$.fond, $.principal]}>
+      <Animated.View
+        style={[$.instructions.boite]}
+        entering={FadeInUp.duration($$.dureeFadeCommandes)}
+        exiting={FadeOutUp.duration($$.dureeFadeCommandes)}
+      >
+        <DoigtQuiTouche
+          width={60}
+          height={60}
+          transform={{ marginBottom: 20 }}
+        />
+        <Text style={$.instructions.texte}>
+          {i18n.t("cricket.instructions1")}
+        </Text>
+        <Text style={$.instructions.texte}>
+          {i18n.t("cricket.instructions2")}
+        </Text>
+      </Animated.View>
     </View>
   );
 }
@@ -72,9 +94,16 @@ function Valider({ onTap }) {
   );
 }
 
+const $$ = {
+  dureeFadeCommandes: 90,
+};
+
 const $ = StyleSheet.create({
-  principal: {
+  fond: {
     backgroundColor: Couleurs.sombreQuatre,
+    flex: 1,
+  },
+  principal: {
     flex: 1,
     justifyContent: "space-around",
   },
