@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableNativeFeedback, View } from "react-native";
 import Animated, {
   BounceIn,
   CurvedTransition,
@@ -41,7 +41,7 @@ export function ColonneJoueur({ joueur, onTap }) {
 const Chiffre = ({ nbTouches, onTap }) => {
   const ouvert = nbTouches < 3;
   return (
-    <TouchableOpacity onPressIn={onTap}>
+    <TouchableNativeFeedback onPress={onTap}>
       {ouvert ? (
         <View style={[$.case, $.chiffre]}>
           {Array.from({ length: nbTouches }, (_, i) => (
@@ -59,7 +59,7 @@ const Chiffre = ({ nbTouches, onTap }) => {
           <Ferme width={24} height={24} />
         </Animated.View>
       )}
-    </TouchableOpacity>
+    </TouchableNativeFeedback>
   );
 };
 
