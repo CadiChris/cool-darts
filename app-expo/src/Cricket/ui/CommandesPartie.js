@@ -21,9 +21,6 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
         entering={FadeInDown.duration($$.dureeFadeCommandes - 20)}
         exiting={FadeOutDown.duration($$.dureeFadeCommandes)}
       >
-        <View style={$.joueur.boite}>
-          <Text style={$.joueur.texte}>{joueur}</Text>
-        </View>
         <View style={$.resume.ligne}>
           <View style={$.resume.boite}>
             <View style={$.resume.chiffres}>
@@ -33,6 +30,9 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
             </View>
             <Valider onTap={onSubmit} />
           </View>
+        </View>
+        <View style={$.joueur.boite}>
+          <Text style={$.joueur.texte}>{joueur}</Text>
         </View>
         <View style={$.undoRedo}></View>
       </Animated.View>
