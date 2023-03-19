@@ -1,12 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, {
-  FadeInDown,
   FadeInLeft,
   FadeInRight,
-  FadeInUp,
-  FadeOutDown,
-  FadeOutRight,
-  FadeOutUp,
+  FadeOut,
 } from "react-native-reanimated";
 import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
@@ -20,11 +16,7 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
   const [a, b, c] = touches;
   return (
     <View style={[$.fond, $.principal]}>
-      <Animated.View
-        style={$.principal}
-        entering={FadeInDown.duration($$.dureeFadeCommandes - 20)}
-        exiting={FadeOutDown.duration($$.dureeFadeCommandes)}
-      >
+      <Animated.View style={$.principal} exiting={FadeOut}>
         <View style={$.resume.ligne}>
           <View style={$.resume.boite}>
             <View style={$.resume.chiffres}>
@@ -48,11 +40,7 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
 function Instructions() {
   return (
     <View style={[$.fond, $.principal]}>
-      <Animated.View
-        style={[$.instructions.boite]}
-        entering={FadeInUp.duration($$.dureeFadeCommandes)}
-        exiting={FadeOutUp.duration($$.dureeFadeCommandes)}
-      >
+      <View style={[$.instructions.boite]}>
         <DoigtQuiTouche
           width={60}
           height={60}
@@ -64,7 +52,7 @@ function Instructions() {
         <Text style={$.instructions.texte}>
           {i18n.t("cricket.instructions2")}
         </Text>
-      </Animated.View>
+      </View>
     </View>
   );
 }
@@ -85,8 +73,8 @@ function UnChiffre({ touche, avecBordure = true }) {
         <>
           <Animated.Text
             key={touche.fois}
-            entering={FadeInLeft}
-            exiting={FadeOutRight.duration(70)}
+            entering={FadeInLeft.duration(140)}
+            exiting={FadeOut}
             style={$.resume.unChiffre.multiplicateur}
           >
             {`${touche.fois}x`}
@@ -94,7 +82,7 @@ function UnChiffre({ touche, avecBordure = true }) {
           <Animated.Text
             key={touche.chiffre}
             style={$.resume.unChiffre.valeur}
-            entering={FadeInRight}
+            entering={FadeInRight.duration(100)}
           >
             {label(touche.chiffre)}
           </Animated.Text>
@@ -113,10 +101,6 @@ function Valider({ onTap }) {
     </TouchableOpacity>
   );
 }
-
-const $$ = {
-  dureeFadeCommandes: 90,
-};
 
 const $ = StyleSheet.create({
   fond: {
