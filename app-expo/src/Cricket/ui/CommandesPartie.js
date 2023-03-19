@@ -11,48 +11,54 @@ import { DoigtQuiTouche } from "../../../assets/DoigtQuiTouche.svg.js";
 import { PastilleJoueur } from "../../Kit/Pastille";
 
 export function CommandesPartie({ joueur, touches, onSubmit }) {
-  if (!joueur) return <Instructions />;
-
-  const [a, b, c] = touches;
   return (
-    <View style={[$.fond, $.principal]}>
-      <Animated.View style={$.principal} exiting={FadeOut}>
-        <View style={$.resume.ligne}>
-          <View style={$.resume.boite}>
-            <View style={$.resume.chiffres}>
-              <UnChiffre touche={a} />
-              <UnChiffre touche={b} />
-              <UnChiffre touche={c} avecBordure={false} />
-            </View>
-            <Valider onTap={onSubmit} />
-          </View>
-        </View>
-        <View style={$.joueur.boite}>
-          <PastilleJoueur joueur={joueur} />
-          <Text style={$.joueur.texte}>{joueur}</Text>
-        </View>
-        <View style={$.undoRedo}></View>
-      </Animated.View>
+    <View style={[$.fond]}>
+      {joueur ? (
+        <CommandesVisite joueur={joueur} touches={touches} onTap={onSubmit} />
+      ) : (
+        <Instructions />
+      )}
+      <UndoRedo />
     </View>
   );
 }
 
+function CommandesVisite({ joueur, touches, onTap }) {
+  const [a, b, c] = touches;
+  return (
+    <Animated.View style={$.principal} exiting={FadeOut}>
+      <View style={$.resume.ligne}>
+        <View style={$.resume.boite}>
+          <View style={$.resume.chiffres}>
+            <UnChiffre touche={a} />
+            <UnChiffre touche={b} />
+            <UnChiffre touche={c} avecBordure={false} />
+          </View>
+          <Valider onTap={onTap} />
+        </View>
+      </View>
+      <View style={$.joueur.boite}>
+        <PastilleJoueur joueur={joueur} />
+        <Text style={$.joueur.texte}>{joueur}</Text>
+      </View>
+    </Animated.View>
+  );
+}
+
+function UndoRedo() {
+  return <View style={$.undoRedo}></View>;
+}
+
 function Instructions() {
   return (
-    <View style={[$.fond, $.principal]}>
-      <View style={[$.instructions.boite]}>
-        <DoigtQuiTouche
-          width={60}
-          height={60}
-          transform={{ marginBottom: 20 }}
-        />
-        <Text style={$.instructions.texte}>
-          {i18n.t("cricket.instructions1")}
-        </Text>
-        <Text style={$.instructions.texte}>
-          {i18n.t("cricket.instructions2")}
-        </Text>
-      </View>
+    <View style={[$.instructions.boite]}>
+      <DoigtQuiTouche width={60} height={60} transform={{ marginBottom: 20 }} />
+      <Text style={$.instructions.texte}>
+        {i18n.t("cricket.instructions1")}
+      </Text>
+      <Text style={$.instructions.texte}>
+        {i18n.t("cricket.instructions2")}
+      </Text>
     </View>
   );
 }
@@ -106,13 +112,11 @@ const $ = StyleSheet.create({
   fond: {
     backgroundColor: Couleurs.sombreQuatre,
     flex: 1,
+    justifyContent: "space-between",
   },
-  principal: {
-    flex: 1,
-    justifyContent: "space-around",
-  },
+  principal: { flex: 1, justifyContent: "center", rowGap: 25 },
   instructions: {
-    boite: { justifyContent: "center", alignItems: "center" },
+    boite: { flex: 1, justifyContent: "center", alignItems: "center" },
     texte: { color: Couleurs.sombreSix, textAlign: "center", lineHeight: 24 },
   },
   joueur: {
@@ -165,5 +169,5 @@ const $ = StyleSheet.create({
       borderRadius: 6,
     },
   },
-  undoRedo: { height: 44 },
+  undoRedo: { height: 54 },
 });
