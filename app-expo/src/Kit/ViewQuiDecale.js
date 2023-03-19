@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useWindowDimensions } from "react-native";
+import React from "react";
 import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
+  FadeInDown,
+  FadeInLeft,
+  FadeInRight,
+  FadeInUp,
 } from "react-native-reanimated";
 
 export const ViewQuiDecale = ({
@@ -14,27 +14,21 @@ export const ViewQuiDecale = ({
   style,
   children,
 }) => {
-  const { width, height } = useWindowDimensions();
-  const decalageHorizontal = useSharedValue(depuisDroite ? width : -width);
-  const decalageVertical = useSharedValue(depuisBas ? height : -height);
+  const entering = depuisGauche
+    ? FadeInLeft.springify()
+    : depuisDroite
+    ? FadeInRight.springify()
+    : depuisBas
+    ? FadeInDown.springify()
+    : depuisHaut
+    ? FadeInUp.springify()
+    : null;
 
-  useEffect(() => {
-    (depuisGauche || depuisDroite) && (decalageHorizontal.value = 0);
-    (depuisHaut || depuisBas) && (decalageVertical.value = 0);
-  }, []);
+  const $$entering = entering.stiffness(570).damping(30).mass(3);
 
-  const $$decalage = useAnimatedStyle(() => {
-    const transform = [
-      (depuisGauche || depuisDroite) && {
-        translateX: withSpring(decalageHorizontal.value),
-      },
-      (depuisHaut || depuisBas) && {
-        translateY: withSpring(decalageVertical.value),
-      },
-    ].filter((t) => !!t);
-
-    return { transform };
-  });
-
-  return <Animated.View style={[style, $$decalage]}>{children}</Animated.View>;
+  return (
+    <Animated.View style={[style]} entering={$$entering} exiting={FadeInDown}>
+      {children}
+    </Animated.View>
+  );
 };
