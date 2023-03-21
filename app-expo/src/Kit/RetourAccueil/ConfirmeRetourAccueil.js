@@ -6,7 +6,7 @@ import { Couleurs } from "../../styles";
 export function ConfirmeRetourAccueil() {
   const navigation = useNavigation();
   const annulerRetour = () => navigation.goBack();
-  const retourAccueil = () => navigation.navigate("Inscription");
+  const retourAccueil = () => navigation.navigate("/");
 
   return (
     <View style={[$.principal]}>

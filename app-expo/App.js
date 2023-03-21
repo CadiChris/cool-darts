@@ -21,13 +21,10 @@ export default function App() {
           <NavigationContainer>
             <Stack.Navigator
               screenOptions={{ headerShown: false }}
-              initialRouteName="Inscription"
+              initialRouteName="/"
             >
               <Stack.Group>
-                <Stack.Screen
-                  name="Inscription"
-                  component={InscriptionDesJoueurs}
-                />
+                <Stack.Screen name="/" component={InscriptionDesJoueurs} />
                 <Stack.Screen name="Cricket" component={Cricket} />
               </Stack.Group>
               <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
