@@ -23,7 +23,7 @@ import { Redo } from "../../../assets/Redo.svg.js";
 import { useCanRedo, useCanUndo } from "../../redux";
 import { redo, undo } from "../../undo/undoable";
 
-export function CommandesPartie({ joueur, touches, onSubmit }) {
+export function CommandesPartie({ joueur, touches, onSubmit, onTapCorbeille }) {
   return (
     <View style={[$.fond]}>
       {joueur ? (
@@ -31,7 +31,10 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
       ) : (
         <Instructions />
       )}
-      <UndoRedo corbeilleEnabled={touches[0] !== undefined} />
+      <UndoRedo
+        corbeilleEnabled={touches[0] !== undefined}
+        onTapCorbeille={onTapCorbeille}
+      />
     </View>
   );
 }
@@ -58,7 +61,7 @@ function CommandesVisite({ joueur, touches, onTap }) {
   );
 }
 
-function UndoRedo({ corbeilleEnabled }) {
+function UndoRedo({ corbeilleEnabled, onTapCorbeille }) {
   const dispatch = useDispatch();
   const undoEnabled = useCanUndo("cricket");
   const redoEnabled = useCanRedo("cricket");
@@ -75,11 +78,16 @@ function UndoRedo({ corbeilleEnabled }) {
           <Undo width={20} height={20} />
         </View>
       </TouchableNativeFeedback>
-      <View
-        style={[...petitBouton, !corbeilleEnabled ? $.undoRedo.disabled : null]}
-      >
-        <Corbeille width={14} height={16} />
-      </View>
+      <TouchableNativeFeedback onPress={onTapCorbeille}>
+        <View
+          style={[
+            ...petitBouton,
+            !corbeilleEnabled ? $.undoRedo.disabled : null,
+          ]}
+        >
+          <Corbeille width={14} height={16} />
+        </View>
+      </TouchableNativeFeedback>
       <TouchableNativeFeedback onPress={() => dispatch(redo())}>
         <View
           style={[...grosBouton, !redoEnabled ? $.undoRedo.disabled : null]}
