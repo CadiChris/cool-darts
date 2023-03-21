@@ -65,11 +65,15 @@ const Score = ({ penalite }) => {
   useEffect(() => {
     const interval = setInterval(
       () =>
-        setValeur((valeur) => {
-          if (valeur === penalite) {
+        setValeur((valeurPrecedente) => {
+          if (valeurPrecedente === penalite) {
             clearInterval(interval);
-            return valeur;
-          } else return valeur + 1;
+            return valeurPrecedente;
+          }
+
+          return penalite > valeurPrecedente
+            ? valeurPrecedente + 1
+            : valeurPrecedente - 1;
         }),
       10
     );
