@@ -2,11 +2,11 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { moderateScale, scale } from "react-native-size-matters";
 
-// Palette de couleurs : https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/
 export const Couleurs = {
   fond: "#0C1E31",
   vertUn: "#2ECFAB",
   vertDeux: "#155B4C",
+  vertTrois: "#126451",
   sombreUn: "#162F4B",
   sombreDeux: "#809AB8",
   sombreTrois: "#36495F",

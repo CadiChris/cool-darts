@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Couleurs } from "../../styles";
+import { AvecConfirmationRetourAccueil } from "../../Kit/RetourAccueil/AvecConfirmationRetourAccueil";
 import { TableauDesScores } from "./TableauDesScores";
 import { CommandesPartie } from "./CommandesPartie";
 import { visiter } from "../domaine/actions";
@@ -25,16 +26,18 @@ export function Cricket() {
   };
 
   return (
-    <View style={$.principal}>
-      <TableauDesScores onTap={onTap} />
+    <AvecConfirmationRetourAccueil>
+      <View style={$.principal}>
+        <TableauDesScores onTap={onTap} />
 
-      <CommandesPartie
-        joueur={joueur}
-        touches={touches}
-        onSubmit={onSubmit}
-        onTapCorbeille={clearTouches}
-      />
-    </View>
+        <CommandesPartie
+          joueur={joueur}
+          touches={touches}
+          onSubmit={onSubmit}
+          onTapCorbeille={clearTouches}
+        />
+      </View>
+    </AvecConfirmationRetourAccueil>
   );
 }
 

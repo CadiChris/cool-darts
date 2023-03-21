@@ -19,6 +19,12 @@ i18n.translations = {
     },
     jouer: "Start",
     joueur: "Player...",
+    retourAccueil: {
+      annuler: "No, keep playing",
+      confirmer: "Yes, stop playing ",
+      titre1: "Do you want",
+      titre2: "to stop playing?",
+    },
   },
   fr: {
     choixJeu: "Choisissez votre jeu",
@@ -32,5 +38,11 @@ i18n.translations = {
     },
     jouer: "Jouer",
     joueur: "Joueur...",
+    retourAccueil: {
+      annuler: "Non, continuer à jouer",
+      confirmer: "Oui, retourner à l'accueil",
+      titre1: "Voulez-vous",
+      titre2: "arrêter cette partie ?",
+    },
   },
 };
