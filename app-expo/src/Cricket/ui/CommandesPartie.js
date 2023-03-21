@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Animated, {
   FadeInLeft,
   FadeInRight,
@@ -6,6 +12,7 @@ import Animated, {
   FadeOutRight,
 } from "react-native-reanimated";
 import i18n from "i18n-js";
+import { useDispatch } from "react-redux";
 import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/Check.svg.js";
 import { DoigtQuiTouche } from "../../../assets/DoigtQuiTouche.svg.js";
@@ -13,6 +20,8 @@ import { PastilleJoueur } from "../../Kit/Pastille";
 import { Corbeille } from "../../../assets/Corbeille.svg.js";
 import { Undo } from "../../../assets/Undo.svg.js";
 import { Redo } from "../../../assets/Redo.svg.js";
+import { useCanRedo, useCanUndo } from "../../redux";
+import { redo, undo } from "../../undo/undoable";
 
 export function CommandesPartie({ joueur, touches, onSubmit }) {
   return (
@@ -22,7 +31,7 @@ export function CommandesPartie({ joueur, touches, onSubmit }) {
       ) : (
         <Instructions />
       )}
-      <UndoRedo />
+      <UndoRedo corbeilleEnabled={touches[0] !== undefined} />
     </View>
   );
 }
@@ -49,18 +58,35 @@ function CommandesVisite({ joueur, touches, onTap }) {
   );
 }
 
-function UndoRedo() {
+function UndoRedo({ corbeilleEnabled }) {
+  const dispatch = useDispatch();
+  const undoEnabled = useCanUndo("cricket");
+  const redoEnabled = useCanRedo("cricket");
+
+  const grosBouton = [$.undoRedo.bouton, $.undoRedo.gros];
+  const petitBouton = [$.undoRedo.bouton, $.undoRedo.petit];
+
   return (
     <View style={$.undoRedo.boite}>
-      <View style={[$.undoRedo.bouton, $.undoRedo.gros]}>
-        <Undo width={20} height={20} />
-      </View>
-      <View style={[$.undoRedo.bouton, $.undoRedo.petit]}>
+      <TouchableNativeFeedback onPress={() => dispatch(undo())}>
+        <View
+          style={[...grosBouton, !undoEnabled ? $.undoRedo.disabled : null]}
+        >
+          <Undo width={20} height={20} />
+        </View>
+      </TouchableNativeFeedback>
+      <View
+        style={[...petitBouton, !corbeilleEnabled ? $.undoRedo.disabled : null]}
+      >
         <Corbeille width={14} height={16} />
       </View>
-      <View style={[$.undoRedo.bouton, $.undoRedo.gros]}>
-        <Redo width={20} height={20} />
-      </View>
+      <TouchableNativeFeedback onPress={() => dispatch(redo())}>
+        <View
+          style={[...grosBouton, !redoEnabled ? $.undoRedo.disabled : null]}
+        >
+          <Redo width={20} height={20} />
+        </View>
+      </TouchableNativeFeedback>
     </View>
   );
 }
@@ -204,5 +230,6 @@ const $ = StyleSheet.create({
     },
     petit: { width: 34, height: 34, borderRadius: 17 },
     gros: { width: 44, height: 44, borderRadius: 22 },
+    disabled: { opacity: 0.3 },
   },
 });

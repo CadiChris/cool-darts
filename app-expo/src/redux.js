@@ -21,3 +21,9 @@ export const useInscription = (selecteur) =>
 
 export const useInscriptionFn = (fn, ...params) =>
   useSelector((state) => fn(state.inscriptionDesJoueurs, ...params));
+
+export const useCanUndo = (jeu) =>
+  useSelector((state) => state[jeu].precedents.length > 0);
+
+export const useCanRedo = (jeu) =>
+  useSelector((state) => state[jeu].suivants.length > 0);
