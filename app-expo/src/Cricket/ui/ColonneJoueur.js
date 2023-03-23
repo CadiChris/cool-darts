@@ -81,7 +81,11 @@ const Score = ({ penalite }) => {
     return () => clearInterval(interval);
   }, [penalite]);
 
-  return <Text style={$.score}>{valeur}</Text>;
+  return (
+    <View style={$.score}>
+      <Text style={$.scoreTexte}>{valeur}</Text>
+    </View>
+  );
 };
 
 const $ = StyleSheet.create({
@@ -115,13 +119,14 @@ const $ = StyleSheet.create({
     height: HauteurLigneDeTableau,
   },
   score: {
-    height: HauteurLigneDeTableau,
+    paddingVertical: 7,
     backgroundColor: Couleurs.sombreCinq,
-    textAlign: "center",
-    textAlignVertical: "center",
-    fontSize: 18,
-    color: Couleurs.blanc,
     borderBottomLeftRadius: 6,
     borderBottomRightRadius: 6,
+  },
+  scoreTexte: {
+    textAlign: "center",
+    color: Couleurs.blanc,
+    fontSize: 18,
   },
 });
