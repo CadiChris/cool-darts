@@ -3,6 +3,8 @@ import { useNavigation } from "@react-navigation/native";
 import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
 
+export const RouteModaleRetourAccueil = "Modale/ConfirmeRetourAccueil";
+
 export function ConfirmeRetourAccueil() {
   const navigation = useNavigation();
   const annulerRetour = () => navigation.goBack();

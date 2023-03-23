@@ -8,7 +8,11 @@ import { enableI18n } from "./src/i18n/i18n";
 import { Principal } from "./src/Kit/Principal";
 import { Cricket } from "./src/Cricket/ui";
 import { InscriptionDesJoueurs } from "./src/InscriptionDesJoueurs/ui";
-import { ConfirmeRetourAccueil } from "./src/Kit/RetourAccueil/ConfirmeRetourAccueil";
+import {
+  ConfirmeRetourAccueil,
+  RouteModaleRetourAccueil,
+} from "./src/Kit/RetourAccueil/ConfirmeRetourAccueil";
+import { DevDispatch } from "./src/utils/DevDispatch";
 
 enableI18n();
 const store = getStore();
