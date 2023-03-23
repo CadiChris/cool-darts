@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { useKeepAwake } from "expo-keep-awake";
 import { getStore } from "./src/redux";
 import { Provider } from "react-redux";
 import { WithFonts } from "./src/Kit/WithFonts";
@@ -14,6 +15,8 @@ const store = getStore();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  useKeepAwake();
+
   return (
     <Provider store={store}>
       <WithFonts>
