@@ -29,7 +29,7 @@ export function ColonneJoueur({ joueur, onTap }) {
       <Chiffre nbTouches={t(16)} onTap={() => onTap(joueur, 16)} />
       <Chiffre nbTouches={t(15)} onTap={() => onTap(joueur, 15)} />
       <Chiffre nbTouches={t(25)} onTap={() => onTap(joueur, 25)} />
-      <Score penalite={score.penalite}>{score.penalite}</Score>
+      <Score penalite={score.penalite} />
     </View>
   );
 }
