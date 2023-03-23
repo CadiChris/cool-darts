@@ -5,12 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Animated, {
-  FadeInLeft,
-  FadeInRight,
-  FadeOut,
-  FadeOutRight,
-} from "react-native-reanimated";
+import Animated, { FadeIn, FadeInDown, FadeOut } from "react-native-reanimated";
 import i18n from "i18n-js";
 import { useDispatch } from "react-redux";
 import { Couleurs } from "../../styles";
@@ -129,16 +124,17 @@ function UnChiffre({ touche, avecBordure = true }) {
         <>
           <Animated.Text
             key={touche.fois}
-            entering={FadeInLeft.duration(140)}
-            exiting={FadeOutRight.duration(140)}
-            style={$.resume.unChiffre.multiplicateur}
+            entering={FadeInDown.springify().stiffness(400).mass(0.5)}
+            exiting={FadeOut.duration(140)}
+            style={$.resume.unChiffre.fois}
           >
-            {`${touche.fois}x`}
+            {touche.fois}
           </Animated.Text>
+          <Text style={$.resume.unChiffre.x}>x</Text>
           <Animated.Text
             key={touche.chiffre}
             style={$.resume.unChiffre.valeur}
-            entering={FadeInRight.duration(140)}
+            entering={FadeIn.duration(100)}
           >
             {label(touche.chiffre)}
           </Animated.Text>
@@ -158,16 +154,19 @@ function Valider({ onTap }) {
   );
 }
 
+const { sombreCinq, sombreSix, vertUn, sombreTrois, sombreQuatre, blanc } =
+  Couleurs;
+
 const $ = StyleSheet.create({
   fond: {
-    backgroundColor: Couleurs.sombreQuatre,
+    backgroundColor: sombreQuatre,
     flex: 1,
     justifyContent: "space-between",
   },
   principal: { flex: 1, justifyContent: "center", rowGap: 25 },
   instructions: {
     boite: { flex: 1, justifyContent: "center", alignItems: "center" },
-    texte: { color: Couleurs.sombreSix, textAlign: "center", lineHeight: 24 },
+    texte: { color: sombreSix, textAlign: "center", lineHeight: 24 },
   },
   joueur: {
     boite: {
@@ -177,13 +176,13 @@ const $ = StyleSheet.create({
       alignItems: "center",
       columnGap: 10,
     },
-    texte: { color: Couleurs.blanc, fontSize: 24, textAlign: "center" },
+    texte: { color: blanc, fontSize: 24, textAlign: "center" },
   },
   resume: {
     ligne: { alignSelf: "center" },
     boite: {
       borderRadius: 6,
-      backgroundColor: Couleurs.sombreCinq,
+      backgroundColor: sombreCinq,
       padding: 5,
       flexDirection: "row",
       justifyContent: "center",
@@ -201,21 +200,23 @@ const $ = StyleSheet.create({
         width: 70,
         columnGap: 3,
       },
-      bordure: { borderRightWidth: 1, borderRightColor: Couleurs.sombreTrois },
-      valeur: {
-        color: Couleurs.blanc,
-        fontSize: 24,
+      bordure: { borderRightWidth: 1, borderRightColor: sombreTrois },
+      fois: { lineHeight: 26, color: blanc, fontSize: 20, fontWeight: "bold" },
+      x: {
         lineHeight: 26,
-        marginRight: 3,
+        color: blanc,
+        fontSize: 12,
+        fontWeight: "100",
+        fontStyle: "italic",
       },
-      multiplicateur: { color: Couleurs.blanc, fontSize: 16 },
+      valeur: { color: blanc, fontSize: 24, lineHeight: 26, marginRight: 3 },
     },
     check: {
       justifyContent: "center",
       alignItems: "center",
       width: 50,
       height: 40,
-      backgroundColor: Couleurs.vertUn,
+      backgroundColor: vertUn,
       borderRadius: 6,
     },
   },
@@ -232,7 +233,7 @@ const $ = StyleSheet.create({
       width: 34,
       height: 34,
       borderRadius: 17,
-      backgroundColor: Couleurs.sombreCinq,
+      backgroundColor: sombreCinq,
       alignItems: "center",
       justifyContent: "center",
     },
