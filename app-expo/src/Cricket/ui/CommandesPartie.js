@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Animated, { FadeIn, FadeInDown, FadeOut } from "react-native-reanimated";
+import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
 import i18n from "i18n-js";
 import { useDispatch } from "react-redux";
 import { Couleurs } from "../../styles";
@@ -37,7 +37,7 @@ export function CommandesPartie({ joueur, touches, onSubmit, onTapCorbeille }) {
 function CommandesVisite({ joueur, touches, onTap }) {
   const [a, b, c] = touches;
   return (
-    <Animated.View style={$.principal} exiting={FadeOut}>
+    <Animated.View style={$.principal}>
       <View style={$.resume.ligne}>
         <View style={$.resume.boite}>
           <View style={$.resume.chiffres}>
@@ -125,7 +125,6 @@ function UnChiffre({ touche, avecBordure = true }) {
           <Animated.Text
             key={touche.fois}
             entering={FadeInDown.springify().stiffness(400).mass(0.5)}
-            exiting={FadeOut.duration(140)}
             style={$.resume.unChiffre.fois}
           >
             {touche.fois}
