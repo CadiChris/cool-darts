@@ -42,6 +42,8 @@ export default function partie(state = STATE_INITIAL, action) {
 const estTerminee = (vainqueursDuNouveauScore) =>
   vainqueursDuNouveauScore.length > 0 ? "TERMINEE" : null;
 
+export const selectVainqueurs = (state) => state.vainqueurs;
+
 export function joueursEnGroupe(state) {
   const nbJoueurs = state.scores.length;
   const milieu = Math.ceil(nbJoueurs / 2);

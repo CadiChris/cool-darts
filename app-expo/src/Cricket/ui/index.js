@@ -7,10 +7,7 @@ import { TableauDesScores } from "./TableauDesScores";
 import { CommandesPartie } from "./CommandesPartie";
 import { visiter } from "../domaine/actions";
 import { aplatis, integreTouche } from "./Cricket.logique";
-
-function SurveilleVictoire() {
-  return null;
-}
+import { AvecSurveillanceFinDePartie } from "./AvecSurveillanceFinDePartie";
 
 export function Cricket() {
   const dispatch = useDispatch();
@@ -31,26 +28,22 @@ export function Cricket() {
 
   return (
     <AvecConfirmationRetourAccueil>
-      <View style={$.principal}>
-        <TableauDesScores onTap={onTap} />
+      <AvecSurveillanceFinDePartie>
+        <View style={$.principal}>
+          <TableauDesScores onTap={onTap} />
 
-        <CommandesPartie
-          joueur={joueur}
-          touches={touches}
-          onSubmit={onSubmit}
-          onTapCorbeille={clearTouches}
-        />
-
-        <SurveilleVictoire />
-      </View>
+          <CommandesPartie
+            joueur={joueur}
+            touches={touches}
+            onSubmit={onSubmit}
+            onTapCorbeille={clearTouches}
+          />
+        </View>
+      </AvecSurveillanceFinDePartie>
     </AvecConfirmationRetourAccueil>
   );
 }
 
 const $ = StyleSheet.create({
-  principal: {
-    flex: 1,
-    backgroundColor: Couleurs.fond,
-    paddingTop: 20,
-  },
+  principal: { flex: 1, backgroundColor: Couleurs.fond, paddingTop: 20 },
 });

@@ -12,7 +12,7 @@ import {
   ConfirmeRetourAccueil,
   RouteModaleRetourAccueil,
 } from "./src/Kit/RetourAccueil/ConfirmeRetourAccueil";
-import { DevDispatch } from "./src/utils/DevDispatch";
+import { RouteVainqueurs, Vainqueurs } from "./src/Cricket/ui/Vainqueurs";
 
 enableI18n();
 const store = getStore();
@@ -36,9 +36,10 @@ export default function App() {
               </Stack.Group>
               <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
                 <Stack.Screen
-                  name="Modale/ConfirmeRetourAccueil"
+                  name={RouteModaleRetourAccueil}
                   component={ConfirmeRetourAccueil}
                 />
+                <Stack.Screen name={RouteVainqueurs} component={Vainqueurs} />
               </Stack.Group>
             </Stack.Navigator>
           </NavigationContainer>
