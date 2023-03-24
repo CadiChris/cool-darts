@@ -2,8 +2,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
 import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
-import { Check } from "../../../assets/Check.svg.js";
-import { DoigtQuiTouche } from "../../../assets/DoigtQuiTouche.svg.js";
+import { Check } from "../../../assets/svgs/Check.svg.js";
+import { DoigtQuiTouche } from "../../../assets/svgs/DoigtQuiTouche.svg.js";
 import { PastilleJoueur } from "../../Kit/Pastille";
 import { UndoRedo } from "./UndoRedo";
 

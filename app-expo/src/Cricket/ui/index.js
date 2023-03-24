@@ -8,6 +8,10 @@ import { CommandesPartie } from "./CommandesPartie";
 import { visiter } from "../domaine/actions";
 import { aplatis, integreTouche } from "./Cricket.logique";
 
+function SurveilleVictoire() {
+  return null;
+}
+
 export function Cricket() {
   const dispatch = useDispatch();
   const [joueur, setJoueur] = useState(null);
@@ -36,6 +40,8 @@ export function Cricket() {
           onSubmit={onSubmit}
           onTapCorbeille={clearTouches}
         />
+
+        <SurveilleVictoire />
       </View>
     </AvecConfirmationRetourAccueil>
   );

@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { useCanRedo, useCanUndo } from "../../redux";
 import { redo, undo } from "../../undo/undoable";
-import { Undo } from "../../../assets/Undo.svg.js";
-import { Corbeille } from "../../../assets/Corbeille.svg.js";
-import { Redo } from "../../../assets/Redo.svg.js";
+import { Undo } from "../../../assets/svgs/Undo.svg.js";
+import { Corbeille } from "../../../assets/svgs/Corbeille.svg.js";
+import { Redo } from "../../../assets/svgs/Redo.svg.js";
 import { Couleurs } from "../../styles";
-import { Maison } from "../../../assets/Maison.svg.js";
+import { Maison } from "../../../assets/svgs/Maison.svg.js";
 import { RouteModaleRetourAccueil } from "../../Kit/RetourAccueil/ConfirmeRetourAccueil";
 
 export function UndoRedo({ corbeilleEnabled, onTapCorbeille }) {

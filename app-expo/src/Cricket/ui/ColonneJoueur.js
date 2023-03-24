@@ -8,8 +8,8 @@ import Animated, {
 import { Couleurs } from "../../styles";
 import { useCricketFn } from "../../redux";
 import { scoreDuJoueur } from "../domaine/reducer";
-import { X } from "../../../assets/X.svg.js";
-import { Ferme } from "../../../assets/Ferme.svg.js";
+import { X } from "../../../assets/svgs/X.svg.js";
+import { Ferme } from "../../../assets/svgs/Ferme.svg.js";
 import { HauteurLigneDeTableau } from "./style";
 import { PastilleJoueur } from "../../Kit/Pastille";
 
