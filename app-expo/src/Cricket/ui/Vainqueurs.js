@@ -72,7 +72,12 @@ const $ = StyleSheet.create({
   texteVainqueur: { fontSize: 30, fontWeight: "bold", color: vertTrois },
   boutons: { marginTop: 60, rowGap: 15, width: "100%" },
   bouton: {
-    boite: { paddingVertical: 10, borderRadius: 25, borderWidth: 1 },
+    boite: {
+      paddingVertical: 10,
+      borderRadius: 25,
+      borderWidth: 1,
+      borderColor: vertTrois,
+    },
     quitter: { backgroundColor: vertTrois },
     texte: { fontSize: 19, fontWeight: "bold", textAlign: "center" },
     texteQuitter: { color: blanc },
