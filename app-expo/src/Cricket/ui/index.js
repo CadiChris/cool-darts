@@ -8,12 +8,19 @@ import { CommandesPartie } from "./CommandesPartie";
 import { visiter } from "../domaine/actions";
 import { aplatis, integreTouche } from "./Cricket.logique";
 import { AvecSurveillanceFinDePartie } from "./AvecSurveillanceFinDePartie";
+import { useCricketFn } from "../../redux";
+import { selectVainqueurs } from "../domaine/reducer";
 
 export function Cricket() {
   const dispatch = useDispatch();
   const [joueur, setJoueur] = useState(null);
   const [touches, setTouches] = useState([]);
+  const vainqueurs = useCricketFn(selectVainqueurs);
+  const partieTerminee = vainqueurs.length > 0;
+
   const onTap = (joueur, chiffre) => {
+    if (partieTerminee) return;
+
     setJoueur(joueur);
     setTouches(integreTouche(chiffre, touches));
   };
