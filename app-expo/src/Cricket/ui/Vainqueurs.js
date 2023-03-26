@@ -1,6 +1,12 @@
 import { StyleSheet, Text, TouchableNativeFeedback, View } from "react-native";
 import i18n from "i18n-js";
 import { useNavigation } from "@react-navigation/native";
+import Animated, {
+  useAnimatedStyle,
+  withRepeat,
+  withSequence,
+  withTiming,
+} from "react-native-reanimated";
 import { Couleurs } from "../../styles";
 import { Win } from "../../../assets/svgs/Win.svg.js";
 import { useCricketFn } from "../../redux";
@@ -16,7 +22,7 @@ export const Vainqueurs = () => {
   return (
     <View style={[$.principal]}>
       <View style={[$.boite]}>
-        <Win width={132} height={140} />
+        <Coupe />
         <View style={[$.vainqueurs]}>
           {vainqueurs.map((v) => (
             <View style={[$.ligneVainqueur]} key={v}>
@@ -47,6 +53,29 @@ export const Vainqueurs = () => {
     </View>
   );
 };
+
+function Coupe() {
+  const $$coupe = useAnimatedStyle(() => ({
+    transform: [
+      {
+        scale: withRepeat(
+          withSequence(
+            withTiming(0.95, { duration: 1500 }),
+            withTiming(1.05, { duration: 1500 })
+          ),
+          -1,
+          true
+        ),
+      },
+    ],
+  }));
+
+  return (
+    <Animated.View style={[$$coupe]}>
+      <Win width={132} height={140} />
+    </Animated.View>
+  );
+}
 
 const { vertTrois, vertUn, blanc } = Couleurs;
 
