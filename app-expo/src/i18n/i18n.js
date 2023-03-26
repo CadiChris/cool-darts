@@ -47,6 +47,6 @@ i18n.translations = {
       titre1: "Voulez-vous",
       titre2: "arrêter cette partie ?",
     },
-    voirScore: "Tableau des scores",
+    voirScore: "Voir les scores",
   },
 };
