@@ -1,13 +1,29 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/native";
 import i18n from "i18n-js";
 import { Couleurs } from "../../styles";
 import { Check } from "../../../assets/svgs/Check.svg.js";
 import { DoigtQuiTouche } from "../../../assets/svgs/DoigtQuiTouche.svg.js";
+import { Maison } from "../../../assets/svgs/Maison.svg.js";
 import { PastilleJoueur } from "../../Kit/Pastille";
 import { UndoRedo } from "./UndoRedo";
 
-export function CommandesPartie({ joueur, touches, onSubmit, onTapCorbeille }) {
+export function CommandesPartie({
+  joueur,
+  touches,
+  onSubmit,
+  onTapCorbeille,
+  partieTerminee,
+}) {
+  if (partieTerminee) return <PartieTerminee />;
+
   return (
     <View style={[$.fond]}>
       {joueur ? (
@@ -19,6 +35,20 @@ export function CommandesPartie({ joueur, touches, onSubmit, onTapCorbeille }) {
         corbeilleEnabled={touches[0] !== undefined}
         onTapCorbeille={onTapCorbeille}
       />
+    </View>
+  );
+}
+
+function PartieTerminee() {
+  const navigation = useNavigation();
+
+  return (
+    <View style={[$.fond, $.partieTerminee]}>
+      <TouchableNativeFeedback onPress={() => navigation.navigate("/")}>
+        <View style={[$.boutonAccueil]}>
+          <Maison width={40} height={40} />
+        </View>
+      </TouchableNativeFeedback>
     </View>
   );
 }
@@ -117,6 +147,15 @@ const $ = StyleSheet.create({
   instructions: {
     boite: { flex: 1, justifyContent: "center", alignItems: "center" },
     texte: { color: sombreSix, textAlign: "center", lineHeight: 24 },
+  },
+  partieTerminee: { justifyContent: "center", alignItems: "center" },
+  boutonAccueil: {
+    elevation: 3,
+    padding: 30,
+    borderRadius: 50,
+    backgroundColor: sombreCinq,
+    alignItems: "center",
+    justifyContent: "center",
   },
   joueur: {
     boite: {

@@ -44,6 +44,7 @@ export function Cricket() {
             touches={touches}
             onSubmit={onSubmit}
             onTapCorbeille={clearTouches}
+            partieTerminee={partieTerminee}
           />
         </View>
       </AvecSurveillanceFinDePartie>
