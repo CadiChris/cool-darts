@@ -42,6 +42,7 @@ const $ = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     paddingHorizontal: 35,
+    backgroundColor: "#000c",
   },
   boite: {
     backgroundColor: Couleurs.vertUn,
