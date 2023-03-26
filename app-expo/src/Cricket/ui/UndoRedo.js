@@ -33,26 +33,17 @@ export function UndoRedo({ corbeilleEnabled, onTapCorbeille }) {
 
       <View style={[$.section, $.undoRedo]}>
         <TouchableNativeFeedback onPress={() => dispatch(undo())}>
-          <View
-            style={[...grosBouton, !undoEnabled ? $.undoRedo.disabled : null]}
-          >
+          <View style={[...grosBouton, !undoEnabled ? $.disabled : null]}>
             <Undo width={20} height={20} />
           </View>
         </TouchableNativeFeedback>
         <TouchableNativeFeedback onPress={onTapCorbeille}>
-          <View
-            style={[
-              ...petitBouton,
-              !corbeilleEnabled ? $.undoRedo.disabled : null,
-            ]}
-          >
+          <View style={[...petitBouton, !corbeilleEnabled ? $.disabled : null]}>
             <Corbeille width={14} height={16} />
           </View>
         </TouchableNativeFeedback>
         <TouchableNativeFeedback onPress={() => dispatch(redo())}>
-          <View
-            style={[...grosBouton, !redoEnabled ? $.undoRedo.disabled : null]}
-          >
+          <View style={[...grosBouton, !redoEnabled ? $.disabled : null]}>
             <Redo width={20} height={20} />
           </View>
         </TouchableNativeFeedback>
