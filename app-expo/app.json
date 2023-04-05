@@ -25,7 +25,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "softwareKeyboardLayoutMode": "pan",
-      "package": "com.alkeya.cricket"
+      "package": "com.alkeya.cricket",
+      "versionCode": 14
     },
     "androidNavigationBar": {
       "visible": "sticky-immersive"
